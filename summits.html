@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stage-X Summits | Closed-Door Frontier Model Enterprise Summits</title>
+  <meta name="description" content="Closed-door, Chatham House Rule summits bringing together enterprise infrastructure leaders and frontier AI research lab engineers. Zero sales pitches. Direct architecture teardowns.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* RESET */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* VARIABLES */
+    :root {
+      --black: #000000;
+      --white: #ffffff;
+      --gray: #666666;
+      --light-gray: #a0a0a0;
+      --border-dark: #262626;
+      --card-bg: #0a0a0a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* NAVIGATION */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.75rem 5%;
+      border-bottom: 1px solid var(--border-dark);
+      background: rgba(0, 0, 0, 0.95);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
+
+    .logo a {
+      font-weight: 900;
+      font-size: 1.4rem;
+      letter-spacing: -1px;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .logo span {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--light-gray);
+      margin-left: 0.5rem;
+      border-left: 1px solid #444;
+      padding-left: 0.5rem;
+    }
+
+    .nav-links a {
+      color: #bbb;
+      text-decoration: none;
+      margin-left: 2rem;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 4px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--white);
+      border-bottom: 2px solid var(--white);
+    }
+
+    /* HERO */
+    .summit-hero {
+      min-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 10%;
+      background: var(--black);
+      position: relative;
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .summit-hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image:
+        linear-gradient(#222 1px, transparent 1px),
+        linear-gradient(90deg, #222 1px, transparent 1px);
+      background-size: 80px 80px;
+      opacity: 0.25;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+    }
+
+    .badge-protocol {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      border: 1px solid #444;
+      background: #111;
+      padding: 0.4rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      color: #e5e5e5;
+    }
+
+    .badge-protocol .dot {
+      width: 8px;
+      height: 8px;
+      background: #00ff66;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #00ff66;
+    }
+
+    .summit-hero h1 {
+      font-size: clamp(2.75rem, 6.5vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -2px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 2rem;
+    }
+
+    .summit-hero p {
+      font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+      color: var(--light-gray);
+      max-width: 850px;
+      line-height: 1.65;
+      margin-bottom: 3rem;
+    }
+
+    .btn-container {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--white);
+      color: var(--black);
+      padding: 1rem 2.25rem;
+      text-decoration: none;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      border: 2px solid var(--white);
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--black);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      padding: 1rem 2.25rem;
+      text-decoration: none;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      border: 2px solid #555;
+      transition: all 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--white);
+      background: #111;
+    }
+
+    /* PROTOCOLS SECTION */
+    .section-protocols {
+      padding: 6rem 10%;
+      border-bottom: 1px solid var(--border-dark);
+      background: #050505;
+    }
+
+    .section-tag {
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      text-transform: uppercase;
+      margin-bottom: 3.5rem;
+      color: var(--white);
+    }
+
+    .protocol-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .protocol-card {
+      border: 1px solid var(--border-dark);
+      background: var(--card-bg);
+      padding: 2.5rem;
+      position: relative;
+    }
+
+    .protocol-num {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #333;
+      letter-spacing: -1px;
+      margin-bottom: 1.25rem;
+    }
+
+    .protocol-card h3 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+      margin-bottom: 1rem;
+      color: var(--white);
+    }
+
+    .protocol-card p {
+      font-size: 0.95rem;
+      color: #aaa;
+      line-height: 1.6;
+    }
+
+    /* CALENDAR / SUMMITS */
+    .section-calendar {
+      padding: 6rem 10%;
+      border-bottom: 1px solid var(--border-dark);
+      background: var(--black);
+    }
+
+    .summit-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .summit-item {
+      border: 1px solid var(--border-dark);
+      background: var(--card-bg);
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 280px 1fr auto;
+      gap: 3rem;
+      align-items: center;
+      transition: border-color 0.2s ease;
+    }
+
+    .summit-item:hover {
+      border-color: #555;
+    }
+
+    .summit-date-col {
+      border-right: 1px solid var(--border-dark);
+      padding-right: 2rem;
+    }
+
+    .summit-quarter {
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #777;
+      margin-bottom: 0.5rem;
+    }
+
+    .summit-city {
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: -1px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .summit-exact-date {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--light-gray);
+    }
+
+    .summit-detail-col h4 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.75rem;
+      color: var(--white);
+    }
+
+    .summit-detail-col p {
+      font-size: 0.95rem;
+      color: #999;
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+      max-width: 650px;
+    }
+
+    .summit-meta-tags {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .summit-tag {
+      background: #151515;
+      border: 1px solid #333;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #ccc;
+    }
+
+    .summit-action-col {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 1rem;
+    }
+
+    .summit-status {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #00ff66;
+    }
+
+    /* AGENDA TEARDOWNS */
+    .section-tracks {
+      padding: 6rem 10%;
+      border-bottom: 1px solid var(--border-dark);
+      background: #050505;
+    }
+
+    .tracks-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .track-card {
+      border: 1px solid var(--border-dark);
+      background: var(--card-bg);
+      padding: 2.5rem;
+    }
+
+    .track-pill {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 1rem;
+    }
+
+    .track-card h3 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 1rem;
+      color: var(--white);
+    }
+
+    .track-card p {
+      font-size: 0.95rem;
+      color: #aaa;
+      line-height: 1.6;
+    }
+
+    /* COHORT SECTION */
+    .section-cohort {
+      padding: 6rem 10%;
+      border-bottom: 1px solid var(--border-dark);
+      background: var(--black);
+    }
+
+    .cohort-group {
+      margin-bottom: 3.5rem;
+    }
+
+    .cohort-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .cohort-group-label {
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #777;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .cohort-names {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .cohort-box {
+      border: 1px solid var(--border-dark);
+      background: #0d0d0d;
+      padding: 1.75rem 1.25rem;
+      text-align: center;
+      transition: border-color 0.2s ease;
+    }
+
+    .cohort-box:hover {
+      border-color: #555;
+    }
+
+    .cohort-box .name {
+      font-size: 1.1rem;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .cohort-box .role-desc {
+      font-size: 0.75rem;
+      color: #777;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 0.4rem;
+    }
+
+    /* INVITATION FORM SECTION */
+    .section-invite {
+      padding: 7rem 10%;
+      border-bottom: 1px solid var(--border-dark);
+      background: #080808;
+    }
+
+    .invite-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .invite-form {
+      margin-top: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.75rem;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-field label {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      background: #000;
+      border: 1px solid #333;
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      padding: 1rem 1.25rem;
+      font-size: 0.95rem;
+      border-radius: 0;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      border-color: var(--white);
+    }
+
+    .submit-btn {
+      background: var(--white);
+      color: var(--black);
+      border: 2px solid var(--white);
+      padding: 1.25rem 2.5rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 900;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: all 0.2s ease;
+    }
+
+    .submit-btn:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 4rem 10%;
+      background: var(--black);
+      border-top: 1px solid var(--border-dark);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    footer p {
+      color: #777;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .footer-links a {
+      color: var(--white);
+      text-decoration: none;
+      margin-left: 2rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 1px;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      border-bottom: 1px solid var(--white);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .protocol-grid,
+      .tracks-grid,
+      .cohort-names {
+        grid-template-columns: 1fr;
+      }
+      .summit-item {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .summit-date-col {
+        border-right: none;
+        border-bottom: 1px solid var(--border-dark);
+        padding-right: 0;
+        padding-bottom: 1rem;
+      }
+      .summit-action-col {
+        align-items: flex-start;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="logo">
+      <a href="index.html">stage-x.space</a>
+      <span>Summits</span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html#customers">Customers</a>
+      <a href="index.html#usecases">Use Cases</a>
+      <a href="index.html#deployments">Deployments</a>
+      <a href="index.html#method">Method</a>
+      <a href="index.html#engagements">Engagements</a>
+      <a href="index.html#opensource">Open Source</a>
+      <a href="summits.html" class="active">Summits</a>
+      <a href="#request-invite">Request Invite</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="summit-hero">
+    <div class="hero-content">
+      <div class="badge-protocol">
+        <span class="dot"></span>
+        <span>Chatham House Rule &bull; Closed-Door Enterprise Roundtable</span>
+      </div>
+      <h1>Frontier Model Enterprise Summits</h1>
+      <p>
+        Bringing together Chief Architects, Enterprise Infrastructure Leaders, and Frontier AI Research Lab Leads.
+        Zero sales decks. Raw operational telemetry, air-gapped deployment topologies, and battle-tested production post-mortems.
+      </p>
+      <div class="btn-container">
+        <a href="#request-invite" class="btn-primary">Request Invitation</a>
+        <a href="#calendar" class="btn-secondary">2026&ndash;2027 Calendar</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- PROTOCOLS -->
+  <section class="section-protocols">
+    <div class="section-tag">Operating Standard</div>
+    <h2 class="section-title">Roundtable Protocols</h2>
+    <div class="protocol-grid">
+      <div class="protocol-card">
+        <div class="protocol-num">01</div>
+        <h3>Strict Chatham House Rule</h3>
+        <p>
+          Participants are free to use the information and code strategies received, but neither the identity nor the affiliation of the speaker or any participant may be revealed. Absolute operational candor is required.
+        </p>
+      </div>
+      <div class="protocol-card">
+        <div class="protocol-num">02</div>
+        <h3>Zero Slide Decks &amp; Pitches</h3>
+        <p>
+          No vendor pitches, marketing narratives, or high-level hypotheticals. Every session centers on architecture diagrams, kernel optimization profiles, latency traces, and live infrastructure code.
+        </p>
+      </div>
+      <div class="protocol-card">
+        <div class="protocol-num">03</div>
+        <h3>Principals &amp; Builders Only</h3>
+        <p>
+          Strictly capped at 40 participants per summit. Attendees must hold direct technical authority over mission-critical enterprise compute, forward deployment teams, or frontier model engineering stacks.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALENDAR -->
+  <section class="section-calendar" id="calendar">
+    <div class="section-tag">Global Schedule</div>
+    <h2 class="section-title">2026&ndash;2027 Summit Calendar</h2>
+    <div class="summit-list">
+
+      <!-- SF SUMMIT -->
+      <div class="summit-item">
+        <div class="summit-date-col">
+          <div class="summit-quarter">Q2 2026</div>
+          <div class="summit-city">San Francisco</div>
+          <div class="summit-exact-date">June 18&ndash;19, 2026 &bull; The Presidio</div>
+        </div>
+        <div class="summit-detail-col">
+          <h4>Air-Gapped Frontier Model Orchestration &amp; Sovereign Weights</h4>
+          <p>
+            Examining isolated on-premises deployments of 70B+ and MoE frontier models in classified, defense, and sovereign enterprise environments without cloud connectivity.
+          </p>
+          <div class="summit-meta-tags">
+            <span class="summit-tag">Air-Gapped Inference</span>
+            <span class="summit-tag">Zero-Trust VPC</span>
+            <span class="summit-tag">Defense &amp; Deep Tech</span>
+            <span class="summit-tag">40 Seats</span>
+          </div>
+        </div>
+        <div class="summit-action-col">
+          <span class="summit-status">&bull; 12 Seats Remaining</span>
+          <a href="#request-invite" class="btn-primary" style="padding: 0.8rem 1.5rem; font-size: 0.8rem;">Apply For Seat</a>
+        </div>
+      </div>
+
+      <!-- NYC SUMMIT -->
+      <div class="summit-item">
+        <div class="summit-date-col">
+          <div class="summit-quarter">Q3 2026</div>
+          <div class="summit-city">New York</div>
+          <div class="summit-exact-date">September 24&ndash;25, 2026 &bull; Hudson Yards</div>
+        </div>
+        <div class="summit-detail-col">
+          <h4>Deterministic Latency &amp; High-Throughput Energy / Financial Inference</h4>
+          <p>
+            Architecture teardowns of sub-50ms TTFT under extreme concurrent load. Integration patterns across legacy SCADA, power grids (Con Edison, Shell), and institutional trading systems.
+          </p>
+          <div class="summit-meta-tags">
+            <span class="summit-tag">Sub-50ms TTFT</span>
+            <span class="summit-tag">Grid Telemetry</span>
+            <span class="summit-tag">Institutional Scale</span>
+            <span class="summit-tag">40 Seats</span>
+          </div>
+        </div>
+        <div class="summit-action-col">
+          <span class="summit-status" style="color: #aaa;">&bull; Applications Open</span>
+          <a href="#request-invite" class="btn-primary" style="padding: 0.8rem 1.5rem; font-size: 0.8rem;">Apply For Seat</a>
+        </div>
+      </div>
+
+      <!-- LONDON SUMMIT -->
+      <div class="summit-item">
+        <div class="summit-date-col">
+          <div class="summit-quarter">Q4 2026</div>
+          <div class="summit-city">London</div>
+          <div class="summit-exact-date">November 12&ndash;13, 2026 &bull; Canary Wharf</div>
+        </div>
+        <div class="summit-detail-col">
+          <h4>EU AI Act Compliance, Data Sovereignty &amp; Heavy Industrial Edge</h4>
+          <p>
+            Deploying frontier models directly onto industrial plant hardware and edge compute clusters (Holcim, Baker Hughes) with strict immutable audit trails and zero data egress.
+          </p>
+          <div class="summit-meta-tags">
+            <span class="summit-tag">EU AI Act</span>
+            <span class="summit-tag">Industrial Edge</span>
+            <span class="summit-tag">Immutable Auditing</span>
+            <span class="summit-tag">40 Seats</span>
+          </div>
+        </div>
+        <div class="summit-action-col">
+          <span class="summit-status" style="color: #aaa;">&bull; Applications Open</span>
+          <a href="#request-invite" class="btn-primary" style="padding: 0.8rem 1.5rem; font-size: 0.8rem;">Apply For Seat</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TEARDOWNS / TRACKS -->
+  <section class="section-tracks" id="tracks">
+    <div class="section-tag">Technical Agenda</div>
+    <h2 class="section-title">Architecture Teardown Sessions</h2>
+    <div class="tracks-grid">
+      <div class="track-card">
+        <div class="track-pill">Session 01 &bull; Model Quantization &amp; Kernel Tuning</div>
+        <h3>FP8 / FP4 Serving Without Accuracy Degradation</h3>
+        <p>
+          Deep dive into real-world benchmarks contrasting native FP16 execution with vLLM, TensorRT-LLM, and SGLang FP8 kernels across enterprise reasoning workloads. Live telemetry on GPU memory pressure and cache eviction.
+        </p>
+      </div>
+      <div class="track-card">
+        <div class="track-pill">Session 02 &bull; Adversarial Hardening</div>
+        <h3>Eliminating Non-Deterministic Hallucinations in Critical Ops</h3>
+        <p>
+          Hard-constraint decoding, grammar-constrained sampling, and formal verification frameworks for frontier model outputs deployed in defense, energy grid balancing, and predictive healthcare pipelines.
+        </p>
+      </div>
+      <div class="track-card">
+        <div class="track-pill">Session 03 &bull; Enterprise VPC Topology</div>
+        <h3>Zero-Trust Cross-Boundary Frontier Model Gateway</h3>
+        <p>
+          Reference architectures for embedding OpenAI, Anthropic, Google DeepMind, and open-weight models into multi-tenant VPCs with hardware security modules (HSMs) and zero plain-text data logging.
+        </p>
+      </div>
+      <div class="track-card">
+        <div class="track-pill">Session 04 &bull; TCO &amp; Model Governance</div>
+        <h3>Frontier Open Source vs. Closed Lab APIs: The 2026 Audit</h3>
+        <p>
+          Comprehensive capital expenditure and operational expenditure audit: training/fine-tuning cluster costs vs. token-based cloud bills at 100M+ tokens/day scale with full IP ownership.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- REPRESENTED COHORTS -->
+  <section class="section-cohort" id="cohort">
+    <div class="section-tag">Attending Organizations</div>
+    <h2 class="section-title">Participating Cohorts</h2>
+    
+    <div class="cohort-group">
+      <div class="cohort-group-label">Enterprise Infrastructure &amp; Mission-Critical Operators</div>
+      <div class="cohort-names">
+        <div class="cohort-box">
+          <div class="name">Shell</div>
+          <div class="role-desc">Global Energy &bull; Upstream AI</div>
+        </div>
+        <div class="cohort-box">
+          <div class="name">U.S. Air Force</div>
+          <div class="role-desc">Rapid Sustainment &bull; Defense Ops</div>
+        </div>
+        <div class="cohort-box">
+          <div class="name">Baker Hughes</div>
+          <div class="role-desc">Energy Tech &bull; Industrial AI</div>
+        </div>
+        <div class="cohort-box">
+          <div class="name">Con Edison</div>
+          <div class="role-desc">Grid Reliability &bull; NYC Metro</div>
+        </div>
+        <div class="cohort-box">
+          <div class="name">Holcim</div>
+          <div class="role-desc">Global Building Materials &bull; Plants</div>
+        </div>
+        <div class="cohort-box">
+          <div class="name">Dept of Defense</div>
+          <div class="role-desc">Predictive Readiness &bull; Logistics</div>
+        </div>
+        <div class="cohort-box">
+          <div class="name">Koch Industries</div>
+          <div class="role-desc">Manufacturing &bull; Supply Chains</div>
+        </div>
+        <div class="cohort-box">
+          <div class="name">SmithRx</div>
+          <div class="role-desc">Health Tech &bull; Pharmacy Data</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cohort-group">
+      <div class="cohort-group-label">Frontier Model Ecosystem &amp; Research Labs Represented</div>
+      <div class="cohort-names">
+        <div class="cohort-box">
+          <div class="name">OpenAI</div>
+          <div class="role-desc">GPT-4o / o1 Architecture</div>
+        </div>
+        <div class="cohort-box">
+          <div class="name">Anthropic</div>
+          <div class="role-desc">Claude 3.5 Sonnet / Opus</div>
+        </div>
+        <div class="cohort-box">
+          <div class="name">Google DeepMind</div>
+          <div class="role-desc">Gemini 1.5 Pro / Flash</div>
+        </div>
+        <div class="cohort-box">
+          <div class="name">Meta AI</div>
+          <div class="role-desc">Llama 3.1 405B / 70B</div>
+        </div>
+        <div class="cohort-box">
+          <div class="name">DeepSeek</div>
+          <div class="role-desc">DeepSeek-V3 / R1 MoE</div>
+        </div>
+        <div class="cohort-box">
+          <div class="name">Mistral AI</div>
+          <div class="role-desc">Mistral Large 2 / Pixtral</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INVITATION FORM -->
+  <section class="section-invite" id="request-invite">
+    <div class="invite-container">
+      <div class="section-tag" style="text-align: center;">Confidential Application</div>
+      <h2 class="section-title" style="text-align: center; margin-bottom: 1.5rem;">Request an Invitation</h2>
+      <p style="text-align: center; color: #888; max-width: 600px; margin: 0 auto 2.5rem; font-size: 1rem;">
+        Invitations are strictly non-transferable and subject to peer committee verification. Please use your corporate or government executive email.
+      </p>
+
+      <form class="invite-form" onsubmit="event.preventDefault(); alert('Invitation request received. The committee reviews applications on a rolling basis under NDA.');">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="fullname">Full Name *</label>
+            <input type="text" id="fullname" required placeholder="Jane Doe">
+          </div>
+          <div class="form-field">
+            <label for="email">Enterprise Work Email *</label>
+            <input type="email" id="email" required placeholder="jane@enterprise.com">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="org">Organization / Agency *</label>
+            <input type="text" id="org" required placeholder="e.g. Shell, Con Edison, USAF">
+          </div>
+          <div class="form-field">
+            <label for="title">Official Title *</label>
+            <input type="text" id="title" required placeholder="CTO / Head of Infrastructure / Chief Architect">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="summit-choice">Select Summit Location *</label>
+            <select id="summit-choice" required>
+              <option value="" disabled selected>Select location &amp; date</option>
+              <option value="sf">San Francisco &bull; June 18-19, 2026 (Air-Gapped &amp; Sovereign)</option>
+              <option value="nyc">New York &bull; September 24-25, 2026 (Latency &amp; Critical Infra)</option>
+              <option value="london">London &bull; November 12-13, 2026 (EU AI Act &amp; Heavy Industrial)</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="models">Primary Frontier Model(s) Deployed</label>
+            <input type="text" id="models" placeholder="e.g. Claude 3.5, Llama 3.1 405B, Gemini, DeepSeek">
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="scope">Production Deployment Scope / Core Architecture Bottleneck</label>
+          <textarea id="scope" rows="3" placeholder="Brief summary of your production scale, air-gap requirements, or latency targets."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit Confidential Request</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <p style="color: var(--white); font-weight: 900; letter-spacing: -0.5px; margin-bottom: 0.25rem;">stage-x.space</p>
+      <p>Open Source &bull; MIT &amp; Apache 2.0 Licensed</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#customers">Customers</a>
+      <a href="index.html#usecases">Use Cases</a>
+      <a href="index.html#deployments">Deployments</a>
+      <a href="index.html#engagements">Engagements</a>
+      <a href="https://github.com/utkarshethics/stage-x_landing" target="_blank" rel="noopener">GitHub</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </footer>
+
+</body>
+</html>

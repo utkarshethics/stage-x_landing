@@ -67,11 +67,11 @@
 
     /* HERO SECTION */
     .hero {
-      min-height: 90vh;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 0 10%;
+      padding: 6rem 10%;
       background: var(--white);
       position: relative;
     }
@@ -112,8 +112,8 @@
     }
 
     .btn-primary {
-      background: var(--black);
-      color: var(--white);
+      background: var(--white);
+      color: var(--black);
       padding: 1rem 2rem;
       text-decoration: none;
       font-weight: 800;
@@ -124,8 +124,8 @@
     }
 
     .btn-primary:hover {
-      background: var(--white);
-      color: var(--black);
+      background: var(--black);
+      color: var(--white);
       transform: translateY(-2px);
     }
 
@@ -148,13 +148,17 @@
 
     /* Section Divider */
     .section-divider {
-      border-top: 4px solid var(--black);
-      margin: 0 5%;
+      border-top: 1px solid #222;
+      background: var(--black);
     }
 
     /* PHILOSOPHY SECTION */
     .philosophy {
-      padding: 8rem 10%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 10%;
       background: var(--black);
       color: var(--white);
     }
@@ -176,8 +180,13 @@
 
     /* WORKFLOW SECTION */
     .workflow {
-      padding: 8rem 10%;
-      background: var(--white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 10%;
+      background: var(--black);
+      color: var(--white);
     }
 
     .workflow h2 {
@@ -186,6 +195,7 @@
       text-transform: uppercase;
       letter-spacing: -1px;
       margin-bottom: 3rem;
+      color: var(--white);
     }
 
     .workflow-steps {
@@ -195,7 +205,8 @@
     }
 
     .step {
-      border: 2px solid var(--black);
+      border: 1px solid #333;
+      background: #0a0a0a;
       padding: 2rem;
       position: relative;
     }
@@ -205,11 +216,12 @@
       position: absolute;
       top: -1.5rem;
       left: 1.5rem;
-      background: var(--white);
+      background: var(--black);
       padding: 0 1rem;
       font-weight: 900;
       font-size: 1.5rem;
-      color: var(--black);
+      color: var(--white);
+      border: 1px solid #333;
     }
 
     .step h3 {
@@ -217,15 +229,18 @@
       font-weight: 800;
       text-transform: uppercase;
       margin-bottom: 1rem;
+      color: var(--white);
     }
 
     .step p {
-      color: var(--gray);
+      color: #aaa;
       line-height: 1.7;
     }
 
     /* STATS SECTION */
     .stats {
+      min-height: 100vh;
+      align-content: center;
       padding: 6rem 10%;
       background: var(--black);
       color: var(--white);
@@ -256,8 +271,13 @@
 
     /* DEPLOYMENTS (CASE STUDIES) SECTION */
     .deployments {
-      padding: 8rem 10%;
-      background: var(--white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 10%;
+      background: var(--black);
+      color: var(--white);
     }
 
     .deployments h2 {
@@ -266,6 +286,7 @@
       text-transform: uppercase;
       letter-spacing: -1px;
       margin-bottom: 3rem;
+      color: var(--white);
     }
 
     .deployment-list {
@@ -279,11 +300,11 @@
       gap: 2rem;
       align-items: center;
       padding: 2.5rem 0;
-      border-top: 1px solid #ddd;
+      border-top: 1px solid #333;
     }
 
     .deployment-list .deployment-row:last-child {
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid #333;
     }
 
     .deployment-tag {
@@ -291,23 +312,25 @@
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: var(--gray);
+      color: #888;
     }
 
     .deployment-row h3 {
       font-size: 1.4rem;
       font-weight: 800;
       text-transform: uppercase;
+      color: var(--white);
     }
 
     .deployment-row p {
-      color: var(--gray);
+      color: #aaa;
     }
 
     .deployment-metric {
       text-align: right;
       font-weight: 900;
       font-size: 1.8rem;
+      color: var(--white);
     }
 
     .deployment-metric span {
@@ -316,13 +339,17 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: var(--gray);
+      color: #888;
       margin-top: 0.25rem;
     }
 
     /* TESTIMONIALS SECTION */
     .testimonials {
-      padding: 8rem 10%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 10%;
       background: var(--black);
       color: var(--white);
     }
@@ -384,8 +411,13 @@
 
     /* PRICING SECTION */
     .pricing {
-      padding: 8rem 10%;
-      background: var(--white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 10%;
+      background: var(--black);
+      color: var(--white);
     }
 
     .pricing h2 {
@@ -394,26 +426,114 @@
       text-transform: uppercase;
       letter-spacing: -1px;
       margin-bottom: 1rem;
+      color: var(--white);
     }
 
     .pricing > p {
-      color: var(--gray);
+      color: #aaa;
       max-width: 600px;
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
       font-size: 1.1rem;
+    }
+
+    /* FRONTIER MODELS IN PRICING */
+    .frontier-models-showcase {
+      margin-bottom: 3rem;
+      border: 1px solid #333;
+      background: #0a0a0a;
+      padding: 2rem;
+    }
+
+    .frontier-models-badge {
+      font-size: 0.75rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #888;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .frontier-models-badge::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: var(--white);
+    }
+
+    .models-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+    }
+
+    .model-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      border: 1px solid #222;
+      background: var(--black);
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .model-item:hover {
+      border-color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .model-icon {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--white);
+    }
+
+    .model-icon svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    .model-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .model-name {
+      font-weight: 800;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--white);
+    }
+
+    .model-tag {
+      font-size: 0.75rem;
+      color: #888;
+      font-weight: 600;
+      letter-spacing: 0.5px;
     }
 
     .pricing-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 0;
-      border: 2px solid var(--black);
+      border: 1px solid #333;
     }
 
     .price-card {
       padding: 3rem 2rem;
-      border-left: 2px solid var(--black);
+      border-left: 1px solid #333;
       position: relative;
+      background: #0a0a0a;
+      color: var(--white);
     }
 
     .price-card:first-child {
@@ -421,12 +541,13 @@
     }
 
     .price-card.featured {
-      background: var(--black);
+      background: #141414;
       color: var(--white);
+      border: 2px solid var(--white);
     }
 
     .price-card.featured .price-card-tag {
-      color: #aaa;
+      color: var(--white);
     }
 
     .price-card.featured .price-value {
@@ -443,19 +564,21 @@
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 2px;
-      color: var(--gray);
+      color: #888;
     }
 
     .price-value {
       font-size: 2.75rem;
       font-weight: 900;
       margin: 1rem 0 0.25rem;
+      color: var(--white);
     }
 
     .price-value span {
       font-size: 1rem;
       font-weight: 700;
       text-transform: none;
+      color: #888;
     }
 
     .price-card h3 {
@@ -463,6 +586,7 @@
       font-weight: 800;
       text-transform: uppercase;
       margin-bottom: 1.5rem;
+      color: var(--white);
     }
 
     .price-card ul {
@@ -472,13 +596,13 @@
 
     .price-card ul li {
       font-size: 0.9rem;
-      color: var(--gray);
+      color: #aaa;
       padding: 0.75rem 0;
-      border-top: 1px solid #ddd;
+      border-top: 1px solid #222;
     }
 
     .price-card ul li:last-child {
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid #222;
     }
 
     .price-card.featured ul li:last-child {
@@ -494,31 +618,33 @@
       font-weight: 800;
       text-transform: uppercase;
       font-size: 0.85rem;
-      border: 2px solid var(--black);
-      color: var(--black);
+      border: 2px solid var(--white);
+      color: var(--white);
+      background: transparent;
       transition: background-color 0.2s ease, color 0.2s ease;
     }
 
     .price-card.featured .price-cta {
       border: 2px solid var(--white);
-      color: var(--white);
+      background: var(--white);
+      color: var(--black);
     }
 
     .price-cta:hover {
-      background: var(--black);
-      color: var(--white);
+      background: var(--white);
+      color: var(--black);
     }
 
     .price-card.featured .price-cta:hover {
-      background: var(--white);
-      color: var(--black);
+      background: transparent;
+      color: var(--white);
     }
 
     /* FOOTER */
     footer {
       padding: 4rem 10%;
-      background: var(--white);
-      border-top: 2px solid var(--black);
+      background: var(--black);
+      border-top: 1px solid #333;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -527,14 +653,14 @@
     }
 
     footer p {
-      color: var(--gray);
+      color: #888;
       font-size: 0.85rem;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
 
     .footer-links a {
-      color: var(--black);
+      color: var(--white);
       text-decoration: none;
       margin-left: 2rem;
       font-size: 0.85rem;
@@ -546,42 +672,431 @@
     }
 
     .footer-links a:hover {
-      border-bottom: 1px solid var(--black);
+      border-bottom: 1px solid var(--white);
+    }
+
+    /* OPEN SOURCE */
+    .oss-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .oss-pill {
+      background: var(--black);
+      color: var(--white);
+      padding: 0.35rem 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border: 2px solid var(--black);
+    }
+
+    .oss-licenses {
+      color: var(--black);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 0.35rem 0.75rem;
+      border: 2px solid var(--black);
+      background: var(--white);
+    }
+
+    .opensource {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 10%;
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .opensource h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      margin-bottom: 1rem;
+      line-height: 1.1;
+      color: var(--white);
+    }
+
+    .opensource-desc {
+      font-size: 1.1rem;
+      max-width: 700px;
+      line-height: 1.8;
+      color: #aaa;
+      margin-bottom: 3.5rem;
+    }
+
+    .license-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .license-card {
+      border: 1px solid #333;
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      background: #0a0a0a;
+      color: var(--white);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .license-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 6px 6px 0px #333;
+    }
+
+    .license-tag {
+      font-size: 0.75rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 1rem;
+      display: inline-block;
+      border-bottom: 2px solid var(--white);
+      padding-bottom: 0.25rem;
+      align-self: flex-start;
+      color: var(--white);
+    }
+
+    .license-card h3 {
+      font-size: 1.4rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+      margin-bottom: 1rem;
+      color: var(--white);
+    }
+
+    .license-card p {
+      color: #aaa;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .license-perks {
+      list-style: none;
+      margin-top: auto;
+      border-top: 1px solid #333;
+      padding-top: 1.5rem;
+    }
+
+    .license-perks li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.75rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #ccc;
+    }
+
+    .license-perks li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--white);
+      font-weight: 900;
+    }
+
+    /* CUSTOMERS SECTION */
+    .customers-section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 10%;
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .customers-section h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      margin-bottom: 1rem;
+      color: var(--white);
+      line-height: 1.1;
+    }
+
+    .customers-desc {
+      font-size: 1.1rem;
+      max-width: 700px;
+      line-height: 1.8;
+      color: #aaa;
+      margin-bottom: 3.5rem;
+    }
+
+    .customer-tag {
+      font-size: 0.75rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 1rem;
+      display: inline-block;
+      border-bottom: 2px solid var(--white);
+      padding-bottom: 0.25rem;
+      align-self: flex-start;
+      color: var(--white);
+    }
+
+    .customer-logo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .customer-logo-card {
+      border: 1px solid #333;
+      padding: 2.5rem 1.5rem;
+      background: #0a0a0a;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .customer-logo-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--white);
+      box-shadow: 4px 4px 0px #333;
+    }
+
+    .customer-logo-name {
+      font-size: 1.35rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .customer-industry {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #777;
+    }
+
+    /* USE CASES SECTION */
+    .usecases-section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 10%;
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .usecases-section h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      margin-bottom: 1rem;
+      color: var(--white);
+    }
+
+    .usecases-intro {
+      font-size: 1.15rem;
+      color: #aaa;
+      max-width: 850px;
+      margin-bottom: 3.5rem;
+      line-height: 1.6;
+    }
+
+    .usecases-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 2rem;
+    }
+
+    .usecase-card {
+      border: 1px solid #333;
+      background: #0a0a0a;
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+    }
+
+    .usecase-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--white);
+      box-shadow: 4px 4px 0px #333;
+    }
+
+    .usecase-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .usecase-sector {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+    }
+
+    .usecase-client-badge {
+      border: 1px solid #444;
+      background: #161616;
+      padding: 0.25rem 0.6rem;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .usecase-title {
+      font-size: 1.3rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+      color: var(--white);
+    }
+
+    .usecase-desc {
+      font-size: 0.95rem;
+      color: #bbb;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .usecase-fde-role {
+      background: #111;
+      border-left: 2px solid var(--white);
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .usecase-fde-role strong {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--white);
+      margin-bottom: 0.4rem;
+    }
+
+    .usecase-fde-role p {
+      font-size: 0.85rem;
+      color: #999;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .usecase-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .usecase-tag {
+      background: #000;
+      border: 1px solid #333;
+      padding: 0.25rem 0.6rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #888;
+    }
+
+    .usecase-footer {
+      border-top: 1px solid #262626;
+      padding-top: 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .usecase-metric-val {
+      font-size: 1.4rem;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      color: var(--white);
+      line-height: 1.1;
+    }
+
+    .usecase-metric-label {
+      font-size: 0.75rem;
+      color: #777;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 0.25rem;
     }
 
     /* RESPONSIVE */
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .hero { padding: 0 5%; }
-      .philosophy, .workflow, .deployments, .testimonials, .pricing { padding: 5rem 5%; }
+      .philosophy, .workflow, .deployments, .testimonials, .pricing, .opensource, .customers-section, .usecases-section { padding: 5rem 5%; }
       .btn-container { flex-direction: column; }
       footer { flex-direction: column; text-align: center; }
       .deployment-row { grid-template-columns: 1fr; text-align: left; gap: 0.5rem; }
       .deployment-metric { text-align: left; }
       .pricing-grid { border: none; }
-      .price-card { border-left: none; border-top: 2px solid var(--black); }
-      .price-card:first-child { border-top: 2px solid var(--black); }
+      .price-card { border-left: none; border-top: 1px solid #333; }
+      .price-card:first-child { border-top: 1px solid #333; }
+      .usecases-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
   <nav>
-    <div class="logo">stage-x.space</div>
+    <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;">stage-x.space</a></div>
     <div class="nav-links">
+      <a href="#customers">Customers</a>
+      <a href="#usecases">Use Cases</a>
       <a href="#deployments">Deployments</a>
       <a href="#method">Method</a>
-      <a href="#pricing">Pricing</a>
+      <a href="#engagements">Engagements</a>
+      <a href="#opensource">Open Source</a>
+      <a href="summits.html">Summits</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
 
   <header class="hero">
+    <div class="oss-badge">
+      <span class="oss-pill">Open Source</span>
+      <span class="oss-licenses">MIT &amp; Apache 2.0</span>
+    </div>
     <h1>Forward Deploy Any Frontier Model Into Any Enterprise</h1>
     <p>Bridging research labs and operational reality. Embedding, integrating, and optimizing frontier AI systems inside existing infrastructure.</p>
     <div class="btn-container">
       <a href="#contact" class="btn-primary">Start Deploying</a>
-      <a href="#method" class="btn-secondary">View Process</a>
+      <a href="#opensource" class="btn-secondary">Open Source (MIT / Apache)</a>
     </div>
   </header>
 
@@ -592,7 +1107,266 @@
     <p>We operate like SWAT teams for software. We don't hand you a PDF and leave. We sit with your engineers, write the code, break the production environment, fix it, and leave it more stable than we found it. We are paid for outcomes, not outputs.</p>
   </section>
 
-  <div class="section-divider" style="border-color: var(--white); margin: 0;"></div>
+  <div class="section-divider"></div>
+
+  <section class="customers-section" id="customers">
+    <div class="customer-tag">Enterprise Proven</div>
+    <h2>Deployed Across Mission-Critical Operators</h2>
+    <p class="customers-desc">Frontier AI systems embedded directly into the production environments of the world's most demanding enterprises and defense institutions.</p>
+
+    <div class="customer-logo-grid">
+      <div class="customer-logo-card">
+        <div class="customer-logo-name">Shell</div>
+        <span class="customer-industry">Global Energy</span>
+      </div>
+      <div class="customer-logo-card">
+        <div class="customer-logo-name">U.S. Air Force</div>
+        <span class="customer-industry">Defense &amp; Aerospace</span>
+      </div>
+      <div class="customer-logo-card">
+        <div class="customer-logo-name">Baker Hughes</div>
+        <span class="customer-industry">Energy Technology</span>
+      </div>
+      <div class="customer-logo-card">
+        <div class="customer-logo-name">Con Edison</div>
+        <span class="customer-industry">Power &amp; Utilities</span>
+      </div>
+      <div class="customer-logo-card">
+        <div class="customer-logo-name">Holcim</div>
+        <span class="customer-industry">Building Materials</span>
+      </div>
+      <div class="customer-logo-card">
+        <div class="customer-logo-name">U.S. DoD</div>
+        <span class="customer-industry">Joint Strike Fighter F-35</span>
+      </div>
+      <div class="customer-logo-card">
+        <div class="customer-logo-name">Koch Industries</div>
+        <span class="customer-industry">Advanced Manufacturing</span>
+      </div>
+      <div class="customer-logo-card">
+        <div class="customer-logo-name">SmithRx</div>
+        <span class="customer-industry">Healthcare Technology</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <section class="usecases-section" id="usecases">
+    <div class="customer-tag">FDE Field Reports</div>
+    <h2>Where FDEs Deliver Frontier AI</h2>
+    <p class="usecases-intro">
+      Frontier AI doesn't fail on raw reasoning capability—it fails at the integration boundary with air-gapped VPCs, legacy SCADA/ERP protocols, and dirty telemetry. Here is where our Forward Deployed Engineers (FDEs) write code, optimize kernels, and ship frontier models directly inside enterprise infrastructure.
+    </p>
+
+    <div class="usecases-grid">
+      <!-- Use Case 1: Defense & Aerospace -->
+      <div class="usecase-card">
+        <div>
+          <div class="usecase-header">
+            <span class="usecase-sector">Defense &amp; Aerospace</span>
+            <span class="usecase-client-badge">U.S. Air Force &bull; DoD</span>
+          </div>
+          <h3 class="usecase-title">Air-Gapped Fleet Readiness &amp; Predictive Depot Supply</h3>
+          <p class="usecase-desc">
+            Aircraft maintenance depots suffered from multi-week turnaround times caused by disjointed maintenance logs, legacy supply databases, and zero-internet classified operating restrictions.
+          </p>
+          <div class="usecase-fde-role">
+            <strong>Embedded FDE Mission</strong>
+            <p>FDEs deployed on-site inside air-gapped SCIF environments. Stood up sovereign on-prem GPU nodes running quantized Llama 3.1 405B and DeepSeek-R1. Built isolated vector retrievers indexing 40+ years of technical orders and part maintenance logs with sub-second retrieval.</p>
+          </div>
+          <div class="usecase-stack">
+            <span class="usecase-tag">Llama 3.1 405B FP8</span>
+            <span class="usecase-tag">vLLM Sovereign Stack</span>
+            <span class="usecase-tag">Zero Cloud Egress</span>
+            <span class="usecase-tag">SCIF Air-Gap</span>
+          </div>
+        </div>
+        <div class="usecase-footer">
+          <div>
+            <div class="usecase-metric-val">+25%</div>
+            <div class="usecase-metric-label">Aircraft Mission Readiness</div>
+          </div>
+          <div style="text-align: right;">
+            <div class="usecase-metric-val">&lt; 4 Min</div>
+            <div class="usecase-metric-label">Part Requisition Time</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Use Case 2: Energy & Extraction -->
+      <div class="usecase-card">
+        <div>
+          <div class="usecase-header">
+            <span class="usecase-sector">Global Energy &amp; Extraction</span>
+            <span class="usecase-client-badge">Shell Upstream</span>
+          </div>
+          <h3 class="usecase-title">Petabyte-Scale Predictive Machinery Telemetry</h3>
+          <p class="usecase-desc">
+            Over 10,000 deepwater extraction and refinery rotating assets generated continuous high-frequency acoustic and vibrational sensor streams with zero centralized anomaly forecasting.
+          </p>
+          <div class="usecase-fde-role">
+            <strong>Embedded FDE Mission</strong>
+            <p>FDEs wrote high-throughput streaming consumers connected directly into OSIsoft PI and SCADA historians. Fused frontier multimodal models to parse vibrational and thermal waveforms in real time, alerting operators 72 hours prior to mechanical failure.</p>
+          </div>
+          <div class="usecase-stack">
+            <span class="usecase-tag">Multimodal Sensor Fusion</span>
+            <span class="usecase-tag">OSIsoft PI / SCADA</span>
+            <span class="usecase-tag">Distributed Ray Clusters</span>
+            <span class="usecase-tag">Sub-100ms Inference</span>
+          </div>
+        </div>
+        <div class="usecase-footer">
+          <div>
+            <div class="usecase-metric-val">99.2%</div>
+            <div class="usecase-metric-label">Telemetry Monitoring Uptime</div>
+          </div>
+          <div style="text-align: right;">
+            <div class="usecase-metric-val">72 Hours</div>
+            <div class="usecase-metric-label">Pre-Failure Lead Time</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Use Case 3: Power & Utilities -->
+      <div class="usecase-card">
+        <div>
+          <div class="usecase-header">
+            <span class="usecase-sector">Power &amp; Public Utilities</span>
+            <span class="usecase-client-badge">Con Edison</span>
+          </div>
+          <h3 class="usecase-title">Sub-50ms Smart Grid Balancing &amp; Feeder Analytics</h3>
+          <p class="usecase-desc">
+            Accelerating adoption of distributed solar, battery microgrids, and EV fast chargers introduced high-volatility harmonic fluctuations across 5M+ AMI smart meters and substation transformers.
+          </p>
+          <div class="usecase-fde-role">
+            <strong>Embedded FDE Mission</strong>
+            <p>Engineered an event-driven inference gateway inside private VPC boundaries. Frontier models ingest real-time feeder telemetry and execute deterministic state-estimation passes every 10 seconds to preempt feeder overload and balance substation routing.</p>
+          </div>
+          <div class="usecase-stack">
+            <span class="usecase-tag">Claude 3.5 Sonnet</span>
+            <span class="usecase-tag">AWS PrivateLink VPC</span>
+            <span class="usecase-tag">Sub-50ms TTFT</span>
+            <span class="usecase-tag">Zero Data Retention</span>
+          </div>
+        </div>
+        <div class="usecase-footer">
+          <div>
+            <div class="usecase-metric-val">5M+</div>
+            <div class="usecase-metric-label">Active Meter Streams</div>
+          </div>
+          <div style="text-align: right;">
+            <div class="usecase-metric-val">10 Sec</div>
+            <div class="usecase-metric-label">Continuous Balancing Loop</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Use Case 4: Industrial Sourcing & ERP -->
+      <div class="usecase-card">
+        <div>
+          <div class="usecase-header">
+            <span class="usecase-sector">Industrial Sourcing &amp; ERP</span>
+            <span class="usecase-client-badge">Baker Hughes &bull; Koch</span>
+          </div>
+          <h3 class="usecase-title">Autonomous Multi-Tier Sourcing &amp; Contract Intelligence</h3>
+          <p class="usecase-desc">
+            Procurement teams struggled under hundreds of thousands of multi-page technical purchase orders, cross-border tariff updates, and raw material spec sheets trapped in SAP ERP silos.
+          </p>
+          <div class="usecase-fde-role">
+            <strong>Embedded FDE Mission</strong>
+            <p>FDEs embedded directly with supply chain leads, integrating frontier document reasoning models into SAP NetWeaver and Oracle ERP pipelines with formal verification guardrails to automatically catch pricing discrepancies across 100,000+ line items.</p>
+          </div>
+          <div class="usecase-stack">
+            <span class="usecase-tag">GPT-4o / Claude Hybrid</span>
+            <span class="usecase-tag">SAP NetWeaver Connectors</span>
+            <span class="usecase-tag">Formal Verification</span>
+            <span class="usecase-tag">ERP Line-Item Audit</span>
+          </div>
+        </div>
+        <div class="usecase-footer">
+          <div>
+            <div class="usecase-metric-val">$100M+</div>
+            <div class="usecase-metric-label">Sourcing Spend Saved</div>
+          </div>
+          <div style="text-align: right;">
+            <div class="usecase-metric-val">88%</div>
+            <div class="usecase-metric-label">Review Velocity Increase</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Use Case 5: Heavy Industrial Edge -->
+      <div class="usecase-card">
+        <div>
+          <div class="usecase-header">
+            <span class="usecase-sector">Industrial Manufacturing</span>
+            <span class="usecase-client-badge">Holcim Global</span>
+          </div>
+          <h3 class="usecase-title">Industrial Edge Autonomous Cement Kiln Combustion</h3>
+          <p class="usecase-desc">
+            Clinker manufacturing kilns operating at 1,400°C suffer from variable fuel composition, raw meal consistency drifts, and multi-million dollar thermal refractory outages.
+          </p>
+          <div class="usecase-fde-role">
+            <strong>Embedded FDE Mission</strong>
+            <p>Placed ruggedized edge compute nodes directly into plant control rooms. Connected frontier reasoning models via OPC-UA to continuously adjust fuel feeder rates and kiln draft speeds in real-time, cutting fuel burn while keeping clinker quality within tight laboratory tolerances.</p>
+          </div>
+          <div class="usecase-stack">
+            <span class="usecase-tag">Mistral Large 2</span>
+            <span class="usecase-tag">Ruggedized Plant Edge</span>
+            <span class="usecase-tag">OPC-UA Protocol Bridge</span>
+            <span class="usecase-tag">Real-Time Control Loop</span>
+          </div>
+        </div>
+        <div class="usecase-footer">
+          <div>
+            <div class="usecase-metric-val">40%</div>
+            <div class="usecase-metric-label">Unplanned Downtime Cut</div>
+          </div>
+          <div style="text-align: right;">
+            <div class="usecase-metric-val">3.2%</div>
+            <div class="usecase-metric-label">Fuel Burn Reduction</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Use Case 6: Regulated Healthcare & Pharmacy -->
+      <div class="usecase-card">
+        <div>
+          <div class="usecase-header">
+            <span class="usecase-sector">Healthcare &amp; Regulated Tech</span>
+            <span class="usecase-client-badge">SmithRx</span>
+          </div>
+          <h3 class="usecase-title">Zero-Knowledge Pharmacy Benefit &amp; Formulary Adjudication</h3>
+          <p class="usecase-desc">
+            Adjudicating complex prescription benefits and prior authorization requests required manual clinician review against complex formulary criteria with strict HIPAA compliance liabilities.
+          </p>
+          <div class="usecase-fde-role">
+            <strong>Embedded FDE Mission</strong>
+            <p>Deployed an air-gapped, zero-retention clinical reasoning pipeline inside confidential compute enclaves. Stripped all PHI prior to model ingestion and cross-referenced claims against real-time clinical formularies with cryptographic audit receipts.</p>
+          </div>
+          <div class="usecase-stack">
+            <span class="usecase-tag">Gemini 1.5 Pro</span>
+            <span class="usecase-tag">Confidential Enclaves</span>
+            <span class="usecase-tag">HIPAA / SOC2 Type II</span>
+            <span class="usecase-tag">Cryptographic Receipts</span>
+          </div>
+        </div>
+        <div class="usecase-footer">
+          <div>
+            <div class="usecase-metric-val">10x</div>
+            <div class="usecase-metric-label">Adjudication Throughput</div>
+          </div>
+          <div style="text-align: right;">
+            <div class="usecase-metric-val">100%</div>
+            <div class="usecase-metric-label">Audit Trail Compliance</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
 
   <section class="workflow" id="method">
     <h2>THE WORKFLOW</h2>
@@ -637,41 +1411,49 @@
     <h2>Recent Deployments</h2>
     <div class="deployment-list">
       <div class="deployment-row">
-        <div class="deployment-tag">Financial Services</div>
+        <div class="deployment-tag">Shell &bull; Energy</div>
         <div>
-          <h3>Claims Fraud Triage</h3>
-          <p>Embedded a frontier reasoning model directly into a legacy mainframe claims pipeline.</p>
+          <h3>Enterprise Predictive Maintenance</h3>
+          <p>Embedded frontier AI across 10,000+ critical upstream and downstream production assets worldwide.</p>
         </div>
-        <div class="deployment-metric">62%<span>Faster Review</span></div>
+        <div class="deployment-metric">99.2%<span>Telemetry Uptime</span></div>
       </div>
       <div class="deployment-row">
-        <div class="deployment-tag">Retail / Logistics</div>
+        <div class="deployment-tag">U.S. Air Force &bull; Defense</div>
         <div>
-          <h3>Demand Forecast Fusion</h3>
-          <p>Replaced brittle rules engine with an agentic forecasting layer wired into SAP.</p>
+          <h3>Aircraft Fleet Readiness AI</h3>
+          <p>Scaled predictive maintenance algorithms across strategic bomber and fighter fleet depot pipelines.</p>
         </div>
-        <div class="deployment-metric">$4.1M<span>Inventory Saved</span></div>
+        <div class="deployment-metric">25%<span>Readiness Gain</span></div>
       </div>
       <div class="deployment-row">
-        <div class="deployment-tag">Healthcare</div>
+        <div class="deployment-tag">Baker Hughes &bull; Industrial</div>
         <div>
-          <h3>Clinical Intake Copilot</h3>
-          <p>Hardened a HIPAA-safe deployment across three hospital networks in six weeks.</p>
+          <h3>Global Sourcing &amp; Inventory Intelligence</h3>
+          <p>Optimized multi-tier supplier networks, purchase orders, and lead time visibility across global hubs.</p>
         </div>
-        <div class="deployment-metric">6wk<span>To Production</span></div>
+        <div class="deployment-metric">$100M+<span>Sourcing Saved</span></div>
       </div>
       <div class="deployment-row">
-        <div class="deployment-tag">Manufacturing</div>
+        <div class="deployment-tag">Holcim &bull; Building Materials</div>
         <div>
-          <h3>Predictive Maintenance Grid</h3>
-          <p>Fused sensor telemetry with a frontier model for real-time failure prediction.</p>
+          <h3>Real-Time Kiln &amp; Plant Reliability</h3>
+          <p>Fused sensor telemetry with enterprise AI models for real-time cement production failure prevention.</p>
         </div>
-        <div class="deployment-metric">91%<span>Uptime Gain</span></div>
+        <div class="deployment-metric">40%<span>Downtime Cut</span></div>
+      </div>
+      <div class="deployment-row">
+        <div class="deployment-tag">Con Edison &bull; Utilities</div>
+        <div>
+          <h3>Smart Grid Data Analytics</h3>
+          <p>Enterprise AI platform processing and analyzing real-time telemetry from smart meter infrastructure.</p>
+        </div>
+        <div class="deployment-metric">5M+<span>Sensor Streams</span></div>
       </div>
     </div>
   </section>
 
-  <div class="section-divider" style="border-color: var(--white); margin: 0;"></div>
+  <div class="section-divider"></div>
 
   <section class="testimonials">
     <h2>What Engineers Say</h2>
@@ -693,55 +1475,173 @@
 
   <div class="section-divider"></div>
 
-  <section class="pricing" id="pricing">
-    <h2>Engagement Tiers</h2>
-    <p>We price for outcomes, not hours. Every engagement ends in a working system in production, not a slide deck.</p>
+  <section class="opensource" id="opensource">
+    <div class="license-tag">Open Core Architecture</div>
+    <h2>100% Open Source.<br>MIT &amp; Apache 2.0 Licensed.</h2>
+    <p class="opensource-desc">Built in the open for developers, researchers, and enterprise infrastructure teams. Transparent, extensible, and completely free of proprietary vendor lock-in.</p>
+    
+    <div class="license-grid">
+      <div class="license-card">
+        <div class="license-tag">Permissive</div>
+        <h3>MIT License</h3>
+        <p>Simple and ultra-permissive. Embed frontier model pipelines directly into proprietary software or custom services with zero friction.</p>
+        <ul class="license-perks">
+          <li>Commercial Use Permitted</li>
+          <li>Modify &amp; Distribute Freely</li>
+          <li>Private &amp; Closed-Source Friendly</li>
+        </ul>
+      </div>
+
+      <div class="license-card">
+        <div class="license-tag">Enterprise Safe</div>
+        <h3>Apache 2.0 License</h3>
+        <p>Built-in patent grant protection and trademark safeguards designed specifically for enterprise compliance and legal review.</p>
+        <ul class="license-perks">
+          <li>Explicit Patent Protection</li>
+          <li>Contributor IP Assignment</li>
+          <li>Enterprise Legal Compliance</li>
+        </ul>
+      </div>
+
+      <div class="license-card">
+        <div class="license-tag">Sovereignty</div>
+        <h3>Zero Vendor Lock-In</h3>
+        <p>Full control over your codebase and deployment targets. Run on-premises, air-gapped VPCs, or private cloud environments.</p>
+        <ul class="license-perks">
+          <li>100% Self-Hostable</li>
+          <li>Auditable Architecture</li>
+          <li>No Licensing Call-Homes</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <section class="pricing" id="engagements">
+    <div class="customer-tag">Deployment Execution</div>
+    <h2>Engagement Models</h2>
+    <p>Engineered for outcomes and mission velocity. We embed directly with your engineers from initial technical recon to production cutover.</p>
+
+    <div class="frontier-models-showcase">
+      <div class="frontier-models-badge">Frontier Models Deployed In Enterprise Stacks</div>
+      <div class="models-grid">
+        <div class="model-item">
+          <div class="model-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.28 9.82a5.98 5.98 0 0 0-.51-4.91 6.05 6.05 0 0 0-6.51-2.9A6.07 6.07 0 0 0 4.98 4.18 5.98 5.98 0 0 0 .98 7.08a6.05 6.05 0 0 0 .74 7.1 5.98 5.98 0 0 0 .51 4.91 6.05 6.05 0 0 0 6.51 2.9A5.98 5.98 0 0 0 13.26 24a6.06 6.06 0 0 0 5.77-4.21 5.99 5.99 0 0 0 4-2.9 6.06 6.06 0 0 0-.75-7.07zm-9.02 12.61a4.48 4.48 0 0 1-2.88-1.04l.14-.08 4.78-2.76a.79.79 0 0 0 .39-.68v-6.74l2.02 1.17a.07.07 0 0 1 .04.05v5.58a4.5 4.5 0 0 1-4.49 4.5zm-9.66-4.13a4.47 4.47 0 0 1-.53-3.01l.14.08 4.78 2.76a.77.77 0 0 0 .78 0l5.84-3.37v2.33a.08.08 0 0 1-.03.06L9.74 19.95a4.5 4.5 0 0 1-6.14-1.65zM2.34 7.9a4.48 4.48 0 0 1 2.37-1.98v5.69a.77.77 0 0 0 .39.68l5.81 3.35-2.02 1.17a.08.08 0 0 1-.07 0l-4.83-2.79A4.5 4.5 0 0 1 2.34 7.9zm16.1 3.85-5.84-3.37 2.02-1.16a.08.08 0 0 1 .07 0l4.83 2.79a4.5 4.5 0 0 1-.68 8.1v-5.68a.79.79 0 0 0-.4-.68zm2.01-3.02-.14-.08-4.78-2.78a.78.78 0 0 0-.78 0L9.41 9.23V6.9a.07.07 0 0 1 .03-.06l4.83-2.79a4.5 4.5 0 0 1 6.68 4.66zM8.31 12.86l-2.02-1.16a.08.08 0 0 1-.04-.06V6.07a4.5 4.5 0 0 1 7.38-3.45l-.14.08-4.79 2.76a.79.79 0 0 0-.39.68v6.72zm1.14-2.52 3.11-1.79 3.11 1.79v3.59l-3.11 1.79-3.11-1.79z"/></svg>
+          </div>
+          <div class="model-info">
+            <span class="model-name">OpenAI</span>
+            <span class="model-tag">o1 &bull; o3-mini &bull; GPT-4o</span>
+          </div>
+        </div>
+
+        <div class="model-item">
+          <div class="model-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 4.167h-3.315L20.485 20h3.315L17.472 4.167zm-10.944 0L0 20h3.315l1.63-4.472h6.582l1.63 4.472h3.315L9.843 4.167H6.528zm-.733 8.778l2.39-6.556 2.39 6.556H5.795z"/></svg>
+          </div>
+          <div class="model-info">
+            <span class="model-name">Anthropic</span>
+            <span class="model-tag">Claude 3.7 &bull; 3.5 Sonnet</span>
+          </div>
+        </div>
+
+        <div class="model-item">
+          <div class="model-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C12 6.627 6.627 12 0 12c6.627 0 12 5.373 12 12 0-6.627 5.373-12 12-12-6.627 0-12-5.373-12-12z"/></svg>
+          </div>
+          <div class="model-info">
+            <span class="model-name">Google DeepMind</span>
+            <span class="model-tag">Gemini 2.5 Pro &bull; Flash</span>
+          </div>
+        </div>
+
+        <div class="model-item">
+          <div class="model-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 7.054c-1.467-1.89-3.414-2.91-5.59-2.91-3.792 0-6.41 3.036-6.41 7.234 0 4.198 2.618 7.234 6.41 7.234 2.176 0 4.123-1.02 5.59-2.91 1.467 1.89 3.414 2.91 5.59 2.91 3.792 0 6.41-3.036 6.41-7.234 0-4.198-2.618-7.234-6.41-7.234-2.176 0-4.123 1.02-5.59 2.91zm-5.59 9.387c-2.316 0-3.82-1.996-3.82-5.045 0-3.048 1.504-5.044 3.82-5.044 1.748 0 3.328 1.258 4.315 3.428-1.022 2.222-2.587 4.661-4.315 6.661zm11.18 0c-1.728-2-3.293-4.439-4.315-6.661.987-2.17 2.567-3.428 4.315-3.428 2.316 0 3.82 1.996 3.82 5.044 0 3.049-1.504 5.045-3.82 5.045z"/></svg>
+          </div>
+          <div class="model-info">
+            <span class="model-name">Meta AI</span>
+            <span class="model-tag">Llama 3.3 70B &bull; 405B</span>
+          </div>
+        </div>
+
+        <div class="model-item">
+          <div class="model-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 3.5 1.8 6.6 4.5 8.4l1.2-1.7C5.5 17.3 4 14.8 4 12c0-4.4 3.6-8 8-8s8 3.6 8 8c0 2.8-1.5 5.3-3.7 6.7l1.2 1.7C20.2 18.6 22 15.5 22 12c0-5.52-4.48-10-10-10zm-1 5v6l5-3-5-3z"/></svg>
+          </div>
+          <div class="model-info">
+            <span class="model-name">DeepSeek</span>
+            <span class="model-tag">DeepSeek-R1 &bull; V3</span>
+          </div>
+        </div>
+
+        <div class="model-item">
+          <div class="model-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h3.2v3.2H4V4zm4.8 3.2H12v3.2H8.8V7.2zm0 3.2H12v3.2H8.8v-3.2zm4.8 0h3.2v3.2h-3.2v-3.2zm0 3.2h3.2v3.2h-3.2v-3.2zm0 3.2h3.2V20h-3.2v-3.2zM4 10.4h3.2v3.2H4v-3.2zm0 3.2h3.2v3.2H4v-3.2zm0 3.2h3.2V20H4v-3.2zm12.8-9.6H20v3.2h-3.2V7.2zM16.8 4H20v3.2h-3.2V4z"/></svg>
+          </div>
+          <div class="model-info">
+            <span class="model-name">Mistral AI</span>
+            <span class="model-tag">Mistral Large 2 &bull; Codestral</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="pricing-grid">
       <div class="price-card">
-        <div class="price-card-tag">Sprint</div>
-        <div class="price-value">Fixed<span> / scoped</span></div>
+        <div class="price-card-tag">Phase 01</div>
+        <div class="price-value">Sprint<span> / 2 Weeks</span></div>
         <h3>Recon &amp; Roadmap</h3>
         <ul>
-          <li>2-week embedded assessment</li>
-          <li>Data landscape mapping</li>
-          <li>ROI-ranked opportunity list</li>
-          <li>Go/no-go deployment plan</li>
+          <li>2-week embedded engineering assessment</li>
+          <li>Data landscape &amp; API mapping</li>
+          <li>ROI-ranked model opportunity pipeline</li>
+          <li>Production cutover deployment blueprint</li>
         </ul>
-        <a href="#contact" class="price-cta">Book a Sprint</a>
+        <a href="#contact" class="price-cta">Initiate Sprint</a>
       </div>
       <div class="price-card featured">
-        <div class="price-card-tag">Most Common</div>
-        <div class="price-value">Outcome<span> / based</span></div>
+        <div class="price-card-tag">Phase 02 &bull; Core Ship</div>
+        <div class="price-value">Deploy<span> / Milestone-Based</span></div>
         <h3>Full Deployment</h3>
         <ul>
-          <li>Embedded engineers on-site or remote</li>
-          <li>Model fusion into legacy systems</li>
-          <li>Adversarial hardening &amp; security testing</li>
-          <li>Paid on shipped production milestones</li>
+          <li>Embedded SWAT team on-site or air-gapped</li>
+          <li>Frontier model fusion into legacy systems</li>
+          <li>Adversarial hardening &amp; security verification</li>
+          <li>Production release backed by operational SLAs</li>
         </ul>
-        <a href="#contact" class="price-cta">Start Deploying</a>
+        <a href="#contact" class="price-cta">Start Deployment</a>
       </div>
       <div class="price-card">
-        <div class="price-card-tag">Retainer</div>
-        <div class="price-value">Monthly<span> / flexible</span></div>
-        <h3>Own &amp; Evolve</h3>
+        <div class="price-card-tag">Phase 03</div>
+        <div class="price-value">Evolve<span> / Continuous</span></div>
+        <h3>Own &amp; Scale Retainer</h3>
         <ul>
-          <li>Team training and internal hand-off</li>
-          <li>On-call for production incidents</li>
-          <li>Continuous model/version upgrades</li>
-          <li>Cancel anytime after hand-off</li>
+          <li>Team enablement and internal handover</li>
+          <li>24/7 on-call for production incidents</li>
+          <li>Continuous frontier model version upgrades</li>
+          <li>Zero lock-in full codebase transfer</li>
         </ul>
-        <a href="#contact" class="price-cta">Talk to Us</a>
+        <a href="#contact" class="price-cta">Engage Team</a>
       </div>
     </div>
   </section>
 
   <footer id="contact">
-    <p>stage-x.space</p>
+    <div>
+      <p style="color: var(--white); font-weight: 900; letter-spacing: -0.5px; margin-bottom: 0.25rem;">stage-x.space</p>
+      <p>Open Source &bull; MIT &amp; Apache 2.0 Licensed</p>
+    </div>
     <div class="footer-links">
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
-      <a href="#">Contact</a>
+      <a href="#customers">Customers</a>
+      <a href="#usecases">Use Cases</a>
+      <a href="#deployments">Deployments</a>
+      <a href="summits.html">Summits</a>
+      <a href="https://github.com/utkarshethics/stage-x_landing" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT License</a>
+      <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener">Apache 2.0</a>
+      <a href="#contact">Contact</a>
     </div>
   </footer>
 
