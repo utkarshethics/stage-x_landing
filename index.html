@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>stage-x.space | Forward Deployed Engineering</title>
+  <meta name="description" content="Bridging research labs and operational reality. Embedding, integrating, and optimizing frontier AI systems inside existing infrastructure.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* RESET */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* VARIABLES */
+    :root {
+      --black: #000000;
+      --white: #ffffff;
+      --gray: #666666;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--white);
+      color: var(--black);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 5%;
+      border-bottom: 2px solid var(--black);
+      background: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-weight: 900;
+      font-size: 1.5rem;
+      letter-spacing: -1px;
+    }
+
+    .nav-links a {
+      color: var(--black);
+      text-decoration: none;
+      margin-left: 2rem;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      border-bottom: 2px solid var(--black);
+    }
+
+    /* HERO SECTION */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 10%;
+      background: var(--white);
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image:
+        linear-gradient(var(--gray) 1px, transparent 1px),
+        linear-gradient(90deg, var(--gray) 1px, transparent 1px);
+      background-size: 80px 80px;
+      opacity: 0.1;
+      z-index: -1;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 900;
+      line-height: 1.1;
+      text-transform: uppercase;
+      max-width: 1200px;
+      letter-spacing: -2px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-top: 2rem;
+      color: var(--gray);
+    }
+
+    /* Buttons */
+    .btn-container {
+      margin-top: 3rem;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .btn-primary {
+      background: var(--black);
+      color: var(--white);
+      padding: 1rem 2rem;
+      text-decoration: none;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      border: 2px solid var(--black);
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--white);
+      color: var(--black);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--black);
+      padding: 1rem 2rem;
+      text-decoration: none;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      border: 2px solid var(--black);
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    /* Section Divider */
+    .section-divider {
+      border-top: 4px solid var(--black);
+      margin: 0 5%;
+    }
+
+    /* PHILOSOPHY SECTION */
+    .philosophy {
+      padding: 8rem 10%;
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .philosophy h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      margin-bottom: 1.5rem;
+    }
+
+    .philosophy p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      line-height: 1.8;
+      color: #cccccc;
+    }
+
+    /* WORKFLOW SECTION */
+    .workflow {
+      padding: 8rem 10%;
+      background: var(--white);
+    }
+
+    .workflow h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      margin-bottom: 3rem;
+    }
+
+    .workflow-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .step {
+      border: 2px solid var(--black);
+      padding: 2rem;
+      position: relative;
+    }
+
+    .step::before {
+      content: attr(data-step);
+      position: absolute;
+      top: -1.5rem;
+      left: 1.5rem;
+      background: var(--white);
+      padding: 0 1rem;
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: var(--black);
+    }
+
+    .step h3 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .step p {
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    /* STATS SECTION */
+    .stats {
+      padding: 6rem 10%;
+      background: var(--black);
+      color: var(--white);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 3rem;
+      text-align: center;
+    }
+
+    .stat-item {
+      border: 1px solid #333;
+      padding: 2rem;
+    }
+
+    .stat-value {
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #888;
+      margin-top: 0.5rem;
+    }
+
+    /* DEPLOYMENTS (CASE STUDIES) SECTION */
+    .deployments {
+      padding: 8rem 10%;
+      background: var(--white);
+    }
+
+    .deployments h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      margin-bottom: 3rem;
+    }
+
+    .deployment-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .deployment-row {
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      gap: 2rem;
+      align-items: center;
+      padding: 2.5rem 0;
+      border-top: 1px solid #ddd;
+    }
+
+    .deployment-list .deployment-row:last-child {
+      border-bottom: 1px solid #ddd;
+    }
+
+    .deployment-tag {
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--gray);
+    }
+
+    .deployment-row h3 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .deployment-row p {
+      color: var(--gray);
+    }
+
+    .deployment-metric {
+      text-align: right;
+      font-weight: 900;
+      font-size: 1.8rem;
+    }
+
+    .deployment-metric span {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--gray);
+      margin-top: 0.25rem;
+    }
+
+    /* TESTIMONIALS SECTION */
+    .testimonials {
+      padding: 8rem 10%;
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .testimonials h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      margin-bottom: 3rem;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .testimonial-card {
+      border: 1px solid #333;
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .testimonial-quote {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .testimonial-quote::before {
+      content: "\201C";
+    }
+
+    .testimonial-quote::after {
+      content: "\201D";
+    }
+
+    .testimonial-author {
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #ccc;
+      border-top: 1px solid #333;
+      padding-top: 1rem;
+    }
+
+    .testimonial-author span {
+      display: block;
+      font-weight: 400;
+      color: #888;
+      text-transform: none;
+      letter-spacing: 0;
+      margin-top: 0.25rem;
+    }
+
+    /* PRICING SECTION */
+    .pricing {
+      padding: 8rem 10%;
+      background: var(--white);
+    }
+
+    .pricing h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      margin-bottom: 1rem;
+    }
+
+    .pricing > p {
+      color: var(--gray);
+      max-width: 600px;
+      margin-bottom: 3rem;
+      font-size: 1.1rem;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 0;
+      border: 2px solid var(--black);
+    }
+
+    .price-card {
+      padding: 3rem 2rem;
+      border-left: 2px solid var(--black);
+      position: relative;
+    }
+
+    .price-card:first-child {
+      border-left: none;
+    }
+
+    .price-card.featured {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .price-card.featured .price-card-tag {
+      color: #aaa;
+    }
+
+    .price-card.featured .price-value {
+      color: var(--white);
+    }
+
+    .price-card.featured ul li {
+      color: #ccc;
+      border-top: 1px solid #333;
+    }
+
+    .price-card-tag {
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--gray);
+    }
+
+    .price-value {
+      font-size: 2.75rem;
+      font-weight: 900;
+      margin: 1rem 0 0.25rem;
+    }
+
+    .price-value span {
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: none;
+    }
+
+    .price-card h3 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .price-card ul {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+
+    .price-card ul li {
+      font-size: 0.9rem;
+      color: var(--gray);
+      padding: 0.75rem 0;
+      border-top: 1px solid #ddd;
+    }
+
+    .price-card ul li:last-child {
+      border-bottom: 1px solid #ddd;
+    }
+
+    .price-card.featured ul li:last-child {
+      border-bottom: 1px solid #333;
+    }
+
+    .price-cta {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+      padding: 0.9rem;
+      text-decoration: none;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      border: 2px solid var(--black);
+      color: var(--black);
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .price-card.featured .price-cta {
+      border: 2px solid var(--white);
+      color: var(--white);
+    }
+
+    .price-cta:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .price-card.featured .price-cta:hover {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 4rem 10%;
+      background: var(--white);
+      border-top: 2px solid var(--black);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer p {
+      color: var(--gray);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .footer-links a {
+      color: var(--black);
+      text-decoration: none;
+      margin-left: 2rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 1px;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      border-bottom: 1px solid var(--black);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hero { padding: 0 5%; }
+      .philosophy, .workflow, .deployments, .testimonials, .pricing { padding: 5rem 5%; }
+      .btn-container { flex-direction: column; }
+      footer { flex-direction: column; text-align: center; }
+      .deployment-row { grid-template-columns: 1fr; text-align: left; gap: 0.5rem; }
+      .deployment-metric { text-align: left; }
+      .pricing-grid { border: none; }
+      .price-card { border-left: none; border-top: 2px solid var(--black); }
+      .price-card:first-child { border-top: 2px solid var(--black); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">stage-x.space</div>
+    <div class="nav-links">
+      <a href="#deployments">Deployments</a>
+      <a href="#method">Method</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <h1>Forward Deploy Any Frontier Model Into Any Enterprise</h1>
+    <p>Bridging research labs and operational reality. Embedding, integrating, and optimizing frontier AI systems inside existing infrastructure.</p>
+    <div class="btn-container">
+      <a href="#contact" class="btn-primary">Start Deploying</a>
+      <a href="#method" class="btn-secondary">View Process</a>
+    </div>
+  </header>
+
+  <div class="section-divider"></div>
+
+  <section class="philosophy">
+    <h2>WE BUILT THE SYSTEM. WE STAY FOR THE SHIP.</h2>
+    <p>We operate like SWAT teams for software. We don't hand you a PDF and leave. We sit with your engineers, write the code, break the production environment, fix it, and leave it more stable than we found it. We are paid for outcomes, not outputs.</p>
+  </section>
+
+  <div class="section-divider" style="border-color: var(--white); margin: 0;"></div>
+
+  <section class="workflow" id="method">
+    <h2>THE WORKFLOW</h2>
+    <div class="workflow-steps">
+      <div class="step" data-step="01">
+        <h3>RECON</h3>
+        <p>We map your data landscape and identify where AI creates immediate ROI.</p>
+      </div>
+      <div class="step" data-step="02">
+        <h3>FUSION</h3>
+        <p>We splice the chosen frontier model into your legacy systems (SAP, Salesforce, Custom APIs).</p>
+      </div>
+      <div class="step" data-step="03">
+        <h3>HARDENING</h3>
+        <p>We optimize for latency, cost, and security. We perform adversarial testing.</p>
+      </div>
+      <div class="step" data-step="04">
+        <h3>TRAINING</h3>
+        <p>We train your internal teams to own the system once we step back (if you want us to).</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <section class="stats">
+    <div class="stat-item">
+      <div class="stat-value">0</div>
+      <div class="stat-label">Hand-offs</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">47</div>
+      <div class="stat-label">Days to Production</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">&#8734;</div>
+      <div class="stat-label">Legacy Systems<br>Supported</div>
+    </div>
+  </section>
+
+  <section class="deployments" id="deployments">
+    <h2>Recent Deployments</h2>
+    <div class="deployment-list">
+      <div class="deployment-row">
+        <div class="deployment-tag">Financial Services</div>
+        <div>
+          <h3>Claims Fraud Triage</h3>
+          <p>Embedded a frontier reasoning model directly into a legacy mainframe claims pipeline.</p>
+        </div>
+        <div class="deployment-metric">62%<span>Faster Review</span></div>
+      </div>
+      <div class="deployment-row">
+        <div class="deployment-tag">Retail / Logistics</div>
+        <div>
+          <h3>Demand Forecast Fusion</h3>
+          <p>Replaced brittle rules engine with an agentic forecasting layer wired into SAP.</p>
+        </div>
+        <div class="deployment-metric">$4.1M<span>Inventory Saved</span></div>
+      </div>
+      <div class="deployment-row">
+        <div class="deployment-tag">Healthcare</div>
+        <div>
+          <h3>Clinical Intake Copilot</h3>
+          <p>Hardened a HIPAA-safe deployment across three hospital networks in six weeks.</p>
+        </div>
+        <div class="deployment-metric">6wk<span>To Production</span></div>
+      </div>
+      <div class="deployment-row">
+        <div class="deployment-tag">Manufacturing</div>
+        <div>
+          <h3>Predictive Maintenance Grid</h3>
+          <p>Fused sensor telemetry with a frontier model for real-time failure prediction.</p>
+        </div>
+        <div class="deployment-metric">91%<span>Uptime Gain</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider" style="border-color: var(--white); margin: 0;"></div>
+
+  <section class="testimonials">
+    <h2>What Engineers Say</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <p class="testimonial-quote">They didn't act like consultants. They acted like our own staff engineers, on call, in our repo, at 2am during the cutover.</p>
+        <div class="testimonial-author">VP of Engineering<span>Fortune 500 Insurer</span></div>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-quote">We had two failed vendor attempts before this team. They found the actual bottleneck in a week and fixed it in a month.</p>
+        <div class="testimonial-author">Head of Data Platform<span>National Retail Chain</span></div>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-quote">The hand-off was the best part. They trained our team so well we haven't needed to call them back once.</p>
+        <div class="testimonial-author">CTO<span>Regional Healthcare Network</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <section class="pricing" id="pricing">
+    <h2>Engagement Tiers</h2>
+    <p>We price for outcomes, not hours. Every engagement ends in a working system in production, not a slide deck.</p>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-card-tag">Sprint</div>
+        <div class="price-value">Fixed<span> / scoped</span></div>
+        <h3>Recon &amp; Roadmap</h3>
+        <ul>
+          <li>2-week embedded assessment</li>
+          <li>Data landscape mapping</li>
+          <li>ROI-ranked opportunity list</li>
+          <li>Go/no-go deployment plan</li>
+        </ul>
+        <a href="#contact" class="price-cta">Book a Sprint</a>
+      </div>
+      <div class="price-card featured">
+        <div class="price-card-tag">Most Common</div>
+        <div class="price-value">Outcome<span> / based</span></div>
+        <h3>Full Deployment</h3>
+        <ul>
+          <li>Embedded engineers on-site or remote</li>
+          <li>Model fusion into legacy systems</li>
+          <li>Adversarial hardening &amp; security testing</li>
+          <li>Paid on shipped production milestones</li>
+        </ul>
+        <a href="#contact" class="price-cta">Start Deploying</a>
+      </div>
+      <div class="price-card">
+        <div class="price-card-tag">Retainer</div>
+        <div class="price-value">Monthly<span> / flexible</span></div>
+        <h3>Own &amp; Evolve</h3>
+        <ul>
+          <li>Team training and internal hand-off</li>
+          <li>On-call for production incidents</li>
+          <li>Continuous model/version upgrades</li>
+          <li>Cancel anytime after hand-off</li>
+        </ul>
+        <a href="#contact" class="price-cta">Talk to Us</a>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <p>stage-x.space</p>
+    <div class="footer-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Contact</a>
+    </div>
+  </footer>
+
+</body>
+</html>
