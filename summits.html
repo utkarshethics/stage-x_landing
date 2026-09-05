@@ -269,102 +269,231 @@
       background: var(--black);
     }
 
-    .summit-list {
+    .calendar-phase-section {
+      margin-top: 4rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--border-dark);
+    }
+
+    .calendar-phase-section:first-of-type {
+      margin-top: 2.5rem;
+      padding-top: 0;
+      border-top: none;
+    }
+
+    .phase-header {
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .phase-title-group {
+      max-width: 720px;
+    }
+
+    .phase-badge {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #777;
+      display: inline-block;
+      margin-bottom: 0.4rem;
+    }
+
+    .phase-title {
+      font-size: 1.6rem;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 0.4rem;
+    }
+
+    .phase-desc {
+      font-size: 0.95rem;
+      color: #999;
+      line-height: 1.5;
+    }
+
+    .phase-region-pill {
+      border: 1px solid #333;
+      background: #111;
+      padding: 0.4rem 0.9rem;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #ccc;
+    }
+
+    .summit-horizontal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
     }
 
-    .summit-item {
+    .summit-card-box {
       border: 1px solid var(--border-dark);
       background: var(--card-bg);
-      padding: 3rem;
-      display: grid;
-      grid-template-columns: 280px 1fr auto;
-      gap: 3rem;
-      align-items: center;
-      transition: border-color 0.2s ease;
+      padding: 2.25rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.2s ease, transform 0.2s ease;
     }
 
-    .summit-item:hover {
+    .summit-card-box:hover {
       border-color: #555;
+      transform: translateY(-2px);
     }
 
-    .summit-date-col {
-      border-right: 1px solid var(--border-dark);
-      padding-right: 2rem;
+    .summit-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid #1a1a1a;
     }
 
-    .summit-quarter {
-      font-size: 0.8rem;
+    .summit-quarter-tag {
+      font-size: 0.75rem;
       font-weight: 800;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: #777;
-      margin-bottom: 0.5rem;
+      color: #888;
     }
 
-    .summit-city {
-      font-size: 2rem;
+    .summit-status-badge {
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #888;
+    }
+
+    .summit-status-badge.live {
+      color: #00ff66;
+    }
+
+    .summit-card-city {
+      font-size: 1.85rem;
       font-weight: 900;
       letter-spacing: -1px;
       text-transform: uppercase;
       color: var(--white);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.35rem;
     }
 
-    .summit-exact-date {
-      font-size: 0.9rem;
+    .summit-card-date {
+      font-size: 0.85rem;
       font-weight: 600;
       color: var(--light-gray);
-    }
-
-    .summit-detail-col h4 {
-      font-size: 1.35rem;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      margin-bottom: 0.75rem;
-      color: var(--white);
-    }
-
-    .summit-detail-col p {
-      font-size: 0.95rem;
-      color: #999;
-      line-height: 1.6;
       margin-bottom: 1.25rem;
-      max-width: 650px;
     }
 
-    .summit-meta-tags {
+    .summit-card-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      margin-bottom: 0.85rem;
+      line-height: 1.4;
+    }
+
+    .summit-card-title a {
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .summit-card-title a:hover {
+      color: #aaa;
+    }
+
+    .summit-card-desc {
+      font-size: 0.9rem;
+      color: #999;
+      line-height: 1.55;
+      margin-bottom: 1.5rem;
+    }
+
+    .summit-card-tags {
       display: flex;
-      gap: 0.75rem;
+      gap: 0.5rem;
       flex-wrap: wrap;
+      margin-bottom: 1.75rem;
     }
 
-    .summit-tag {
-      background: #151515;
-      border: 1px solid #333;
-      padding: 0.25rem 0.75rem;
-      font-size: 0.75rem;
+    .summit-card-tag {
+      background: #141414;
+      border: 1px solid #282828;
+      padding: 0.25rem 0.6rem;
+      font-size: 0.7rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
       color: #ccc;
     }
 
-    .summit-action-col {
+    .summit-card-footer {
+      margin-top: auto;
+      padding-top: 1.5rem;
+      border-top: 1px solid #1a1a1a;
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
-      gap: 1rem;
+      gap: 0.85rem;
     }
 
-    .summit-status {
-      font-size: 0.75rem;
+    .summit-card-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: var(--white);
+      color: var(--black);
+      padding: 0.85rem 1rem;
+      font-size: 0.8rem;
       font-weight: 800;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
+      text-decoration: none;
       text-transform: uppercase;
-      color: #00ff66;
+      transition: background 0.2s ease;
+    }
+
+    .summit-card-btn:hover {
+      background: #ccc;
+    }
+
+    .summit-card-platforms {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: #666;
+    }
+
+    .summit-card-platforms a {
+      color: #888;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .summit-card-platforms a:hover {
+      color: var(--white);
+    }
+
+    .summit-card-platforms svg {
+      width: 12px;
+      height: 12px;
+      fill: currentColor;
     }
 
     /* AGENDA TEARDOWNS */
@@ -584,16 +713,309 @@
       border-bottom: 1px solid var(--white);
     }
 
+    /* PLATFORM LISTINGS & BADGES */
+    .hero-platforms-bar {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+      padding-top: 1.75rem;
+      border-top: 1px solid #222;
+    }
+
+    .hero-platforms-label {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #777;
+    }
+
+    .platform-pill-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: #111;
+      border: 1px solid #333;
+      padding: 0.5rem 1rem;
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+    }
+
+    .platform-pill-link:hover {
+      background: #1c1c1c;
+      border-color: var(--white);
+      color: var(--white);
+      transform: translateY(-1px);
+    }
+
+    .platform-pill-icon {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    .hero-platforms-note {
+      font-size: 0.75rem;
+      color: #666;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* SECTION PLATFORMS / MULTI-CHANNEL REGISTRATION */
+    .section-platforms {
+      padding: 6rem 10%;
+      border-bottom: 1px solid var(--border-dark);
+      background: #070707;
+    }
+
+    .platforms-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .platform-feature-card {
+      border: 1px solid var(--border-dark);
+      background: var(--card-bg);
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.2s ease;
+    }
+
+    .platform-feature-card:hover {
+      border-color: #555;
+    }
+
+    .platform-feature-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .platform-feature-brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .platform-feature-brand svg {
+      width: 28px;
+      height: 28px;
+      fill: var(--white);
+      flex-shrink: 0;
+    }
+
+    .platform-feature-brand h3 {
+      font-size: 1.5rem;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin: 0;
+    }
+
+    .platform-type-tag {
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 0.35rem 0.75rem;
+      background: #141414;
+      border: 1px solid #333;
+      color: #aaa;
+      white-space: nowrap;
+    }
+
+    .platform-feature-desc {
+      font-size: 0.95rem;
+      color: #aaa;
+      line-height: 1.65;
+      margin-bottom: 2rem;
+    }
+
+    .platform-bullet-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 2.5rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .platform-bullet-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.85rem;
+      color: #ccc;
+      font-weight: 500;
+    }
+
+    .platform-bullet-list li::before {
+      content: "—";
+      color: #666;
+      font-weight: 800;
+    }
+
+    .platform-action-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      background: #111;
+      border: 1px solid #444;
+      color: var(--white);
+      padding: 1rem 1.75rem;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+      width: fit-content;
+    }
+
+    .platform-action-link:hover {
+      background: var(--white);
+      color: var(--black);
+      border-color: var(--white);
+    }
+
+    /* CALENDAR ITEM PLATFORM CHIPS */
+    .summit-platform-links {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: #666;
+      margin-top: 0.35rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .summit-platform-links a {
+      color: #888;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .summit-platform-links a:hover {
+      color: var(--white);
+    }
+
+    .summit-platform-links svg {
+      width: 12px;
+      height: 12px;
+      fill: currentColor;
+    }
+
+    /* INVITE FORM DIRECT REGISTRATION CALLOUT */
+    .invite-platforms-callout {
+      border: 1px solid #333;
+      background: #0f0f0f;
+      padding: 2.25rem;
+      margin-bottom: 2.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .callout-content h4 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin: 0.35rem 0;
+    }
+
+    .callout-content p {
+      font-size: 0.9rem;
+      color: #888;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .callout-tag {
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #00ff66;
+    }
+
+    .callout-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .callout-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: #000;
+      border: 1px solid #444;
+      color: var(--white);
+      padding: 0.85rem 1.4rem;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.75px;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+    }
+
+    .callout-btn:hover {
+      background: var(--white);
+      color: var(--black);
+      border-color: var(--white);
+    }
+
+    .callout-btn svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+
     /* RESPONSIVE */
+    @media (max-width: 1100px) {
+      .summit-horizontal-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
     @media (max-width: 900px) {
       .protocol-grid,
       .tracks-grid,
-      .cohort-names {
+      .cohort-names,
+      .platforms-grid,
+      .summit-horizontal-grid {
         grid-template-columns: 1fr;
       }
-      .summit-item {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+      .phase-header {
+        flex-direction: column;
+        align-items: flex-start;
       }
       .summit-date-col {
         border-right: none;
@@ -602,6 +1024,13 @@
         padding-bottom: 1rem;
       }
       .summit-action-col {
+        align-items: flex-start;
+      }
+      .summit-platform-links {
+        justify-content: flex-start;
+      }
+      .invite-platforms-callout {
+        flex-direction: column;
         align-items: flex-start;
       }
       .form-row {
@@ -650,6 +1079,18 @@
         <a href="#request-invite" class="btn-primary">Request Invitation</a>
         <a href="#calendar" class="btn-secondary">2026&ndash;2027 Calendar</a>
       </div>
+      <div class="hero-platforms-bar">
+        <span class="hero-platforms-label">Listed &amp; Verified On:</span>
+        <a href="https://lu.ma" target="_blank" rel="noopener" class="platform-pill-link" title="Stage-X Summits on Lu.ma">
+          <svg class="platform-pill-icon" viewBox="0 0 133 134" aria-hidden="true"><path d="M133 67C96.282 67 66.5 36.994 66.5 0c0 36.994-29.782 67-66.5 67 36.718 0 66.5 30.006 66.5 67 0-36.994 29.782-67 66.5-67z"/></svg>
+          <span>Lu.ma</span>
+        </a>
+        <a href="https://www.eventbrite.com" target="_blank" rel="noopener" class="platform-pill-link" title="Stage-X Summits on Eventbrite">
+          <svg class="platform-pill-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.542 5.81c2.653-.6 5.3.487 6.775 2.54L5.591 11c.405-2.479 2.298-4.591 4.951-5.19zm6.84 9.746a6.47 6.47 0 0 1-3.919 2.634c-2.67.604-5.335-.501-6.804-2.582l11.763-2.657 1.915-.433L24 11.691a11.57 11.57 0 0 0-.305-2.333C22.205 3.04 15.76-.9 9.303.558 2.846 2.017-1.18 8.322.31 14.642c1.491 6.319 7.935 10.259 14.392 8.8 3.805-.86 6.765-3.402 8.25-6.638z"/></svg>
+          <span>Eventbrite</span>
+        </a>
+        <span class="hero-platforms-note">&bull; Direct RSVP &bull; Corporate PO &bull; Calendar Sync</span>
+      </div>
     </div>
   </header>
 
@@ -681,88 +1122,458 @@
       </div>
     </div>
   </section>
+ 
+  <!-- CROSS-PLATFORM AVAILABILITY -->
+  <section class="section-platforms" id="platforms">
+    <div class="section-tag">Cross-Platform Availability</div>
+    <h2 class="section-title">Official Listing &amp; Verification Channels</h2>
+    <div class="platforms-grid">
+      <div class="platform-feature-card">
+        <div>
+          <div class="platform-feature-header">
+            <div class="platform-feature-brand">
+              <svg viewBox="0 0 133 134" aria-hidden="true"><path d="M133 67C96.282 67 66.5 36.994 66.5 0c0 36.994-29.782 67-66.5 67 36.718 0 66.5 30.006 66.5 67 0-36.994 29.782-67 66.5-67z"/></svg>
+              <h3>Lu.ma</h3>
+            </div>
+            <span class="platform-type-tag">Executive Calendar &bull; Mobile Passes</span>
+          </div>
+          <p class="platform-feature-desc">
+            Direct RSVP synchronization for executive guests. Automated integration with Google Calendar, Outlook 365, and Apple Wallet. Private peer guest directories vetted under Chatham House Rule credentials.
+          </p>
+          <ul class="platform-bullet-list">
+            <li>Instant Calendar Hold &bull; Direct Google &amp; Outlook .ics Sync</li>
+            <li>Confidential Guest List Verification &bull; No Public Scraping</li>
+            <li>Direct Executive Mobile Pass QR &bull; On-Site Biometric Check-in</li>
+          </ul>
+        </div>
+        <a href="https://lu.ma" target="_blank" rel="noopener" class="platform-action-link">
+          <span>View Summits on Lu.ma</span>
+          <span>&rarr;</span>
+        </a>
+      </div>
+
+      <div class="platform-feature-card">
+        <div>
+          <div class="platform-feature-header">
+            <div class="platform-feature-brand">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.542 5.81c2.653-.6 5.3.487 6.775 2.54L5.591 11c.405-2.479 2.298-4.591 4.951-5.19zm6.84 9.746a6.47 6.47 0 0 1-3.919 2.634c-2.67.604-5.335-.501-6.804-2.582l11.763-2.657 1.915-.433L24 11.691a11.57 11.57 0 0 0-.305-2.333C22.205 3.04 15.76-.9 9.303.558 2.846 2.017-1.18 8.322.31 14.642c1.491 6.319 7.935 10.259 14.392 8.8 3.805-.86 6.765-3.402 8.25-6.638z"/></svg>
+              <h3>Eventbrite</h3>
+            </div>
+            <span class="platform-type-tag">Corporate Procurement &bull; Invoicing &bull; PO</span>
+          </div>
+          <p class="platform-feature-desc">
+            Institutional purchasing pathways for enterprise organizations, public sector entities, and defense contractors. Streamlined vendor compliance, Net 30 corporate PO invoicing, and centralized expense auditing.
+          </p>
+          <ul class="platform-bullet-list">
+            <li>Enterprise PO &amp; Institutional Invoicing Compliance</li>
+            <li>Multi-Seat Enterprise Delegation &amp; Group Billing Passes</li>
+            <li>Centralized Tax Receipting &amp; W-9 / Vendor Packets</li>
+          </ul>
+        </div>
+        <a href="https://www.eventbrite.com" target="_blank" rel="noopener" class="platform-action-link">
+          <span>View Summits on Eventbrite</span>
+          <span>&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
 
   <!-- CALENDAR -->
   <section class="section-calendar" id="calendar">
     <div class="section-tag">Global Schedule</div>
     <h2 class="section-title">2026&ndash;2027 Summit Calendar</h2>
-    <div class="summit-list">
+    <p style="color: #888; max-width: 720px; font-size: 1.05rem; line-height: 1.6; margin-bottom: 3rem;">
+      Nine invitation-only technical roundtables convened across three international circuits. Strict 40-seat limits, peer-vetted VP/CTO cohorts, and binding Chatham House Rule confidentiality.
+    </p>
 
-      <!-- SF SUMMIT -->
-      <div class="summit-item">
-        <div class="summit-date-col">
-          <div class="summit-quarter">Q2 2026</div>
-          <div class="summit-city">San Francisco</div>
-          <div class="summit-exact-date">June 18&ndash;19, 2026 &bull; The Presidio</div>
+    <!-- SECTION 1: NORTH AMERICAN FRONTIER -->
+    <div class="calendar-phase-section" id="phase-na">
+      <div class="phase-header">
+        <div class="phase-title-group">
+          <span class="phase-badge">Circuit Phase 01 &bull; Q2&ndash;Q3 2026</span>
+          <h3 class="phase-title">North American Frontier</h3>
+          <p class="phase-desc">Air-gapped defense architectures, sub-millisecond financial telemetry, and bio-pharma physical robotics.</p>
         </div>
-        <div class="summit-detail-col">
-          <h4>Air-Gapped Frontier Model Orchestration &amp; Sovereign Weights</h4>
-          <p>
-            Examining isolated on-premises deployments of 70B+ and MoE frontier models in classified, defense, and sovereign enterprise environments without cloud connectivity.
-          </p>
-          <div class="summit-meta-tags">
-            <span class="summit-tag">Air-Gapped Inference</span>
-            <span class="summit-tag">Zero-Trust VPC</span>
-            <span class="summit-tag">Defense &amp; Deep Tech</span>
-            <span class="summit-tag">40 Seats</span>
+        <div class="phase-region-pill">3 Summits &bull; 120 Total Seats</div>
+      </div>
+      <div class="summit-horizontal-grid">
+        <!-- SF CARD -->
+        <div class="summit-card-box">
+          <div>
+            <div class="summit-card-top">
+              <span class="summit-quarter-tag">Q2 2026</span>
+              <span class="summit-status-badge live">&bull; 12 Seats Left</span>
+            </div>
+            <div class="summit-card-city">San Francisco</div>
+            <div class="summit-card-date">June 18&ndash;19, 2026 &bull; The Presidio</div>
+            <h4 class="summit-card-title">
+              <a href="events/sf-2026.html">Air-Gapped Frontier Model Orchestration &amp; Sovereign Weights</a>
+            </h4>
+            <p class="summit-card-desc">
+              Examining isolated on-premises deployments of 70B+ and MoE frontier models in classified, defense, and sovereign enterprise environments without cloud connectivity.
+            </p>
+            <div class="summit-card-tags">
+              <span class="summit-card-tag">Air-Gapped</span>
+              <span class="summit-card-tag">Zero-Trust VPC</span>
+              <span class="summit-card-tag">Defense Tech</span>
+              <span class="summit-card-tag">40 Seats</span>
+            </div>
+          </div>
+          <div class="summit-card-footer">
+            <a href="events/sf-2026.html" class="summit-card-btn">View Summit Details &rarr;</a>
+            <div class="summit-card-platforms">
+              <span>Verified RSVP:</span>
+              <a href="https://lu.ma" target="_blank" rel="noopener" title="RSVP on Lu.ma">
+                <svg viewBox="0 0 133 134"><path d="M133 67C96.282 67 66.5 36.994 66.5 0c0 36.994-29.782 67-66.5 67 36.718 0 66.5 30.006 66.5 67 0-36.994 29.782-67 66.5-67z"/></svg>
+                <span>Lu.ma</span>
+              </a>
+              <span>&bull;</span>
+              <a href="https://www.eventbrite.com" target="_blank" rel="noopener" title="Register on Eventbrite">
+                <svg viewBox="0 0 24 24"><path d="M10.542 5.81c2.653-.6 5.3.487 6.775 2.54L5.591 11c.405-2.479 2.298-4.591 4.951-5.19zm6.84 9.746a6.47 6.47 0 0 1-3.919 2.634c-2.67.604-5.335-.501-6.804-2.582l11.763-2.657 1.915-.433L24 11.691a11.57 11.57 0 0 0-.305-2.333C22.205 3.04 15.76-.9 9.303.558 2.846 2.017-1.18 8.322.31 14.642c1.491 6.319 7.935 10.259 14.392 8.8 3.805-.86 6.765-3.402 8.25-6.638z"/></svg>
+                <span>Eventbrite</span>
+              </a>
+            </div>
           </div>
         </div>
-        <div class="summit-action-col">
-          <span class="summit-status">&bull; 12 Seats Remaining</span>
-          <a href="#request-invite" class="btn-primary" style="padding: 0.8rem 1.5rem; font-size: 0.8rem;">Apply For Seat</a>
-        </div>
-      </div>
 
-      <!-- NYC SUMMIT -->
-      <div class="summit-item">
-        <div class="summit-date-col">
-          <div class="summit-quarter">Q3 2026</div>
-          <div class="summit-city">New York</div>
-          <div class="summit-exact-date">September 24&ndash;25, 2026 &bull; Hudson Yards</div>
-        </div>
-        <div class="summit-detail-col">
-          <h4>Deterministic Latency &amp; High-Throughput Energy / Financial Inference</h4>
-          <p>
-            Architecture teardowns of sub-50ms TTFT under extreme concurrent load. Integration patterns across legacy SCADA, power grids (Con Edison, Shell), and institutional trading systems.
-          </p>
-          <div class="summit-meta-tags">
-            <span class="summit-tag">Sub-50ms TTFT</span>
-            <span class="summit-tag">Grid Telemetry</span>
-            <span class="summit-tag">Institutional Scale</span>
-            <span class="summit-tag">40 Seats</span>
+        <!-- NYC CARD -->
+        <div class="summit-card-box">
+          <div>
+            <div class="summit-card-top">
+              <span class="summit-quarter-tag">Q3 2026</span>
+              <span class="summit-status-badge">&bull; Applications Open</span>
+            </div>
+            <div class="summit-card-city">New York</div>
+            <div class="summit-card-date">September 24&ndash;25, 2026 &bull; Hudson Yards</div>
+            <h4 class="summit-card-title">
+              <a href="events/nyc-2026.html">Deterministic Latency &amp; High-Throughput Energy / Financial Inference</a>
+            </h4>
+            <p class="summit-card-desc">
+              Architecture teardowns of sub-50ms TTFT under extreme concurrent load. Integration patterns across legacy SCADA, power grids (Con Edison, Shell), and institutional trading systems.
+            </p>
+            <div class="summit-card-tags">
+              <span class="summit-card-tag">Sub-50ms TTFT</span>
+              <span class="summit-card-tag">Grid Telemetry</span>
+              <span class="summit-card-tag">Trading Infra</span>
+              <span class="summit-card-tag">40 Seats</span>
+            </div>
+          </div>
+          <div class="summit-card-footer">
+            <a href="events/nyc-2026.html" class="summit-card-btn">View Summit Details &rarr;</a>
+            <div class="summit-card-platforms">
+              <span>Verified RSVP:</span>
+              <a href="https://lu.ma" target="_blank" rel="noopener" title="RSVP on Lu.ma">
+                <svg viewBox="0 0 133 134"><path d="M133 67C96.282 67 66.5 36.994 66.5 0c0 36.994-29.782 67-66.5 67 36.718 0 66.5 30.006 66.5 67 0-36.994 29.782-67 66.5-67z"/></svg>
+                <span>Lu.ma</span>
+              </a>
+              <span>&bull;</span>
+              <a href="https://www.eventbrite.com" target="_blank" rel="noopener" title="Register on Eventbrite">
+                <svg viewBox="0 0 24 24"><path d="M10.542 5.81c2.653-.6 5.3.487 6.775 2.54L5.591 11c.405-2.479 2.298-4.591 4.951-5.19zm6.84 9.746a6.47 6.47 0 0 1-3.919 2.634c-2.67.604-5.335-.501-6.804-2.582l11.763-2.657 1.915-.433L24 11.691a11.57 11.57 0 0 0-.305-2.333C22.205 3.04 15.76-.9 9.303.558 2.846 2.017-1.18 8.322.31 14.642c1.491 6.319 7.935 10.259 14.392 8.8 3.805-.86 6.765-3.402 8.25-6.638z"/></svg>
+                <span>Eventbrite</span>
+              </a>
+            </div>
           </div>
         </div>
-        <div class="summit-action-col">
-          <span class="summit-status" style="color: #aaa;">&bull; Applications Open</span>
-          <a href="#request-invite" class="btn-primary" style="padding: 0.8rem 1.5rem; font-size: 0.8rem;">Apply For Seat</a>
-        </div>
-      </div>
 
-      <!-- LONDON SUMMIT -->
-      <div class="summit-item">
-        <div class="summit-date-col">
-          <div class="summit-quarter">Q4 2026</div>
-          <div class="summit-city">London</div>
-          <div class="summit-exact-date">November 12&ndash;13, 2026 &bull; Canary Wharf</div>
-        </div>
-        <div class="summit-detail-col">
-          <h4>EU AI Act Compliance, Data Sovereignty &amp; Heavy Industrial Edge</h4>
-          <p>
-            Deploying frontier models directly onto industrial plant hardware and edge compute clusters (Holcim, Baker Hughes) with strict immutable audit trails and zero data egress.
-          </p>
-          <div class="summit-meta-tags">
-            <span class="summit-tag">EU AI Act</span>
-            <span class="summit-tag">Industrial Edge</span>
-            <span class="summit-tag">Immutable Auditing</span>
-            <span class="summit-tag">40 Seats</span>
+        <!-- BOSTON CARD -->
+        <div class="summit-card-box">
+          <div>
+            <div class="summit-card-top">
+              <span class="summit-quarter-tag">Q4 2026</span>
+              <span class="summit-status-badge">&bull; Applications Open</span>
+            </div>
+            <div class="summit-card-city">Boston</div>
+            <div class="summit-card-date">October 15&ndash;16, 2026 &bull; Kendall Square</div>
+            <h4 class="summit-card-title">
+              <a href="events/boston-2026.html">Frontier Deep Tech, Bio-Pharma Reasoning &amp; Physical AI Robotics</a>
+            </h4>
+            <p class="summit-card-desc">
+              Deploying multimodal frontier models in regulated biomedical research, high-throughput automated laboratory discovery, and real-time physical robotics control loops.
+            </p>
+            <div class="summit-card-tags">
+              <span class="summit-card-tag">Bio-Pharma</span>
+              <span class="summit-card-tag">FDA 21 CFR 11</span>
+              <span class="summit-card-tag">Physical AI</span>
+              <span class="summit-card-tag">40 Seats</span>
+            </div>
+          </div>
+          <div class="summit-card-footer">
+            <a href="events/boston-2026.html" class="summit-card-btn">View Summit Details &rarr;</a>
+            <div class="summit-card-platforms">
+              <span>Verified RSVP:</span>
+              <a href="https://lu.ma" target="_blank" rel="noopener" title="RSVP on Lu.ma">
+                <svg viewBox="0 0 133 134"><path d="M133 67C96.282 67 66.5 36.994 66.5 0c0 36.994-29.782 67-66.5 67 36.718 0 66.5 30.006 66.5 67 0-36.994 29.782-67 66.5-67z"/></svg>
+                <span>Lu.ma</span>
+              </a>
+              <span>&bull;</span>
+              <a href="https://www.eventbrite.com" target="_blank" rel="noopener" title="Register on Eventbrite">
+                <svg viewBox="0 0 24 24"><path d="M10.542 5.81c2.653-.6 5.3.487 6.775 2.54L5.591 11c.405-2.479 2.298-4.591 4.951-5.19zm6.84 9.746a6.47 6.47 0 0 1-3.919 2.634c-2.67.604-5.335-.501-6.804-2.582l11.763-2.657 1.915-.433L24 11.691a11.57 11.57 0 0 0-.305-2.333C22.205 3.04 15.76-.9 9.303.558 2.846 2.017-1.18 8.322.31 14.642c1.491 6.319 7.935 10.259 14.392 8.8 3.805-.86 6.765-3.402 8.25-6.638z"/></svg>
+                <span>Eventbrite</span>
+              </a>
+            </div>
           </div>
         </div>
-        <div class="summit-action-col">
-          <span class="summit-status" style="color: #aaa;">&bull; Applications Open</span>
-          <a href="#request-invite" class="btn-primary" style="padding: 0.8rem 1.5rem; font-size: 0.8rem;">Apply For Seat</a>
+      </div>
+    </div>
+
+    <!-- SECTION 2: TRANSATLANTIC & EUROPEAN CORRIDOR -->
+    <div class="calendar-phase-section" id="phase-eu">
+      <div class="phase-header">
+        <div class="phase-title-group">
+          <span class="phase-badge">Circuit Phase 02 &bull; Q4 2026</span>
+          <h3 class="phase-title">Transatlantic &amp; European Corridor</h3>
+          <p class="phase-desc">Cross-border sovereign data mesh, EU AI Act compliance pipelines, and automotive SCADA automation.</p>
+        </div>
+        <div class="phase-region-pill">3 Summits &bull; 120 Total Seats</div>
+      </div>
+      <div class="summit-horizontal-grid">
+        <!-- TORONTO CARD -->
+        <div class="summit-card-box">
+          <div>
+            <div class="summit-card-top">
+              <span class="summit-quarter-tag">Q4 2026</span>
+              <span class="summit-status-badge">&bull; Applications Open</span>
+            </div>
+            <div class="summit-card-city">Toronto</div>
+            <div class="summit-card-date">November 5&ndash;6, 2026 &bull; MaRS Discovery District</div>
+            <h4 class="summit-card-title">
+              <a href="events/toronto-2026.html">Cross-Border Enterprise Compute &amp; Sovereign North American Mesh</a>
+            </h4>
+            <p class="summit-card-desc">
+              Architectural topologies for multi-national financial institutions navigating cross-border data sovereignty, PIPEDA / SOC2 boundaries, and distributed hybrid inference.
+            </p>
+            <div class="summit-card-tags">
+              <span class="summit-card-tag">PIPEDA</span>
+              <span class="summit-card-tag">Hybrid Mesh</span>
+              <span class="summit-card-tag">Banking Core</span>
+              <span class="summit-card-tag">40 Seats</span>
+            </div>
+          </div>
+          <div class="summit-card-footer">
+            <a href="events/toronto-2026.html" class="summit-card-btn">View Summit Details &rarr;</a>
+            <div class="summit-card-platforms">
+              <span>Verified RSVP:</span>
+              <a href="https://lu.ma" target="_blank" rel="noopener" title="RSVP on Lu.ma">
+                <svg viewBox="0 0 133 134"><path d="M133 67C96.282 67 66.5 36.994 66.5 0c0 36.994-29.782 67-66.5 67 36.718 0 66.5 30.006 66.5 67 0-36.994 29.782-67 66.5-67z"/></svg>
+                <span>Lu.ma</span>
+              </a>
+              <span>&bull;</span>
+              <a href="https://www.eventbrite.com" target="_blank" rel="noopener" title="Register on Eventbrite">
+                <svg viewBox="0 0 24 24"><path d="M10.542 5.81c2.653-.6 5.3.487 6.775 2.54L5.591 11c.405-2.479 2.298-4.591 4.951-5.19zm6.84 9.746a6.47 6.47 0 0 1-3.919 2.634c-2.67.604-5.335-.501-6.804-2.582l11.763-2.657 1.915-.433L24 11.691a11.57 11.57 0 0 0-.305-2.333C22.205 3.04 15.76-.9 9.303.558 2.846 2.017-1.18 8.322.31 14.642c1.491 6.319 7.935 10.259 14.392 8.8 3.805-.86 6.765-3.402 8.25-6.638z"/></svg>
+                <span>Eventbrite</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- LONDON CARD -->
+        <div class="summit-card-box">
+          <div>
+            <div class="summit-card-top">
+              <span class="summit-quarter-tag">Q4 2026</span>
+              <span class="summit-status-badge">&bull; Applications Open</span>
+            </div>
+            <div class="summit-card-city">London</div>
+            <div class="summit-card-date">November 19&ndash;20, 2026 &bull; Canary Wharf</div>
+            <h4 class="summit-card-title">
+              <a href="events/london-2026.html">EU AI Act Compliance, Data Sovereignty &amp; Heavy Industrial Edge</a>
+            </h4>
+            <p class="summit-card-desc">
+              Deploying frontier models directly onto industrial plant hardware and edge compute clusters (Holcim, Baker Hughes) with strict immutable audit trails and zero data egress.
+            </p>
+            <div class="summit-card-tags">
+              <span class="summit-card-tag">EU AI Act</span>
+              <span class="summit-card-tag">Industrial Edge</span>
+              <span class="summit-card-tag">Zero Egress</span>
+              <span class="summit-card-tag">40 Seats</span>
+            </div>
+          </div>
+          <div class="summit-card-footer">
+            <a href="events/london-2026.html" class="summit-card-btn">View Summit Details &rarr;</a>
+            <div class="summit-card-platforms">
+              <span>Verified RSVP:</span>
+              <a href="https://lu.ma" target="_blank" rel="noopener" title="RSVP on Lu.ma">
+                <svg viewBox="0 0 133 134"><path d="M133 67C96.282 67 66.5 36.994 66.5 0c0 36.994-29.782 67-66.5 67 36.718 0 66.5 30.006 66.5 67 0-36.994 29.782-67 66.5-67z"/></svg>
+                <span>Lu.ma</span>
+              </a>
+              <span>&bull;</span>
+              <a href="https://www.eventbrite.com" target="_blank" rel="noopener" title="Register on Eventbrite">
+                <svg viewBox="0 0 24 24"><path d="M10.542 5.81c2.653-.6 5.3.487 6.775 2.54L5.591 11c.405-2.479 2.298-4.591 4.951-5.19zm6.84 9.746a6.47 6.47 0 0 1-3.919 2.634c-2.67.604-5.335-.501-6.804-2.582l11.763-2.657 1.915-.433L24 11.691a11.57 11.57 0 0 0-.305-2.333C22.205 3.04 15.76-.9 9.303.558 2.846 2.017-1.18 8.322.31 14.642c1.491 6.319 7.935 10.259 14.392 8.8 3.805-.86 6.765-3.402 8.25-6.638z"/></svg>
+                <span>Eventbrite</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- BERLIN CARD -->
+        <div class="summit-card-box">
+          <div>
+            <div class="summit-card-top">
+              <span class="summit-quarter-tag">Q4 2026</span>
+              <span class="summit-status-badge">&bull; Applications Open</span>
+            </div>
+            <div class="summit-card-city">Berlin</div>
+            <div class="summit-card-date">December 3&ndash;4, 2026 &bull; Factory Berlin</div>
+            <h4 class="summit-card-title">
+              <a href="events/berlin-2026.html">Industrial SCADA Automation, Automotive Edge &amp; Hardware Security</a>
+            </h4>
+            <p class="summit-card-desc">
+              Real-time model inference embedded into automotive assembly lines, robotic manufacturing cells, and safety-critical industrial SCADA controllers.
+            </p>
+            <div class="summit-card-tags">
+              <span class="summit-card-tag">Automotive Edge</span>
+              <span class="summit-card-tag">SCADA RT</span>
+              <span class="summit-card-tag">Safety Controls</span>
+              <span class="summit-card-tag">40 Seats</span>
+            </div>
+          </div>
+          <div class="summit-card-footer">
+            <a href="events/berlin-2026.html" class="summit-card-btn">View Summit Details &rarr;</a>
+            <div class="summit-card-platforms">
+              <span>Verified RSVP:</span>
+              <a href="https://lu.ma" target="_blank" rel="noopener" title="RSVP on Lu.ma">
+                <svg viewBox="0 0 133 134"><path d="M133 67C96.282 67 66.5 36.994 66.5 0c0 36.994-29.782 67-66.5 67 36.718 0 66.5 30.006 66.5 67 0-36.994 29.782-67 66.5-67z"/></svg>
+                <span>Lu.ma</span>
+              </a>
+              <span>&bull;</span>
+              <a href="https://www.eventbrite.com" target="_blank" rel="noopener" title="Register on Eventbrite">
+                <svg viewBox="0 0 24 24"><path d="M10.542 5.81c2.653-.6 5.3.487 6.775 2.54L5.591 11c.405-2.479 2.298-4.591 4.951-5.19zm6.84 9.746a6.47 6.47 0 0 1-3.919 2.634c-2.67.604-5.335-.501-6.804-2.582l11.763-2.657 1.915-.433L24 11.691a11.57 11.57 0 0 0-.305-2.333C22.205 3.04 15.76-.9 9.303.558 2.846 2.017-1.18 8.322.31 14.642c1.491 6.319 7.935 10.259 14.392 8.8 3.805-.86 6.765-3.402 8.25-6.638z"/></svg>
+                <span>Eventbrite</span>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
 
+    <!-- SECTION 3: MIDDLE EAST & ASIA-PACIFIC EXPANSION -->
+    <div class="calendar-phase-section" id="phase-apac">
+      <div class="phase-header">
+        <div class="phase-title-group">
+          <span class="phase-badge">Circuit Phase 03 &bull; Q1 2027</span>
+          <h3 class="phase-title">Middle East &amp; Asia-Pacific Expansion</h3>
+          <p class="phase-desc">National sovereign LLM clusters, hyper-scale real-time transaction gateways, and remote industrial edge fleets.</p>
+        </div>
+        <div class="phase-region-pill">3 Summits &bull; 120 Total Seats</div>
+      </div>
+      <div class="summit-horizontal-grid">
+        <!-- DUBAI CARD -->
+        <div class="summit-card-box">
+          <div>
+            <div class="summit-card-top">
+              <span class="summit-quarter-tag">Q1 2027</span>
+              <span class="summit-status-badge">&bull; Applications Open</span>
+            </div>
+            <div class="summit-card-city">Dubai</div>
+            <div class="summit-card-date">January 21&ndash;22, 2027 &bull; DIFC &amp; Museum of the Future</div>
+            <h4 class="summit-card-title">
+              <a href="events/dubai-2026.html">Sovereign Energy Grids, Upstream Oil &amp; Gas Telemetry &amp; High-Cap Compute</a>
+            </h4>
+            <p class="summit-card-desc">
+              High-density frontier model infrastructure powering remote oil rigs, regional sovereign cloud enclaves, and autonomous desalination &amp; microgrid balancing.
+            </p>
+            <div class="summit-card-tags">
+              <span class="summit-card-tag">Upstream Energy</span>
+              <span class="summit-card-tag">Sovereign Enclave</span>
+              <span class="summit-card-tag">Desalination</span>
+              <span class="summit-card-tag">40 Seats</span>
+            </div>
+          </div>
+          <div class="summit-card-footer">
+            <a href="events/dubai-2026.html" class="summit-card-btn">View Summit Details &rarr;</a>
+            <div class="summit-card-platforms">
+              <span>Verified RSVP:</span>
+              <a href="https://lu.ma" target="_blank" rel="noopener" title="RSVP on Lu.ma">
+                <svg viewBox="0 0 133 134"><path d="M133 67C96.282 67 66.5 36.994 66.5 0c0 36.994-29.782 67-66.5 67 36.718 0 66.5 30.006 66.5 67 0-36.994 29.782-67 66.5-67z"/></svg>
+                <span>Lu.ma</span>
+              </a>
+              <span>&bull;</span>
+              <a href="https://www.eventbrite.com" target="_blank" rel="noopener" title="Register on Eventbrite">
+                <svg viewBox="0 0 24 24"><path d="M10.542 5.81c2.653-.6 5.3.487 6.775 2.54L5.591 11c.405-2.479 2.298-4.591 4.951-5.19zm6.84 9.746a6.47 6.47 0 0 1-3.919 2.634c-2.67.604-5.335-.501-6.804-2.582l11.763-2.657 1.915-.433L24 11.691a11.57 11.57 0 0 0-.305-2.333C22.205 3.04 15.76-.9 9.303.558 2.846 2.017-1.18 8.322.31 14.642c1.491 6.319 7.935 10.259 14.392 8.8 3.805-.86 6.765-3.402 8.25-6.638z"/></svg>
+                <span>Eventbrite</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- MUMBAI CARD -->
+        <div class="summit-card-box">
+          <div>
+            <div class="summit-card-top">
+              <span class="summit-quarter-tag">Q1 2027</span>
+              <span class="summit-status-badge">&bull; Applications Open</span>
+            </div>
+            <div class="summit-card-city">Mumbai</div>
+            <div class="summit-card-date">February 18&ndash;19, 2027 &bull; Jio World Convention Centre</div>
+            <h4 class="summit-card-title">
+              <a href="events/mumbai-2026.html">Hyper-Scale BFSI Transaction Gateways &amp; Sovereign Telecom AI Stacks</a>
+            </h4>
+            <p class="summit-card-desc">
+              High-throughput reasoning architectures handling billions of daily real-time UPI and telecom telemetry transactions with zero downtime and strict domestic data localization.
+            </p>
+            <div class="summit-card-tags">
+              <span class="summit-card-tag">UPI Telemetry</span>
+              <span class="summit-card-tag">RBI Compliance</span>
+              <span class="summit-card-tag">5G Stacks</span>
+              <span class="summit-card-tag">40 Seats</span>
+            </div>
+          </div>
+          <div class="summit-card-footer">
+            <a href="events/mumbai-2026.html" class="summit-card-btn">View Summit Details &rarr;</a>
+            <div class="summit-card-platforms">
+              <span>Verified RSVP:</span>
+              <a href="https://lu.ma" target="_blank" rel="noopener" title="RSVP on Lu.ma">
+                <svg viewBox="0 0 133 134"><path d="M133 67C96.282 67 66.5 36.994 66.5 0c0 36.994-29.782 67-66.5 67 36.718 0 66.5 30.006 66.5 67 0-36.994 29.782-67 66.5-67z"/></svg>
+                <span>Lu.ma</span>
+              </a>
+              <span>&bull;</span>
+              <a href="https://www.eventbrite.com" target="_blank" rel="noopener" title="Register on Eventbrite">
+                <svg viewBox="0 0 24 24"><path d="M10.542 5.81c2.653-.6 5.3.487 6.775 2.54L5.591 11c.405-2.479 2.298-4.591 4.951-5.19zm6.84 9.746a6.47 6.47 0 0 1-3.919 2.634c-2.67.604-5.335-.501-6.804-2.582l11.763-2.657 1.915-.433L24 11.691a11.57 11.57 0 0 0-.305-2.333C22.205 3.04 15.76-.9 9.303.558 2.846 2.017-1.18 8.322.31 14.642c1.491 6.319 7.935 10.259 14.392 8.8 3.805-.86 6.765-3.402 8.25-6.638z"/></svg>
+                <span>Eventbrite</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- MELBOURNE CARD -->
+        <div class="summit-card-box">
+          <div>
+            <div class="summit-card-top">
+              <span class="summit-quarter-tag">Q1 2027</span>
+              <span class="summit-status-badge">&bull; Applications Open</span>
+            </div>
+            <div class="summit-card-city">Melbourne</div>
+            <div class="summit-card-date">March 25&ndash;26, 2027 &bull; MCEC South Wharf</div>
+            <h4 class="summit-card-title">
+              <a href="events/melbourne-2026.html">Autonomous Heavy Mining Fleets, Natural Resources &amp; Remote Edge Compute</a>
+            </h4>
+            <p class="summit-card-desc">
+              Ruggedized edge AI compute powering autonomous haulage trucks, sub-surface seismic exploration models, and isolated mine site orchestration.
+            </p>
+            <div class="summit-card-tags">
+              <span class="summit-card-tag">Autonomous Fleets</span>
+              <span class="summit-card-tag">Seismic Models</span>
+              <span class="summit-card-tag">Mining AI</span>
+              <span class="summit-card-tag">40 Seats</span>
+            </div>
+          </div>
+          <div class="summit-card-footer">
+            <a href="events/melbourne-2026.html" class="summit-card-btn">View Summit Details &rarr;</a>
+            <div class="summit-card-platforms">
+              <span>Verified RSVP:</span>
+              <a href="https://lu.ma" target="_blank" rel="noopener" title="RSVP on Lu.ma">
+                <svg viewBox="0 0 133 134"><path d="M133 67C96.282 67 66.5 36.994 66.5 0c0 36.994-29.782 67-66.5 67 36.718 0 66.5 30.006 66.5 67 0-36.994 29.782-67 66.5-67z"/></svg>
+                <span>Lu.ma</span>
+              </a>
+              <span>&bull;</span>
+              <a href="https://www.eventbrite.com" target="_blank" rel="noopener" title="Register on Eventbrite">
+                <svg viewBox="0 0 24 24"><path d="M10.542 5.81c2.653-.6 5.3.487 6.775 2.54L5.591 11c.405-2.479 2.298-4.591 4.951-5.19zm6.84 9.746a6.47 6.47 0 0 1-3.919 2.634c-2.67.604-5.335-.501-6.804-2.582l11.763-2.657 1.915-.433L24 11.691a11.57 11.57 0 0 0-.305-2.333C22.205 3.04 15.76-.9 9.303.558 2.846 2.017-1.18 8.322.31 14.642c1.491 6.319 7.935 10.259 14.392 8.8 3.805-.86 6.765-3.402 8.25-6.638z"/></svg>
+                <span>Eventbrite</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -885,6 +1696,24 @@
         Invitations are strictly non-transferable and subject to peer committee verification. Please use your corporate or government executive email.
       </p>
 
+      <div class="invite-platforms-callout">
+        <div class="callout-content">
+          <span class="callout-tag">Procurement &amp; Calendar Options</span>
+          <h4>Prefer Direct Registration on Lu.ma or Eventbrite?</h4>
+          <p>For corporate purchasing orders, institutional invoicing, or 1-click calendar reservation, access verified listings directly:</p>
+        </div>
+        <div class="callout-buttons">
+          <a href="https://lu.ma" target="_blank" rel="noopener" class="callout-btn">
+            <svg viewBox="0 0 133 134"><path d="M133 67C96.282 67 66.5 36.994 66.5 0c0 36.994-29.782 67-66.5 67 36.718 0 66.5 30.006 66.5 67 0-36.994 29.782-67 66.5-67z"/></svg>
+            <span>RSVP via Lu.ma</span>
+          </a>
+          <a href="https://www.eventbrite.com" target="_blank" rel="noopener" class="callout-btn">
+            <svg viewBox="0 0 24 24"><path d="M10.542 5.81c2.653-.6 5.3.487 6.775 2.54L5.591 11c.405-2.479 2.298-4.591 4.951-5.19zm6.84 9.746a6.47 6.47 0 0 1-3.919 2.634c-2.67.604-5.335-.501-6.804-2.582l11.763-2.657 1.915-.433L24 11.691a11.57 11.57 0 0 0-.305-2.333C22.205 3.04 15.76-.9 9.303.558 2.846 2.017-1.18 8.322.31 14.642c1.491 6.319 7.935 10.259 14.392 8.8 3.805-.86 6.765-3.402 8.25-6.638z"/></svg>
+            <span>Procure on Eventbrite</span>
+          </a>
+        </div>
+      </div>
+
       <form class="invite-form" onsubmit="event.preventDefault(); alert('Invitation request received. The committee reviews applications on a rolling basis under NDA.');">
         <div class="form-row">
           <div class="form-field">
@@ -915,7 +1744,13 @@
               <option value="" disabled selected>Select location &amp; date</option>
               <option value="sf">San Francisco &bull; June 18-19, 2026 (Air-Gapped &amp; Sovereign)</option>
               <option value="nyc">New York &bull; September 24-25, 2026 (Latency &amp; Critical Infra)</option>
-              <option value="london">London &bull; November 12-13, 2026 (EU AI Act &amp; Heavy Industrial)</option>
+              <option value="boston">Boston &bull; October 15-16, 2026 (Bio-ML &amp; Autonomous Robotics)</option>
+              <option value="toronto">Toronto &bull; November 5-6, 2026 (Vector Search &amp; Distributed Training)</option>
+              <option value="london">London &bull; November 19-20, 2026 (EU AI Act &amp; Heavy Industrial)</option>
+              <option value="berlin">Berlin &bull; December 3-4, 2026 (Embedded Systems &amp; Edge Telemetry)</option>
+              <option value="dubai">Dubai &bull; January 21-22, 2027 (National LLM Clusters &amp; Sovereign Compute)</option>
+              <option value="mumbai">Mumbai &bull; February 18-19, 2027 (High-Concurrency Voice Agents &amp; Real-Time Scale)</option>
+              <option value="melbourne">Melbourne &bull; March 25-26, 2027 (Decentralized AI Networks &amp; Resilient Grids)</option>
             </select>
           </div>
           <div class="form-field">
@@ -949,6 +1784,8 @@
       <a href="index.html#opensource">Open Source</a>
       <a href="index.html#partners">Partners</a>
       <a href="index.html#engagements">Engagements</a>
+      <a href="https://lu.ma" target="_blank" rel="noopener">Lu.ma</a>
+      <a href="https://www.eventbrite.com" target="_blank" rel="noopener">Eventbrite</a>
       <a href="https://github.com/utkarshethics/stage-x_landing" target="_blank" rel="noopener">GitHub</a>
       <a href="index.html#contact">Contact</a>
     </div>

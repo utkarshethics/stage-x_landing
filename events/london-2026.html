@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stage-X Summit 2026: London | Frontier Model Architecture</title>
+  <meta name="description" content="EU AI Act Compliance, Data Sovereignty & Heavy Industrial Edge — Closed-door technical roundtable for infrastructure leaders in London.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #000000;
+      --card-bg: #0a0a0a;
+      --border-dark: #262626;
+      --light-gray: #888888;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--black);
+      color: var(--white);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 10%;
+      border-bottom: 1px solid var(--border-dark);
+      background: rgba(0, 0, 0, 0.95);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      font-size: 1.1rem;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .logo a {
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .logo-crumb {
+      color: #666;
+      text-decoration: none;
+      font-weight: 700;
+      transition: color 0.2s ease;
+    }
+
+    .logo-crumb:hover {
+      color: var(--white);
+    }
+
+    .logo-badge {
+      color: #aaa;
+      font-weight: 800;
+      font-size: 0.8rem;
+      background: #141414;
+      border: 1px solid #333;
+      padding: 0.2rem 0.6rem;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.75rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--light-gray);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+    /* HERO */
+    .city-hero {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 10%;
+      background: var(--black);
+      position: relative;
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .city-hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image:
+        linear-gradient(#222 1px, transparent 1px),
+        linear-gradient(90deg, #222 1px, transparent 1px);
+      background-size: 80px 80px;
+      opacity: 0.25;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+    }
+
+    .badge-protocol {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      border: 1px solid #444;
+      background: #111;
+      padding: 0.4rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      color: #e5e5e5;
+    }
+
+    .badge-protocol .dot {
+      width: 8px;
+      height: 8px;
+      background: #aaa;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #aaa;
+    }
+
+    .event-meta-banner {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #888;
+      flex-wrap: wrap;
+    }
+
+    .event-meta-banner .city-name {
+      color: var(--white);
+      font-size: 1.1rem;
+    }
+
+    .city-hero h1 {
+      font-size: clamp(2.5rem, 5.5vw, 4.8rem);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -2px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 2rem;
+    }
+
+    .city-hero p.hero-desc {
+      font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+      color: var(--light-gray);
+      max-width: 850px;
+      line-height: 1.65;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn-container {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn-primary {
+      background: var(--white);
+      color: var(--black);
+      padding: 1rem 2.25rem;
+      text-decoration: none;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      border: 2px solid var(--white);
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background: var(--black);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .btn-platform {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: #111;
+      border: 1px solid #444;
+      color: var(--white);
+      padding: 1rem 1.75rem;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+    }
+
+    .btn-platform:hover {
+      background: var(--white);
+      color: var(--black);
+      border-color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .btn-platform svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    .hero-seat-bar {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #222;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .seat-status-pill {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #aaa;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .meta-tags-row {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .meta-tag {
+      background: #141414;
+      border: 1px solid #333;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #ccc;
+    }
+
+    /* SECTIONS */
+    .section {
+      padding: 6rem 10%;
+      border-bottom: 1px solid var(--border-dark);
+      background: var(--black);
+    }
+
+    .section-alt {
+      background: #060606;
+    }
+
+    .section-tag {
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 3.8vw, 3.2rem);
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      text-transform: uppercase;
+      margin-bottom: 3.5rem;
+      color: var(--white);
+    }
+
+    /* OVERVIEW */
+    .overview-box {
+      border: 1px solid var(--border-dark);
+      background: var(--card-bg);
+      padding: 3.5rem;
+      max-width: 1000px;
+    }
+
+    .overview-box h3 {
+      font-size: 1.5rem;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      color: var(--white);
+    }
+
+    .overview-box p {
+      font-size: 1.05rem;
+      color: #aaa;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .overview-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* SESSIONS GRID */
+    .sessions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .session-card {
+      border: 1px solid var(--border-dark);
+      background: var(--card-bg);
+      padding: 2.75rem 2.25rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .session-card:hover {
+      border-color: #555;
+    }
+
+    .session-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .session-num {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #333;
+      letter-spacing: -1px;
+    }
+
+    .session-pill {
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #888;
+      background: #111;
+      border: 1px solid #333;
+      padding: 0.25rem 0.6rem;
+    }
+
+    .session-card h3 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 1rem;
+      line-height: 1.35;
+    }
+
+    .session-card p {
+      font-size: 0.92rem;
+      color: #999;
+      line-height: 1.6;
+    }
+
+    /* VENUE & PROTOCOLS */
+    .venue-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .venue-card {
+      border: 1px solid var(--border-dark);
+      background: var(--card-bg);
+      padding: 3rem;
+    }
+
+    .venue-card h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+    }
+
+    .venue-card p {
+      font-size: 0.95rem;
+      color: #aaa;
+      line-height: 1.65;
+      margin-bottom: 1rem;
+    }
+
+    .venue-detail-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid #222;
+    }
+
+    .venue-detail-label {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #777;
+      min-width: 120px;
+    }
+
+    .venue-detail-val {
+      font-size: 0.9rem;
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    /* PLATFORMS INTEGRATION */
+    .platforms-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .platform-card {
+      border: 1px solid var(--border-dark);
+      background: var(--card-bg);
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .platform-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .platform-card-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .platform-card-brand svg {
+      width: 24px;
+      height: 24px;
+      fill: var(--white);
+    }
+
+    .platform-card-brand h3 {
+      font-size: 1.35rem;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .platform-card p {
+      font-size: 0.92rem;
+      color: #aaa;
+      line-height: 1.65;
+      margin-bottom: 2rem;
+    }
+
+    /* APPLICATION FORM */
+    .invite-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .invite-form {
+      margin-top: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.75rem;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-field label {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      background: #000;
+      border: 1px solid #333;
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      padding: 1rem 1.25rem;
+      font-size: 0.95rem;
+      border-radius: 0;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      border-color: var(--white);
+    }
+
+    .submit-btn {
+      background: var(--white);
+      color: var(--black);
+      border: 2px solid var(--white);
+      padding: 1.25rem 2.5rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 900;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: all 0.2s ease;
+    }
+
+    .submit-btn:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    /* CIRCUIT SWITCHER */
+    .circuit-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .circuit-card {
+      border: 1px solid var(--border-dark);
+      background: #0d0d0d;
+      padding: 1.75rem 1.5rem;
+      text-decoration: none;
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+    }
+
+    .circuit-card:hover {
+      border-color: #666;
+      background: #141414;
+      transform: translateY(-2px);
+    }
+
+    .circuit-quarter {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #777;
+      margin-bottom: 0.5rem;
+    }
+
+    .circuit-city {
+      font-size: 1.35rem;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      color: var(--white);
+    }
+
+    .circuit-title {
+      font-size: 0.8rem;
+      color: #888;
+      line-height: 1.4;
+      margin-bottom: 1.25rem;
+    }
+
+    .circuit-link {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 4rem 10%;
+      background: var(--black);
+      border-top: 1px solid var(--border-dark);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    footer p {
+      color: #777;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .footer-links a {
+      color: var(--white);
+      text-decoration: none;
+      margin-left: 2rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 1px;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      border-bottom: 1px solid var(--white);
+    }
+
+    @media (max-width: 900px) {
+      .sessions-grid,
+      .venue-grid,
+      .platforms-row,
+      .circuit-grid {
+        grid-template-columns: 1fr;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="logo">
+      <a href="../index.html">stage-x.space</a>
+      <a href="../summits.html" class="logo-crumb">/ Summits</a>
+      <span class="logo-badge">London 2026</span>
+    </div>
+    <div class="nav-links">
+      <a href="../summits.html#calendar">All 9 Summits</a>
+      <a href="#agenda">Technical Agenda</a>
+      <a href="#venue">Venue &amp; Protocols</a>
+      <a href="#platforms">Lu.ma &amp; Eventbrite</a>
+      <a href="#apply" class="btn-primary" style="padding: 0.5rem 1.25rem; font-size: 0.75rem;">Apply For Seat</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="city-hero">
+    <div class="hero-content">
+      <div class="badge-protocol">
+        <span class="dot"></span>
+        <span>Chatham House Rule &bull; Closed-Door Enterprise Roundtable</span>
+      </div>
+      <div class="event-meta-banner">
+        <span class="city-name">London</span>
+        <span>&bull;</span>
+        <span>Q4 2026</span>
+        <span>&bull;</span>
+        <span>November 19–20, 2026</span>
+        <span>&bull;</span>
+        <span>Level39 • One Canada Square</span>
+      </div>
+      <h1>EU AI Act Compliance, Data Sovereignty & Heavy Industrial Edge</h1>
+      <p class="hero-desc">
+        Deploying frontier models directly onto industrial plant hardware and edge compute clusters (Holcim, Baker Hughes) with strict immutable audit trails and zero data egress.
+      </p>
+      <div class="btn-container">
+        <a href="#apply" class="btn-primary">Apply For Seat</a>
+        <a href="https://lu.ma" target="_blank" rel="noopener" class="btn-platform" title="RSVP on Lu.ma">
+          <svg viewBox="0 0 133 134"><path d="M133 67C96.282 67 66.5 36.994 66.5 0c0 36.994-29.782 67-66.5 67 36.718 0 66.5 30.006 66.5 67 0-36.994 29.782-67 66.5-67z"/></svg>
+          <span>RSVP on Lu.ma</span>
+        </a>
+        <a href="https://www.eventbrite.com" target="_blank" rel="noopener" class="btn-platform" title="Procure on Eventbrite">
+          <svg viewBox="0 0 24 24"><path d="M10.542 5.81c2.653-.6 5.3.487 6.775 2.54L5.591 11c.405-2.479 2.298-4.591 4.951-5.19zm6.84 9.746a6.47 6.47 0 0 1-3.919 2.634c-2.67.604-5.335-.501-6.804-2.582l11.763-2.657 1.915-.433L24 11.691a11.57 11.57 0 0 0-.305-2.333C22.205 3.04 15.76-.9 9.303.558 2.846 2.017-1.18 8.322.31 14.642c1.491 6.319 7.935 10.259 14.392 8.8 3.805-.86 6.765-3.402 8.25-6.638z"/></svg>
+          <span>Procure on Eventbrite</span>
+        </a>
+      </div>
+      <div class="hero-seat-bar">
+        <div class="seat-status-pill">
+          <span>&bull; Applications Open</span>
+        </div>
+        <div class="meta-tags-row">
+          <span class="meta-tag">EU AI Act</span><span class="meta-tag">Industrial Edge</span><span class="meta-tag">Immutable Auditing</span><span class="meta-tag">40 Seats</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- OVERVIEW -->
+  <section class="section section-alt">
+    <div class="section-tag">Roundtable Thesis</div>
+    <h2 class="section-title">Operational Context</h2>
+    <div class="overview-box">
+      <h3>London Infrastructure Mission</h3>
+      <p>London stands at the intersection of European regulatory governance and global heavy industry. This closed-door summit examines the practical engineering implementations needed to comply with the EU AI Act's high-risk system mandates while operating ruggedized compute hardware inside heavy industrial manufacturing plants.</p>
+      <p>
+        Strictly capped at 40 participants holding direct technical authority over forward deployment engineering, sovereign GPU superclusters, or enterprise production topology. Zero sales decks. Raw telemetry traces, latency benchmarks, and live architecture reviews.
+      </p>
+    </div>
+  </section>
+
+  <!-- SESSIONS -->
+  <section class="section" id="agenda">
+    <div class="section-tag">Deep Teardowns</div>
+    <h2 class="section-title">Technical Agenda</h2>
+    <div class="sessions-grid">
+      
+      <div class="session-card">
+        <div class="session-header">
+          <span class="session-num">Session 01</span>
+          <span class="session-pill">Regulatory Engineering</span>
+        </div>
+        <h3>EU AI Act Article 9 & 14: Automated Risk & Governance Telemetry</h3>
+        <p>Implementing continuous automated documentation pipelines that log model accuracy, robustness metrics, and human-in-the-loop oversight events to meet strict statutory European AI Act audits.</p>
+      </div>
+      <div class="session-card">
+        <div class="session-header">
+          <span class="session-num">Session 02</span>
+          <span class="session-pill">Industrial Edge Hardware</span>
+        </div>
+        <h3>Ruggedized Plant Hardware: Deploying in Harsh Operating Conditions</h3>
+        <p>Engineering edge server enclosures resistant to vibration, thermal spikes, and chemical dust in heavy manufacturing plants (Holcim, Baker Hughes) with zero remote maintenance dependencies.</p>
+      </div>
+      <div class="session-card">
+        <div class="session-header">
+          <span class="session-num">Session 03</span>
+          <span class="session-pill">Immutable Audit Trails</span>
+        </div>
+        <h3>Cryptographic Hash Logging of Weights, Prompts & Outputs</h3>
+        <p>Using append-only distributed ledger structures and hardware TPM modules to guarantee that production model inputs and generated weights cannot be altered or repudiated.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VENUE & PROTOCOLS -->
+  <section class="section section-alt" id="venue">
+    <div class="section-tag">Logistics &amp; Security</div>
+    <h2 class="section-title">Venue &amp; Operational Protocols</h2>
+    <div class="venue-grid">
+      <div class="venue-card">
+        <h3>Private Executive Facility</h3>
+        <p>
+          The roundtable convenes inside a dedicated private executive enclave reserved exclusively for Stage-X participants.
+        </p>
+        <div class="venue-detail-item">
+          <div class="venue-detail-label">Facility</div>
+          <div class="venue-detail-val">Level39 • One Canada Square</div>
+        </div>
+        <div class="venue-detail-item">
+          <div class="venue-detail-label">Address</div>
+          <div class="venue-detail-val">One Canada Square, Canary Wharf, London E14 5AA, UK</div>
+        </div>
+        <div class="venue-detail-item">
+          <div class="venue-detail-label">Dates</div>
+          <div class="venue-detail-val">November 19–20, 2026 &bull; Full-Day Program</div>
+        </div>
+        <div class="venue-detail-item">
+          <div class="venue-detail-label">Access Pass</div>
+          <div class="venue-detail-val">Photo ID / Mobile Pass QR via Lu.ma</div>
+        </div>
+      </div>
+
+      <div class="venue-card">
+        <h3>Operating Protocols</h3>
+        <p>
+          To ensure unvarnished operational candor, all discussions, post-mortems, and failure analyses adhere to strict standards:
+        </p>
+        <div class="venue-detail-item">
+          <div class="venue-detail-label">Chatham House</div>
+          <div class="venue-detail-val">Participants may use information received, but identity or affiliation of speakers cannot be disclosed.</div>
+        </div>
+        <div class="venue-detail-item">
+          <div class="venue-detail-label">Zero Pitch Policy</div>
+          <div class="venue-detail-val">No vendor presentations, marketing slide decks, or business development personnel admitted.</div>
+        </div>
+        <div class="venue-detail-item">
+          <div class="venue-detail-label">Capacity Bound</div>
+          <div class="venue-detail-val">Strictly limited to 40 verified technical principals per session.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLATFORMS -->
+  <section class="section" id="platforms">
+    <div class="section-tag">Registration Channels</div>
+    <h2 class="section-title">Verified Platform Listings</h2>
+    <div class="platforms-row">
+      <div class="platform-card">
+        <div>
+          <div class="platform-card-header">
+            <div class="platform-card-brand">
+              <svg viewBox="0 0 133 134"><path d="M133 67C96.282 67 66.5 36.994 66.5 0c0 36.994-29.782 67-66.5 67 36.718 0 66.5 30.006 66.5 67 0-36.994 29.782-67 66.5-67z"/></svg>
+              <h3>Lu.ma Listing</h3>
+            </div>
+            <span class="meta-tag">Executive Calendar</span>
+          </div>
+          <p>
+            Automated calendar synchronization for Google Calendar, Outlook 365, and Apple Wallet passes. Guest directory verified under Chatham House Rule credentials.
+          </p>
+        </div>
+        <a href="https://lu.ma" target="_blank" rel="noopener" class="btn-platform">
+          <span>View London on Lu.ma &rarr;</span>
+        </a>
+      </div>
+
+      <div class="platform-card">
+        <div>
+          <div class="platform-card-header">
+            <div class="platform-card-brand">
+              <svg viewBox="0 0 24 24"><path d="M10.542 5.81c2.653-.6 5.3.487 6.775 2.54L5.591 11c.405-2.479 2.298-4.591 4.951-5.19zm6.84 9.746a6.47 6.47 0 0 1-3.919 2.634c-2.67.604-5.335-.501-6.804-2.582l11.763-2.657 1.915-.433L24 11.691a11.57 11.57 0 0 0-.305-2.333C22.205 3.04 15.76-.9 9.303.558 2.846 2.017-1.18 8.322.31 14.642c1.491 6.319 7.935 10.259 14.392 8.8 3.805-.86 6.765-3.402 8.25-6.638z"/></svg>
+              <h3>Eventbrite Listing</h3>
+            </div>
+            <span class="meta-tag">Corporate Procurement</span>
+          </div>
+          <p>
+            Institutional purchase order (PO) invoicing, Net 30 corporate payment settlement, multi-seat executive delegation passes, and centralized tax/W-9 receipting.
+          </p>
+        </div>
+        <a href="https://www.eventbrite.com" target="_blank" rel="noopener" class="btn-platform">
+          <span>View London on Eventbrite &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONFIDENTIAL APPLICATION -->
+  <section class="section section-alt" id="apply">
+    <div class="invite-container">
+      <div class="section-tag" style="text-align: center;">Confidential Application</div>
+      <h2 class="section-title" style="text-align: center; margin-bottom: 1.5rem;">Request a Seat in London</h2>
+      <p style="text-align: center; color: #888; max-width: 600px; margin: 0 auto 2.5rem; font-size: 1rem;">
+        Invitations are strictly non-transferable and subject to peer committee verification. Please submit using your corporate or institutional executive email.
+      </p>
+
+      <form class="invite-form" onsubmit="event.preventDefault(); alert('Invitation request received for London. The committee reviews applications on a rolling basis under NDA.');">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="fullname">Full Name *</label>
+            <input type="text" id="fullname" required placeholder="Jane Doe">
+          </div>
+          <div class="form-field">
+            <label for="email">Enterprise Work Email *</label>
+            <input type="email" id="email" required placeholder="jane@enterprise.com">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="org">Organization / Agency *</label>
+            <input type="text" id="org" required placeholder="e.g. Shell, Con Edison, USAF, Baker Hughes">
+          </div>
+          <div class="form-field">
+            <label for="title">Official Title *</label>
+            <input type="text" id="title" required placeholder="CTO / Head of Infrastructure / Chief Architect">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="summit-choice">Selected Summit Circuit *</label>
+            <select id="summit-choice" required>
+              <option value="sf-2026" >San Francisco &bull; June 18–19, 2026 (Air-Gapped Inference & Defense Deep Tech)</option>
+              <option value="nyc-2026" >New York &bull; September 24–25, 2026 (Sub-50ms TTFT & Public Utilities)</option>
+              <option value="boston-2026" >Boston &bull; October 15–16, 2026 (Life Sciences & Lab Automation)</option>
+              <option value="toronto-2026" >Toronto &bull; November 5–6, 2026 (Sovereign Mesh & Cross-Border FinTech)</option>
+              <option value="london-2026" selected>London &bull; November 19–20, 2026 (EU AI Act & Heavy Industrial Edge)</option>
+              <option value="berlin-2026" >Berlin &bull; December 3–4, 2026 (Automotive Engineering & Factory Edge)</option>
+              <option value="dubai-2026" >Dubai &bull; January 21–22, 2027 (Energy Infrastructure & Sovereign Cloud)</option>
+              <option value="mumbai-2026" >Mumbai &bull; February 18–19, 2027 (Hyper-Scale BFSI & Sovereign Telecom)</option>
+              <option value="melbourne-2026" >Melbourne &bull; March 25–26, 2027 (Heavy Mining Fleets & Remote Edge)</option>
+              
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="models">Primary Frontier Model(s) Deployed</label>
+            <input type="text" id="models" placeholder="e.g. Claude 3.5, Llama 3.1 405B, Gemini, DeepSeek">
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="scope">Production Scale &amp; Core Architecture Bottleneck</label>
+          <textarea id="scope" rows="3" placeholder="Brief summary of your production throughput, air-gap topology, or latency targets."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit Confidential Request &bull; London</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- CIRCUIT SWITCHER -->
+  <section class="section">
+    <div class="section-tag">Global Circuit</div>
+    <h2 class="section-title">Explore Other 2026&ndash;2027 Summits</h2>
+    <div class="circuit-grid">
+      
+        <a href="sf-2026.html" class="circuit-card">
+          <div class="circuit-quarter">Q2 2026 &bull; June 18–19, 2026</div>
+          <div class="circuit-city">San Francisco</div>
+          <div class="circuit-title">Air-Gapped Frontier Model Orchestration & Sovereign Weights</div>
+          <span class="circuit-link">View Summit &rarr;</span>
+        </a>
+        <a href="nyc-2026.html" class="circuit-card">
+          <div class="circuit-quarter">Q3 2026 &bull; September 24–25, 2026</div>
+          <div class="circuit-city">New York</div>
+          <div class="circuit-title">Deterministic Latency, Sub-50ms TTFT & High-Throughput Critical Infrastructure</div>
+          <span class="circuit-link">View Summit &rarr;</span>
+        </a>
+        <a href="boston-2026.html" class="circuit-card">
+          <div class="circuit-quarter">Q4 2026 &bull; October 15–16, 2026</div>
+          <div class="circuit-city">Boston</div>
+          <div class="circuit-title">Frontier Deep Tech, Bio-Pharma Reasoning & Physical AI Robotics</div>
+          <span class="circuit-link">View Summit &rarr;</span>
+        </a>
+        <a href="toronto-2026.html" class="circuit-card">
+          <div class="circuit-quarter">Q4 2026 &bull; November 5–6, 2026</div>
+          <div class="circuit-city">Toronto</div>
+          <div class="circuit-title">Cross-Border Enterprise Compute & Sovereign North American Mesh</div>
+          <span class="circuit-link">View Summit &rarr;</span>
+        </a>
+        <a href="berlin-2026.html" class="circuit-card">
+          <div class="circuit-quarter">Q4 2026 &bull; December 3–4, 2026</div>
+          <div class="circuit-city">Berlin</div>
+          <div class="circuit-title">Industrial SCADA Automation, Automotive Edge & Hardware Security</div>
+          <span class="circuit-link">View Summit &rarr;</span>
+        </a>
+        <a href="dubai-2026.html" class="circuit-card">
+          <div class="circuit-quarter">Q1 2027 &bull; January 21–22, 2027</div>
+          <div class="circuit-city">Dubai</div>
+          <div class="circuit-title">Sovereign Energy Grids, Upstream Oil & Gas Telemetry & High-Cap Compute</div>
+          <span class="circuit-link">View Summit &rarr;</span>
+        </a>
+        <a href="mumbai-2026.html" class="circuit-card">
+          <div class="circuit-quarter">Q1 2027 &bull; February 18–19, 2027</div>
+          <div class="circuit-city">Mumbai</div>
+          <div class="circuit-title">Hyper-Scale BFSI Transaction Gateways & Sovereign Telecom AI Stacks</div>
+          <span class="circuit-link">View Summit &rarr;</span>
+        </a>
+        <a href="melbourne-2026.html" class="circuit-card">
+          <div class="circuit-quarter">Q1 2027 &bull; March 25–26, 2027</div>
+          <div class="circuit-city">Melbourne</div>
+          <div class="circuit-title">Autonomous Heavy Mining Fleets, Natural Resources & Remote Edge Compute</div>
+          <span class="circuit-link">View Summit &rarr;</span>
+        </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <p style="color: var(--white); font-weight: 900; letter-spacing: -0.5px; margin-bottom: 0.25rem;">stage-x.space</p>
+      <p>Open Source &bull; MIT &amp; Apache 2.0 Licensed</p>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Home</a>
+      <a href="../summits.html">All 9 Summits</a>
+      <a href="https://lu.ma" target="_blank" rel="noopener">Lu.ma</a>
+      <a href="https://www.eventbrite.com" target="_blank" rel="noopener">Eventbrite</a>
+      <a href="https://github.com/utkarshethics/stage-x_landing" target="_blank" rel="noopener">GitHub</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </footer>
+
+</body>
+</html>
