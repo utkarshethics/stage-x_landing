@@ -1148,17 +1148,19 @@
     }
 
     .partner-logo-svg {
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       color: var(--white);
     }
 
     .partner-logo-svg svg {
-      width: 100%;
-      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
     }
 
     .partner-type-badge {
@@ -1232,12 +1234,12 @@
     <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;">stage-x.space</a></div>
     <div class="nav-links">
       <a href="#customers">Customers</a>
-      <a href="#partners">Partners</a>
       <a href="#usecases">Use Cases</a>
       <a href="#deployments">Deployments</a>
       <a href="#method">Method</a>
-      <a href="#engagements">Engagements</a>
       <a href="#opensource">Open Source</a>
+      <a href="#partners">Partners</a>
+      <a href="#engagements">Engagements</a>
       <a href="summits.html">Summits</a>
       <a href="#contact">Contact</a>
     </div>
@@ -1302,169 +1304,6 @@
       <div class="customer-logo-card">
         <div class="customer-logo-name">SmithRx</div>
         <span class="customer-industry">Healthcare Technology</span>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider"></div>
-
-  <section class="partners-section" id="partners">
-    <div class="customer-tag">[ALLIANCE ECOSYSTEM] CO-ENGINEERED INFRASTRUCTURE</div>
-    <h2>Global Partner &amp; Integration Ecosystem</h2>
-    <p class="partners-intro">
-      Forward deploying frontier models requires an unyielding foundation across two core enterprise environments: Cloud Hyperscaler &amp; Silicon Infrastructure, and Enterprise Core &amp; Mission-Critical Systems.
-    </p>
-
-    <!-- SYSTEM 01: CLOUD HYPERSCALERS & AI SILICON -->
-    <div class="partners-category-group">
-      <div class="partners-category-title">
-        <span>System 01 &bull; Cloud Hyperscalers &amp; AI Silicon</span>
-        <span>Compute Runtimes &amp; Kernel Acceleration</span>
-      </div>
-      <div class="partner-card-grid">
-        <div class="partner-card">
-          <div>
-            <div class="partner-card-top">
-              <div class="partner-logo-svg">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 15c-1.5 0-3-1-3-3a4 4 0 0 1 4-4 5 5 0 0 1 9.5-1.5A4 4 0 0 1 18 10a3 3 0 0 1 3 3c0 1.7-1.3 3-3 3"/>
-                  <path d="M6 19c4 3 8 3 12 0"/>
-                  <path d="M16 19l2 1.5-0.5-2.5"/>
-                </svg>
-              </div>
-              <span class="partner-type-badge">Hyperscaler</span>
-            </div>
-            <h3 class="partner-name">Amazon Web Services</h3>
-            <p class="partner-desc">Dedicated Bedrock PrivateLink endpoints, AWS GovCloud air-gapped VPC boundaries, and high-concurrency SageMaker inference clusters.</p>
-          </div>
-          <div class="partner-integration-spec">GovCloud &bull; Bedrock PrivateLink</div>
-        </div>
-
-        <div class="partner-card">
-          <div>
-            <div class="partner-card-top">
-              <div class="partner-logo-svg">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M13.05 4.24l-5.6 9.77 4.14 5.75H22L13.05 4.24zM6.9 14.77l-4.9 3.99H9.4l-2.5-3.99z"/>
-                </svg>
-              </div>
-              <span class="partner-type-badge">Hyperscaler</span>
-            </div>
-            <h3 class="partner-name">Microsoft Azure</h3>
-            <p class="partner-desc">Direct Azure OpenAI Service enterprise integration, sovereign cloud enclaves, and confidential multi-party compute clusters.</p>
-          </div>
-          <div class="partner-integration-spec">Confidential Enclaves &bull; Azure AI</div>
-        </div>
-
-        <div class="partner-card">
-          <div>
-            <div class="partner-card-top">
-              <div class="partner-logo-svg">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/>
-                  <circle cx="12" cy="13" r="2"/>
-                </svg>
-              </div>
-              <span class="partner-type-badge">Hyperscaler</span>
-            </div>
-            <h3 class="partner-name">Google Cloud</h3>
-            <p class="partner-desc">Vertex AI model garden integration, TPU v5p inference topologies, and sovereign EU data residency infrastructure.</p>
-          </div>
-          <div class="partner-integration-spec">Vertex AI &bull; Sovereign Infrastructure</div>
-        </div>
-
-        <div class="partner-card">
-          <div>
-            <div class="partner-card-top">
-              <div class="partner-logo-svg">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 4a8 8 0 0 0-8 8c0 4.42 3.58 8 8 8a7.97 7.97 0 0 0 5.66-2.34l-1.42-1.42A5.96 5.96 0 0 1 12 18a6 6 0 1 1 4.24-1.76l1.42 1.42A7.95 7.95 0 0 0 20 12c0-4.42-3.58-8-8-8zm0 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/>
-                </svg>
-              </div>
-              <span class="partner-type-badge">AI Silicon</span>
-            </div>
-            <h3 class="partner-name">NVIDIA</h3>
-            <p class="partner-desc">Blackwell &amp; Hopper FP8/FP4 micro-scaling kernels, TensorRT-LLM optimization, and DGX Cloud air-gapped acceleration.</p>
-          </div>
-          <div class="partner-integration-spec">Blackwell FP8 &bull; TensorRT-LLM</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SYSTEM 02: ENTERPRISE CORE & MISSION-CRITICAL SYSTEMS -->
-    <div class="partners-category-group">
-      <div class="partners-category-title">
-        <span>System 02 &bull; Enterprise Core &amp; Mission-Critical Systems</span>
-        <span>ERP Connectors &amp; Operational Integration</span>
-      </div>
-      <div class="partner-card-grid">
-        <div class="partner-card">
-          <div>
-            <div class="partner-card-top">
-              <div class="partner-logo-svg">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <polygon points="2,4 22,4 18,20 2,20"/>
-                  <text x="4" y="15" fill="#0a0a0a" font-family="sans-serif" font-weight="900" font-size="8">SAP</text>
-                </svg>
-              </div>
-              <span class="partner-type-badge">Enterprise Software</span>
-            </div>
-            <h3 class="partner-name">SAP</h3>
-            <p class="partner-desc">Native connectors into SAP NetWeaver, S/4HANA, and BTP for autonomous supply chain reasoning and procurement auditing.</p>
-          </div>
-          <div class="partner-integration-spec">S/4HANA &bull; NetWeaver Native</div>
-        </div>
-
-        <div class="partner-card">
-          <div>
-            <div class="partner-card-top">
-              <div class="partner-logo-svg">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="3" fill="currentColor"/>
-                  <path d="M12 3a9 9 0 0 1 9 9"/>
-                  <path d="M12 21a9 9 0 0 1-9-9"/>
-                </svg>
-              </div>
-              <span class="partner-type-badge">Workflow Platform</span>
-            </div>
-            <h3 class="partner-name">ServiceNow</h3>
-            <p class="partner-desc">Autonomous IT service management, automated incident remediation workflows, and cross-enterprise digital action triggers.</p>
-          </div>
-          <div class="partner-integration-spec">ITSM &bull; Autonomous Workflows</div>
-        </div>
-
-        <div class="partner-card">
-          <div>
-            <div class="partner-card-top">
-              <div class="partner-logo-svg">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <polygon points="2,12 22,5 16,12 22,19"/>
-                </svg>
-              </div>
-              <span class="partner-type-badge">Defense Prime</span>
-            </div>
-            <h3 class="partner-name">Lockheed Martin</h3>
-            <p class="partner-desc">Tactical air-gapped avionics integration, sovereign model weights on mission hardware, and F-35 depot logistics AI.</p>
-          </div>
-          <div class="partner-integration-spec">Classified Edge &bull; Joint Strike Fighter</div>
-        </div>
-
-        <div class="partner-card">
-          <div>
-            <div class="partner-card-top">
-              <div class="partner-logo-svg">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M6 3c5 0 7 6 7 9s2 9 7 9"/>
-                  <path d="M18 3c-5 0-7 6-7 9s-2 9-7 9"/>
-                </svg>
-              </div>
-              <span class="partner-type-badge">Strategic Alliance</span>
-            </div>
-            <h3 class="partner-name">Baker Hughes</h3>
-            <p class="partner-desc">Co-engineered energy technology platform for upstream/downstream oil &amp; gas sensor telemetry and global inventory intelligence.</p>
-          </div>
-          <div class="partner-integration-spec">Energy AI &bull; Joint Venture Alliance</div>
-        </div>
       </div>
     </div>
   </section>
@@ -1837,6 +1676,163 @@
 
   <div class="section-divider"></div>
 
+  <section class="partners-section" id="partners">
+    <div class="customer-tag">[ALLIANCE ECOSYSTEM] CO-ENGINEERED INFRASTRUCTURE</div>
+    <h2>Global Partner &amp; Integration Ecosystem</h2>
+    <p class="partners-intro">
+      Forward deploying frontier models requires an unyielding foundation across two core enterprise environments: Cloud Hyperscaler &amp; Silicon Infrastructure, and Enterprise Core &amp; Mission-Critical Systems.
+    </p>
+
+    <!-- SYSTEM 01: CLOUD HYPERSCALERS & AI SILICON -->
+    <div class="partners-category-group">
+      <div class="partners-category-title">
+        <span>System 01 &bull; Cloud Hyperscalers &amp; AI Silicon</span>
+        <span>Compute Runtimes &amp; Kernel Acceleration</span>
+      </div>
+      <div class="partner-card-grid">
+        <div class="partner-card">
+          <div>
+            <div class="partner-card-top">
+              <div class="partner-logo-svg">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M6.763 10.036c0 .296.032.535.088.71.064.176.144.368.256.576.04.063.056.127.056.183 0 .08-.048.16-.152.24l-.503.335a.383.383 0 0 1-.208.072c-.08 0-.16-.04-.239-.112a2.47 2.47 0 0 1-.287-.375 6.18 6.18 0 0 1-.248-.471c-.622.734-1.405 1.101-2.347 1.101-.67 0-1.205-.191-1.596-.574-.391-.384-.59-.894-.59-1.533 0-.678.239-1.23.726-1.644.487-.415 1.133-.623 1.955-.623.272 0 .551.024.846.064.296.04.6.104.918.176v-.583c0-.607-.127-1.03-.375-1.277-.255-.248-.686-.367-1.3-.367-.28 0-.568.031-.863.103-.295.072-.583.16-.862.272a2.287 2.287 0 0 1-.28.104.488.488 0 0 1-.127.023c-.112 0-.168-.08-.168-.247v-.391c0-.128.016-.224.056-.28a.597.597 0 0 1 .224-.167c.279-.144.614-.264 1.005-.36a4.84 4.84 0 0 1 1.246-.151c.95 0 1.644.216 2.091.647.439.43.662 1.085.662 1.963v2.586zm-3.24 1.214c.263 0 .534-.048.822-.144.287-.096.543-.271.758-.51.128-.152.224-.32.272-.512.047-.191.08-.423.08-.694v-.335a6.66 6.66 0 0 0-.735-.136 6.02 6.02 0 0 0-.75-.048c-.535 0-.926.104-1.19.32-.263.215-.39.518-.39.917 0 .375.095.655.295.846.191.2.47.296.838.296zm6.41.862c-.144 0-.24-.024-.304-.08-.064-.048-.12-.16-.168-.311L7.586 5.55a1.398 1.398 0 0 1-.072-.32c0-.128.064-.2.191-.2h.783c.151 0 .255.025.31.08.065.048.113.16.16.312l1.342 5.284 1.245-5.284c.04-.16.088-.264.151-.312a.549.549 0 0 1 .32-.08h.638c.152 0 .256.025.32.08.063.048.12.16.151.312l1.261 5.348 1.381-5.348c.048-.16.104-.264.16-.312a.52.52 0 0 1 .311-.08h.743c.127 0 .2.065.2.2 0 .04-.009.08-.017.128a1.137 1.137 0 0 1-.056.2l-1.923 6.17c-.048.16-.104.263-.168.311a.51.51 0 0 1-.303.08h-.687c-.151 0-.255-.024-.32-.08-.063-.056-.119-.16-.15-.32l-1.238-5.148-1.23 5.14c-.04.16-.087.264-.15.32-.065.056-.177.08-.32.08zm10.256.215c-.415 0-.83-.048-1.229-.143-.399-.096-.71-.2-.918-.32-.128-.071-.215-.151-.247-.223a.563.563 0 0 1-.048-.224v-.407c0-.167.064-.247.183-.247.048 0 .096.008.144.024.048.016.12.048.2.08.271.12.566.215.878.279.319.064.63.096.95.096.502 0 .894-.088 1.165-.264a.86.86 0 0 0 .415-.758.777.777 0 0 0-.215-.559c-.144-.151-.416-.287-.807-.415l-1.157-.36c-.583-.183-1.014-.454-1.277-.813a1.902 1.902 0 0 1-.4-1.158c0-.335.073-.63.216-.886.144-.255.335-.479.575-.654.24-.184.51-.32.83-.415.32-.096.655-.136 1.006-.136.175 0 .359.008.535.032.183.024.35.056.518.088.16.04.312.08.455.127.144.048.256.096.336.144a.69.69 0 0 1 .24.2.43.43 0 0 1 .071.263v.375c0 .168-.064.256-.184.256a.83.83 0 0 1-.303-.096 3.652 3.652 0 0 0-1.532-.311c-.455 0-.815.071-1.062.223-.248.152-.375.383-.375.71 0 .224.08.416.24.567.159.152.454.304.877.44l1.134.358c.574.184.99.44 1.237.767.247.327.367.702.367 1.117 0 .343-.072.655-.207.926-.144.272-.336.511-.583.703-.248.2-.543.343-.886.447-.36.111-.734.167-1.142.167zM21.698 16.207c-2.626 1.94-6.442 2.969-9.722 2.969-4.598 0-8.74-1.7-11.87-4.526-.247-.223-.024-.527.272-.351 3.384 1.963 7.559 3.153 11.877 3.153 2.914 0 6.114-.607 9.06-1.852.439-.2.814.287.383.607zM22.792 14.961c-.336-.43-2.22-.207-3.074-.103-.255.032-.295-.192-.063-.36 1.5-1.053 3.967-.75 4.254-.399.287.36-.08 2.826-1.485 4.007-.215.184-.423.088-.327-.151.32-.79 1.03-2.57.695-2.994z"/>
+                </svg>
+              </div>
+              <span class="partner-type-badge">Hyperscaler</span>
+            </div>
+            <h3 class="partner-name">Amazon Web Services</h3>
+            <p class="partner-desc">Dedicated Bedrock PrivateLink endpoints, AWS GovCloud air-gapped VPC boundaries, and high-concurrency SageMaker inference clusters.</p>
+          </div>
+          <div class="partner-integration-spec">GovCloud &bull; Bedrock PrivateLink</div>
+        </div>
+
+        <div class="partner-card">
+          <div>
+            <div class="partner-card-top">
+              <div class="partner-logo-svg">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M22.379 23.343a1.62 1.62 0 0 0 1.536-2.14v.002L17.35 1.76A1.62 1.62 0 0 0 15.816.657H8.184A1.62 1.62 0 0 0 6.65 1.76L.086 21.204a1.62 1.62 0 0 0 1.536 2.139h4.741a1.62 1.62 0 0 0 1.535-1.103l.977-2.892 4.947 3.675c.28.208.618.32.966.32m-3.084-12.531 3.624 10.739a.54.54 0 0 1-.51.713v-.001h-.03a.54.54 0 0 1-.322-.106l-9.287-6.9h4.853m6.313 7.006c.116-.326.13-.694.007-1.058L9.79 1.76a1.722 1.722 0 0 0-.007-.02h6.034a.54.54 0 0 1 .512.366l6.562 19.445a.54.54 0 0 1-.338.684"/>
+                </svg>
+              </div>
+              <span class="partner-type-badge">Hyperscaler</span>
+            </div>
+            <h3 class="partner-name">Microsoft Azure</h3>
+            <p class="partner-desc">Direct Azure OpenAI Service enterprise integration, sovereign cloud enclaves, and confidential multi-party compute clusters.</p>
+          </div>
+          <div class="partner-integration-spec">Confidential Enclaves &bull; Azure AI</div>
+        </div>
+
+        <div class="partner-card">
+          <div>
+            <div class="partner-card-top">
+              <div class="partner-logo-svg">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12.19 2.38a9.344 9.344 0 0 0-9.234 6.893c.053-.02-.055.013 0 0-3.875 2.551-3.922 8.11-.247 10.941l.006-.007-.007.03a6.717 6.717 0 0 0 4.077 1.356h5.173l.03.03h5.192c6.687.053 9.376-8.605 3.835-12.875l-.014.015.014-.029A9.34 9.34 0 0 0 12.19 2.38zM4.148 16.892c-1.89-1.455-1.85-4.225.074-5.632l.061-.043.072-.016a6.973 6.973 0 0 1 2.381-.417h.808v-.81c0-2.612 2.118-4.73 4.73-4.73 2.545 0 4.622 2.012 4.723 4.534l.037.947.947.054a4.93 4.93 0 0 1 4.545 4.92c0 2.723-2.207 4.93-4.93 4.93H6.966a4.34 4.34 0 0 1-2.818-.747z"/>
+                </svg>
+              </div>
+              <span class="partner-type-badge">Hyperscaler</span>
+            </div>
+            <h3 class="partner-name">Google Cloud</h3>
+            <p class="partner-desc">Vertex AI model garden integration, TPU v5p inference topologies, and sovereign EU data residency infrastructure.</p>
+          </div>
+          <div class="partner-integration-spec">Vertex AI &bull; Sovereign Infrastructure</div>
+        </div>
+
+        <div class="partner-card">
+          <div>
+            <div class="partner-card-top">
+              <div class="partner-logo-svg">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8.948 8.798v-1.43a6.7 6.7 0 0 1 .424-.018c3.922-.124 6.493 3.374 6.493 3.374s-2.774 3.851-5.75 3.851c-.398 0-.787-.062-1.158-.185v-4.346c1.528.185 1.837.857 2.747 2.385l2.04-1.714s-1.492-1.952-4-1.912h-.796zm0-3.321v1.175c.265-.01.53-.01.787-.01 5.485 0 9.202 4.283 9.202 4.283s-3.797 4.99-8.83 4.99a8.9 8.9 0 0 1-1.159-.08v1.079c.38.035.76.053 1.159.053 4.92 0 8.077-2.614 11.89-6.032-3.957-4.142-8.31-5.458-13.049-5.458zm0-1.855c.265-.018.548-.027.822-.027 6.643 0 11.758 5.176 11.758 5.176s-5.07 6.353-11.457 6.353c-.371 0-.742-.027-1.123-.07v.918c.371.027.742.045 1.123.045 5.927 0 9.777-3.056 14.197-7.246C19.74 3.89 14.737 2.123 9.77 2.123c-.274 0-.548.01-.822.027v1.472zm0 13.914c.265.01.53.018.787.018 6.077 0 10.43-3.834 14.265-7.53C20.084 6.423 15.02 4.673 9.735 4.673c-.257 0-.522.008-.787.017v-1.1c.265-.01.53-.018.787-.018 5.564 0 10.9 2.058 15.015 5.86v.442C20.73 13.975 15.698 18.7 9.735 18.7c-.257 0-.522-.008-.787-.017v-1.147zM4.776 6.623v10.754H3.45V6.623h1.326z"/>
+                </svg>
+              </div>
+              <span class="partner-type-badge">AI Silicon</span>
+            </div>
+            <h3 class="partner-name">NVIDIA</h3>
+            <p class="partner-desc">Blackwell &amp; Hopper FP8/FP4 micro-scaling kernels, TensorRT-LLM optimization, and DGX Cloud air-gapped acceleration.</p>
+          </div>
+          <div class="partner-integration-spec">Blackwell FP8 &bull; TensorRT-LLM</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SYSTEM 02: ENTERPRISE CORE & MISSION-CRITICAL SYSTEMS -->
+    <div class="partners-category-group">
+      <div class="partners-category-title">
+        <span>System 02 &bull; Enterprise Core &amp; Mission-Critical Systems</span>
+        <span>ERP Connectors &amp; Operational Integration</span>
+      </div>
+      <div class="partner-card-grid">
+        <div class="partner-card">
+          <div>
+            <div class="partner-card-top">
+              <div class="partner-logo-svg">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M0 6.064v11.872h12.13L24 6.064zm3.264 2.208h.005c.863.001 1.915.245 2.676.633l-.82 1.43c-.835-.404-1.255-.442-1.73-.467-.708-.038-1.064.215-1.069.488-.007.332.669.633 1.305.838.964.306 2.19.715 2.377 1.9L7.77 8.437h2.046l2.064 5.576-.007-5.575h2.37c2.257 0 3.318.764 3.318 2.519 0 1.575-1.09 2.514-2.936 2.514h-.763l-.01 2.094-3.588-.003-.25-.908c-.37.122-.787.189-1.23.189-.456 0-.885-.071-1.263-.2l-.358.919-2 .006.09-.462c-.029.025-.057.05-.087.074-.535.43-1.208.629-2.037.644l-.213.002a5.075 5.075 0 0 1-2.581-.675l.73-1.448c.79.467 1.286.572 1.956.558.347-.007.598-.07.761-.239a.557.557 0 0 0 .156-.369c.007-.376-.53-.553-1.185-.756-.531-.164-1.135-.389-1.606-.735-.559-.41-.825-.924-.812-1.65a1.99 1.99 0 0 1 .566-1.377c.519-.537 1.357-.863 2.363-.863zm10.597 1.67v1.904h.521c.694 0 1.247-.23 1.248-.964 0-.709-.554-.94-1.248-.94zm-5.087.767l-.748 2.362c.223.085.481.133.757.133.268 0 .52-.047.742-.126l-.736-2.37z"/>
+                </svg>
+              </div>
+              <span class="partner-type-badge">Enterprise Software</span>
+            </div>
+            <h3 class="partner-name">SAP</h3>
+            <p class="partner-desc">Native connectors into SAP NetWeaver, S/4HANA, and BTP for autonomous supply chain reasoning and procurement auditing.</p>
+          </div>
+          <div class="partner-integration-spec">S/4HANA &bull; NetWeaver Native</div>
+        </div>
+
+        <div class="partner-card">
+          <div>
+            <div class="partner-card-top">
+              <div class="partner-logo-svg">
+                <svg viewBox="94 4.5 17.6 17.6" fill="currentColor">
+                  <path d="M102.8 5.762c-4.2 0-7.5 3.3-7.5 7.5 0 2.2.9 4.2 2.3 5.6.5.5 1.4.5 2 .1.8-.7 2-1.1 3.2-1.1 1.3 0 2.3.4 3.2 1.1.6.5 1.4.4 2-.2 1.4-1.4 2.3-3.3 2.3-5.5-.1-4.1-3.4-7.5-7.5-7.5m-.1 11.4c-2.3 0-3.8-1.7-3.8-3.8s1.5-3.8 3.8-3.8 3.8 1.7 3.8 3.8-1.5 3.8-3.8 3.8"/>
+                </svg>
+              </div>
+              <span class="partner-type-badge">Workflow Platform</span>
+            </div>
+            <h3 class="partner-name">ServiceNow</h3>
+            <p class="partner-desc">Autonomous IT service management, automated incident remediation workflows, and cross-enterprise digital action triggers.</p>
+          </div>
+          <div class="partner-integration-spec">ITSM &bull; Autonomous Workflows</div>
+        </div>
+
+        <div class="partner-card">
+          <div>
+            <div class="partner-card-top">
+              <div class="partner-logo-svg">
+                <svg viewBox="175 0 185 87" fill="currentColor">
+                  <path d="M575.75,292.46H543.12c4.28-16.12,8.15-29.79,8.15-29.79s-14.69,15.71-27.74,29.79l-129.35.27h0l126.15,3.18c-9.71,10.32-14.82,16.2-15,16.41l.05-.05c.42-.37,17.88-16.29,17.88-16.29l15.35.39-2.31,12.11-71.93,40.69-.29.16s57.12-30,71.54-37.3c0,0-5.06,26.42-5.06,26.53a.2.2,0,0,0,0-.05v.05l.06-.26c.47-1.72,3.5-12.11,7.63-27.48,18.77-9.58,37.53-18.36,37.53-18.36M541.91,279l-2.58,13.49H527.1Zm.08,17.48,14.87.38-17.66,10c1-3.55,1.82-6.79,2.79-10.37" transform="translate(-216.25 -262.67)"/>
+                </svg>
+              </div>
+              <span class="partner-type-badge">Defense Prime</span>
+            </div>
+            <h3 class="partner-name">Lockheed Martin</h3>
+            <p class="partner-desc">Tactical air-gapped avionics integration, sovereign model weights on mission hardware, and F-35 depot logistics AI.</p>
+          </div>
+          <div class="partner-integration-spec">Classified Edge &bull; Joint Strike Fighter</div>
+        </div>
+
+        <div class="partner-card">
+          <div>
+            <div class="partner-card-top">
+              <div class="partner-logo-svg">
+                <svg viewBox="313.2 96.4 4.9 4.9" fill="currentColor">
+                  <path d="m 314.20551,97.757143 c -0.15847,-0.05788 -0.23977,-0.232887 -0.1819,-0.389986 0.0579,-0.158471 0.23151,-0.239776 0.38999,-0.181899 -0.32935,-0.119888 -0.69453,0.04961 -0.81442,0.378961 -0.11989,0.330729 0.0496,0.694531 0.38033,0.815799 l 3.12264,1.135503 -2.68855,0.978409 c -0.32935,0.11989 -0.69453,-0.0496 -0.81442,-0.37896 -0.11989,-0.330731 0.0496,-0.694533 0.38033,-0.8158 -0.5016,0.183278 -0.76067,0.73863 -0.57877,1.24023 0.18328,0.50161 0.73725,0.7593 1.23885,0.5774 l 2.93385,-1.06798 c 0.29352,-0.106106 0.44648,-0.432704 0.339,-0.727602 -0.0593,-0.163989 -0.18742,-0.283877 -0.339,-0.338998 z"/>
+                  <path d="m 317.10215,98.163666 -2.68855,-0.978408 c -0.32935,-0.119888 -0.69453,0.04961 -0.81442,0.378961 -0.11989,0.330729 0.0496,0.694531 0.38033,0.814419 -0.5016,-0.181899 -0.76067,-0.737249 -0.57877,-1.238857 0.18328,-0.501604 0.73863,-0.760677 1.24023,-0.577398 l 2.93247,1.067982 c 0.29352,0.106108 0.44648,0.432703 0.339,0.727604 -0.0606,0.163985 -0.18742,0.283877 -0.339,0.338998 l -3.36793,1.225074 c -0.15847,0.05788 -0.23977,0.232889 -0.1819,0.389989 0.0579,0.15847 0.23289,0.23978 0.38999,0.1819 -0.32935,0.11989 -0.69453,-0.0496 -0.81442,-0.37896 -0.11989,-0.330731 0.0496,-0.694533 0.38033,-0.814425 l 3.12264,-1.136879"/>
+                </svg>
+              </div>
+              <span class="partner-type-badge">Strategic Alliance</span>
+            </div>
+            <h3 class="partner-name">Baker Hughes</h3>
+            <p class="partner-desc">Co-engineered energy technology platform for upstream/downstream oil &amp; gas sensor telemetry and global inventory intelligence.</p>
+          </div>
+          <div class="partner-integration-spec">Energy AI &bull; Joint Venture Alliance</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
   <section class="pricing" id="engagements">
     <div class="customer-tag">Deployment Execution</div>
     <h2>Engagement Models</h2>
@@ -1954,9 +1950,12 @@
     </div>
     <div class="footer-links">
       <a href="#customers">Customers</a>
-      <a href="#partners">Partners</a>
       <a href="#usecases">Use Cases</a>
       <a href="#deployments">Deployments</a>
+      <a href="#method">Method</a>
+      <a href="#opensource">Open Source</a>
+      <a href="#partners">Partners</a>
+      <a href="#engagements">Engagements</a>
       <a href="summits.html">Summits</a>
       <a href="https://github.com/utkarshethics/stage-x_landing" target="_blank" rel="noopener">GitHub</a>
       <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT License</a>
