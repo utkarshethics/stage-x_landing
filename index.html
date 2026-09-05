@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23000'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23fff' font-family='sans-serif' font-weight='900' font-size='18'>X</text></svg>">
   <style>
     /* RESET */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -1055,11 +1056,161 @@
       margin-top: 0.25rem;
     }
 
+    /* PARTNERS SECTION */
+    .partners-section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 10%;
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .partners-section h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      margin-bottom: 1rem;
+      color: var(--white);
+    }
+
+    .partners-intro {
+      font-size: 1.15rem;
+      color: #aaa;
+      max-width: 850px;
+      margin-bottom: 3.5rem;
+      line-height: 1.6;
+    }
+
+    .partners-category-group {
+      margin-bottom: 3.5rem;
+    }
+
+    .partners-category-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .partners-category-title {
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #262626;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .partners-category-title span {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #666;
+      letter-spacing: 1px;
+    }
+
+    .partner-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .partner-card {
+      border: 1px solid #2a2a2a;
+      background: #0a0a0a;
+      padding: 2rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+    }
+
+    .partner-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--white);
+      box-shadow: 4px 4px 0px #333;
+    }
+
+    .partner-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .partner-logo-svg {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+    }
+
+    .partner-logo-svg svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .partner-type-badge {
+      border: 1px solid #333;
+      background: #141414;
+      padding: 0.2rem 0.5rem;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #888;
+    }
+
+    .partner-name {
+      font-size: 1.2rem;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .partner-desc {
+      font-size: 0.85rem;
+      color: #888;
+      line-height: 1.5;
+      margin-bottom: 1.25rem;
+    }
+
+    .partner-integration-spec {
+      border-top: 1px solid #222;
+      padding-top: 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: #bbb;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .partner-integration-spec::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: #00ff66;
+      border-radius: 50%;
+    }
+
     /* RESPONSIVE */
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .hero { padding: 0 5%; }
-      .philosophy, .workflow, .deployments, .testimonials, .pricing, .opensource, .customers-section, .usecases-section { padding: 5rem 5%; }
+      .philosophy, .workflow, .deployments, .testimonials, .pricing, .opensource, .customers-section, .usecases-section, .partners-section { padding: 5rem 5%; }
       .btn-container { flex-direction: column; }
       footer { flex-direction: column; text-align: center; }
       .deployment-row { grid-template-columns: 1fr; text-align: left; gap: 0.5rem; }
@@ -1067,7 +1218,7 @@
       .pricing-grid { border: none; }
       .price-card { border-left: none; border-top: 1px solid #333; }
       .price-card:first-child { border-top: 1px solid #333; }
-      .usecases-grid { grid-template-columns: 1fr; }
+      .usecases-grid, .partner-card-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -1077,6 +1228,7 @@
     <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;">stage-x.space</a></div>
     <div class="nav-links">
       <a href="#customers">Customers</a>
+      <a href="#partners">Partners</a>
       <a href="#usecases">Use Cases</a>
       <a href="#deployments">Deployments</a>
       <a href="#method">Method</a>
@@ -1089,7 +1241,7 @@
 
   <header class="hero">
     <div class="oss-badge">
-      <span class="oss-pill">Open Source</span>
+      <span class="oss-pill">Open Source Harness</span>
       <span class="oss-licenses">MIT &amp; Apache 2.0</span>
     </div>
     <h1>Forward Deploy Any Frontier Model Into Any Enterprise</h1>
@@ -1146,6 +1298,370 @@
       <div class="customer-logo-card">
         <div class="customer-logo-name">SmithRx</div>
         <span class="customer-industry">Healthcare Technology</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <section class="partners-section" id="partners">
+    <div class="customer-tag">[ALLIANCE ECOSYSTEM] CO-ENGINEERED INFRASTRUCTURE</div>
+    <h2>Global Partner &amp; Integration Ecosystem</h2>
+    <p class="partners-intro">
+      Forward deploying frontier models requires an unyielding infrastructure foundation. We co-engineer, integrate, and scale alongside the world's leading cloud hyperscalers, silicon architects, defense systems primes, and global systems integrators.
+    </p>
+
+    <!-- CATEGORY 1: CLOUD & HYPERSCALERS -->
+    <div class="partners-category-group">
+      <div class="partners-category-title">
+        <span>01 &bull; Cloud Hyperscalers &amp; Data Platforms</span>
+        <span>Infrastructure &amp; Marketplace Co-Sell</span>
+      </div>
+      <div class="partner-card-grid">
+        <div class="partner-card">
+          <div>
+            <div class="partner-card-top">
+              <div class="partner-logo-svg">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 15c-1.5 0-3-1-3-3a4 4 0 0 1 4-4 5 5 0 0 1 9.5-1.5A4 4 0 0 1 18 10a3 3 0 0 1 3 3c0 1.7-1.3 3-3 3"/>
+                  <path d="M6 19c4 3 8 3 12 0"/>
+                  <path d="M16 19l2 1.5-0.5-2.5"/>
+                </svg>
+              </div>
+              <span class="partner-type-badge">Hyperscaler</span>
+            </div>
+            <h3 class="partner-name">Amazon Web Services</h3>
+            <p class="partner-desc">Dedicated Bedrock PrivateLink endpoints, AWS GovCloud air-gapped VPC boundaries, and high-concurrency SageMaker inference clusters.</p>
+          </div>
+          <div class="partner-integration-spec">GovCloud &bull; Bedrock PrivateLink</div>
+        </div>
+
+        <div class="partner-card">
+          <div>
+            <div class="partner-card-top">
+              <div class="partner-logo-svg">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M13.05 4.24l-5.6 9.77 4.14 5.75H22L13.05 4.24zM6.9 14.77l-4.9 3.99H9.4l-2.5-3.99z"/>
+                </svg>
+              </div>
+              <span class="partner-type-badge">Hyperscaler</span>
+            </div>
+            <h3 class="partner-name">Microsoft Azure</h3>
+            <p class="partner-desc">Direct Azure OpenAI Service enterprise integration, sovereign cloud enclaves, and confidential multi-party compute clusters.</p>
+          </div>
+          <div class="partner-integration-spec">Confidential Enclaves &bull; Azure AI</div>
+        </div>
+
+        <div class="partner-card">
+          <div>
+            <div class="partner-card-top">
+              <div class="partner-logo-svg">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/>
+                  <circle cx="12" cy="13" r="2"/>
+                </svg>
+              </div>
+              <span class="partner-type-badge">Hyperscaler</span>
+            </div>
+            <h3 class="partner-name">Google Cloud</h3>
+            <p class="partner-desc">Vertex AI model garden integration, TPU v5p inference topologies, and sovereign EU data residency infrastructure.</p>
+          </div>
+          <div class="partner-integration-spec">Vertex AI &bull; Sovereign Infrastructure</div>
+        </div>
+
+        <div class="partner-card">
+          <div>
+            <div class="partner-card-top">
+              <div class="partner-logo-svg">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="2" x2="12" y2="22"/>
+                  <line x1="3.34" y1="7" x2="20.66" y2="17"/>
+                  <line x1="3.34" y1="17" x2="20.66" y2="7"/>
+                  <path d="M9 5l3-3 3 3M9 19l3 3 3-3"/>
+                  <path d="M5 9l-3 3 3 3M19 9l3 3-3 3"/>
+                </svg>
+              </div>
+              <span class="partner-type-badge">Data Platform</span>
+            </div>
+            <h3 class="partner-name">Snowflake</h3>
+            <p class="partner-desc">Apache Iceberg lakehouse and Cortex AI zero-copy data integration layer powering real-time enterprise model context.</p>
+          </div>
+          <div class="partner-integration-spec">Iceberg &bull; Cortex Zero-Copy</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CATEGORY 2: SILICON & AI HARDWARE -->
+    <div class="partners-category-group">
+      <div class="partners-category-title">
+        <span>02 &bull; Silicon &amp; AI Compute Hardware</span>
+        <span>Kernel Acceleration &amp; On-Premises Clusters</span>
+      </div>
+      <div class="partner-card-grid">
+        <div class="partner-card">
+          <div>
+            <div class="partner-card-top">
+              <div class="partner-logo-svg">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 4a8 8 0 0 0-8 8c0 4.42 3.58 8 8 8a7.97 7.97 0 0 0 5.66-2.34l-1.42-1.42A5.96 5.96 0 0 1 12 18a6 6 0 1 1 4.24-1.76l1.42 1.42A7.95 7.95 0 0 0 20 12c0-4.42-3.58-8-8-8zm0 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/>
+                </svg>
+              </div>
+              <span class="partner-type-badge">AI Hardware</span>
+            </div>
+            <h3 class="partner-name">NVIDIA</h3>
+            <p class="partner-desc">Blackwell &amp; Hopper FP8/FP4 micro-scaling kernels, TensorRT-LLM optimization, and DGX Cloud air-gapped acceleration.</p>
+          </div>
+          <div class="partner-integration-spec">Blackwell FP8 &bull; TensorRT-LLM</div>
+        </div>
+
+        <div class="partner-card">
+          <div>
+            <div class="partner-card-top">
+              <div class="partner-logo-svg">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <rect x="2" y="6" width="20" height="12"/>
+                </svg>
+              </div>
+              <span class="partner-type-badge">Hardware</span>
+            </div>
+            <h3 class="partner-name">HPE</h3>
+            <p class="partner-desc">On-premises Cray supercomputing architectures, ProLiant AI clusters, and air-gapped sovereign enterprise hardware.</p>
+          </div>
+          <div class="partner-integration-spec">Cray AI &bull; ProLiant Clusters</div>
+        </div>
+
+        <div class="partner-card">
+          <div>
+            <div class="partner-card-top">
+              <div class="partner-logo-svg">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="12,2 22,20 2,20"/>
+                  <polygon points="12,8 18,18 6,18" fill="#0a0a0a"/>
+                </svg>
+              </div>
+              <span class="partner-type-badge">Defense Compute</span>
+            </div>
+            <h3 class="partner-name">Leonardo</h3>
+            <p class="partner-desc">High-performance defense-grade edge compute clusters engineered for classified aerospace and marine telemetry pipelines.</p>
+          </div>
+          <div class="partner-integration-spec">Tactical Edge &bull; Marine Telemetry</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CATEGORY 3: FEDERAL & DEFENSE PRIMES -->
+    <div class="partners-category-group">
+      <div class="partners-category-title">
+        <span>03 &bull; Federal &amp; Defense Systems Primes</span>
+        <span>SCIF Compliant &bull; Mission-Critical Deployments</span>
+      </div>
+      <div class="partner-card-grid">
+        <div class="partner-card">
+          <div>
+            <div class="partner-card-top">
+              <div class="partner-logo-svg">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="2,12 22,5 16,12 22,19"/>
+                </svg>
+              </div>
+              <span class="partner-type-badge">Defense Prime</span>
+            </div>
+            <h3 class="partner-name">Lockheed Martin</h3>
+            <p class="partner-desc">Tactical air-gapped avionics integration, sovereign model weights on mission hardware, and F-35 depot logistics AI.</p>
+          </div>
+          <div class="partner-integration-spec">Classified Edge &bull; Joint Strike Fighter</div>
+        </div>
+
+        <div class="partner-card">
+          <div>
+            <div class="partner-card-top">
+              <div class="partner-logo-svg">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <circle cx="12" cy="12" r="9"/>
+                  <circle cx="12" cy="12" r="4"/>
+                  <line x1="12" y1="3" x2="12" y2="21"/>
+                  <line x1="3" y1="12" x2="21" y2="12"/>
+                </svg>
+              </div>
+              <span class="partner-type-badge">Defense Prime</span>
+            </div>
+            <h3 class="partner-name">RTX (Raytheon)</h3>
+            <p class="partner-desc">Radar waveform signal analytics, real-time multi-sensor fusion, and mission telemetry under zero-egress policies.</p>
+          </div>
+          <div class="partner-integration-spec">Radar Telemetry &bull; Zero Egress</div>
+        </div>
+
+        <div class="partner-card">
+          <div>
+            <div class="partner-card-top">
+              <div class="partner-logo-svg">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="12,2 21,7 21,17 12,22 3,17 3,7"/>
+                  <polygon points="12,5 18,9 18,15 12,19 6,15 6,9" fill="#0a0a0a"/>
+                </svg>
+              </div>
+              <span class="partner-type-badge">Systems Integrator</span>
+            </div>
+            <h3 class="partner-name">Booz Allen Hamilton</h3>
+            <p class="partner-desc">Joint strategic delivery of enterprise AI solutions across U.S. Federal, Defense, and Intelligence Community customers.</p>
+          </div>
+          <div class="partner-integration-spec">National Security &bull; Joint Delivery</div>
+        </div>
+
+        <div class="partner-card">
+          <div>
+            <div class="partner-card-top">
+              <div class="partner-logo-svg">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/>
+                  <polyline points="9 12 11 14 15 10"/>
+                </svg>
+              </div>
+              <span class="partner-type-badge">Federal Cloud</span>
+            </div>
+            <h3 class="partner-name">ECS</h3>
+            <p class="partner-desc">Enterprise-scale federal cloud modernization, secure DevSecOps, and defense AI operationalization under DoD compliance.</p>
+          </div>
+          <div class="partner-integration-spec">DoD IL5/IL6 &bull; Secure DevSecOps</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CATEGORY 4: STRATEGIC CONSULTANTS & GSIS -->
+    <div class="partners-category-group">
+      <div class="partners-category-title">
+        <span>04 &bull; Strategic Consultants &amp; Global Systems Integrators</span>
+        <span>Enterprise Transformation &amp; Hand-Off</span>
+      </div>
+      <div class="partner-card-grid">
+        <div class="partner-card">
+          <div>
+            <div class="partner-card-top">
+              <div class="partner-logo-svg">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M3 4h4l5 10 5-10h4v16h-3V9l-5 10h-2L6 9v11H3V4z"/>
+                </svg>
+              </div>
+              <span class="partner-type-badge">Strategy</span>
+            </div>
+            <h3 class="partner-name">McKinsey &amp; Company</h3>
+            <p class="partner-desc">Accelerating enterprise-scale operating model rewiring, executive AI roadmap alignment, and joint technical delivery.</p>
+          </div>
+          <div class="partner-integration-spec">Rewire Practice &bull; C-Suite Alignment</div>
+        </div>
+
+        <div class="partner-card">
+          <div>
+            <div class="partner-card-top">
+              <div class="partner-logo-svg">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <rect x="3" y="3" width="7" height="7"/>
+                  <rect x="14" y="3" width="7" height="7"/>
+                  <rect x="3" y="14" width="7" height="7"/>
+                  <rect x="14" y="14" width="7" height="7"/>
+                </svg>
+              </div>
+              <span class="partner-type-badge">Global Integrator</span>
+            </div>
+            <h3 class="partner-name">PwC</h3>
+            <p class="partner-desc">Enterprise AI transformation with end-to-end regulatory compliance, governance frameworks, and audit verification.</p>
+          </div>
+          <div class="partner-integration-spec">Enterprise Audit &bull; Governance</div>
+        </div>
+
+        <div class="partner-card">
+          <div>
+            <div class="partner-card-top">
+              <div class="partner-logo-svg">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C8 6 3 10 3 14a5 5 0 0 0 8.5 3.5L12 22l0.5-4.5A5 5 0 0 0 21 14c0-4-5-8-9-12z"/>
+                </svg>
+              </div>
+              <span class="partner-type-badge">Global Integrator</span>
+            </div>
+            <h3 class="partner-name">Capgemini</h3>
+            <p class="partner-desc">Industrial AI engineering, plant automation, and real-time manufacturing telemetry integration across global facilities.</p>
+          </div>
+          <div class="partner-integration-spec">Smart Factory &bull; Industrial AI</div>
+        </div>
+
+        <div class="partner-card">
+          <div>
+            <div class="partner-card-top">
+              <div class="partner-logo-svg">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 8A7 7 0 1 0 18 16"/>
+                  <polyline points="18 4 18 8 14 8"/>
+                </svg>
+              </div>
+              <span class="partner-type-badge">Global Integrator</span>
+            </div>
+            <h3 class="partner-name">Cognizant</h3>
+            <p class="partner-desc">Large-scale legacy core modernization, automated data pipelines, and ERP model orchestration with seamless handover.</p>
+          </div>
+          <div class="partner-integration-spec">Core Modernization &bull; ERP Splice</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CATEGORY 5: ENTERPRISE SOFTWARE & INDUSTRIAL -->
+    <div class="partners-category-group">
+      <div class="partners-category-title">
+        <span>05 &bull; Enterprise Software &amp; Industrial Alliances</span>
+        <span>Deep Protocol Connectors &bull; Native Splicing</span>
+      </div>
+      <div class="partner-card-grid">
+        <div class="partner-card">
+          <div>
+            <div class="partner-card-top">
+              <div class="partner-logo-svg">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="2,4 22,4 18,20 2,20"/>
+                  <text x="4" y="15" fill="#0a0a0a" font-family="sans-serif" font-weight="900" font-size="8">SAP</text>
+                </svg>
+              </div>
+              <span class="partner-type-badge">Enterprise Software</span>
+            </div>
+            <h3 class="partner-name">SAP</h3>
+            <p class="partner-desc">Native connectors into SAP NetWeaver, S/4HANA, and BTP for autonomous supply chain reasoning and procurement auditing.</p>
+          </div>
+          <div class="partner-integration-spec">S/4HANA &bull; NetWeaver Native</div>
+        </div>
+
+        <div class="partner-card">
+          <div>
+            <div class="partner-card-top">
+              <div class="partner-logo-svg">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="3" fill="currentColor"/>
+                  <path d="M12 3a9 9 0 0 1 9 9"/>
+                  <path d="M12 21a9 9 0 0 1-9-9"/>
+                </svg>
+              </div>
+              <span class="partner-type-badge">Workflow Platform</span>
+            </div>
+            <h3 class="partner-name">ServiceNow</h3>
+            <p class="partner-desc">Autonomous IT service management, automated incident remediation workflows, and cross-enterprise digital action triggers.</p>
+          </div>
+          <div class="partner-integration-spec">ITSM &bull; Autonomous Workflows</div>
+        </div>
+
+        <div class="partner-card">
+          <div>
+            <div class="partner-card-top">
+              <div class="partner-logo-svg">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 3c5 0 7 6 7 9s2 9 7 9"/>
+                  <path d="M18 3c-5 0-7 6-7 9s-2 9-7 9"/>
+                </svg>
+              </div>
+              <span class="partner-type-badge">Strategic Alliance</span>
+            </div>
+            <h3 class="partner-name">Baker Hughes</h3>
+            <p class="partner-desc">Co-engineered energy technology platform for upstream/downstream oil &amp; gas sensor telemetry and global inventory intelligence.</p>
+          </div>
+          <div class="partner-integration-spec">Energy AI &bull; Joint Venture Alliance</div>
+        </div>
       </div>
     </div>
   </section>
@@ -1395,7 +1911,7 @@
   <section class="stats">
     <div class="stat-item">
       <div class="stat-value">0</div>
-      <div class="stat-label">Hand-offs</div>
+      <div class="stat-label">Third-Party<br>Handoffs</div>
     </div>
     <div class="stat-item">
       <div class="stat-value">47</div>
@@ -1476,15 +1992,15 @@
   <div class="section-divider"></div>
 
   <section class="opensource" id="opensource">
-    <div class="license-tag">Open Core Architecture</div>
-    <h2>100% Open Source.<br>MIT &amp; Apache 2.0 Licensed.</h2>
-    <p class="opensource-desc">Built in the open for developers, researchers, and enterprise infrastructure teams. Transparent, extensible, and completely free of proprietary vendor lock-in.</p>
+    <div class="license-tag">Open Core Harness &bull; Dual-Licensed</div>
+    <h2>100% Open Source Architecture.<br>MIT &amp; Apache 2.0 Licensed.</h2>
+    <p class="opensource-desc">Our forward deployment runtime, integration connectors, and orchestration harness are 100% open source. Whether you deploy sovereign open-weight models (Llama, DeepSeek, Mistral) or bridge closed frontier APIs (OpenAI, Anthropic, Google), your underlying execution infrastructure remains fully auditable, self-hostable, and free of vendor lock-in.</p>
     
     <div class="license-grid">
       <div class="license-card">
         <div class="license-tag">Permissive</div>
         <h3>MIT License</h3>
-        <p>Simple and ultra-permissive. Embed frontier model pipelines directly into proprietary software or custom services with zero friction.</p>
+        <p>Ultra-permissive runtime connectors. Embed frontier model pipelines directly into proprietary software or custom services with zero friction.</p>
         <ul class="license-perks">
           <li>Commercial Use Permitted</li>
           <li>Modify &amp; Distribute Freely</li>
@@ -1506,9 +2022,9 @@
       <div class="license-card">
         <div class="license-tag">Sovereignty</div>
         <h3>Zero Vendor Lock-In</h3>
-        <p>Full control over your codebase and deployment targets. Run on-premises, air-gapped VPCs, or private cloud environments.</p>
+        <p>Sovereign control over your deployment runtime. Swap models freely, run on-premises, air-gapped, or across private cloud environments with zero platform fees.</p>
         <ul class="license-perks">
-          <li>100% Self-Hostable</li>
+          <li>100% Self-Hostable Harness</li>
           <li>Auditable Architecture</li>
           <li>No Licensing Call-Homes</li>
         </ul>
@@ -1562,7 +2078,7 @@
           </div>
           <div class="model-info">
             <span class="model-name">Meta AI</span>
-            <span class="model-tag">Llama 3.3 70B &bull; 405B</span>
+            <span class="model-tag">Llama 3.3 70B &bull; 3.1 405B</span>
           </div>
         </div>
 
@@ -1635,6 +2151,7 @@
     </div>
     <div class="footer-links">
       <a href="#customers">Customers</a>
+      <a href="#partners">Partners</a>
       <a href="#usecases">Use Cases</a>
       <a href="#deployments">Deployments</a>
       <a href="summits.html">Summits</a>
