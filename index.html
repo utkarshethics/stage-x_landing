@@ -8,7 +8,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23000'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23fff' font-family='sans-serif' font-weight='900' font-size='18'>X</text></svg>">
+  <link rel="icon" type="image/png" sizes="32x32" href="/public/logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/public/logo.png">
+  <link rel="apple-touch-icon" href="/public/logo.png">
+  <link rel="manifest" href="/public/manifest.json">
   <style>
     /* RESET */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -59,8 +62,8 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background-color: var(--white);
-      color: var(--black);
+      background-color: var(--black);
+      color: var(--white);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -72,8 +75,8 @@
       justify-content: space-between;
       align-items: center;
       padding: 2rem 5%;
-      border-bottom: 2px solid var(--black);
-      background: var(--white);
+      border-bottom: 2px solid #333;
+      background: var(--black);
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -86,7 +89,7 @@
     }
 
     .nav-links a {
-      color: var(--black);
+      color: var(--white);
       text-decoration: none;
       margin-left: 2rem;
       text-transform: uppercase;
@@ -98,7 +101,7 @@
     }
 
     .nav-links a:hover {
-      border-bottom: 2px solid var(--black);
+      border-bottom: 2px solid var(--white);
     }
 
     /* HERO SECTION */
@@ -108,7 +111,7 @@
       flex-direction: column;
       justify-content: center;
       padding: 6rem 10%;
-      background: var(--white);
+      background: var(--black);
       position: relative;
     }
 
@@ -1268,7 +1271,7 @@
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <nav>
-    <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;">stage-x.space</a></div>
+    <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;"><img src="/public/logo.png" alt="stage-x.space" width="192" height="192" style="vertical-align: middle;"></a></div>
     <div class="nav-links">
       <a href="#customers">Customers</a>
       <a href="#usecases">Use Cases</a>
@@ -1276,7 +1279,6 @@
       <a href="#method">Method</a>
       <a href="#opensource">Open Source</a>
       <a href="#partners">Partners</a>
-      <a href="#engagements">Engagements</a>
       <a href="summits.html">Summits</a>
       <a href="#contact">Contact</a>
     </div>
@@ -1294,8 +1296,6 @@
       <a href="#opensource" class="btn-secondary">Open Source (MIT / Apache)</a>
     </div>
   </header>
-
-  <div class="section-divider"></div>
 
   <main id="main-content">
   <section class="philosophy">
@@ -1866,119 +1866,7 @@
           <div class="partner-integration-spec">Energy AI &bull; Joint Venture Alliance</div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <div class="section-divider"></div>
-
-  <section class="pricing" id="engagements">
-    <div class="customer-tag">Deployment Execution</div>
-    <h2>Engagement Models</h2>
-    <p>Engineered for outcomes and mission velocity. Forward Deployed Engineers embed directly with internal technical teams from initial recon to production cutover.</p>
-
-    <div class="frontier-models-showcase">
-      <div class="frontier-models-badge">Frontier Models Deployed In Enterprise Stacks</div>
-      <div class="models-grid">
-        <div class="model-item">
-          <div class="model-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.28 9.82a5.98 5.98 0 0 0-.51-4.91 6.05 6.05 0 0 0-6.51-2.9A6.07 6.07 0 0 0 4.98 4.18 5.98 5.98 0 0 0 .98 7.08a6.05 6.05 0 0 0 .74 7.1 5.98 5.98 0 0 0 .51 4.91 6.05 6.05 0 0 0 6.51 2.9A5.98 5.98 0 0 0 13.26 24a6.06 6.06 0 0 0 5.77-4.21 5.99 5.99 0 0 0 4-2.9 6.06 6.06 0 0 0-.75-7.07zm-9.02 12.61a4.48 4.48 0 0 1-2.88-1.04l.14-.08 4.78-2.76a.79.79 0 0 0 .39-.68v-6.74l2.02 1.17a.07.07 0 0 1 .04.05v5.58a4.5 4.5 0 0 1-4.49 4.5zm-9.66-4.13a4.47 4.47 0 0 1-.53-3.01l.14.08 4.78 2.76a.77.77 0 0 0 .78 0l5.84-3.37v2.33a.08.08 0 0 1-.03.06L9.74 19.95a4.5 4.5 0 0 1-6.14-1.65zM2.34 7.9a4.48 4.48 0 0 1 2.37-1.98v5.69a.77.77 0 0 0 .39.68l5.81 3.35-2.02 1.17a.08.08 0 0 1-.07 0l-4.83-2.79A4.5 4.5 0 0 1 2.34 7.9zm16.1 3.85-5.84-3.37 2.02-1.16a.08.08 0 0 1 .07 0l4.83 2.79a4.5 4.5 0 0 1-.68 8.1v-5.68a.79.79 0 0 0-.4-.68zm2.01-3.02-.14-.08-4.78-2.78a.78.78 0 0 0-.78 0L9.41 9.23V6.9a.07.07 0 0 1 .03-.06l4.83-2.79a4.5 4.5 0 0 1 6.68 4.66zM8.31 12.86l-2.02-1.16a.08.08 0 0 1-.04-.06V6.07a4.5 4.5 0 0 1 7.38-3.45l-.14.08-4.79 2.76a.79.79 0 0 0-.39.68v6.72zm1.14-2.52 3.11-1.79 3.11 1.79v3.59l-3.11 1.79-3.11-1.79z"/></svg>
-          </div>
-          <div class="model-info">
-            <span class="model-name">OpenAI</span>
-            <span class="model-tag">o1 &bull; o3-mini &bull; GPT-4o</span>
-          </div>
-        </div>
-
-        <div class="model-item">
-          <div class="model-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 4.167h-3.315L20.485 20h3.315L17.472 4.167zm-10.944 0L0 20h3.315l1.63-4.472h6.582l1.63 4.472h3.315L9.843 4.167H6.528zm-.733 8.778l2.39-6.556 2.39 6.556H5.795z"/></svg>
-          </div>
-          <div class="model-info">
-            <span class="model-name">Anthropic</span>
-            <span class="model-tag">Claude 3.7 &bull; 3.5 Sonnet</span>
-          </div>
-        </div>
-
-        <div class="model-item">
-          <div class="model-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C12 6.627 6.627 12 0 12c6.627 0 12 5.373 12 12 0-6.627 5.373-12 12-12-6.627 0-12-5.373-12-12z"/></svg>
-          </div>
-          <div class="model-info">
-            <span class="model-name">Google DeepMind</span>
-            <span class="model-tag">Gemini 2.5 Pro &bull; Flash</span>
-          </div>
-        </div>
-
-        <div class="model-item">
-          <div class="model-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 7.054c-1.467-1.89-3.414-2.91-5.59-2.91-3.792 0-6.41 3.036-6.41 7.234 0 4.198 2.618 7.234 6.41 7.234 2.176 0 4.123-1.02 5.59-2.91 1.467 1.89 3.414 2.91 5.59 2.91 3.792 0 6.41-3.036 6.41-7.234 0-4.198-2.618-7.234-6.41-7.234-2.176 0-4.123 1.02-5.59 2.91zm-5.59 9.387c-2.316 0-3.82-1.996-3.82-5.045 0-3.048 1.504-5.044 3.82-5.044 1.748 0 3.328 1.258 4.315 3.428-1.022 2.222-2.587 4.661-4.315 6.661zm11.18 0c-1.728-2-3.293-4.439-4.315-6.661.987-2.17 2.567-3.428 4.315-3.428 2.316 0 3.82 1.996 3.82 5.044 0 3.049-1.504 5.045-3.82 5.045z"/></svg>
-          </div>
-          <div class="model-info">
-            <span class="model-name">Meta AI</span>
-            <span class="model-tag">Llama 3.3 70B &bull; 3.1 405B</span>
-          </div>
-        </div>
-
-        <div class="model-item">
-          <div class="model-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 3.5 1.8 6.6 4.5 8.4l1.2-1.7C5.5 17.3 4 14.8 4 12c0-4.4 3.6-8 8-8s8 3.6 8 8c0 2.8-1.5 5.3-3.7 6.7l1.2 1.7C20.2 18.6 22 15.5 22 12c0-5.52-4.48-10-10-10zm-1 5v6l5-3-5-3z"/></svg>
-          </div>
-          <div class="model-info">
-            <span class="model-name">DeepSeek</span>
-            <span class="model-tag">DeepSeek-R1 &bull; V3</span>
-          </div>
-        </div>
-
-        <div class="model-item">
-          <div class="model-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h3.2v3.2H4V4zm4.8 3.2H12v3.2H8.8V7.2zm0 3.2H12v3.2H8.8v-3.2zm4.8 0h3.2v3.2h-3.2v-3.2zm0 3.2h3.2v3.2h-3.2v-3.2zm0 3.2h3.2V20h-3.2v-3.2zM4 10.4h3.2v3.2H4v-3.2zm0 3.2h3.2v3.2H4v-3.2zm0 3.2h3.2V20H4v-3.2zm12.8-9.6H20v3.2h-3.2V7.2zM16.8 4H20v3.2h-3.2V4z"/></svg>
-          </div>
-          <div class="model-info">
-            <span class="model-name">Mistral AI</span>
-            <span class="model-tag">Mistral Large 2 &bull; Codestral</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="pricing-grid">
-      <div class="price-card">
-        <div class="price-card-tag">Phase 01</div>
-        <div class="price-value">Sprint<span> / 2 Weeks</span></div>
-        <h3>Recon &amp; Roadmap</h3>
-        <ul>
-          <li>2-week embedded engineering assessment</li>
-          <li>Data landscape &amp; API mapping</li>
-          <li>ROI-ranked model opportunity pipeline</li>
-          <li>Production cutover deployment blueprint</li>
-        </ul>
-        <a href="#contact" class="price-cta">Initiate Sprint</a>
-      </div>
-      <div class="price-card featured">
-        <div class="price-card-tag">Phase 02 &bull; Core Ship</div>
-        <div class="price-value">Deploy<span> / Milestone-Based</span></div>
-        <h3>Full Deployment</h3>
-        <ul>
-          <li>Embedded SWAT team on-site or air-gapped</li>
-          <li>Frontier model fusion into legacy systems</li>
-          <li>Adversarial hardening &amp; security verification</li>
-          <li>Production release backed by operational SLAs</li>
-        </ul>
-        <a href="#contact" class="price-cta">Start Deployment</a>
-      </div>
-      <div class="price-card">
-        <div class="price-card-tag">Phase 03</div>
-        <div class="price-value">Evolve<span> / Continuous</span></div>
-        <h3>Own &amp; Scale Retainer</h3>
-        <ul>
-          <li>Team enablement and internal handover</li>
-          <li>24/7 on-call for production incidents</li>
-          <li>Continuous frontier model version upgrades</li>
-          <li>Zero lock-in full codebase transfer</li>
-        </ul>
-        <a href="#contact" class="price-cta">Engage Team</a>
-      </div>
-    </div>
+</div>
   </section>
 
   </main>
@@ -1995,7 +1883,6 @@
       <a href="#method">Method</a>
       <a href="#opensource">Open Source</a>
       <a href="#partners">Partners</a>
-      <a href="#engagements">Engagements</a>
       <a href="summits.html">Summits</a>
       <a href="https://lu.ma" target="_blank" rel="noopener">Lu.ma</a>
       <a href="https://www.eventbrite.com" target="_blank" rel="noopener">Eventbrite</a>
