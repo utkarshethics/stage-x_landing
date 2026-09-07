@@ -1,0 +1,21 @@
+==================================================
+TIMESTAMP: 2026-09-07T15:12:08.719Z
+SESSION:   ses_f84eb301fffe00SHMch4PdMsGM
+COMMAND:   cd /Users/ai/Desktop/stage-x.space && git checkout main
+OUTPUT:
+error: Your local changes to the following files would be overwritten by checkout:
+	events/berlin-2026.html
+	events/boston-2026.html
+	events/dubai-2026.html
+	events/london-2026.html
+	events/melbourne-2026.html
+	events/mumbai-2026.html
+	events/nyc-2026.html
+	events/sf-2026.html
+	events/toronto-2026.html
+	index.html
+	summits.html
+Please commit your changes or stash them before you switch branches.
+Aborting
+
+==================================================
