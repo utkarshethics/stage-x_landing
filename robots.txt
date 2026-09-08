@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /events/tracker/
+
+Sitemap: https://stage-x.space/sitemap.xml
