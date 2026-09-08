@@ -919,8 +919,32 @@
       box-shadow: 4px 4px 0px #333;
     }
 
+    .customer-logo-icon {
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .customer-logo-img {
+      max-height: 40px;
+      max-width: 140px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .customer-logo-card:hover .customer-logo-img {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
     .customer-logo-name {
-      font-size: 1.35rem;
+      font-size: 1.2rem;
       font-weight: 900;
       letter-spacing: 1px;
       text-transform: uppercase;
@@ -1312,36 +1336,60 @@
 
     <div class="customer-logo-grid">
       <div class="customer-logo-card">
+        <div class="customer-logo-icon">
+          <img src="/public/assets/logos/shell.svg" alt="Shell Logo" class="customer-logo-img">
+        </div>
         <div class="customer-logo-name">Shell</div>
         <span class="customer-industry">Global Energy</span>
       </div>
       <div class="customer-logo-card">
+        <div class="customer-logo-icon">
+          <img src="/public/assets/logos/us-air-force.svg" alt="U.S. Air Force Logo" class="customer-logo-img">
+        </div>
         <div class="customer-logo-name">U.S. Air Force</div>
         <span class="customer-industry">Defense &amp; Aerospace</span>
       </div>
       <div class="customer-logo-card">
+        <div class="customer-logo-icon">
+          <img src="/public/assets/logos/baker-hughes.png" alt="Baker Hughes Logo" class="customer-logo-img">
+        </div>
         <div class="customer-logo-name">Baker Hughes</div>
         <span class="customer-industry">Energy Technology</span>
       </div>
       <div class="customer-logo-card">
+        <div class="customer-logo-icon">
+          <img src="/public/assets/logos/con-edison.png" alt="Con Edison Logo" class="customer-logo-img">
+        </div>
         <div class="customer-logo-name">Con Edison</div>
         <span class="customer-industry">Power &amp; Utilities</span>
       </div>
       <div class="customer-logo-card">
+        <div class="customer-logo-icon">
+          <img src="/public/assets/logos/holcim.png" alt="Holcim Logo" class="customer-logo-img">
+        </div>
         <div class="customer-logo-name">Holcim</div>
         <span class="customer-industry">Building Materials</span>
       </div>
       <div class="customer-logo-card">
+        <div class="customer-logo-icon">
+          <img src="/public/assets/logos/dla.png" alt="Defense Logistics Agency Logo" class="customer-logo-img">
+        </div>
         <div class="customer-logo-name">U.S. DoD</div>
         <span class="customer-industry">Joint Strike Fighter F-35</span>
       </div>
       <div class="customer-logo-card">
+        <div class="customer-logo-icon">
+          <img src="/public/assets/logos/koch.png" alt="Koch Industries Logo" class="customer-logo-img">
+        </div>
         <div class="customer-logo-name">Koch Industries</div>
         <span class="customer-industry">Advanced Manufacturing</span>
       </div>
       <div class="customer-logo-card">
-        <div class="customer-logo-name">SmithRx</div>
-        <span class="customer-industry">Healthcare Technology</span>
+        <div class="customer-logo-icon">
+          <img src="/public/assets/logos/duke-energy.svg" alt="Duke Energy Logo" class="customer-logo-img">
+        </div>
+        <div class="customer-logo-name">Duke Energy</div>
+        <span class="customer-industry">Power &amp; Utilities</span>
       </div>
     </div>
   </section>

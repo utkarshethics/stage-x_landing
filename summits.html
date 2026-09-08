@@ -8,7 +8,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23000'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23fff' font-family='sans-serif' font-weight='900' font-size='18'>X</text></svg>">
+  <link rel="icon" type="image/png" sizes="32x32" href="/public/logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/public/logo.png">
+  <link rel="apple-touch-icon" href="/public/logo.png">
+  <link rel="stylesheet" href="/public/styles.css">
   <style>
     /* RESET */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -67,58 +70,6 @@
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-    }
-
-    /* NAVIGATION */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.75rem 5%;
-      border-bottom: 1px solid var(--border-dark);
-      background: rgba(0, 0, 0, 0.95);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(10px);
-    }
-
-    .logo a {
-      font-weight: 900;
-      font-size: 1.4rem;
-      letter-spacing: -1px;
-      color: var(--white);
-      text-decoration: none;
-    }
-
-    .logo span {
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--light-gray);
-      margin-left: 0.5rem;
-      border-left: 1px solid #444;
-      padding-left: 0.5rem;
-    }
-
-    .nav-links a {
-      color: #bbb;
-      text-decoration: none;
-      margin-left: 2rem;
-      text-transform: uppercase;
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      border-bottom: 2px solid transparent;
-      padding-bottom: 4px;
-      transition: all 0.2s ease;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--white);
-      border-bottom: 2px solid var(--white);
     }
 
     /* HERO */
@@ -1082,23 +1033,71 @@
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- NAVIGATION -->
-  <nav>
-    <div class="logo">
-      <a href="index.html">stage-x.space</a>
-      <span>Summits</span>
+  <header class="header" id="site-header">
+    <div class="header__inner">
+      <div class="header__brand">
+        <a href="index.html" class="header__logo" aria-label="stage-x.space home">
+          <img src="/public/logo.png" alt="" class="header__logo-img" width="40" height="40">
+          <span class="header__logo-text">stage-x.space</span>
+          <span class="header__logo-badge">Summits</span>
+        </a>
+      </div>
+
+      <nav class="header__nav" aria-label="Main navigation">
+        <ul class="header__menu">
+          <li class="header__item header__dropdown">
+            <button class="header__dropdown-trigger" aria-expanded="false" aria-haspopup="true" data-dropdown-trigger>
+              Solutions
+              <svg class="header__dropdown-chevron" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="header__dropdown-panel" role="menu" data-dropdown-panel>
+              <ul class="header__dropdown-list">
+                <li><a href="index.html#customers" class="header__dropdown-item" role="menuitem">Customers</a></li>
+                <li><a href="index.html#usecases" class="header__dropdown-item" role="menuitem">Use Cases</a></li>
+                <li><a href="index.html#deployments" class="header__dropdown-item" role="menuitem">Deployments</a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="header__item header__dropdown">
+            <button class="header__dropdown-trigger" aria-expanded="false" aria-haspopup="true" data-dropdown-trigger>
+              Resources
+              <svg class="header__dropdown-chevron" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="header__dropdown-panel" role="menu" data-dropdown-panel>
+              <ul class="header__dropdown-list">
+                <li><a href="index.html#method" class="header__dropdown-item" role="menuitem">Method</a></li>
+                <li><a href="index.html#opensource" class="header__dropdown-item" role="menuitem">Open Source</a></li>
+                <li><a href="index.html#partners" class="header__dropdown-item" role="menuitem">Partners</a></li>
+                <li><a href="summits.html" class="header__dropdown-item" role="menuitem">Summits</a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="header__item">
+            <a href="#request-invite" class="header__link header__link--cta">Request Invite</a>
+          </li>
+        </ul>
+      </nav>
+
+      <button class="header__mobile-toggle" aria-label="Toggle menu" aria-expanded="false" data-mobile-toggle>
+        <span class="header__hamburger"></span>
+      </button>
     </div>
-    <div class="nav-links">
-      <a href="index.html#customers">Customers</a>
-      <a href="index.html#usecases">Use Cases</a>
-      <a href="index.html#deployments">Deployments</a>
-      <a href="index.html#method">Method</a>
-      <a href="index.html#opensource">Open Source</a>
-      <a href="index.html#partners">Partners</a>
-      <a href="index.html#engagements">Engagements</a>
-      <a href="summits.html" class="active">Summits</a>
-      <a href="#request-invite">Request Invite</a>
+
+    <div class="header__mobile-panel" data-mobile-panel hidden>
+      <ul class="header__mobile-menu">
+        <li class="header__mobile-item"><a href="index.html#customers" class="header__mobile-link">Customers</a></li>
+        <li class="header__mobile-item"><a href="index.html#usecases" class="header__mobile-link">Use Cases</a></li>
+        <li class="header__mobile-item"><a href="index.html#deployments" class="header__mobile-link">Deployments</a></li>
+        <li class="header__mobile-item"><a href="index.html#method" class="header__mobile-link">Method</a></li>
+        <li class="header__mobile-item"><a href="index.html#opensource" class="header__mobile-link">Open Source</a></li>
+        <li class="header__mobile-item"><a href="index.html#partners" class="header__mobile-link">Partners</a></li>
+        <li class="header__mobile-item"><a href="summits.html" class="header__mobile-link">Summits</a></li>
+      </ul>
+      <a href="#request-invite" class="btn btn--primary header__mobile-cta">Request Invite</a>
     </div>
-  </nav>
+  </header>
 
   <!-- HERO -->
   <header class="summit-hero">
@@ -1818,13 +1817,58 @@
       <a href="index.html#method">Method</a>
       <a href="index.html#opensource">Open Source</a>
       <a href="index.html#partners">Partners</a>
-      <a href="index.html#engagements">Engagements</a>
       <a href="https://lu.ma" target="_blank" rel="noopener">Lu.ma</a>
       <a href="https://www.eventbrite.com" target="_blank" rel="noopener">Eventbrite</a>
       <a href="https://github.com/utkarshethics/stage-x_landing" target="_blank" rel="noopener">GitHub</a>
       <a href="index.html#contact">Contact</a>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      'use strict';
+      var header = document.getElementById('site-header');
+      if (header) {
+        function onScroll() {
+          if (window.scrollY > 10) { header.classList.add('header--scrolled'); }
+          else { header.classList.remove('header--scrolled'); }
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      }
+
+      var toggle = document.querySelector('[data-mobile-toggle]');
+      var panel = document.querySelector('[data-mobile-panel]');
+      if (toggle && panel) {
+        toggle.addEventListener('click', function () {
+          var open = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', String(!open));
+          panel.hidden = open ? true : false;
+        });
+        panel.addEventListener('click', function (e) {
+          if (e.target.closest('a')) {
+            panel.hidden = true;
+            toggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+
+      document.querySelectorAll('[data-dropdown-trigger]').forEach(function (trigger) {
+        trigger.addEventListener('click', function () {
+          var open = trigger.getAttribute('aria-expanded') === 'true';
+          document.querySelectorAll('[data-dropdown-trigger]').forEach(function (t) {
+            t.setAttribute('aria-expanded', 'false');
+          });
+          trigger.setAttribute('aria-expanded', String(!open));
+        });
+        document.addEventListener('click', function (e) {
+          if (!trigger.parentElement.contains(e.target)) {
+            trigger.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+    })();
+  </script>
 
 </body>
 </html>

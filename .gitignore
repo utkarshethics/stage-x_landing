@@ -1,0 +1,12 @@
+# Local dev/agent junk — not part of the site
+.opencode/
+server.js
+server.log
+*.log
+node_modules/
+
+# Standalone dev tools (not referenced by the site)
+events/tracker/
+
+# OS junk
+.DS_Store
