@@ -23,8 +23,10 @@ CNAME="${CNAME:-www.stage-x.space}"
 
 echo "==> Deploying main @ $SHA to $BRANCH"
 
-# 1. Get a clean worktree of the gh-pages branch
-if [ ! -d "$BUILD/.git" ]; then
+# 1. Get a clean worktree of the gh-pages branch.
+#    NOTE: worktree .git is a FILE (gitdir pointer), not a directory -> use -e.
+if [ ! -e "$BUILD/.git" ]; then
+  git -C "$REPO" worktree prune
   git -C "$REPO" worktree add --force "$BUILD" "$BRANCH" 2>/dev/null \
     || git -C "$REPO" worktree add --force -b "$BRANCH" "$BUILD" HEAD
 fi

@@ -561,8 +561,8 @@ hr {
 }
 
 .header__logo-img {
-  width: 40px;
-  height: 40px;
+  width: 56px;
+  height: 56px;
   border-radius: var(--radius-sm);
   object-fit: cover;
 }
