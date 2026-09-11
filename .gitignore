@@ -6,7 +6,12 @@ server.log
 node_modules/
 
 # Standalone dev tools (not referenced by the site)
-events/tracker/
+summits/tracker/
 
 # OS junk
 .DS_Store
+
+# Scratch / helper download scripts and media
+download-faphouse2.sh
+faphouse-dl.sh
+downloads/
