@@ -121,8 +121,8 @@
       letter-spacing: -2px;
     }
 
-    .hero-lower {
-      text-transform: lowercase;
+    .hero h1 #hw {
+      text-transform: none;
     }
 
     .hero p {
