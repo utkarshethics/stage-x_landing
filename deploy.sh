@@ -16,6 +16,10 @@ SHA="$(git -C "$REPO" rev-parse --short main)"
 BUILD="${GH_BUILD_DIR:-/tmp/stagex-ghpages-build}"
 BRANCH=gh-pages
 REMOTE=origin
+# CNAME is www.stage-x.space: GitHub verifies custom domains via CNAME
+# (faster/more reliable than apex A-record verification) and serves the apex
+# domain too when apex A records point at 185.199.{108,109,110,111}.153.
+CNAME="${CNAME:-www.stage-x.space}"
 
 echo "==> Deploying main @ $SHA to $BRANCH"
 
@@ -32,7 +36,7 @@ git -C "$BUILD" rm -rfq . 2>/dev/null || true
 git -C "$REPO" archive main | tar -x -C "$BUILD"
 
 # 3. Pin the custom domain
-echo "stage-x.space" > "$BUILD/CNAME"
+echo "$CNAME" > "$BUILD/CNAME"
 git -C "$BUILD" add -A
 
 # 4. Commit + push only if something actually changed
