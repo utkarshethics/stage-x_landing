@@ -4,6 +4,7 @@ server.js
 server.log
 *.log
 node_modules/
+package-lock.json
 
 # Standalone dev tools (not referenced by the site)
 summits/tracker/
@@ -15,3 +16,12 @@ summits/tracker/
 download-faphouse2.sh
 faphouse-dl.sh
 downloads/
+
+# Parallel automation, scraping, and agent files
+chromium-agent-loop.js
+chromium-guardrails.js
+rental/
+scripts/
+artifacts/
+papers.html
+papers/

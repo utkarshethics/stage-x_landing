@@ -12,9 +12,9 @@
  * Usage:
  *   const { Guardrails, ORIGIN_POLICIES } = require('./chromium-guardrails');
  *   const g = new Guardrails({ dryRun: true });
- *   if (!g.isAllowed('https://lu.ma/stage-x-sf-2026')) throw ...
+ *   if (!g.isAllowed('https://lu.ma/stage-x-sf-2026')) throw new Error('blocked');
  *   const decision = g.check({ type: 'click', target: 'submit', url });
- *   if (decision.blocked) { /* human takeover */ }
+ *   if (decision.blocked) { console.log('human takeover required'); }
  */
 
 'use strict';
