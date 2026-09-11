@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /events/tracker/
+Disallow: /summits/tracker/
 
 Sitemap: https://stage-x.space/sitemap.xml
