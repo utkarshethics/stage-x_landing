@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stage-X Papers | Forward Deployed Engineering Technical Papers</title>
+  <meta name="description" content="Technical papers, field reports, and architecture notes from forward deployed engineering engagements: air-gapped inference, FP8 kernel tuning, deterministic latency, and sovereign deployment topologies.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://stage-x.space/papers.html">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Stage-X Papers | Forward Deployed Engineering Technical Papers">
+  <meta property="og:description" content="Technical papers, field reports, and architecture notes from forward deployed engineering engagements: air-gapped inference, FP8 kernel tuning, deterministic latency, and sovereign deployment topologies.">
+  <meta property="og:url" content="https://stage-x.space/papers.html">
+  <meta property="og:site_name" content="Stage-X.Space">
+  <meta property="og:image" content="https://stage-x.space/public/logo.png">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Stage-X Papers | Forward Deployed Engineering Technical Papers">
+  <meta name="twitter:description" content="Technical papers, field reports, and architecture notes from forward deployed engineering engagements.">
+  <meta name="twitter:image" content="https://stage-x.space/public/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="/public/logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/public/logo.png">
+  <link rel="apple-touch-icon" href="/public/logo.png">
+  <link rel="stylesheet" href="/public/styles.css">
+  <style>
+    /* RESET */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* VARIABLES */
+    :root {
+      --black: #000000;
+      --white: #ffffff;
+      --gray: #666666;
+      --light-gray: #a0a0a0;
+      --border-dark: #262626;
+      --card-bg: #0a0a0a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    /* Accessibility: Skip link */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--black);
+      color: var(--white);
+      padding: 1rem 2rem;
+      text-decoration: none;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      border: 2px solid var(--white);
+      z-index: 10000;
+      transition: top 0.2s ease;
+    }
+
+    .skip-link:focus {
+      top: 1rem;
+      outline: none;
+    }
+
+    /* Focus visible styles for keyboard navigation */
+    :focus-visible {
+      outline: 3px solid #00d4ff;
+      outline-offset: 2px;
+    }
+
+    /* Remove default focus styles when using focus-visible */
+    :focus:not(:focus-visible) {
+      outline: none;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* HERO */
+    .papers-hero {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 10%;
+      background: var(--black);
+      position: relative;
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .papers-hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image:
+        linear-gradient(#222 1px, transparent 1px),
+        linear-gradient(90deg, #222 1px, transparent 1px);
+      background-size: 80px 80px;
+      opacity: 0.25;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+    }
+
+    .badge-protocol {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      border: 1px solid #444;
+      background: #111;
+      padding: 0.4rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      color: #e5e5e5;
+    }
+
+    .badge-protocol .dot {
+      width: 8px;
+      height: 8px;
+      background: #00ff66;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #00ff66;
+    }
+
+    .papers-hero h1 {
+      font-size: clamp(2.75rem, 6.5vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -2px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 2rem;
+    }
+
+    .papers-hero p {
+      font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+      color: var(--light-gray);
+      max-width: 850px;
+      line-height: 1.65;
+      margin-bottom: 3rem;
+    }
+
+    .btn-container {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--white);
+      color: var(--black);
+      padding: 1rem 2.25rem;
+      text-decoration: none;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      border: 2px solid var(--white);
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--black);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      padding: 1rem 2.25rem;
+      text-decoration: none;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      border: 2px solid #555;
+      transition: all 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--white);
+      background: #111;
+    }
+
+    /* PAPERS LISTING */
+    .section-papers {
+      padding: 6rem 10%;
+      border-bottom: 1px solid var(--border-dark);
+      background: #050505;
+    }
+
+    .section-tag {
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      text-transform: uppercase;
+      margin-bottom: 3.5rem;
+      color: var(--white);
+    }
+
+    .papers-group {
+      margin-bottom: 4.5rem;
+    }
+
+    .papers-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .papers-group-label {
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #777;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border-dark);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .papers-group-label span {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #666;
+      letter-spacing: 1px;
+    }
+
+    .papers-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .paper-card {
+      border: 1px solid var(--border-dark);
+      background: var(--card-bg);
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .paper-card:hover {
+      border-color: #555;
+      transform: translateY(-2px);
+      box-shadow: 4px 4px 0px #333;
+    }
+
+    .paper-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid #1a1a1a;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .paper-series-tag {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+    }
+
+    .paper-year-badge {
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #00ff66;
+      border: 1px solid #1f3a2a;
+      background: #0b1a12;
+      padding: 0.2rem 0.55rem;
+    }
+
+    .paper-card h3 {
+      font-size: 1.45rem;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      line-height: 1.3;
+      margin-bottom: 0.85rem;
+      color: var(--white);
+    }
+
+    .paper-card h3 a {
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .paper-card h3 a:hover {
+      color: #aaa;
+    }
+
+    .paper-authors {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--light-gray);
+      margin-bottom: 1rem;
+    }
+
+    .paper-card-abstract {
+      font-size: 0.95rem;
+      color: #aaa;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .paper-card-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.75rem;
+    }
+
+    .paper-card-tag {
+      background: #141414;
+      border: 1px solid #282828;
+      padding: 0.25rem 0.6rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #ccc;
+    }
+
+    .paper-card-footer {
+      margin-top: auto;
+      padding-top: 1.5rem;
+      border-top: 1px solid #1a1a1a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .paper-meta {
+      font-size: 0.75rem;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .paper-read-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--white);
+      color: var(--black);
+      padding: 0.75rem 1.25rem;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: background 0.2s ease;
+    }
+
+    .paper-read-link:hover {
+      background: #ccc;
+    }
+
+    /* BENCHMARK METRICS STRIP */
+    .section-metrics {
+      padding: 5rem 10%;
+      border-bottom: 1px solid var(--border-dark);
+      background: var(--black);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .metric-box {
+      border: 1px solid var(--border-dark);
+      padding: 2rem;
+      background: var(--card-bg);
+    }
+
+    .metric-value {
+      font-size: clamp(2.25rem, 4vw, 3.5rem);
+      font-weight: 900;
+      letter-spacing: -1px;
+      line-height: 1;
+      color: var(--white);
+    }
+
+    .metric-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #888;
+      margin-top: 0.75rem;
+    }
+
+    /* SUBMISSION / CONTACT STRIP */
+    .section-submit {
+      padding: 6rem 10%;
+      border-bottom: 1px solid var(--border-dark);
+      background: #080808;
+    }
+
+    .submit-container {
+      max-width: 800px;
+    }
+
+    .submit-intro {
+      font-size: 1.1rem;
+      color: var(--light-gray);
+      max-width: 700px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 4rem 10%;
+      background: var(--black);
+      border-top: 1px solid var(--border-dark);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    footer p {
+      color: #777;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .footer-links a {
+      color: var(--white);
+      text-decoration: none;
+      margin-left: 2rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 1px;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      border-bottom: 1px solid var(--white);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .papers-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+      .papers-hero,
+      .section-papers,
+      .section-metrics,
+      .section-submit {
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Stage-X Papers",
+    "url": "https://stage-x.space/papers.html",
+    "description": "Technical papers, field reports, and architecture notes from forward deployed engineering engagements.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Stage-X.Space",
+      "url": "https://stage-x.space"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- NAVIGATION -->
+  <header class="header" id="site-header">
+    <div class="header__inner">
+      <div class="header__brand">
+        <a href="index.html" class="header__logo" aria-label="stage-x.space home">
+          <img src="/public/logo.png" alt="" class="header__logo-img" width="56" height="56">
+          <span class="header__logo-text">stage-x.space</span>
+          <span class="header__logo-badge">Papers</span>
+        </a>
+      </div>
+
+      <nav class="header__nav" aria-label="Main navigation">
+        <ul class="header__menu">
+          <li class="header__item header__dropdown">
+            <button class="header__dropdown-trigger" aria-expanded="false" aria-haspopup="true" data-dropdown-trigger>
+              Solutions
+              <svg class="header__dropdown-chevron" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="header__dropdown-panel" role="menu" data-dropdown-panel>
+              <ul class="header__dropdown-list">
+                <li><a href="index.html#customers" class="header__dropdown-item" role="menuitem">Customers</a></li>
+                <li><a href="index.html#usecases" class="header__dropdown-item" role="menuitem">Use Cases</a></li>
+                <li><a href="index.html#deployments" class="header__dropdown-item" role="menuitem">Deployments</a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="header__item header__dropdown">
+            <button class="header__dropdown-trigger" aria-expanded="false" aria-haspopup="true" data-dropdown-trigger>
+              Resources
+              <svg class="header__dropdown-chevron" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="header__dropdown-panel" role="menu" data-dropdown-panel>
+              <ul class="header__dropdown-list">
+                <li><a href="index.html#method" class="header__dropdown-item" role="menuitem">Method</a></li>
+                <li><a href="index.html#opensource" class="header__dropdown-item" role="menuitem">Open Source</a></li>
+                <li><a href="index.html#partners" class="header__dropdown-item" role="menuitem">Partners</a></li>
+                <li><a href="papers.html" class="header__dropdown-item" role="menuitem" aria-current="page">Papers</a></li>
+                <li><a href="summits.html" class="header__dropdown-item" role="menuitem">Summits</a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="header__item">
+            <a href="#contact" class="header__link header__link--cta">Get in Touch</a>
+          </li>
+        </ul>
+      </nav>
+
+      <button class="header__mobile-toggle" aria-label="Toggle menu" aria-expanded="false" data-mobile-toggle>
+        <span class="header__hamburger"></span>
+      </button>
+    </div>
+
+    <div class="header__mobile-panel" data-mobile-panel hidden>
+      <ul class="header__mobile-menu">
+        <li class="header__mobile-item"><a href="index.html#customers" class="header__mobile-link">Customers</a></li>
+        <li class="header__mobile-item"><a href="index.html#usecases" class="header__mobile-link">Use Cases</a></li>
+        <li class="header__mobile-item"><a href="index.html#deployments" class="header__mobile-link">Deployments</a></li>
+        <li class="header__mobile-item"><a href="index.html#method" class="header__mobile-link">Method</a></li>
+        <li class="header__mobile-item"><a href="index.html#opensource" class="header__mobile-link">Open Source</a></li>
+        <li class="header__mobile-item"><a href="index.html#partners" class="header__mobile-link">Partners</a></li>
+        <li class="header__mobile-item"><a href="papers.html" class="header__mobile-link" aria-current="page">Papers</a></li>
+        <li class="header__mobile-item"><a href="summits.html" class="header__mobile-link">Summits</a></li>
+      </ul>
+      <a href="#contact" class="btn btn--primary header__mobile-cta">Get in Touch</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <header class="papers-hero">
+    <div class="hero-content">
+      <div class="badge-protocol">
+        <span class="dot"></span>
+        Technical Literature &bull; Field-Verified
+      </div>
+      <h1>Forward Deployed Engineering Papers</h1>
+      <p>
+        Primary-source writeups from production deployments: air-gapped inference architectures, FP8/FP4 kernel tuning at enterprise scale, deterministic latency engineering, and sovereign model topology. Every paper is grounded in shipped infrastructure, not lab benchmarks.
+      </p>
+      <div class="btn-container">
+        <a href="#papers" class="btn-primary">Browse Papers</a>
+        <a href="#contact" class="btn-secondary">Contact the Team</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+  <!-- PAPERS LISTING -->
+  <section class="section-papers" id="papers">
+    <div class="section-tag">Research &amp; Field Literature</div>
+    <h2 class="section-title">Published Papers</h2>
+
+    <!-- GROUP 01: SOVEREIGN & AIR-GAPPED INFERENCE -->
+    <div class="papers-group">
+      <div class="papers-group-label">
+        <span>Sovereign &amp; Air-Gapped Inference</span>
+        <span>4 Papers</span>
+      </div>
+      <div class="papers-grid">
+
+        <article class="paper-card">
+          <div>
+            <div class="paper-card-top">
+              <span class="paper-series-tag">Air-Gapped Systems &bull; 2026</span>
+              <span class="paper-year-badge">Published</span>
+            </div>
+            <h3><a href="#contact">Sovereign Weights: Quantized 405B-Class Models in Zero-Egress Air-Gapped Environments</a></h3>
+            <div class="paper-authors">Stage-X Engineering &bull; Defense &amp; Aerospace Practice</div>
+            <p class="paper-card-abstract">
+              Architecture and telemetry for deploying quantized Llama 3.1 405B and DeepSeek-R1 on sovereign on-prem GPU nodes inside SCIF environments. Covers FP8 weight layouts, vLLM scheduling under zero cloud egress, and 40-year technical-order retrieval pipelines with sub-second latency.
+            </p>
+            <div class="paper-card-tags">
+              <span class="paper-card-tag">Llama 3.1 405B FP8</span>
+              <span class="paper-card-tag">Sovereign Stack</span>
+              <span class="paper-card-tag">Air-Gap</span>
+              <span class="paper-card-tag">vLLM</span>
+            </div>
+          </div>
+          <div class="paper-card-footer">
+            <span class="paper-meta">25 pp &bull; Tech Report</span>
+            <a href="#contact" class="paper-read-link">Request Access &rarr;</a>
+          </div>
+        </article>
+
+        <article class="paper-card">
+          <div>
+            <div class="paper-card-top">
+              <span class="paper-series-tag">Air-Gapped Systems &bull; 2026</span>
+              <span class="paper-year-badge">Published</span>
+            </div>
+            <h3><a href="#contact">Zero-Trust Cross-Boundary Model Gateways: HSM-Anchored Inference Topologies</a></h3>
+            <div class="paper-authors">Stage-X Engineering &bull; Critical Infrastructure Practice</div>
+            <p class="paper-card-abstract">
+              Reference implementation of a zero-trust gateway embedding OpenAI, Anthropic, and open-weight models into multi-tenant VPCs with hardware security modules, zero plain-text logging, and per-request cryptographic audit receipts. Includes failure-mode and red-team results.
+            </p>
+            <div class="paper-card-tags">
+              <span class="paper-card-tag">Zero-Trust VPC</span>
+              <span class="paper-card-tag">HSM</span>
+              <span class="paper-card-tag">Audit Receipts</span>
+              <span class="paper-card-tag">Multi-Tenant</span>
+            </div>
+          </div>
+          <div class="paper-card-footer">
+            <span class="paper-meta">31 pp &bull; Architecture Note</span>
+            <a href="#contact" class="paper-read-link">Request Access &rarr;</a>
+          </div>
+        </article>
+
+        <article class="paper-card">
+          <div>
+            <div class="paper-card-top">
+              <span class="paper-series-tag">Sovereign Systems &bull; 2026</span>
+              <span class="paper-year-badge">Published</span>
+            </div>
+            <h3><a href="#contact">Cross-Border Enterprise Compute: Sovereign Data Mesh for Multi-National Financial Institutions</a></h3>
+            <div class="paper-authors">Stage-X Engineering &bull; Financial Infrastructure Practice</div>
+            <p class="paper-card-abstract">
+              Distributed hybrid inference topologies navigating PIPEDA, GDPR, and SOC2 boundaries across North American and European banking cores. Details region-pinned routing, deterministic egress controls, and latency budgets across mesh hops.
+            </p>
+            <div class="paper-card-tags">
+              <span class="paper-card-tag">PIPEDA</span>
+              <span class="paper-card-tag">Hybrid Mesh</span>
+              <span class="paper-card-tag">Banking Core</span>
+              <span class="paper-card-tag">Data Residency</span>
+            </div>
+          </div>
+          <div class="paper-card-footer">
+            <span class="paper-meta">28 pp &bull; Architecture Note</span>
+            <a href="#contact" class="paper-read-link">Request Access &rarr;</a>
+          </div>
+        </article>
+
+        <article class="paper-card">
+          <div>
+            <div class="paper-card-top">
+              <span class="paper-series-tag">Sovereign Systems &bull; 2025</span>
+              <span class="paper-year-badge">Published</span>
+            </div>
+            <h3><a href="#contact">National Sovereign LLM Clusters: High-Capacity Compute for Regional Cloud Enclaves</a></h3>
+            <div class="paper-authors">Stage-X Engineering &bull; Public Sector Practice</div>
+            <p class="paper-card-abstract">
+              Deployment blueprint for national-scale sovereign LLM clusters serving energy grids, desalination microgrids, and government digital services. Covers capacity planning, isolation domains, and continuity-of-operations for 24/7 inference fleets.
+            </p>
+            <div class="paper-card-tags">
+              <span class="paper-card-tag">National Cluster</span>
+              <span class="paper-card-tag">Capacity Planning</span>
+              <span class="paper-card-tag">Isolation Domains</span>
+              <span class="paper-card-tag">24/7 Fleet</span>
+            </div>
+          </div>
+          <div class="paper-card-footer">
+            <span class="paper-meta">22 pp &bull; Field Report</span>
+            <a href="#contact" class="paper-read-link">Request Access &rarr;</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- GROUP 02: DETERMINISTIC LATENCY & HIGH-THROUGHPUT INFERENCE -->
+    <div class="papers-group">
+      <div class="papers-group-label">
+        <span>Deterministic Latency &amp; High-Throughput Inference</span>
+        <span>4 Papers</span>
+      </div>
+      <div class="papers-grid">
+
+        <article class="paper-card">
+          <div>
+            <div class="paper-card-top">
+              <span class="paper-series-tag">Latency Engineering &bull; 2026</span>
+              <span class="paper-year-badge">Published</span>
+            </div>
+            <h3><a href="#contact">Sub-50ms TTFT Under Extreme Concurrent Load: Event-Driven Inference Gateways</a></h3>
+            <div class="paper-authors">Stage-X Engineering &bull; Power &amp; Utilities Practice</div>
+            <p class="paper-card-abstract">
+              Engineering an event-driven inference gateway inside private VPC boundaries for smart-grid state estimation across 5M+ AMI meter streams. Details continuous 10-second balancing loops, sub-50ms first-token targets, and zero-data-retention constraints.
+            </p>
+            <div class="paper-card-tags">
+              <span class="paper-card-tag">Sub-50ms TTFT</span>
+              <span class="paper-card-tag">AMI Telemetry</span>
+              <span class="paper-card-tag">Event-Driven</span>
+              <span class="paper-card-tag">Zero Retention</span>
+            </div>
+          </div>
+          <div class="paper-card-footer">
+            <span class="paper-meta">33 pp &bull; Tech Report</span>
+            <a href="#contact" class="paper-read-link">Request Access &rarr;</a>
+          </div>
+        </article>
+
+        <article class="paper-card">
+          <div>
+            <div class="paper-card-top">
+              <span class="paper-series-tag">Latency Engineering &bull; 2026</span>
+              <span class="paper-year-badge">Published</span>
+            </div>
+            <h3><a href="#contact">FP8 / FP4 Serving Without Accuracy Degradation: A Benchmark Audit</a></h3>
+            <div class="paper-authors">Stage-X Engineering &bull; Model Optimization Team</div>
+            <p class="paper-card-abstract">
+              Head-to-head contrast of native FP16 with vLLM, TensorRT-LLM, and SGLang FP8/FP4 kernels across enterprise reasoning workloads. Live GPU memory pressure, cache eviction profiles, and quantization-aware evals down to task-level deltas.
+            </p>
+            <div class="paper-card-tags">
+              <span class="paper-card-tag">FP8 Kernels</span>
+              <span class="paper-card-tag">TensorRT-LLM</span>
+              <span class="paper-card-tag">SGLang</span>
+              <span class="paper-card-tag">Quantization</span>
+            </div>
+          </div>
+          <div class="paper-card-footer">
+            <span class="paper-meta">41 pp &bull; Benchmark Study</span>
+            <a href="#contact" class="paper-read-link">Request Access &rarr;</a>
+          </div>
+        </article>
+
+        <article class="paper-card">
+          <div>
+            <div class="paper-card-top">
+              <span class="paper-series-tag">High-Throughput &bull; 2026</span>
+              <span class="paper-year-badge">Published</span>
+            </div>
+            <h3><a href="#contact">Hyper-Scale Transaction Gateways: Billions of Daily Real-Time Requests</a></h3>
+            <div class="paper-authors">Stage-X Engineering &bull; BFSI &amp; Telecom Practice</div>
+            <p class="paper-card-abstract">
+              High-throughput reasoning architectures processing billions of daily UPI and telecom telemetry transactions with zero downtime. Includes stream ordering, idempotent inference caching, and strict domestic data-localization routing.
+            </p>
+            <div class="paper-card-tags">
+              <span class="paper-card-tag">UPI Telemetry</span>
+              <span class="paper-card-tag">Zero Downtime</span>
+              <span class="paper-card-tag">Idempotent Cache</span>
+              <span class="paper-card-tag">Localization</span>
+            </div>
+          </div>
+          <div class="paper-card-footer">
+            <span class="paper-meta">36 pp &bull; Tech Report</span>
+            <a href="#contact" class="paper-read-link">Request Access &rarr;</a>
+          </div>
+        </article>
+
+        <article class="paper-card">
+          <div>
+            <div class="paper-card-top">
+              <span class="paper-series-tag">High-Throughput &bull; 2025</span>
+              <span class="paper-year-badge">Published</span>
+            </div>
+            <h3><a href="#contact">Petabyte-Scale Telemetry Fusion: Multimodal Sensing at Industrial Rotating-Asset Fleets</a></h3>
+            <div class="paper-authors">Stage-X Engineering &bull; Energy &amp; Extraction Practice</div>
+            <p class="paper-card-abstract">
+              High-throughput streaming consumers fused into OSIsoft PI and SCADA historians parsing vibrational and thermal waveforms in real time across 10,000+ rotating assets, alerting operators 72 hours prior to mechanical failure with sub-100ms inference.
+            </p>
+            <div class="paper-card-tags">
+              <span class="paper-card-tag">Multimodal Fusion</span>
+              <span class="paper-card-tag">OSIsoft PI</span>
+              <span class="paper-card-tag">Ray Clusters</span>
+              <span class="paper-card-tag">Sub-100ms</span>
+            </div>
+          </div>
+          <div class="paper-card-footer">
+            <span class="paper-meta">38 pp &bull; Field Report</span>
+            <a href="#contact" class="paper-read-link">Request Access &rarr;</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- GROUP 03: ADVERSARIAL HARDENING & DETERMINISTIC OUTPUT -->
+    <div class="papers-group">
+      <div class="papers-group-label">
+        <span>Adversarial Hardening &amp; Deterministic Output</span>
+        <span>3 Papers</span>
+      </div>
+      <div class="papers-grid">
+
+        <article class="paper-card">
+          <div>
+            <div class="paper-card-top">
+              <span class="paper-series-tag">Hardening &bull; 2026</span>
+              <span class="paper-year-badge">Published</span>
+            </div>
+            <h3><a href="#contact">Eliminating Non-Deterministic Hallucinations in Critical Operations</a></h3>
+            <div class="paper-authors">Stage-X Engineering &bull; Safety-Critical Systems Team</div>
+            <p class="paper-card-abstract">
+              Hard-constraint decoding, grammar-constrained sampling, and formal verification frameworks applied to frontier model outputs in defense depot logistics, energy grid balancing, and predictive healthcare adjudication pipelines.
+            </p>
+            <div class="paper-card-tags">
+              <span class="paper-card-tag">Constrained Decoding</span>
+              <span class="paper-card-tag">Formal Verification</span>
+              <span class="paper-card-tag">Grammar Sampling</span>
+              <span class="paper-card-tag">Safety-Critical</span>
+            </div>
+          </div>
+          <div class="paper-card-footer">
+            <span class="paper-meta">34 pp &bull; Tech Report</span>
+            <a href="#contact" class="paper-read-link">Request Access &rarr;</a>
+          </div>
+        </article>
+
+        <article class="paper-card">
+          <div>
+            <div class="paper-card-top">
+              <span class="paper-series-tag">Hardening &bull; 2026</span>
+              <span class="paper-year-badge">Published</span>
+            </div>
+            <h3><a href="#contact">ERP Line-Item Auditing with Formal Guardrails: Catching Pricing Discrepancies at Scale</a></h3>
+            <div class="paper-authors">Stage-X Engineering &bull; Industrial Sourcing Practice</div>
+            <p class="paper-card-abstract">
+              Frontier document reasoning models integrated into SAP NetWeaver and Oracle ERP pipelines with formal verification guardrails, automatically catching pricing discrepancies across 100,000+ line items and accelerating review velocity 88%.
+            </p>
+            <div class="paper-card-tags">
+              <span class="paper-card-tag">SAP NetWeaver</span>
+              <span class="paper-card-tag">Oracle ERP</span>
+              <span class="paper-card-tag">Formal Guardrails</span>
+              <span class="paper-card-tag">Line-Item Audit</span>
+            </div>
+          </div>
+          <div class="paper-card-footer">
+            <span class="paper-meta">29 pp &bull; Case Study</span>
+            <a href="#contact" class="paper-read-link">Request Access &rarr;</a>
+          </div>
+        </article>
+
+        <article class="paper-card">
+          <div>
+            <div class="paper-card-top">
+              <span class="paper-series-tag">Hardening &bull; 2025</span>
+              <span class="paper-year-badge">Published</span>
+            </div>
+            <h3><a href="#contact">Zero-Knowledge Clinical Reasoning: PHI-Safe Pipelines in Confidential Enclaves</a></h3>
+            <div class="paper-authors">Stage-X Engineering &bull; Regulated Healthcare Practice</div>
+            <p class="paper-card-abstract">
+              Air-gapped, zero-retention clinical reasoning inside confidential compute enclaves. All PHI stripped prior to model ingestion, cross-referenced against real-time formularies with cryptographic audit receipts and HIPAA/SOC2 Type II compliance.
+            </p>
+            <div class="paper-card-tags">
+              <span class="paper-card-tag">Confidential Enclave</span>
+              <span class="paper-card-tag">HIPAA</span>
+              <span class="paper-card-tag">SOC2 Type II</span>
+              <span class="paper-card-tag">Zero-Knowledge</span>
+            </div>
+          </div>
+          <div class="paper-card-footer">
+            <span class="paper-meta">26 pp &bull; Tech Report</span>
+            <a href="#contact" class="paper-read-link">Request Access &rarr;</a>
+          </div>
+        </article>
+
+        <article class="paper-card paper-card--placeholder">
+          <div>
+            <div class="paper-card-top">
+              <span class="paper-series-tag">Research Program &bull; 2026</span>
+              <span class="paper-year-badge" style="color:#aaa; border-color:#333; background:#141414;">In Review</span>
+            </div>
+            <h3><a href="#contact">Optimization of Fuel-Burn Control Loops in 1,400&deg;C Kiln Combustion</a></h3>
+            <div class="paper-authors">Stage-X Engineering &bull; Heavy Industrial Edge Practice</div>
+            <p class="paper-card-abstract">
+              Real-time frontier reasoning adjusting fuel feeder rates and kiln draft speeds via OPC-UA on ruggedized plant-edge compute. 3.2% fuel-burn reduction, 40% unplanned downtime cut, clinker quality held within laboratory tolerances.
+            </p>
+            <div class="paper-card-tags">
+              <span class="paper-card-tag">OPC-UA</span>
+              <span class="paper-card-tag">Plant Edge</span>
+              <span class="paper-card-tag">Real-Time Loop</span>
+              <span class="paper-card-tag">Kiln Control</span>
+            </div>
+          </div>
+          <div class="paper-card-footer">
+            <span class="paper-meta">24 pp &bull; Under Review</span>
+            <a href="#contact" class="paper-read-link">Request Access &rarr;</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- METRICS STRIP -->
+  <section class="section-metrics">
+    <div class="metric-box">
+      <div class="metric-value">47</div>
+      <div class="metric-label">Days to Production</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-value">$100M+</div>
+      <div class="metric-label">Sourcing Spend Saved</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-value">99.2%</div>
+      <div class="metric-label">Telemetry Uptime</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-value">&lt; 50ms</div>
+      <div class="metric-label">First Token Target</div>
+    </div>
+  </section>
+
+  <!-- SUBMISSION / CONTACT -->
+  <section class="section-submit" id="contact">
+    <div class="submit-container">
+      <div class="section-tag">Access &amp; Collaboration</div>
+      <h2 class="section-title">Request Full Paper Access</h2>
+      <p class="submit-intro">
+        Papers are released under NDA to qualified enterprise engineering teams, defense institutions, and research labs. Reach out with your organizational context and deployment scope; the team responds within two business days.
+      </p>
+      <div class="btn-container">
+        <a href="mailto:hello@stage-x.space?subject=Paper%20Access%20Request" class="btn-primary">Email the Team</a>
+        <a href="index.html#contact" class="btn-secondary">Back to Home</a>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <p style="color: var(--white); font-weight: 900; letter-spacing: -0.5px; margin-bottom: 0.25rem;">stage-x.space</p>
+      <p>Open Source &bull; MIT &amp; Apache 2.0 Licensed</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#customers">Customers</a>
+      <a href="index.html#usecases">Use Cases</a>
+      <a href="index.html#deployments">Deployments</a>
+      <a href="index.html#method">Method</a>
+      <a href="index.html#opensource">Open Source</a>
+      <a href="index.html#partners">Partners</a>
+      <a href="papers.html">Papers</a>
+      <a href="summits.html">Summits</a>
+      <a href="https://github.com/utkarshethics/stage-x_landing" target="_blank" rel="noopener">GitHub</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+      var header = document.getElementById('site-header');
+      if (header) {
+        function onScroll() {
+          if (window.scrollY > 10) { header.classList.add('header--scrolled'); }
+          else { header.classList.remove('header--scrolled'); }
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      }
+
+      var toggle = document.querySelector('[data-mobile-toggle]');
+      var panel = document.querySelector('[data-mobile-panel]');
+      if (toggle && panel) {
+        toggle.addEventListener('click', function () {
+          var open = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', String(!open));
+          panel.hidden = open ? true : false;
+        });
+        panel.addEventListener('click', function (e) {
+          if (e.target.closest('a')) {
+            panel.hidden = true;
+            toggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+
+      document.querySelectorAll('[data-dropdown-trigger]').forEach(function (trigger) {
+        trigger.addEventListener('click', function () {
+          var open = trigger.getAttribute('aria-expanded') === 'true';
+          document.querySelectorAll('[data-dropdown-trigger]').forEach(function (t) {
+            t.setAttribute('aria-expanded', 'false');
+          });
+          trigger.setAttribute('aria-expanded', String(!open));
+        });
+        document.addEventListener('click', function (e) {
+          if (!trigger.parentElement.contains(e.target)) {
+            trigger.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>

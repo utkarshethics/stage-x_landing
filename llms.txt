@@ -1,0 +1,21 @@
+# Stage-X.Space
+
+> Closed-door technical summits where enterprise infrastructure leaders and frontier AI research lab engineers directly tackle architecture problems. Zero sales pitches. Chatham House Rule. Each summit is capped at 40 attendees and covers one frontier-model theme in depth.
+
+## Summits 2026–2027
+
+- [Stage-X.Space — Home](https://www.stage-x.space/): Forward deployed engineering — embedding, integrating, and optimizing frontier AI systems inside existing infrastructure.
+- [Stage-X Summits](https://www.stage-x.space/summits.html): All 2026–2027 closed-door summits — dates, cities, themes, and how to apply for a seat.
+- [San Francisco (June 18 2026)](https://www.stage-x.space/summits/sf-2026.html): Air-gapped frontier model orchestration & sovereign weights. The Presidio — Golden Gate Club.
+- [New York (Sept 24 2026)](https://www.stage-x.space/summits/nyc-2026.html): Deterministic latency, sub-50ms TTFT & high-throughput critical infrastructure. Hudson Yards Experience Center.
+- [Boston (Oct 15 2026)](https://www.stage-x.space/summits/boston-2026.html): Frontier deep tech, bio-pharma reasoning & physical AI robotics. Kendall Square Tech Center.
+- [Toronto (Nov 5 2026)](https://www.stage-x.space/summits/toronto-2026.html): Cross-border enterprise compute & sovereign North American mesh. MaRS Discovery District.
+- [London (Nov 19 2026)](https://www.stage-x.space/summits/london-2026.html): EU AI Act compliance, data sovereignty & heavy industrial edge. Level39 — One Canada Square.
+- [Berlin (Dec 3 2026)](https://www.stage-x.space/summits/berlin-2026.html): Industrial SCADA automation, automotive edge & hardware security. Factory Berlin Görlitzer Park.
+- [Dubai (Jan 21 2027)](https://www.stage-x.space/summits/dubai-2026.html): Sovereign energy grids, upstream oil & gas telemetry & high-cap compute. DIFC Executive Center.
+- [Mumbai (Feb 18 2027)](https://www.stage-x.space/summits/mumbai-2026.html): Hyper-scale BFSI transaction gateways & sovereign telecom AI stacks. Jio World Convention Centre — BKC.
+- [Melbourne (Mar 25 2027)](https://www.stage-x.space/summits/melbourne-2026.html): Autonomous heavy mining fleets, natural resources & remote edge compute. Melbourne Convention & Exhibition Centre (MCEC).
+
+## About
+
+Stage-X.Space is a forward-deployed engineering practice bridging research labs and operational reality. Summits are application-only, closed-door, and limited to 40 seats per city.

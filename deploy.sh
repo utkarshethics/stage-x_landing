@@ -44,11 +44,29 @@ git -C "$BUILD" add -A
 # 4. Commit + push only if something actually changed
 if git -C "$BUILD" diff --cached --quiet; then
   echo "==> No changes (main already deployed). CNAME is intact."
+  SKIP_PING=1
 else
   git -C "$BUILD" -c user.name="stage-x deploy" -c user.email="deploy@stage-x.space" \
     commit -q -m "deploy: main @ $SHA"
   git -C "$BUILD" push "$REMOTE" "$BRANCH"
   echo "==> Deployed main @ $SHA -> $BRANCH"
+fi
+
+# 5. IndexNow: ping Bing/Yandex for instant indexing of changed URLs.
+#    Runs after every deploy (no-op frequency is fine; site is small).
+INDEXNOW_KEY="${INDEXNOW_KEY:-81e649f8-dfca-431a-8852-f157b8a1c48c}"
+if [ -z "${SKIP_PING:-}" ]; then
+  if [ -f "$REPO/$INDEXNOW_KEY.txt" ]; then
+    PING="https://www.stage-x.space/sitemap.xml"
+    curl -sS -o /dev/null -w "==> IndexNow ping: HTTP %{http_code}\n" \
+      "https://www.stage-x.space/indexnow?url=${PING}&key=${INDEXNOW_KEY}" || true
+    curl -sS -o /dev/null -w "==> IndexNow submit: HTTP %{http_code}\n" \
+      -X POST "https://api.indexnow.org/indexnow" \
+      -H "Content-Type: application/json; charset=utf-8" \
+      -d "{\"host\":\"www.stage-x.space\",\"key\":\"${INDEXNOW_KEY}\",\"keyLocation\":\"https://www.stage-x.space/${INDEXNOW_KEY}.txt\",\"urlList\":[\"https://www.stage-x.space/\",\"https://www.stage-x.space/summits.html\",\"https://www.stage-x.space/summits/sf-2026.html\",\"https://www.stage-x.space/summits/nyc-2026.html\",\"https://www.stage-x.space/summits/boston-2026.html\",\"https://www.stage-x.space/summits/toronto-2026.html\",\"https://www.stage-x.space/summits/london-2026.html\",\"https://www.stage-x.space/summits/berlin-2026.html\",\"https://www.stage-x.space/summits/dubai-2026.html\",\"https://www.stage-x.space/summits/mumbai-2026.html\",\"https://www.stage-x.space/summits/melbourne-2026.html\"]}" || true
+  else
+    echo "==> SKIP IndexNow: $INDEXNOW_KEY.txt missing from repo root"
+  fi
 fi
 
 echo "==> Done. Live: http://stage-x.space (HTTPS auto-enables once the GH cert is issued)"
