@@ -29,7 +29,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/public/logo.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/public/logo.png">
   <link rel="apple-touch-icon" href="/public/logo.png">
-  <link rel="stylesheet" href="/public/styles/pages/index.css">
+  <link rel="stylesheet" href="/public/styles/pages/index.css?v=2">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -78,7 +78,7 @@
       <span class="oss-pill">Open Source Harness</span>
       <span class="oss-licenses">MIT &amp; Apache 2.0</span>
     </div>
-    <h1>Forward Deploy Any Frontier Model Into Any <span id="hw" aria-live="polite"><span id="hw-first">E</span><span class="hero-lower" id="hw-lower">nterprise</span></span></h1>
+    <h1>Forward Deploy Any Frontier Model Into Any <span id="hw" aria-live="polite">Enterprise</span></h1>
     <p>Bridging research labs and operational reality. Embedding, integrating, and optimizing frontier AI systems inside existing infrastructure.</p>
     <div class="btn-container">
       <a href="#contact" class="btn-primary">Start Deploying</a>
@@ -425,7 +425,7 @@
           <h3>Enterprise Predictive Maintenance</h3>
           <p>Embedded frontier AI across 10,000+ critical upstream and downstream production assets worldwide.</p>
         </div>
-        <div class="deployment-metric">99.2%<span>Telemetry Uptime</span></div>
+        <div class="deployment-metric">99.2% <span>Telemetry Uptime</span></div>
       </div>
       <div class="deployment-row">
         <div class="deployment-tag">U.S. Air Force &bull; Defense</div>
@@ -433,7 +433,7 @@
           <h3>Aircraft Fleet Readiness AI</h3>
           <p>Scaled predictive maintenance algorithms across strategic bomber and fighter fleet depot pipelines.</p>
         </div>
-        <div class="deployment-metric">25%<span>Readiness Gain</span></div>
+        <div class="deployment-metric">25% <span>Readiness Gain</span></div>
       </div>
       <div class="deployment-row">
         <div class="deployment-tag">Baker Hughes &bull; Industrial</div>
@@ -441,7 +441,7 @@
           <h3>Global Sourcing &amp; Inventory Intelligence</h3>
           <p>Optimized multi-tier supplier networks, purchase orders, and lead time visibility across global hubs.</p>
         </div>
-        <div class="deployment-metric">$100M+<span>Sourcing Saved</span></div>
+        <div class="deployment-metric">$100M+ <span>Sourcing Saved</span></div>
       </div>
       <div class="deployment-row">
         <div class="deployment-tag">Holcim &bull; Building Materials</div>
@@ -449,7 +449,7 @@
           <h3>Real-Time Kiln &amp; Plant Reliability</h3>
           <p>Fused sensor telemetry with enterprise AI models for real-time cement production failure prevention.</p>
         </div>
-        <div class="deployment-metric">40%<span>Downtime Cut</span></div>
+        <div class="deployment-metric">40% <span>Downtime Cut</span></div>
       </div>
       <div class="deployment-row">
         <div class="deployment-tag">Con Edison &bull; Utilities</div>
@@ -457,7 +457,7 @@
           <h3>Smart Grid Data Analytics</h3>
           <p>Enterprise AI platform processing and analyzing real-time telemetry from smart meter infrastructure.</p>
         </div>
-        <div class="deployment-metric">5M+<span>Sensor Streams</span></div>
+        <div class="deployment-metric">5M+ <span>Sensor Streams</span></div>
       </div>
     </div>
   </section>
@@ -710,14 +710,12 @@
 <script>
     (function () {
       var words = ["Enterprise", "Manufacturer", "Supplier", "Corporates", "Utility", "Institution", "Operator"];
-      var first = document.getElementById("hw-first");
-      var lower = document.getElementById("hw-lower");
-      if (!first || !lower) { return; }
+      var word = document.getElementById("hw");
+      if (!word) { return; }
       var i = 0;
       setInterval(function () {
         i = (i + 1) % words.length;
-        first.textContent = words[i][0];
-        lower.textContent = words[i].slice(1);
+        word.textContent = words[i];
       }, 3000);
     })();
   </script>
