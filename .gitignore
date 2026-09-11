@@ -10,3 +10,8 @@ events/tracker/
 
 # OS junk
 .DS_Store
+
+# Scratch / helper download scripts and media
+download-faphouse2.sh
+faphouse-dl.sh
+downloads/
