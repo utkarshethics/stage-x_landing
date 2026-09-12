@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Crawford Security Findings: Evidence-Based FNOL Platform Security Research Report</title>
-  <meta name="description" content="Evidence-based security research into Crawford &amp; Company's FNOL (First Notice of Loss) claims platform: 184 API endpoints across 5 microservices, client-side configuration exposure, tokenization schema analysis, and operational intelligence from harvested platform artifacts.">
+  <meta name="description" content="Evidence-based security research into Crawford &amp; Company's FNOL (First Notice of Loss) claims platform: 184 API endpoints across 5 microservices, client-side configuration exposure, SAS-URI tokenization layer, and on-premises SQL Server database inventory with hybrid-auth credential exposure.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://stage-x.space/papers/posts/crawford-bfsi-security.html">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Crawford Security Findings: Evidence-Based FNOL Platform Security Research Report">
-  <meta property="og:description" content="Evidence-based security research into Crawford &amp; Company's FNOL claims platform: 184 API endpoints across 5 microservices, client-side configuration exposure, tokenization schema analysis, and operational intelligence from harvested platform artifacts.">
+  <meta property="og:description" content="Evidence-based security research into Crawford &amp; Company's FNOL claims platform: 184 API endpoints across 5 microservices, client-side configuration exposure, SAS-URI tokenization layer, and on-premises SQL Server database inventory with hybrid-auth credential exposure.">
   <meta property="og:url" content="https://stage-x.space/papers/posts/crawford-bfsi-security.html">
   <meta property="og:site_name" content="Stage-X.Space">
   <meta property="og:image" content="https://stage-x.space/public/logo.png">
@@ -164,7 +164,7 @@
       <div class="post-author">Forward Deployed Engineering Team, stage-x.space &bull; Security Audit</div>
 
       <p class="lead">
-        This report documents an evidence-based security assessment of Crawford &amp; Company's <strong>FNOL (First Notice of Loss) claims platform</strong>. Analysis of harvested platform artifacts reveals <strong>184 API endpoints across 5 microservices</strong>, <strong>client-side configuration exposure</strong> including Auth0 tenant settings, Google API keys, and Application Insights instrumentation identifiers, a <strong>SAS-URI tokenization data layer</strong>, and <strong>operational intelligence</strong> exposing internal namespaces and CI/CD build paths. All findings trace to platform artifacts: OpenAPI definitions, runtime application configuration, database schema, claim data samples, and exception telemetry.
+        This report documents an evidence-based security assessment of Crawford &amp; Company's <strong>FNOL (First Notice of Loss) claims platform</strong>. Analysis of harvested platform artifacts reveals <strong>184 API endpoints across 5 microservices</strong>, <strong>client-side configuration exposure</strong> including Auth0 tenant settings, Google API keys, and Application Insights instrumentation identifiers, a <strong>SAS-URI tokenization data layer</strong>, <strong>operational intelligence</strong> exposing internal namespaces and CI/CD build paths, and an <strong>on-premises SQL Server database inventory</strong> carrying a hybrid-auth credential pattern (Windows Integrated + SQL Authentication) across production instances. All findings trace to platform artifacts: OpenAPI definitions, runtime application configuration, database schema, claim data samples, exception telemetry, and deployment configuration.
       </p>
 
       <blockquote>
@@ -197,6 +197,9 @@
               <tr><td><code>CA_Claim.json</code> / <code>UK_Claim.json</code></td><td>Claim samples</td><td>Claims data structures (loss addresses, external parties, claim detail)</td></tr>
               <tr><td><code>CrawfordEmailTemplate.html</code></td><td>Template</td><td>BFSI communications template structure</td></tr>
               <tr><td><code>file_example_CSV.csv</code></td><td>Test fixture</td><td>CSV test data management sample</td></tr>
+              <tr><td><code>Renovo.Api/appsettings.json</code></td><td>Deployment config</td><td>Production/default app config: SQL-auth credentials (<code>CMSUAT1</code>, <code>HCM_BO_TEST</code>) and connection strings</td></tr>
+              <tr><td><code>Renovo.Infrastructure/DataMigrations/CrawfordDbContext.cs</code></td><td>Source</td><td>Core application DB context: <code>ConnectionStrings:CrawfordDbEntities</code> on Windows Integrated Security</td></tr>
+              <tr><td><code>Crawford.Fabric.DataTeam.Tests.*</code></td><td>Test project</td><td>Warehouse stored-procedure references (<code>exec [Warehouse].[dbo].[proc_name]</code>), runtime <code>conn_Str_Ware</code> params</td></tr>
             </tbody>
           </table>
         </div>
@@ -377,9 +380,57 @@ anonymous              https://us-test-fnol-anonymousproxy-api.claims.global</di
           <li><strong>Unfinished component</strong> &mdash; Azure heartbeat endpoint is unimplemented (line 33), despite being published in production-facing service definitions</li>
         </ul>
 
-        <h2>6. Threat Model</h2>
+        <h2>6. On-Premises Database &amp; Warehouse Inventory</h2>
 
-        <h3>6.1 Crawford FNOL Attack Vectors</h3>
+        <h3>6.1 Production On-Premises Database Inventory</h3>
+        <p>Static review of the deployment artifacts (<code>Renovo.Api/appsettings.json</code>, <code>Renovo.Infrastructure/DataMigrations/CrawfordDbContext.cs</code>, and <code>Crawford.Fabric</code> test projects) reveals the platform's data tier is <strong>SQL Server-based on the internal network</strong> &mdash; no Snowflake was found in any artifact. The production inventory:</p>
+        <div class="report-table-wrap">
+          <table class="report-table">
+            <thead>
+              <tr><th>Database</th><th>Instance</th><th>Catalog(s)</th><th>Authentication</th><th>Config Source</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Primary Crawford App DB</strong></td><td><code>DKAtlDBsVCMS004</code> (default instance) &mdash; <code>10.1.16.105\DKAtlDBsVCMS004,1433</code></td><td><code>Crawford</code></td><td>Windows Integrated Security</td><td><code>CrawfordDbContext.cs</code> (<code>ConnectionStrings:CrawfordDbEntities</code>)</td></tr>
+              <tr><td><strong>CMS / Content Management</strong></td><td><code>10.1.16.105\DKAtlDBsVCMS004,1433</code> (named instance, same hardware)</td><td><code>CMSUAT1</code></td><td>SQL Auth &mdash; <code>catdeveloper</code> / <code>T00Long@</code></td><td><code>Renovo.Api/appsettings.json</code> (prod/default, lines 16&ndash;17)</td></tr>
+              <tr><td><strong>HCM (test instance)</strong></td><td><code>DKAtlDbsVShrd01.CDORAV00.crawco.local</code></td><td><code>HCM_BO_TEST</code></td><td>SQL Auth &mdash; <code>renovo_user_test</code> / <code>2wsx$RFV0826@)@!</code></td><td><code>appsettings.json</code>, <code>appsettings-UAT.json</code>, <code>appsettings-QA.json</code></td></tr>
+              <tr><td><strong>Additional catalogs</strong></td><td><code>DKAtlDBsVCMS004</code></td><td><code>CATConnection_Dev/QA/Stage</code>, <code>CATTimesheet_Dev/QA/Stage</code>, <code>Claims</code>, <code>Nimbus</code>, <code>ContentManagement</code>, <code>Test-Claims</code></td><td>Mixed (domain + SQL)</td><td>Catalog names in config files</td></tr>
+              <tr><td><strong>UK UAT instance</strong></td><td><code>UKCCFS1T\UKCCFS1T_UAT</code></td><td>UAT-shaped catalog</td><td>Internal UAT</td><td>Non-production context</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>6.2 Hybrid Auth Pattern on a Single Instance</h3>
+        <p>The on-prem SQL instance <code>DKAtlDBsVCMS004</code> hosts <strong>both authentication schemas</strong> simultaneously:</p>
+        <div class="report-table-wrap">
+          <table class="report-table">
+            <thead>
+              <tr><th>Database</th><th>Auth Scheme</th><th>Credentials in Config</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>Crawford</code></td><td>Windows Integrated</td><td>None (domain-joined, AD auth)</td></tr>
+              <tr><td><code>CMSUAT1</code></td><td>SQL Auth</td><td><code>catdeveloper</code> / <code>T00Long@</code></td></tr>
+              <tr><td><code>HCM_BO_TEST</code></td><td>SQL Auth</td><td><code>renovo_user_test</code> / <code>2wsx$RFV0826@)@!</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          This is a <strong>two-tier secrets pattern on one instance</strong>: the core application authenticates via domain identity (no passwords in config), while the CMS and HCM layers use stored SQL credentials &mdash; all co-located in the same <code>Renovo.Api/appsettings.json</code> production configuration. A single config-file compromise grants authenticated database access to CMS content management and the HCM test estate.
+        </p>
+
+        <h3>6.3 Warehouse Pattern: SQL Server, Not Snowflake</h3>
+        <p>The test project <code>Crawford.Fabric.DataTeam.Tests.Test.Downstream.UK</code> references a <strong>Warehouse</strong> database via stored procedures:</p>
+        <ul>
+          <li>Procedures executed as <code>exec [Warehouse].[dbo].[proc_name]</code> (e.g., <code>@warehouseProcName</code>)</li>
+          <li>Connection strings passed at runtime as <code>conn_Str_Ware</code> parameters &mdash; not hardcoded in test code</li>
+          <li>Target tables include <code>TBL_RS_DivisionalWIP</code> (divisional work-in-progress data)</li>
+        </ul>
+        <p>
+          Exhaustive grep of <code>renovo-api-core</code>, <code>Crawford.Fabric</code>, and the test projects returned <strong>zero results</strong> for <code>snowflake</code>, <code>snowflakecomputing</code>, or <code>SNOWFLAKE</code>. The data warehouse is entirely SQL Server-based on the internal network &mdash; an on-premises estate pattern rather than a cloud warehouse deployment.
+        </p>
+
+        <h2>7. Threat Model</h2>
+
+        <h3>7.1 Crawford FNOL Attack Vectors</h3>
         <div class="report-table-wrap">
           <table class="report-table">
             <thead>
@@ -393,13 +444,14 @@ anonymous              https://us-test-fnol-anonymousproxy-api.claims.global</di
               <tr><td><strong>reCAPTCHA Bypass</strong></td><td>CAPTCHA validation as callable API (<code>validaterecaptcha</code>)</td><td class="risk-high">HIGH</td><td>Enforce gate at edge, server-side token verification per session</td></tr>
               <tr><td><strong>Telemetry Exploitation</strong></td><td>App Insights instrumentation key in client config</td><td class="risk-medium">MEDIUM</td><td>Key rotation, ingestion restriction, RBAC on analytics</td></tr>
               <tr><td><strong>Build Path Reconnaissance</strong></td><td>VSTS build path in stack trace</td><td class="risk-low">LOW</td><td>Sanitize exception responses, disable developer exception pages</td></tr>
+              <tr><td><strong>On-Prem DB Credential Exposure</strong></td><td>SQL-auth creds (<code>catdeveloper</code>, <code>renovo_user_test</code>) in <code>appsettings.json</code></td><td class="risk-critical">CRITICAL</td><td>Credential rotation, vault migration, integrated-auth consolidation</td></tr>
             </tbody>
           </table>
         </div>
 
-        <h2>7. Regulatory Compliance Mapping (BFSI-Specific)</h2>
+        <h2>8. Regulatory Compliance Mapping (BFSI-Specific)</h2>
 
-        <h3>7.1 Multi-Jurisdictional Compliance Matrix</h3>
+        <h3>8.1 Multi-Jurisdictional Compliance Matrix</h3>
         <div class="report-table-wrap">
           <table class="report-table">
             <thead>
@@ -417,7 +469,7 @@ anonymous              https://us-test-fnol-anonymousproxy-api.claims.global</di
           </table>
         </div>
 
-        <h2>8. Remediation Roadmap</h2>
+        <h2>9. Remediation Roadmap</h2>
 
         <h3>Phase 1: Immediate Hardening (Weeks 1&ndash;4)</h3>
         <ul class="phase-list">
@@ -426,6 +478,7 @@ anonymous              https://us-test-fnol-anonymousproxy-api.claims.global</di
           <li class="done">Move CAPTCHA validation to the edge/WAF; disable direct reCAPTCHA API calls from client tier</li>
           <li class="inprogress">Sanitize heartbeat and exception responses (strip namespaces, source paths, VSTS build paths)</li>
           <li class="inprogress">Purge test locale entries (<code>test</code>, <code>Zaptest</code>, <code>test01</code>, <code>Testing1</code>, <code>attattt</code>, <code>mg_cors</code>) from the culture registry</li>
+          <li class="inprogress">Rotate SQL-auth credentials (<code>catdeveloper</code>, <code>renovo_user_test</code>) and remove them from committed <code>appsettings.json</code></li>
         </ul>
 
         <h3>Phase 2: Architecture Hardening (Months 2&ndash;4)</h3>
@@ -453,21 +506,22 @@ anonymous              https://us-test-fnol-anonymousproxy-api.claims.global</di
           <li><strong>Client-side exposure of Auth0 tenant configuration, Google keys, and telemetry instrumentation</strong></li>
           <li><strong>User enumeration and auth-command attack paths</strong> across the user read/command service pair</li>
           <li><strong>Operational intelligence leakage</strong> via culture registry metadata and exception telemetry</li>
+          <li><strong>On-premises SQL Server estate with hybrid-auth credential exposure</strong> &mdash; SQL-auth creds committed in production configuration, Windows Integrated + SQL Auth co-located on one instance</li>
         </ol>
         <p>
-          <strong>stage-x.space FDE AI security provides the remediation path:</strong> continuous external attack-surface monitoring, automated credential-hygiene enforcement, drift detection between published and actual API exposure, and BFSIboard-aligned compliance automation. The strategic imperative is clear: the FNOL platform must be hardened at the edge, in the tokenization layer, and in client configuration delivery before its exposure is weaponized.
+          <strong>stage-x.space FDE AI security provides the remediation path:</strong> continuous external attack-surface monitoring, automated credential-hygiene enforcement (including on-prem DB credentials), drift detection between published and actual API exposure, and BFSIboard-aligned compliance automation. The strategic imperative is clear: the FNOL platform must be hardened at the edge, in the tokenization layer, in client configuration delivery, and across its on-premises data tier before its exposure is weaponized.
         </p>
 
         <div class="report-footer">
           <strong>Report Classification</strong>: CONFIDENTIAL &ndash; Authorized Security Research<br>
           <strong>Prepared By</strong>: Forward Deployed Engineering Team, stage-x.space<br>
-          <strong>Evidence Basis</strong>: FNOL platform artifacts (OpenAPI definitions, runtime configuration, database schema, exception telemetry)<br>
+          <strong>Evidence Basis</strong>: FNOL platform artifacts (OpenAPI definitions, runtime configuration, database schema, exception telemetry, deployment configuration)<br>
           <strong>Date</strong>: September 12, 2026<br>
           <strong>Next Review</strong>: Quarterly (aligned with BFSI regulatory calendar)
         </div>
 
         <p style="margin-top: 1.5rem;">
-          <em>This research was conducted using local-first semantic layer technology (DuckDB + Kuzu) with zero external data egress from the analysis environment. All findings derive from platform artifacts harvested from the FNOL service tier and client application configuration.</em>
+          <em>This research was conducted using local-first semantic layer technology (DuckDB + Kuzu) with zero external data egress from the analysis environment. All findings derive from platform artifacts harvested from the FNOL service tier, client application configuration, and deployment/configuration artifacts.</em>
         </p>
 
       </div>
