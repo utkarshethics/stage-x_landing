@@ -55,6 +55,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.stage-x.space/papers/posts/crawford-bfsi-security.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.stage-x.space/summits/sf-2026.html</loc>
     <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
