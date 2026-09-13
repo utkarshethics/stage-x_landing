@@ -469,33 +469,6 @@ anonymous              https://us-test-fnol-anonymousproxy-api.claims.global</di
           </table>
         </div>
 
-        <h2>9. Remediation Roadmap</h2>
-
-        <h3>Phase 1: Immediate Hardening (Weeks 1&ndash;4)</h3>
-        <ul class="phase-list">
-          <li class="done">Rotate all exposed credentials: Google API key, reCAPTCHA key, App Insights key, Auth0 client application secrets</li>
-          <li class="done">Restrict SAS URI endpoints to authenticated sessions only; remove <code>getblobsasuri</code> from AnonymousProxy</li>
-          <li class="done">Move CAPTCHA validation to the edge/WAF; disable direct reCAPTCHA API calls from client tier</li>
-          <li class="inprogress">Sanitize heartbeat and exception responses (strip namespaces, source paths, VSTS build paths)</li>
-          <li class="inprogress">Purge test locale entries (<code>test</code>, <code>Zaptest</code>, <code>test01</code>, <code>Testing1</code>, <code>attattt</code>, <code>mg_cors</code>) from the culture registry</li>
-          <li class="inprogress">Rotate SQL-auth credentials (<code>catdeveloper</code>, <code>renovo_user_test</code>) and remove them from committed <code>appsettings.json</code></li>
-        </ul>
-
-        <h3>Phase 2: Architecture Hardening (Months 2&ndash;4)</h3>
-        <ul class="phase-list">
-          <li class="inprogress">Move client-side topology configuration into per-deployment service discovery; stop shipping full API URL maps to browsers</li>
-          <li class="inprogress">Implement email-agnostic responses + rate limiting across all email-parameterized User.Read endpoints</li>
-          <li class="inprogress">Enforce <code>SecurityResult</code> gating in FileTokens retrieval; block downloads on non-clean verdicts</li>
-          <li class="inprogress">Reconcile published swagger surface with actual exposure; lock down admin-driven mutating operations</li>
-        </ul>
-
-        <h3>Phase 3: Continuous Assurance (Months 5&ndash;6)</h3>
-        <ul class="phase-list">
-          <li class="inprogress">Deploy BFSI-specific threat intelligence feeds (FS-ISAC, MITRE ATT&amp;CK for Finance)</li>
-          <li class="inprogress">Stand up continuous OpenAPI drift detection and secret-scanning in CI/CD</li>
-          <li class="inprogress">Implement automated compliance artifact generation (GDPR/HIPAA/SOX/NYDFS)</li>
-        </ul>
-
         <h2>Conclusion: Security Imperative</h2>
         <p>
           <strong>Crawford &amp; Company's FNOL platform presents a materially attackable surface that demands immediate remediation.</strong> The evidence demonstrates:
