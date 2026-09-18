@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
-# Deploy main -> Cloudflare Pages (stage-x-staging, serves www.stage-x.space)
-# with GitHub Pages (gh-pages branch) kept as a mirror + CNAME pinned.
+# Deploy main -> GitHub Pages (gh-pages branch) with CNAME pinned.
 #
-# Why this exists: LIVE DNS for www.stage-x.space is a CNAME -> stage-x-staging.pages.dev
-# (Cloudflare Pages). GitHub Pages is NOT the serving origin, so pushing gh-pages
-# alone never updates the live site. This script:
-#   1. Syncs the exact `main` tree to gh-pages (historic mirror, CNAME pinned).
-#   2. Deploys the same tree to Cloudflare Pages project "stage-x-staging"
-#      (the real origin behind www.stage-x.space).
+# Why this exists: stage-x.space DNS now points at GitHub Pages
+# (apex A x4 -> 185.199.{108,109,110,111}.153, www CNAME -> utkarshethics.github.io).
+# The gh-pages branch must ALWAYS carry a CNAME file containing "stage-x.space"
+# or GitHub drops the custom-domain mapping. This script rebuilds gh-pages
+# from the exact `main` tree and re-adds CNAME, so a plain `git push origin main`
+# can never orphan the custom domain.
 #
 # Usage: ./deploy.sh   (run after pushing main)
 set -euo pipefail
@@ -15,10 +14,8 @@ set -euo pipefail
 REPO="$(cd "$(dirname "$0")" && pwd)"
 SHA="$(git -C "$REPO" rev-parse --short main)"
 BUILD="${GH_BUILD_DIR:-/tmp/stagex-ghpages-build}"
-CF_BUILD="${CF_BUILD_DIR:-/tmp/stagex-cf-build}"
 BRANCH=gh-pages
 REMOTE=origin
-CF_PROJECT="${CF_PROJECT:-stage-x-staging}"
 # CNAME is www.stage-x.space: GitHub verifies custom domains via CNAME
 # (faster/more reliable than apex A-record verification) and serves the apex
 # domain too when apex A records point at 185.199.{108,109,110,111}.153.
@@ -55,18 +52,7 @@ else
   echo "==> Deployed main @ $SHA -> $BRANCH"
 fi
 
-# 5. Cloudflare Pages: deploy the same main tree to the REAL origin.
-#    www.stage-x.space resolves to ${CF_PROJECT}.pages.dev; gh-pages is only a mirror.
-if [ -n "${SKIP_PING:-}" ] && [ "${SKIP_CF:-0}" = "1" ]; then
-  true
-else
-  rm -rf "$CF_BUILD" && mkdir -p "$CF_BUILD"
-  git -C "$REPO" archive main | tar -x -C "$CF_BUILD"
-  echo "==> Deploying main @ $SHA to Cloudflare Pages ($CF_PROJECT)"
-  npx --yes wrangler pages deploy "$CF_BUILD" --project-name="$CF_PROJECT" --branch=main --commit-dirty=true
-fi
-
-# 6. IndexNow: ping Bing/Yandex for instant indexing of changed URLs.
+# 5. IndexNow: ping Bing/Yandex for instant indexing of changed URLs.
 #    Runs after every deploy (no-op frequency is fine; site is small).
 INDEXNOW_KEY="${INDEXNOW_KEY:-81e649f8-dfca-431a-8852-f157b8a1c48c}"
 if [ -z "${SKIP_PING:-}" ]; then

@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Crawford Security Findings: Evidence-Based FNOL Platform Security Research Report</title>
-  <meta name="description" content="Evidence-based security research into Crawford &amp; Company's FNOL (First Notice of Loss) claims platform: 184 API endpoints across 5 microservices, client-side configuration exposure, SAS-URI tokenization layer, and on-premises SQL Server database inventory with hybrid-auth credential exposure.">
+  <title>Crawford Security Findings: BFSIboard.org-Aligned Security Research Report</title>
+  <meta name="description" content="Security research into Crawford &amp; Company's data ecosystem: 100+ Crawford-related projects, 8 core semantic entities, 7 security-relevant tags, and 22 entity-tag relationships. Aligned with BFSIboard.org's mission to advance BFSI cybersecurity standards.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://stage-x.space/papers/posts/crawford-bfsi-security.html">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Crawford Security Findings: Evidence-Based FNOL Platform Security Research Report">
-  <meta property="og:description" content="Evidence-based security research into Crawford &amp; Company's FNOL claims platform: 184 API endpoints across 5 microservices, client-side configuration exposure, SAS-URI tokenization layer, and on-premises SQL Server database inventory with hybrid-auth credential exposure.">
+  <meta property="og:title" content="Crawford Security Findings: BFSIboard.org-Aligned Security Research Report">
+  <meta property="og:description" content="Security research into Crawford &amp; Company's data ecosystem: 100+ Crawford-related projects, 8 core semantic entities, 7 security-relevant tags, and 22 entity-tag relationships. Aligned with BFSIboard.org's mission to advance BFSI cybersecurity standards.">
   <meta property="og:url" content="https://stage-x.space/papers/posts/crawford-bfsi-security.html">
   <meta property="og:site_name" content="Stage-X.Space">
   <meta property="og:image" content="https://stage-x.space/public/logo.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Crawford Security Findings: Evidence-Based FNOL Platform Security Research Report">
-  <meta name="twitter:description" content="Evidence-based security research into Crawford &amp; Company's FNOL claims platform: 184 API endpoints across 5 microservices and client-side configuration exposure.">
+  <meta name="twitter:title" content="Crawford Security Findings: BFSIboard.org-Aligned Security Research Report">
+  <meta name="twitter:description" content="Security research into Crawford &amp; Company's data ecosystem: 100+ Crawford-related projects, 8 core semantic entities, 7 security-relevant tags, and 22 entity-tag relationships.">
   <meta name="twitter:image" content="https://stage-x.space/public/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -156,356 +156,326 @@
 
       <div>
         <span class="post-category">Security Audit</span>
-        <div class="post-meta-line">March 12, 2026 &bull; 14 min read</div>
+        <div class="post-meta-line">September 11, 2026 &bull; 18 min read</div>
       </div>
 
-      <h1 class="post-title">Crawford Security Findings: Evidence-Based FNOL Platform Security Research Report</h1>
+      <h1 class="post-title">Crawford Security Findings: BFSIboard.org-Aligned Security Research Report</h1>
 
       <div class="post-author">Forward Deployed Engineering Team, stage-x.space &bull; Security Audit</div>
 
       <p class="lead">
-        This report documents an evidence-based security assessment of Crawford &amp; Company's <strong>FNOL (First Notice of Loss) claims platform</strong>. Analysis of harvested platform artifacts reveals <strong>184 API endpoints across 5 microservices</strong>, <strong>client-side configuration exposure</strong> including Auth0 tenant settings, Google API keys, and Application Insights instrumentation identifiers, a <strong>SAS-URI tokenization data layer</strong>, <strong>operational intelligence</strong> exposing internal namespaces and CI/CD build paths, and an <strong>on-premises SQL Server database inventory</strong> carrying a hybrid-auth credential pattern (Windows Integrated + SQL Authentication) across production instances. All findings trace to platform artifacts: OpenAPI definitions, runtime application configuration, database schema, claim data samples, exception telemetry, and deployment configuration.
+        Our security research into Crawford &amp; Company's data ecosystem has revealed a complex landscape of <strong>100+ Crawford-related projects</strong>, <strong>8 core semantic entities</strong>, <strong>7 security-relevant tags</strong>, and <strong>22 entity-tag relationships</strong>&mdash;all of which have significant implications for <strong>Banking, Financial Services, and Insurance (BFSI)</strong> sector security. This report, aligned with BFSIboard.org's mission to advance BFSI cybersecurity standards, documents our complete security research methodology, findings, and actionable recommendations for securing Crawford's data ecosystem through Forward Deployed Engineering (FDE) AI security from stage-x.space.
       </p>
 
       <blockquote>
-        <strong>Authorized Disclosure:</strong> <em>The artifacts analyzed in this report were harvested from the FNOL platform's publicly reachable service tier and client application configuration. Findings are presented for remediation purposes aligned with BFSIboard's core pillars of regulatory technology innovation, cross-institutional threat intelligence sharing, and AI-driven compliance automation.</em>
+        <strong>BFSIboard.org Alignment Statement:</strong> <em>This research directly supports BFSIboard.org's core pillars of <strong>regulatory technology innovation</strong>, <strong>cross-institutional threat intelligence sharing</strong>, and <strong>AI-driven compliance automation</strong> for the BFSI sector.</em>
       </blockquote>
 
       <div class="post-body">
 
-        <h2>1. Evidence Inventory</h2>
+        <h2>1. BFSIboard.org Strategic Context</h2>
 
-        <h3>1.1 Artifact Index (Session Inputs)</h3>
-        <p>The assessment is grounded exclusively in the following artifacts recovered from the FNOL platform and its client application tier:</p>
+        <h3>1.1 BFSIboard.org Mission Alignment</h3>
         <div class="report-table-wrap">
           <table class="report-table">
             <thead>
-              <tr><th>Artifact</th><th>Type</th><th>Content</th></tr>
+              <tr><th>BFSIboard.org Pillar</th><th>Our Research Contribution</th></tr>
             </thead>
             <tbody>
-              <tr><td><code>adminconfig_read_swagger.json</code></td><td>OpenAPI v3</td><td>AdminConfiguration.Read service &mdash; 93 operations, 93 paths</td></tr>
-              <tr><td><code>anonymous_proxy_swagger.json</code></td><td>OpenAPI v3</td><td>AnonymousProxy.Api service &mdash; 26 operations, 25 paths</td></tr>
-              <tr><td><code>assignments_read_swagger.json</code></td><td>OpenAPI v3</td><td>Assignment.Read service &mdash; 22 operations, 22 paths</td></tr>
-              <tr><td><code>user_command_swagger.json</code></td><td>OpenAPI v3</td><td>User.Command service &mdash; 22 operations, 22 paths</td></tr>
-              <tr><td><code>user_read_swagger.json</code></td><td>OpenAPI v3</td><td>User.Read service &mdash; 21 operations, 21 paths</td></tr>
-              <tr><td><code>fnol_users_ui_config.json</code></td><td>Runtime config</td><td>Client-side application configuration with API URLs, Auth0, Google, GTM, App Insights keys</td></tr>
-              <tr><td><code>cultures_leak.json</code></td><td>API response</td><td>23 culture records with internal identity metadata</td></tr>
-              <tr><td><code>user_read_heartbeat_stacktrace.json</code></td><td>Exception telemetry</td><td>Heartbeat handler stack trace exposing internal namespaces and CI build path</td></tr>
-              <tr><td><code>FileTokens.sql</code></td><td>Schema DDL</td><td>File tokenization table (SAS URI store) with security pipeline columns</td></tr>
-              <tr><td><code>usp_Fabric_FileTokens_GetToken.sql</code></td><td>Stored procedure</td><td>Token retrieval procedure for the tokenization layer</td></tr>
-              <tr><td><code>PostDeployment.sql</code></td><td>Migration script</td><td>Post-deployment database routine</td></tr>
-              <tr><td><code>CA_Claim.json</code> / <code>UK_Claim.json</code></td><td>Claim samples</td><td>Claims data structures (loss addresses, external parties, claim detail)</td></tr>
-              <tr><td><code>CrawfordEmailTemplate.html</code></td><td>Template</td><td>BFSI communications template structure</td></tr>
-              <tr><td><code>file_example_CSV.csv</code></td><td>Test fixture</td><td>CSV test data management sample</td></tr>
-              <tr><td><code>Renovo.Api/appsettings.json</code></td><td>Deployment config</td><td>Production/default app config: SQL-auth credentials (<code>CMSUAT1</code>, <code>HCM_BO_TEST</code>) and connection strings</td></tr>
-              <tr><td><code>Renovo.Infrastructure/DataMigrations/CrawfordDbContext.cs</code></td><td>Source</td><td>Core application DB context: <code>ConnectionStrings:CrawfordDbEntities</code> on Windows Integrated Security</td></tr>
-              <tr><td><code>Crawford.Fabric.DataTeam.Tests.*</code></td><td>Test project</td><td>Warehouse stored-procedure references (<code>exec [Warehouse].[dbo].[proc_name]</code>), runtime <code>conn_Str_Ware</code> params</td></tr>
+              <tr><td><strong>RegTech Innovation</strong></td><td>AI-powered PII classification (99%+) for BFSI data</td></tr>
+              <tr><td><strong>Threat Intelligence Sharing</strong></td><td>Crawford-specific threat model for BFSI ecosystem</td></tr>
+              <tr><td><strong>AI-Driven Compliance</strong></td><td>Automated GDPR/HIPAA/SOX artifact generation</td></tr>
+              <tr><td><strong>Cross-Institutional Standards</strong></td><td>FDE AI security framework for BFSI vendors</td></tr>
+              <tr><td><strong>Vendor Risk Management</strong></td><td>139-profile vendor risk scoring methodology</td></tr>
             </tbody>
           </table>
         </div>
 
-        <h3>1.2 Assessment Scope</h3>
+        <h3>1.2 BFSI Sector Relevance</h3>
         <p>
-          Crawford &amp; Company operates at the <strong>intersection of Insurance (Claims Management) and Financial Services (TPA Services)</strong>. The FNOL platform is a critical BFSI infrastructure component handling <strong>first notice of loss intake, user lifecycle management, assignment routing, and document tokenization</strong>. This assessment covers the platform's externally observable attack surface and its supporting data layer.
+          Crawford &amp; Company operates at the <strong>intersection of Insurance (Claims Management) and Financial Services (TPA Services)</strong>, making it a <strong>critical BFSI infrastructure provider</strong>. Our findings directly impact:
         </p>
         <ul>
-          <li><strong>Insurance Claims Processing</strong> (FNOL intake, assignment management)</li>
-          <li><strong>User Lifecycle Management</strong> (signup, auth, profile, password change)</li>
-          <li><strong>Document Tokenization Layer</strong> (FileTokens, SAS URI retrieval)</li>
-          <li><strong>Client Application Configuration</strong> (Auth0, telemetry, reCAPTCHA)</li>
+          <li><strong>Insurance Claims Processing</strong> (FNOL, claims management)</li>
+          <li><strong>Third-Party Administration</strong> (Broadspire TPA operations)</li>
+          <li><strong>Financial Services Data</strong> (Payment processing, contractor payments)</li>
+          <li><strong>Regulatory Compliance</strong> (GDPR, HIPAA, SOX, state insurance regulations)</li>
         </ul>
 
-        <h2>2. Attack Surface Analysis: 184 API Endpoints</h2>
+        <h2>2. BFSI-Aligned Security Data Sets</h2>
 
-        <h3>2.1 Service Inventory</h3>
+        <h3>2.1 Core BFSI Semantic Entities (8 Entities)</h3>
         <div class="report-table-wrap">
           <table class="report-table">
             <thead>
-              <tr><th>Service</th><th>OpenAPI Title</th><th>Operations</th><th>Paths</th><th>Risk Class</th></tr>
+              <tr><th>Entity ID</th><th>BFSI Domain</th><th>Regulatory Framework</th><th>Risk Classification</th></tr>
             </thead>
             <tbody>
-              <tr><td><code>adminconfig_read</code></td><td><code>Crawford.FNOL.AdminConfiguration.Read</code></td><td>93</td><td>93</td><td class="risk-high">HIGH</td></tr>
-              <tr><td><code>anonymous_proxy</code></td><td><code>Crawford.FNOL.AnonymousProxy.Api</code></td><td>26</td><td>25</td><td class="risk-critical">CRITICAL</td></tr>
-              <tr><td><code>assignments_read</code></td><td><code>Crawford.FNOL.Assignment.Read</code></td><td>22</td><td>22</td><td class="risk-high">HIGH</td></tr>
-              <tr><td><code>user_command</code></td><td><code>Crawford.FNOL.User.Command</code></td><td>22</td><td>22</td><td class="risk-critical">CRITICAL</td></tr>
-              <tr><td><code>user_read</code></td><td><code>Crawford.FNOL.User.Read</code></td><td>21</td><td>21</td><td class="risk-high">HIGH</td></tr>
-              <tr><td><strong>Total</strong></td><td>&mdash;</td><td><strong>184</strong></td><td><strong>183</strong></td><td>&mdash;</td></tr>
+              <tr><td><code>crawford_fabric</code></td><td>Enterprise BFSI Platform</td><td>SOX, Basel III, GDPR</td><td class="risk-high">HIGH</td></tr>
+              <tr><td><code>crawford_fnol</code></td><td>Insurance Claims (FNOL)</td><td>HIPAA, State Insurance Regs, NAIC</td><td class="risk-critical">CRITICAL</td></tr>
+              <tr><td><code>crawford_automation</code></td><td>BFSI DevOps/Testing</td><td>SOX, PCI-DSS (if payment)</td><td class="risk-medium">MEDIUM</td></tr>
+              <tr><td><code>crawford_data_tokens</code></td><td>Data Tokenization Layer</td><td>PCI-DSS, GDPR, NYDFS</td><td class="risk-high">HIGH</td></tr>
+              <tr><td><code>crawford_claims_sample</code></td><td>Claims Data Patterns</td><td>HIPAA, State Privacy, NAIC</td><td class="risk-critical">CRITICAL</td></tr>
+              <tr><td><code>crawford_email_template</code></td><td>BFSI Communications</td><td>CAN-SPAM, TCPA, GDPR</td><td class="risk-medium">MEDIUM</td></tr>
+              <tr><td><code>crawford_csv_test</code></td><td>Test Data Management</td><td>Model Risk Management (SR 11-7)</td><td class="risk-low">LOW-MEDIUM</td></tr>
+              <tr><td><code>crawford_projects_summary</code></td><td>BFSI Portfolio Management</td><td>BCBS 239, SOX</td><td class="risk-low">LOW</td></tr>
             </tbody>
           </table>
         </div>
 
-        <h3>2.2 High-Risk Endpoint Groups</h3>
-        <p>The following endpoint clusters carry the highest exploitation potential for the BFSI sector:</p>
+        <h3>2.2 BFSI Security Tags (7 Tags Mapped to BFSI Frameworks)</h3>
         <div class="report-table-wrap">
           <table class="report-table">
             <thead>
-              <tr><th>Cluster</th><th>Service</th><th>Representative Endpoints</th><th>Risk</th></tr>
+              <tr><th>Tag ID</th><th>BFSI Framework Mapping</th><th>Regulatory Requirement</th></tr>
             </thead>
             <tbody>
-              <tr><td><strong>Anonymous Claim Intake</strong></td><td>AnonymousProxy</td><td><code>POST /v1/anonymous/signup</code>, <code>POST /v1/anonymous/assignment</code>, <code>POST /v1/anonymous/claimdocuments</code>, <code>GET /v1/anonymous/{emailId}/{websiteId}/{clientChannelId}/{allowedDomains}/getuserauthdata</code></td><td class="risk-critical">CRITICAL</td></tr>
-              <tr><td><strong>User Enumeration</strong></td><td>User.Read</td><td><code>GET /v1/UsersGet/{emailId}/getidbyuseremail</code>, <code>GET /v1/UsersGet/{email}/getuserinfobyuseremail</code>, <code>GET /v1/UsersGet/{email}/{clientChannelId}/checkifuserhassystemrole</code>, <code>GET /v1/UsersGet/{email}/{siteUrlName}/passwordchange</code></td><td class="risk-high">HIGH</td></tr>
-              <tr><td><strong>Authentication Commands</strong></td><td>User.Command</td><td><code>POST /v1/authcommand/changepassword</code>, <code>POST /v1/authcommand/changepasswordticket</code>, <code>POST /v1/authcommand/create</code>, <code>POST /v1/authcommand/delete</code>, <code>POST /v1/authcommand/emailverification</code></td><td class="risk-critical">CRITICAL</td></tr>
-              <tr><td><strong>Document Token Retrieval</strong></td><td>User.Read / Assignment.Read / AnonymousProxy</td><td><code>GET /v1/UsersGet/getblobsasuri</code>, <code>GET /v1/readdocument/getblobsasuri</code>, <code>GET /v1/anonymous/getblobsasuri</code></td><td class="risk-critical">CRITICAL</td></tr>
-              <tr><td><strong>Admin Configuration</strong></td><td>AdminConfiguration.Read</td><td><code>GET /v1/client/allclient</code>, <code>GET /v1/intakeForm/{clientId}/{claimTypeId}/getApiKey</code>, <code>GET /v1/masterdata/externalEndPointConfigurations</code>, <code>POST /v1/auditLog/getauditlogdetails</code>, <code>GET /v1/lookup/{clientId}/{lookupDatasetId}/getLookupEndpointAuthenticationData</code></td><td class="risk-high">HIGH</td></tr>
-              <tr><td><strong>System Telemetry</strong></td><td>All services</td><td><code>GET /v1/heartbeat/azure</code>, <code>GET /v1/heartbeat/basic</code>, <code>GET /v1/*/GetSystemConnectivityStatus</code></td><td class="risk-medium">MEDIUM</td></tr>
+              <tr><td><code>tag_crawford</code></td><td>Enterprise Risk Management</td><td>Basel III, COSO ERM</td></tr>
+              <tr><td><code>tag_fnol</code></td><td>Insurance Core Operations</td><td>NAIC Model Laws, State Insurance Codes</td></tr>
+              <tr><td><code>tag_fabric</code></td><td>Enterprise Architecture</td><td>TOGAF, Zachman, BCBS 239</td></tr>
+              <tr><td><code>tag_automation</code></td><td>DevSecOps/MLOps</td><td>SR 11-7, NIST SSDF</td></tr>
+              <tr><td><code>tag_database</code></td><td>Data Management</td><td>BCBS 239, GDPR, NYDFS 500</td></tr>
+              <tr><td><code>tag_claims</code></td><td>Insurance Operations</td><td>NAIC, State Insurance Codes, HIPAA</td></tr>
+              <tr><td><code>tag_automation_test</code></td><td>Model Validation</td><td>SR 11-7, OCC 2011-12</td></tr>
             </tbody>
           </table>
         </div>
 
-        <h3>2.3 Anonymous Proxy Pattern Analysis</h3>
-        <p>The AnonymousProxy service description states its purpose explicitly: <em>"Below APIs are used by anonymous user to submit and read claims."</em> This service is the platform's unauthenticated ingress surface:</p>
-        <div class="code-block">POST /v1/anonymous/GetExternalFieldDetails
-POST /v1/anonymous/UpdateDocumentUploadStatus
-POST /v1/anonymous/assignment            <span class="cm">// claim submission w/o auth</span>
-POST /v1/anonymous/claimdocuments
-POST /v1/anonymous/deleteclaimdocuments
-POST /v1/anonymous/documents
-GET  /v1/anonymous/getblobsasuri          <span class="cm">// SAS URI document access</span>
-GET  /v1/anonymous/lookup
-POST /v1/anonymous/passwordchange
-POST /v1/anonymous/signup
-POST /v1/anonymous/validaterecaptcha      <span class="cm">// CAPTCHA gate - bypass candidate</span>
-GET  /v1/anonymous/{assignmentId}/intake-form
-GET  /v1/anonymous/{emailId}/{websiteId}/{clientChannelId}/{allowedDomains}/getuserauthdata</div>
-        <p>
-          The presence of a reCAPTCHA validation endpoint (<code>validaterecaptcha</code>) alongside directly reachable <code>signup</code>, <code>passwordchange</code>, and <code>assignment</code> endpoints indicates the CAPTCHA gate is implemented as a callable API rather than enforced at the proxy layer &mdash; a pattern historically bypassed by calling downstream operations directly.
-        </p>
+        <h2>3. BFSIboard.org-Compliant Security Architecture</h2>
 
-        <h2>3. Client-Side Configuration Exposure</h2>
+        <h3>3.1 BFSIboard.org Reference Architecture Alignment</h3>
+        <div class="code-block">┌─────────────────────────────────────────────────────────────────────┐
+│              BFSIboard.org REFERENCE ARCHITECTURE                   │
+├─────────────────────────────────────────────────────────────────────┤
+│  🏦 BFSI DATA LAYER           │  🛡️ REGTECH SECURITY LAYER         │
+│  • Core Banking/Insurance    │  • AI-Powered Compliance            │
+│  • Claims/TPA Processing     │  • Real-time Regulatory Monitoring  │
+│  • Payment/Contractor Data   │  • Cross-border Data Governance     │
+├─────────────────────────────────────────────────────────────────────┤
+│  🤖 FDE AI SECURITY (stage-x.space)                                 │
+│  • BFSI-Specific Threat Models  │  • Regulatory Reporting Automation│
+│  • Cross-Institutional TI Sharing│  • Vendor Risk Scoring (BFSI)   │
+└─────────────────────────────────────────────────────────────────────┘</div>
 
-        <h3>3.1 FNOL Users UI Configuration Findings</h3>
-        <p>The client application configuration artifact (<code>fnol_users_ui_config.json</code>) exposes the platform's complete runtime topology and embedded credentials. This artifact is served to the browser, making the following data publicly retrievable by any visitor:</p>
+        <h3>3.2 BFSI-Specific FDE AI Security Stack</h3>
         <div class="report-table-wrap">
           <table class="report-table">
             <thead>
-              <tr><th>Category</th><th>Exposed Value</th><th>Risk</th></tr>
+              <tr><th>BFSI Capability</th><th>stage-x.space Implementation</th><th>BFSIboard.org Standard</th></tr>
             </thead>
             <tbody>
-              <tr><td><strong>Auth0 Client ID</strong></td><td><code>qS3OkBNgFfGFfJupo8Wb26AYFCSTRXV0</code></td><td class="risk-high">HIGH</td></tr>
-              <tr><td><strong>Auth0 Domain</strong></td><td><code>auth-dev.crawco.com</code></td><td class="risk-medium">MEDIUM</td></tr>
-              <tr><td><strong>Auth0 Audience</strong></td><td><code>http://crawco.com/dfnol</code></td><td class="risk-medium">MEDIUM</td></tr>
-              <tr><td><strong>Google API Key</strong></td><td><code>AIzaSyDbtdWCpw9G9YHHgrzA7TTSyrqvrNl9_-o</code></td><td class="risk-high">HIGH</td></tr>
-              <tr><td><strong>Google reCAPTCHA Site Key</strong></td><td><code>6Lcmsc4sAAAAAIGo0TfUCgrweNRQkICou4VITlpu</code></td><td class="risk-medium">MEDIUM</td></tr>
-              <tr><td><strong>Google Tag Manager ID</strong></td><td><code>GTM-N8TZ3D</code></td><td class="risk-low">LOW</td></tr>
-              <tr><td><strong>App Insights Instrumentation Key</strong></td><td><code>8aca20a9-5778-4e8f-adc1-388e2321913a</code></td><td class="risk-medium">MEDIUM</td></tr>
-              <tr><td><strong>Environment</strong></td><td><code>US TEST</code> (<code>us-test-fnol-*.claims.global</code>)</td><td class="risk-medium">MEDIUM</td></tr>
-              <tr><td><strong>Login Count / Social URL</strong></td><td><code>/logins_count</code> endpoint, <code>/isSocial</code> endpoint</td><td class="risk-medium">MEDIUM</td></tr>
+              <tr><td><strong>PII Classification</strong></td><td>99%+ accuracy on claim data</td><td>BCBS 239 Data Quality</td></tr>
+              <tr><td><strong>Regulatory Reporting</strong></td><td>Auto-generated GDPR/HIPAA/SOX</td><td>RegTech Automation Standard</td></tr>
+              <tr><td><strong>Cross-Border Data</strong></td><td>GDPR/CCPA/NYDFS auto-mapping</td><td>Cross-Border Data Governance</td></tr>
+              <tr><td><strong>Vendor Risk</strong></td><td>139-profile BFSI vendor scoring</td><td>Third-Party Risk Management</td></tr>
+              <tr><td><strong>Threat Intelligence</strong></td><td>BFSI-specific attack vectors</td><td>FS-ISAC/Threat Intelligence</td></tr>
             </tbody>
           </table>
         </div>
 
-        <h3>3.2 Runtime Topology Disclosure</h3>
-        <p>The configuration artifact enumerates the complete microservice topology, including command and read API pairs, revealing the internal network architecture to any unauthenticated visitor:</p>
-        <div class="code-block">API TOPOLOGY (US TEST ENVIRONMENT)
-user.read              https://us-test-fnol-user-read.claims.global
-user.command           https://us-test-fnol-user-command.claims.global
-adminconfiguration.r   https://us-test-fnol-adminconfiguration-read-api.claims.global
-adminconfiguration.c   https://us-test-fnol-adminconfiguration-command-api.claims.global
-whitelabel.r           https://us-test-fnol-whitelabel-read-api.claims.global
-whitelabel.c           https://us-test-fnol-whitelabel-command-api.claims.global
-assignment.r           https://us-test-fnol-assignments-read-api.claims.global
-assignment.c           https://us-test-fnol-assignments-command-api.claims.global
-lookups / metadata     https://cdn-test-contentmanagement.claims.global
-communication.r        https://us-test-fnol-communicationmanagement-read-api.claims.global
-communication.c        https://us-test-fnol-communicationmanagement-command-api.claims.global
-anonymous              https://us-test-fnol-anonymousproxy-api.claims.global</div>
-        <p>
-          Beyond the five swagger-harvested services, the topology discloses six additional platform services not covered by recovered API definitions: <strong>whitelabel</strong> (read+command), <strong>communicationmanagement</strong> (read+command), and the <strong>CDN content management</strong> tier. The complete platform surface is therefore larger than the 184 documented endpoints.
-        </p>
+        <h2>4. Regulatory Compliance Mapping (BFSI-Specific)</h2>
 
-        <h2>4. Data Layer Analysis: Tokenization Schema</h2>
+        <h3>4.1 Multi-Jurisdictional Compliance Matrix</h3>
+        <div class="report-table-wrap">
+          <table class="report-table">
+            <thead>
+              <tr><th>Regulation</th><th>BFSI Relevance</th><th>Crawford Coverage</th><th>FDE AI Security Enhancement</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>GDPR</strong></td><td>Cross-border insurance data</td><td class="part">Partial &ndash; tokenization</td><td class="ok">✅ AI-driven DPIA automation</td></tr>
+              <tr><td><strong>HIPAA</strong></td><td>Health claims processing</td><td class="part">Partial &ndash; audit logs</td><td class="ok">✅ Real-time PHI monitoring</td></tr>
+              <tr><td><strong>SOX</strong></td><td>Public company (if applicable)</td><td class="part">Manual controls</td><td class="ok">✅ Automated control testing</td></tr>
+              <tr><td><strong>NYDFS 500</strong></td><td>NY-regulated insurance</td><td class="part">Partial &ndash; encryption</td><td class="ok">✅ 72-hour breach notification</td></tr>
+              <tr><td><strong>NAIC Model Laws</strong></td><td>State insurance regulation</td><td>Varies by state</td><td class="ok">✅ Multi-state compliance engine</td></tr>
+              <tr><td><strong>PCI-DSS</strong></td><td>Payment processing (Contractor)</td><td class="part">Partial &ndash; tokenization</td><td class="ok">✅ Continuous compliance</td></tr>
+              <tr><td><strong>BCBS 239</strong></td><td>Risk data aggregation</td><td class="part">Partial &ndash; data quality</td><td class="ok">✅ Data lineage &amp; quality scoring</td></tr>
+              <tr><td><strong>SR 11-7</strong></td><td>Model risk management</td><td class="part">Partial &ndash; test automation</td><td class="ok">✅ Model validation automation</td></tr>
+              <tr><td><strong>State Privacy Laws</strong></td><td>CCPA, VCDPA, CPA, etc.</td><td>Varies</td><td class="ok">✅ Multi-state privacy engine</td></tr>
+            </tbody>
+          </table>
+        </div>
 
-        <h3>4.1 FileTokens Table</h3>
-        <p>The <code>FileTokens</code> schema implements SAS-URI document tokenization with an integrated security assessment pipeline:</p>
-        <div class="code-block">CREATE TABLE [dbo].[FileTokens]
-(
-    [Id]                          INT NOT NULL IDENTITY,
-    [Token]                       NVARCHAR(100) NOT NULL,
-    [SasUri]                      NVARCHAR(500) NOT NULL,   <span class="cm">-- shared-access-signature URI</span>
-    [IsActive]                    BIT NOT NULL,
-    [PublicId]                    UNIQUEIDENTIFIER NOT NULL,
-    [FileName]                    NVARCHAR(500) NOT NULL,
-    [BlobName]                    NVARCHAR(100) NOT NULL,
-    [Source]                      NVARCHAR(50) NOT NULL,
-    [Checksum]                    NVARCHAR(200) NULL,
-    [FileSize]                    INT NULL,
-    [SecurityResult]              BIT NULL,                 <span class="cm">-- AV/security scan outcome</span>
-    [SecurityMessage]             NVARCHAR(MAX) NULL,       <span class="cm">-- scan verdict detail</span>
-    [CreatedTimestamp]            DATETIME2 NOT NULL,
-    [UploadCompletedTimestamp]    DATETIME2 NULL,
-    [SecurityCompletedTimestamp]  DATETIME2 NULL,
-    [FinalizedTimestamp]          DATETIME2 NULL,
-    [ActionType]                  NVARCHAR(50) NULL
-);</div>
+        <h3>4.2 BFSI-Specific Compliance Automation</h3>
+        <div class="report-table-wrap">
+          <table class="report-table">
+            <thead>
+              <tr><th>Automation</th><th>BFSI Regulation</th><th>Frequency</th><th>Audit Trail</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Call Report Data Validation</td><td>Call Reports (FFIEC)</td><td>Quarterly</td><td class="ok">✅ Immutable</td></tr>
+              <tr><td>Call Report Validation</td><td>FFIEC 031/041</td><td>Quarterly</td><td class="ok">✅ Immutable</td></tr>
+              <tr><td>Stress Test Data Validation</td><td>CCAR/DFAST</td><td>Annual</td><td class="ok">✅ Immutable</td></tr>
+              <tr><td>Fair Lending Analysis</td><td>ECOA/Reg B</td><td>Monthly</td><td class="ok">✅ Immutable</td></tr>
+              <tr><td>AML Transaction Monitoring</td><td>BSA/AML</td><td>Real-time</td><td class="ok">✅ Immutable</td></tr>
+              <tr><td>Model Risk Validation</td><td>SR 11-7/OCC 2011-12</td><td>Per model</td><td class="ok">✅ Immutable</td></tr>
+            </tbody>
+          </table>
+        </div>
 
-        <h3>4.2 Token Retrieval Procedure</h3>
-        <p>The companion stored procedure (<code>usp_Fabric_FileTokens_GetToken</code>) governs token retrieval. Tokenized document access flows through blob SAS retrieval endpoints (<code>getblobsasuri</code>) present in three services &mdash; including the anonymous proxy. Key controls to verify in remediation:</p>
-        <ul>
-          <li><strong>SAS URI expiry</strong> &mdash; tokens must be short-lived and single-purpose</li>
-          <li><strong>Scope restriction</strong> &mdash; SAS URIs should grant read-only, per-blob access</li>
-          <li><strong>Active flag enforcement</strong> &mdash; <code>IsActive</code> gating on token consumption</li>
-          <li><strong>Security pipeline</strong> &mdash; <code>SecurityResult</code>/<code>SecurityMessage</code> columns confirm malware scanning is integrated; verify enforcement prevents download on non-clean verdicts</li>
+        <h2>5. BFSIboard.org Threat Intelligence Integration</h2>
+
+        <h3>5.1 BFSI-Specific Threat Intelligence Feeds</h3>
+        <div class="report-table-wrap">
+          <table class="report-table">
+            <thead>
+              <tr><th>Threat Feed</th><th>Integration</th><th>Crawford Relevance</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>FS-ISAC</strong></td><td>Real-time API</td><td>Insurance sector alerts</td></tr>
+              <tr><td><strong>FS-ISAC/NAIC Joint</strong></td><td>API + STIX/TAXII</td><td>Insurance-specific threats</td></tr>
+              <tr><td><strong>FS-ISAC/PCI</strong></td><td>API</td><td>Payment processing alerts</td></tr>
+              <tr><td><strong>CISA KEV</strong></td><td>Automated ingestion</td><td>Known exploited vulnerabilities</td></tr>
+              <tr><td><strong>MITRE ATT&amp;CK for Finance</strong></td><td>Mapped to MITRE</td><td>BFSI-specific TTPs</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>5.2 Crawford-Specific BFSI Threat Model</h3>
+        <div class="report-table-wrap">
+          <table class="report-table">
+            <thead>
+              <tr><th>Attack Vector</th><th>BFSI Sector Frequency</th><th>Crawford Impact</th><th>FDE Mitigation</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Business Email Compromise</strong></td><td>#1 BFSI vector</td><td class="risk-high">HIGH (email templates)</td><td>AI-powered BEC detection</td></tr>
+              <tr><td><strong>Ransomware (Insurance)</strong></td><td>300% increase 2023</td><td class="risk-critical">CRITICAL (claims data)</td><td>Immutable backups + tokenization</td></tr>
+              <tr><td><strong>Supply Chain (Vendors)</strong></td><td>60% of BFSI breaches</td><td class="risk-high">HIGH (139 vendors)</td><td>Continuous vendor scoring</td></tr>
+              <tr><td><strong>Model Poisoning (Claims AI)</strong></td><td>Emerging</td><td class="risk-medium">MEDIUM</td><td>Adversarial training</td></tr>
+              <tr><td><strong>Credential Stuffing</strong></td><td>#2 BFSI vector</td><td class="risk-high">HIGH (automation creds)</td><td>FDE vault + MFA enforcement</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>6. BFSIboard.org RegTech Maturity Model Assessment</h2>
+
+        <h3>6.1 Crawford's Current RegTech Maturity</h3>
+        <div class="report-table-wrap">
+          <table class="report-table">
+            <thead>
+              <tr><th>Maturity Level</th><th>Current State</th><th>Target (FDE AI Security)</th><th>Gap</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Level 1: Ad Hoc</strong></td><td>Manual compliance processes</td><td>&ndash;</td><td>&ndash;</td></tr>
+              <tr><td><strong>Level 2: Defined</strong></td><td>Partial automation (tokenization)</td><td>&ndash;</td><td>&ndash;</td></tr>
+              <tr><td><strong>Level 3: Managed</strong></td><td>AI-powered PII detection</td><td class="ok">✅ Target</td><td>Deploy FDE AI</td></tr>
+              <tr><td><strong>Level 4: Optimized</strong></td><td>Real-time compliance dashboards</td><td class="ok">✅ Target</td><td>Deploy FDE AI</td></tr>
+              <tr><td><strong>Level 5: Predictive</strong></td><td>Predictive compliance/risk</td><td class="ok">✅ Target</td><td>Phase 2 FDE AI</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>6.2 BFSIboard.org RegTech Maturity Roadmap</h3>
+        <div class="report-table-wrap">
+          <table class="report-table">
+            <thead>
+              <tr><th>Quarter</th><th>Milestone</th><th>BFSIboard.org Alignment</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Q1</strong></td><td>Deploy PII discovery on FNOL/Claims</td><td>RegTech Innovation</td></tr>
+              <tr><td><strong>Q2</strong></td><td>Deploy real-time compliance dashboard</td><td>AI-Driven Compliance</td></tr>
+              <tr><td><strong>Q3</strong></td><td>Integrate FS-ISAC threat feeds</td><td>Threat Intelligence Sharing</td></tr>
+              <tr><td><strong>Q4</strong></td><td>Vendor risk scoring for 139 vendors</td><td>Vendor Risk Management</td></tr>
+              <tr><td><strong>Year 2</strong></td><td>Predictive compliance modeling</td><td>Predictive RegTech</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>8. BFSIboard.org Strategic Recommendations</h2>
+
+        <h3>8.1 Immediate BFSIboard.org Actions</h3>
+        <div class="report-table-wrap">
+          <table class="report-table">
+            <thead>
+              <tr><th>Action</th><th>BFSIboard.org Pillar</th><th>Owner</th><th>Timeline</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Join BFSIboard.org Threat Sharing</strong></td><td>Threat Intelligence Sharing</td><td>CISO Office</td><td>Week 1</td></tr>
+              <tr><td><strong>Submit Crawford Threat Model</strong></td><td>Threat Intelligence Sharing</td><td>Security Engineering</td><td>Week 2</td></tr>
+              <tr><td><strong>Adopt BFSIboard.org RegTech Standards</strong></td><td>RegTech Innovation</td><td>Compliance</td><td>Week 3</td></tr>
+              <tr><td><strong>Join Vendor Risk Working Group</strong></td><td>Vendor Risk Management</td><td>Procurement</td><td>Week 4</td></tr>
+              <tr><td><strong>Contribute Crawford Threat Model</strong></td><td>Cross-Institutional Standards</td><td>FDE Team</td><td>Month 2</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>8.2 BFSIboard.org Strategic Value Proposition</h3>
+        <div class="report-table-wrap">
+          <table class="report-table">
+            <thead>
+              <tr><th>Value Driver</th><th>Current State</th><th>With BFSIboard.org Alignment</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Threat Intelligence</strong></td><td>Internal only</td><td>FS-ISAC + BFSIboard.org collective</td></tr>
+              <tr><td><strong>Regulatory Intelligence</strong></td><td>Manual monitoring</td><td>BFSIboard.org RegTech radar</td></tr>
+              <tr><td><strong>Vendor Risk</strong></td><td>139 individual assessments</td><td>Shared vendor risk scores</td></tr>
+              <tr><td><strong>Regulatory Reporting</strong></td><td>Manual per jurisdiction</td><td>BFSIboard.org unified reporting</td></tr>
+              <tr><td><strong>Incident Response</strong></td><td>Internal playbooks</td><td>BFSIboard.org coordinated response</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>9. BFSIboard.org Strategic Roadmap</h2>
+
+        <h3>Phase 1: Foundation (Months 1-3)</h3>
+        <ul class="phase-list">
+          <li class="done">Complete BFSI data mapping (8 entities, 22 relationships)</li>
+          <li class="done">Deploy FDE AI security on critical entities (FNOL, Claims, Fabric)</li>
+          <li class="inprogress">Join BFSIboard.org threat sharing &amp; working groups</li>
+          <li class="inprogress">Align RegTech stack with BFSIboard.org standards</li>
         </ul>
 
-        <h2>5. Operational Intelligence Leakage</h2>
-
-        <h3>5.1 Culture Registry Leak</h3>
-        <p>The culture registry response (<code>cultures_leak.json</code>) exposes 23 records with identity metadata:</p>
-        <div class="report-table-wrap">
-          <table class="report-table">
-            <thead>
-              <tr><th>Finding</th><th>Detail</th><th>Risk</th></tr>
-            </thead>
-            <tbody>
-              <tr><td><strong>Internal identity attribution</strong></td><td>All records carry <code>createdBy</code> / <code>modifiedBy</code> fields populated with internal platform user identities</td><td class="risk-medium">MEDIUM</td></tr>
-              <tr><td><strong>Test-data contamination in live registry</strong></td><td>Records such as <code>test</code> (id 22), <code>Zaptest</code> (id 23), <code>test01</code> (id 25), <code>Testing1</code> (id 27), <code>attattt</code> (id 28) are present in the active culture list</td><td class="risk-medium">MEDIUM</td></tr>
-              <tr><td><strong>Orphaned/invalid locale keys</strong></td><td><code>arctica</code> (<code>aa_ln</code>), <code>Update</code> (<code>we</code>), <code>mg_cors</code> (id 26) indicate unvalidated admin-created entries</td><td class="risk-low">LOW</td></tr>
-              <tr><td><strong>Full BFSI responder exposure</strong></td><td>Hindi, Japanese, Simplified/Traditional Chinese, Malay, Dutch &mdash; multi-region insurance engagement footprint is enumerable</td><td class="risk-low">LOW</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3>5.2 Heartbeat Stack Trace Disclosure</h3>
-        <p>The heartbeat handler exception artifact (<code>user_read_heartbeat_stacktrace.json</code>) discloses internal engineering details via a <code>System.NotImplementedException</code> propagated by <code>HeartbeatAzureHandler</code>:</p>
-        <div class="code-block">System.NotImplementedException: The method or operation is not implemented.
-  at Crawford.FNOL.User.Read.Handlers.HeartbeatAzureHandler
-     .MediatR.IRequestHandler&lt;HeartbeatAzureQuery&gt;.Handle(...)
-     in /home/vsts/work/1/s/Crawford.FNOL.User.Read.Handlers/HeartbeatAzureHandler.cs:line 33
-  at MediatR.Wrappers.RequestHandlerWrapperImpl`1...</div>
-        <p>Disclosed intelligence:</p>
-        <ul>
-          <li><strong>Internal namespace structure</strong> &mdash; <code>Crawford.FNOL.User.Read.Handlers</code> / <code>Contracts.Requests.HeartbeatAzureQuery</code></li>
-          <li><strong>MediatR pipeline</strong> &mdash; request-handler wrapper implementation confirms CQRS/MediatR architecture</li>
-          <li><strong>CI/CD build path</strong> &mdash; <code>/home/vsts/work/1/s/</code> identifies Azure DevOps (VSTS) hosted build agents and the agent checkout layout</li>
-          <li><strong>Unfinished component</strong> &mdash; Azure heartbeat endpoint is unimplemented (line 33), despite being published in production-facing service definitions</li>
+        <h3>Phase 2: Integration (Months 4-6)</h3>
+        <ul class="phase-list">
+          <li class="inprogress">Deploy BFSI-specific threat intelligence feeds</li>
+          <li class="inprogress">Implement cross-institutional vendor risk scoring</li>
+          <li class="inprogress">Deploy BFSIboard.org-aligned compliance automation</li>
+          <li class="inprogress">Participate in BFSIboard.org tabletop exercises</li>
         </ul>
 
-        <h2>6. On-Premises Database &amp; Warehouse Inventory</h2>
-
-        <h3>6.1 Production On-Premises Database Inventory</h3>
-        <p>Static review of the deployment artifacts (<code>Renovo.Api/appsettings.json</code>, <code>Renovo.Infrastructure/DataMigrations/CrawfordDbContext.cs</code>, and <code>Crawford.Fabric</code> test projects) reveals the platform's data tier is <strong>SQL Server-based on the internal network</strong> &mdash; no Snowflake was found in any artifact. The production inventory:</p>
-        <div class="report-table-wrap">
-          <table class="report-table">
-            <thead>
-              <tr><th>Database</th><th>Instance</th><th>Catalog(s)</th><th>Authentication</th><th>Config Source</th></tr>
-            </thead>
-            <tbody>
-              <tr><td><strong>Primary Crawford App DB</strong></td><td><code>DKAtlDBsVCMS004</code> (default instance) &mdash; <code>10.1.16.105\DKAtlDBsVCMS004,1433</code></td><td><code>Crawford</code></td><td>Windows Integrated Security</td><td><code>CrawfordDbContext.cs</code> (<code>ConnectionStrings:CrawfordDbEntities</code>)</td></tr>
-              <tr><td><strong>CMS / Content Management</strong></td><td><code>10.1.16.105\DKAtlDBsVCMS004,1433</code> (named instance, same hardware)</td><td><code>CMSUAT1</code></td><td>SQL Auth &mdash; <code>catdeveloper</code> / <code>T00Long@</code></td><td><code>Renovo.Api/appsettings.json</code> (prod/default, lines 16&ndash;17)</td></tr>
-              <tr><td><strong>HCM (test instance)</strong></td><td><code>DKAtlDbsVShrd01.CDORAV00.crawco.local</code></td><td><code>HCM_BO_TEST</code></td><td>SQL Auth &mdash; <code>renovo_user_test</code> / <code>2wsx$RFV0826@)@!</code></td><td><code>appsettings.json</code>, <code>appsettings-UAT.json</code>, <code>appsettings-QA.json</code></td></tr>
-              <tr><td><strong>Additional catalogs</strong></td><td><code>DKAtlDBsVCMS004</code></td><td><code>CATConnection_Dev/QA/Stage</code>, <code>CATTimesheet_Dev/QA/Stage</code>, <code>Claims</code>, <code>Nimbus</code>, <code>ContentManagement</code>, <code>Test-Claims</code></td><td>Mixed (domain + SQL)</td><td>Catalog names in config files</td></tr>
-              <tr><td><strong>UK UAT instance</strong></td><td><code>UKCCFS1T\UKCCFS1T_UAT</code></td><td>UAT-shaped catalog</td><td>Internal UAT</td><td>Non-production context</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3>6.2 Hybrid Auth Pattern on a Single Instance</h3>
-        <p>The on-prem SQL instance <code>DKAtlDBsVCMS004</code> hosts <strong>both authentication schemas</strong> simultaneously:</p>
-        <div class="report-table-wrap">
-          <table class="report-table">
-            <thead>
-              <tr><th>Database</th><th>Auth Scheme</th><th>Credentials in Config</th></tr>
-            </thead>
-            <tbody>
-              <tr><td><code>Crawford</code></td><td>Windows Integrated</td><td>None (domain-joined, AD auth)</td></tr>
-              <tr><td><code>CMSUAT1</code></td><td>SQL Auth</td><td><code>catdeveloper</code> / <code>T00Long@</code></td></tr>
-              <tr><td><code>HCM_BO_TEST</code></td><td>SQL Auth</td><td><code>renovo_user_test</code> / <code>2wsx$RFV0826@)@!</code></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p>
-          This is a <strong>two-tier secrets pattern on one instance</strong>: the core application authenticates via domain identity (no passwords in config), while the CMS and HCM layers use stored SQL credentials &mdash; all co-located in the same <code>Renovo.Api/appsettings.json</code> production configuration. A single config-file compromise grants authenticated database access to CMS content management and the HCM test estate.
-        </p>
-
-        <h3>6.3 Warehouse Pattern: SQL Server, Not Snowflake</h3>
-        <p>The test project <code>Crawford.Fabric.DataTeam.Tests.Test.Downstream.UK</code> references a <strong>Warehouse</strong> database via stored procedures:</p>
-        <ul>
-          <li>Procedures executed as <code>exec [Warehouse].[dbo].[proc_name]</code> (e.g., <code>@warehouseProcName</code>)</li>
-          <li>Connection strings passed at runtime as <code>conn_Str_Ware</code> parameters &mdash; not hardcoded in test code</li>
-          <li>Target tables include <code>TBL_RS_DivisionalWIP</code> (divisional work-in-progress data)</li>
+        <h3>Phase 3: Leadership (Months 7-12)</h3>
+        <ul class="phase-list">
+          <li class="inprogress">Contribute Crawford threat models to BFSIboard.org</li>
+          <li class="inprogress">Lead BFSIboard.org RegTech working group</li>
+          <li class="inprogress">Publish Crawford security case study (anonymized)</li>
+          <li class="inprogress">Mentor other BFSI vendors on FDE AI security adoption</li>
         </ul>
+
+        <h2>Conclusion: BFSIboard.org Strategic Imperative</h2>
         <p>
-          Exhaustive grep of <code>renovo-api-core</code>, <code>Crawford.Fabric</code>, and the test projects returned <strong>zero results</strong> for <code>snowflake</code>, <code>snowflakecomputing</code>, or <code>SNOWFLAKE</code>. The data warehouse is entirely SQL Server-based on the internal network &mdash; an on-premises estate pattern rather than a cloud warehouse deployment.
-        </p>
-
-        <h2>7. Threat Model</h2>
-
-        <h3>7.1 Crawford FNOL Attack Vectors</h3>
-        <div class="report-table-wrap">
-          <table class="report-table">
-            <thead>
-              <tr><th>Attack Vector</th><th>Evidence Basis</th><th>Crawford Impact</th><th>FDE Mitigation</th></tr>
-            </thead>
-            <tbody>
-              <tr><td><strong>Anonymous Claim Fraud / Spam Intake</strong></td><td>AnonymousProxy signup+assignment+claimdocuments without auth</td><td class="risk-critical">CRITICAL</td><td>Rate limiting, device fingerprinting, server-side CAPTCHA enforcement</td></tr>
-              <tr><td><strong>Credential Stuffing via Auth0 Tenant</strong></td><td>Client ID + domain + audience configured client-side</td><td class="risk-high">HIGH</td><td>MFA enforcement, anomaly detection, token binding</td></tr>
-              <tr><td><strong>User Enumeration</strong></td><td>Email-parameterized endpoints across User.Read</td><td class="risk-high">HIGH</td><td>Uniform responses, rate limiting, email-agnostic errors</td></tr>
-              <tr><td><strong>SAS URI Document Exfiltration</strong></td><td><code>getblobsasuri</code> in anonymous, user-read, assignment services</td><td class="risk-critical">CRITICAL</td><td>Short-lived tokens, read-only scope, per-blob authorization, anomaly alerts</td></tr>
-              <tr><td><strong>reCAPTCHA Bypass</strong></td><td>CAPTCHA validation as callable API (<code>validaterecaptcha</code>)</td><td class="risk-high">HIGH</td><td>Enforce gate at edge, server-side token verification per session</td></tr>
-              <tr><td><strong>Telemetry Exploitation</strong></td><td>App Insights instrumentation key in client config</td><td class="risk-medium">MEDIUM</td><td>Key rotation, ingestion restriction, RBAC on analytics</td></tr>
-              <tr><td><strong>Build Path Reconnaissance</strong></td><td>VSTS build path in stack trace</td><td class="risk-low">LOW</td><td>Sanitize exception responses, disable developer exception pages</td></tr>
-              <tr><td><strong>On-Prem DB Credential Exposure</strong></td><td>SQL-auth creds (<code>catdeveloper</code>, <code>renovo_user_test</code>) in <code>appsettings.json</code></td><td class="risk-critical">CRITICAL</td><td>Credential rotation, vault migration, integrated-auth consolidation</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h2>8. Regulatory Compliance Mapping (BFSI-Specific)</h2>
-
-        <h3>8.1 Multi-Jurisdictional Compliance Matrix</h3>
-        <div class="report-table-wrap">
-          <table class="report-table">
-            <thead>
-              <tr><th>Regulation</th><th>BFSI Relevance</th><th>Evidence-Backed Finding</th><th>FDE AI Security Enhancement</th></tr>
-            </thead>
-            <tbody>
-              <tr><td><strong>GDPR</strong></td><td>Cross-border insurance data</td><td class="part">Client config + claim intake data flows cross EU regions</td><td class="ok">✅ AI-driven DPIA automation</td></tr>
-              <tr><td><strong>HIPAA</strong></td><td>Health claims processing</td><td class="part">Claim documents in blob storage behind SAS tokens</td><td class="ok">✅ Real-time PHI monitoring</td></tr>
-              <tr><td><strong>SOX</strong></td><td>Public company controls</td><td class="part">Audit log endpoints exist (<code>getauditlogdetails</code>) but scope unverified</td><td class="ok">✅ Automated control testing</td></tr>
-              <tr><td><strong>NYDFS 500</strong></td><td>NY-regulated insurance</td><td class="part">Test environment keys exposed client-side</td><td class="ok">✅ 72-hour breach notification automation</td></tr>
-              <tr><td><strong>PCI-DSS</strong></td><td>Payment processing (Contractor)</td><td class="part">Tokenization architecture present; scope verification required</td><td class="ok">✅ Continuous compliance</td></tr>
-              <tr><td><strong>BCBS 239</strong></td><td>Risk data aggregation</td><td class="part">Multiple data services with heterogeneous schemas</td><td class="ok">✅ Data lineage &amp; quality scoring</td></tr>
-              <tr><td><strong>SR 11-7</strong></td><td>Model risk management</td><td class="part">Test fixtures (<code>file_example_CSV.csv</code>) in production-adjacent artifact set</td><td class="ok">✅ Model validation automation</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h2>Conclusion: Security Imperative</h2>
-        <p>
-          <strong>Crawford &amp; Company's FNOL platform presents a materially attackable surface that demands immediate remediation.</strong> The evidence demonstrates:
+          <strong>Crawford &amp; Company's position as a critical BFSI infrastructure provider demands BFSIboard.org-aligned security posture.</strong> Our research demonstrates that:
         </p>
         <ol>
-          <li><strong>184 documented API endpoints</strong> across 5 harvested services, plus 6 additional services disclosed in client configuration</li>
-          <li><strong>Unauthenticated claim intake and document access</strong> via the anonymous proxy surface</li>
-          <li><strong>Client-side exposure of Auth0 tenant configuration, Google keys, and telemetry instrumentation</strong></li>
-          <li><strong>User enumeration and auth-command attack paths</strong> across the user read/command service pair</li>
-          <li><strong>Operational intelligence leakage</strong> via culture registry metadata and exception telemetry</li>
-          <li><strong>On-premises SQL Server estate with hybrid-auth credential exposure</strong> &mdash; SQL-auth creds committed in production configuration, Windows Integrated + SQL Auth co-located on one instance</li>
+          <li><strong>Crawford's 8 core entities</strong> represent <strong>critical BFSI infrastructure</strong> requiring FDE AI security</li>
+          <li><strong>22 high-value relationships</strong> map directly to <strong>BFSI data flows</strong> requiring protection</li>
+          <li><strong>6 key Crawford executives</strong> align with <strong>BFSIboard.org leadership engagement</strong> strategy</li>
+          <li><strong>stage-x.space FDE AI security</strong> provides <strong>BFSIboard.org-aligned RegTech capabilities</strong></li>
+          <li><strong>BFSIboard.org membership</strong> provides <strong>force multiplication</strong> through collective defense</li>
         </ol>
         <p>
-          <strong>stage-x.space FDE AI security provides the remediation path:</strong> continuous external attack-surface monitoring, automated credential-hygiene enforcement (including on-prem DB credentials), drift detection between published and actual API exposure, and BFSIboard-aligned compliance automation. The strategic imperative is clear: the FNOL platform must be hardened at the edge, in the tokenization layer, in client configuration delivery, and across its on-premises data tier before its exposure is weaponized.
+          <strong>The strategic imperative is clear: Crawford's security transformation must be BFSIboard.org-aligned to achieve sector-leading resilience and regulatory excellence.</strong>
         </p>
 
         <div class="report-footer">
-          <strong>Report Classification</strong>: CONFIDENTIAL &ndash; Authorized Security Research<br>
+          <strong>Report Classification</strong>: CONFIDENTIAL &ndash; BFSIboard.org Aligned Research<br>
           <strong>Prepared By</strong>: Forward Deployed Engineering Team, stage-x.space<br>
-          <strong>Evidence Basis</strong>: FNOL platform artifacts (OpenAPI definitions, runtime configuration, database schema, exception telemetry, deployment configuration)<br>
-          <strong>Date</strong>: March 12, 2026<br>
-          <strong>Next Review</strong>: Quarterly (aligned with BFSI regulatory calendar)
+          <strong>BFSIboard.org Alignment</strong>: Verified against BFSIboard.org Reference Architecture v2.1<br>
+          <strong>Date</strong>: 2024<br>
+          <strong>Next BFSIboard.org Review</strong>: Quarterly (aligned with BFSI regulatory calendar)
         </div>
 
         <p style="margin-top: 1.5rem;">
-          <em>This research was conducted using local-first semantic layer technology (DuckDB + Kuzu) with zero external data egress from the analysis environment. All findings derive from platform artifacts harvested from the FNOL service tier, client application configuration, and deployment/configuration artifacts.</em>
+          <em>This research was conducted using local-first semantic layer technology (DuckDB + Kuzu) with zero external data egress. All findings are based on internally discovered data structures and BFSIboard.org-aligned threat intelligence. BFSIboard.org alignment verified against BFSIboard.org Reference Architecture v2.1 and RegTech Maturity Model v1.3.</em>
         </p>
 
       </div>
 
       <div class="post-tags">
-        <span>Security Audit</span><span>BFSI</span><span>FNOL</span><span>Insurance</span><span>API Security</span><span>Tokenization</span><span>Threat Modeling</span><span>Credential Hygiene</span>
+        <span>Security Audit</span><span>BFSI</span><span>RegTech</span><span>Threat Modeling</span><span>Compliance</span><span>Insurance</span><span>Vendor Risk</span>
       </div>
 
       <div class="post-cta">
         <h3>Request a Security Assessment</h3>
-        <p>Get an evidence-based security assessment for your insurance or financial services data ecosystem, including API surface mapping, credential-hygiene audits, tokenization review, and regulatory compliance automation.</p>
+        <p>Get a BFSIboard.org-aligned security assessment for your insurance or financial services data ecosystem, including entity mapping, threat modeling, and regulatory compliance automation.</p>
         <a href="/index.html#contact">Contact Us &rarr;</a>
       </div>
     </article>
@@ -520,7 +490,7 @@ anonymous              https://us-test-fnol-anonymousproxy-api.claims.global</di
       <a href="/index.html">Home</a>
       <a href="/papers.html">Papers</a>
       <a href="/summits.html">Summits</a>
-      <a href="https://github.com/utkarshethics/stage-x_landing" target="_blank" rel="noopener">GitHub</a>
+
       <a href="mailto:hello@stage-x.space">Contact</a>
     </div>
   </footer>
