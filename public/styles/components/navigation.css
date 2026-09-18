@@ -2,6 +2,78 @@
    NAVIGATION — Header, Dropdowns, Mobile Menu
    ========================================================================== */
 
+/* ── Legacy Nav Support (existing HTML structure) ────────────────────── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  height: var(--header-height);
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  box-sizing: border-box;
+}
+
+.logo {
+  flex-shrink: 0;
+}
+
+.logo img {
+  max-height: 56px;
+  width: auto;
+  height: auto;
+  border-radius: var(--radius-sm);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: nowrap;
+}
+
+.nav-links a {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-muted);
+  border-radius: var(--radius-md);
+  transition: color var(--transition-fast), background var(--transition-fast);
+  white-space: nowrap;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  color: var(--color-white);
+  background: var(--color-bg-elevated);
+}
+
+.nav-links a[href="#contact"] {
+  margin-left: var(--space-2);
+  padding: var(--space-2) var(--space-5);
+  background: var(--color-accent);
+  color: var(--color-black);
+  font-weight: var(--font-weight-semibold);
+}
+
+.nav-links a[href="#contact"]:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
 /* ── Header Wrapper ──────────────────────────────────────────────────── */
 .header {
   position: sticky;
@@ -333,10 +405,15 @@
 @media (max-width: 1024px) {
   .header__nav { display: none; }
   .header__mobile-toggle { display: flex; }
+  .nav-links { gap: var(--space-2); }
+  .nav-links a { padding: var(--space-2) var(--space-3); font-size: var(--text-xs); }
 }
 
 @media (max-width: 640px) {
   :root { --header-height: var(--header-height-mobile); }
   .header__logo-text { font-size: var(--text-base); }
   .header__logo-badge { display: none; }
+  .nav-links { gap: var(--space-1); }
+  .nav-links a { padding: var(--space-1) var(--space-2); font-size: var(--text-xs); }
+  .nav-links a[href="#contact"] { padding: var(--space-1) var(--space-3); margin-left: 0; }
 }
