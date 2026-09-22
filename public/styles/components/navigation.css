@@ -25,7 +25,7 @@ nav {
 }
 
 .logo img {
-  max-height: 56px;
+  max-height: 72px;
   width: auto;
   height: auto;
   border-radius: var(--radius-sm);
