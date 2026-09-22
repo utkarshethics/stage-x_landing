@@ -59,35 +59,56 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 2rem 5%;
-      border-bottom: 2px solid #333;
-      background: var(--black);
+      height: 88px;
+      padding: 0 5%;
+      border-bottom: 1px solid #333;
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(12px);
       position: sticky;
       top: 0;
       z-index: 1000;
+      max-width: 1280px;
+      margin: 0 auto;
+      box-sizing: border-box;
     }
 
     .logo {
-      font-weight: 900;
-      font-size: 1.5rem;
-      letter-spacing: -1px;
+      flex-shrink: 0;
+    }
+
+    .logo img {
+      max-height: 72px;
+      width: auto;
+      height: auto;
+      border-radius: 4px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: nowrap;
     }
 
     .nav-links a {
-      color: var(--white);
+      color: #aaa;
       text-decoration: none;
-      margin-left: 2rem;
+      padding: 0.5rem 1rem;
       text-transform: uppercase;
       font-size: 0.8rem;
       font-weight: 700;
       letter-spacing: 1px;
-      border-bottom: 2px solid transparent;
-      transition: border-color 0.3s ease;
+      border-radius: 8px;
+      transition: color 0.2s, background 0.2s;
+      white-space: nowrap;
     }
 
     .nav-links a:hover {
-      border-bottom: 2px solid var(--white);
+      color: var(--white);
+      background: #222;
     }
+
+    
 
     /* HERO SECTION */
     .hero {
@@ -1261,7 +1282,10 @@
 
     /* RESPONSIVE */
     @media (max-width: 768px) {
-      .nav-links { display: none; }
+      nav { height: 72px; }
+      .nav-links { gap: 0.5rem; }
+      .nav-links a { padding: 0.25rem 0.75rem; font-size: 0.7rem; }
+      .nav-links a[href="#contact"] { padding: 0.25rem 1rem; margin-left: 0; }
       .hero { padding: 0 5%; }
       .philosophy, .workflow, .deployments, .testimonials, .pricing, .opensource, .customers-section, .usecases-section, .partners-section { padding: 5rem 5%; }
       .btn-container { flex-direction: column; }
