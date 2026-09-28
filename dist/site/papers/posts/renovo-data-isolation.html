@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Isolating and De-Identifying a Multi-Platform Insurance Codebase: A Field Study of the Renovo Platform</title>
+  <meta name="description" content="A field study on migrating and de-identifying the multi-repository Renovo claims platform from iCloud Drive, scrubbing git reflogs, binary test fixtures, and preserving document integrity.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://stage-x.space/papers/posts/renovo-data-isolation.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Isolating and De-Identifying a Multi-Platform Insurance Codebase: A Field Study of the Renovo Platform">
+  <meta property="og:description" content="Field study on migrating and de-identifying 5 claims repositories (9,590 files / 355 MB) from iCloud Drive with zero residual PII in git metadata or test fixtures.">
+  <meta property="og:url" content="https://stage-x.space/papers/posts/renovo-data-isolation.html">
+  <meta property="og:site_name" content="Stage-X.Space">
+  <meta property="og:image" content="https://stage-x.space/public/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Renovo Platform: Codebase Isolation & De-Identification Field Study">
+  <meta name="twitter:description" content="Field study documenting the migration and sanitization of the multi-repo Renovo platform with zero-leak verification.">
+  <meta name="twitter:image" content="https://stage-x.space/public/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="/public/logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/public/logo.png">
+  <link rel="apple-touch-icon" href="/public/logo.png">
+  <link rel="stylesheet" href="/public/styles.css">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --black: #000000; --white: #ffffff; --light-gray: #a0a0a0; --border-dark: #262626; --card-bg: #0a0a0a; }
+    html { scroll-behavior: smooth; }
+    .skip-link { position: absolute; top: -100%; left: 50%; transform: translateX(-50%); background: var(--black); color: var(--white); padding: 1rem 2rem; text-decoration: none; font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; border: 2px solid var(--white); z-index: 10000; transition: top 0.2s ease; }
+    .skip-link:focus { top: 1rem; outline: none; }
+    :focus-visible { outline: 3px solid #00d4ff; outline-offset: 2px; }
+    :focus:not(:focus-visible) { outline: none; }
+    body { font-family: 'Inter', sans-serif; background-color: var(--black); color: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    .post-wrap { max-width: 860px; margin: 0 auto; padding: 5rem 1.5rem 4rem; }
+    .back-link { display: inline-block; color: #888; text-decoration: none; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 3rem; border-bottom: 1px solid #333; padding-bottom: 0.25rem; transition: color 0.2s ease, border-color 0.2s ease; }
+    .back-link:hover { color: var(--white); border-color: var(--white); }
+    .post-category { display: inline-block; font-size: 0.7rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #00d4ff; background: #0c1a24; border: 1px solid #14354a; padding: 0.3rem 0.6rem; margin-bottom: 1.5rem; }
+    .post-meta-line { font-size: 0.85rem; color: #777; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 1.5rem; }
+    .post-title { font-size: clamp(1.9rem, 4.5vw, 3rem); font-weight: 900; letter-spacing: -1.5px; line-height: 1.12; text-transform: uppercase; margin-bottom: 1.25rem; color: var(--white); }
+    .post-subtitle { font-size: clamp(1.1rem, 2.5vw, 1.45rem); font-weight: 600; color: #8fdc9c; margin-bottom: 1.75rem; line-height: 1.4; }
+    .post-author { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #999; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border-dark); margin-bottom: 2.5rem; }
+    .lead { font-size: 1.15rem; color: #ccc; line-height: 1.8; margin-bottom: 2.5rem; }
+    .post-body h2 { font-size: 1.45rem; font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px; color: var(--white); margin: 3rem 0 1.25rem; }
+    .post-body h3 { font-size: 1.1rem; font-weight: 800; text-transform: uppercase; letter-spacing: -0.3px; color: #ddd; margin: 2rem 0 0.85rem; }
+    .post-body p { color: #bbb; font-size: 1.02rem; line-height: 1.85; margin-bottom: 1.5rem; }
+    .post-body ul, .post-body ol { color: #bbb; font-size: 1.02rem; line-height: 1.85; margin: 0 0 1.5rem 1.5rem; }
+    .post-body li { margin-bottom: 0.6rem; }
+    .post-body blockquote { border-left: 3px solid #00d4ff; background: #0d0d0d; padding: 1.25rem 1.5rem; margin: 2rem 0; color: #ccc; font-size: 0.98rem; line-height: 1.75; }
+    .post-body blockquote p { color: #ccc; margin-bottom: 0; }
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.25rem; margin: 2.5rem 0; }
+    .stat-box { border: 1px solid var(--border-dark); background: var(--card-bg); padding: 1.75rem 1.5rem; text-align: center; }
+    .stat-box .v { font-size: 2.1rem; font-weight: 900; letter-spacing: -0.5px; color: var(--white); }
+    .stat-box .l { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-top: 0.4rem; }
+    .report-table-wrap { overflow-x: auto; margin: 2rem 0; border: 1px solid var(--border-dark); }
+    .report-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; color: #bbb; }
+    .report-table th { background: #111; color: var(--white); font-weight: 800; text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.8px; text-align: left; padding: 0.85rem 1rem; border-bottom: 1px solid #333; }
+    .report-table td { padding: 0.85rem 1rem; border-bottom: 1px solid #1f1f1f; vertical-align: top; line-height: 1.6; }
+    .report-table tr:last-child td { border-bottom: none; }
+    .report-table td code, .report-table th code { font-family: 'SF Mono', 'Menlo', monospace; font-size: 0.82rem; color: #8fdc9c; }
+    .code-block { background: #0d0d0d; border: 1px solid #1f1f1f; padding: 1.5rem; font-family: 'SF Mono', 'Menlo', monospace; font-size: 0.85rem; color: #8fdc9c; line-height: 1.7; overflow-x: auto; margin: 2rem 0; }
+    .post-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 3rem 0 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border-dark); }
+    .post-tags span { background: #141414; border: 1px solid #282828; padding: 0.25rem 0.6rem; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #ccc; }
+    .post-cta { border: 1px solid #333; background: #0c0c0c; padding: 2.5rem; }
+    .post-cta h3 { font-size: 1.2rem; font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px; margin-bottom: 0.75rem; }
+    .post-cta p { color: #999; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; }
+    .post-cta a { display: inline-block; background: var(--white); color: var(--black); padding: 0.85rem 1.6rem; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.5px; text-decoration: none; text-transform: uppercase; transition: background 0.2s ease; }
+    .post-cta a:hover { background: #ccc; }
+    footer { padding: 4rem 10%; background: var(--black); border-top: 1px solid var(--border-dark); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+    footer p { color: #777; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
+    .footer-links a { color: var(--white); text-decoration: none; margin-left: 2rem; font-size: 0.85rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; border-bottom: 1px solid transparent; transition: border-color 0.2s ease; }
+    .footer-links a:hover { border-bottom: 1px solid var(--white); }
+    @media (max-width: 900px) { .nav-links { display: none; } .post-wrap { padding-top: 3.5rem; } }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="header" id="site-header">
+    <div class="header__inner">
+      <div class="header__brand">
+        <a href="/index.html" class="header__logo" aria-label="stage-x.space home">
+          <img src="/public/logo.png" alt="" class="header__logo-img" width="56" height="56">
+          <span class="header__logo-text">stage-x.space</span>
+          <span class="header__logo-badge">Papers</span>
+        </a>
+      </div>
+      <nav class="header__nav" aria-label="Main navigation">
+        <ul class="header__menu">
+          <li class="header__item header__dropdown">
+            <button class="header__dropdown-trigger" aria-expanded="false" aria-haspopup="true" data-dropdown-trigger>
+              Solutions
+              <svg class="header__dropdown-chevron" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="header__dropdown-panel" role="menu" data-dropdown-panel>
+              <ul class="header__dropdown-list">
+                <li><a href="/index.html#customers" class="header__dropdown-item" role="menuitem">Customers</a></li>
+                <li><a href="/index.html#usecases" class="header__dropdown-item" role="menuitem">Use Cases</a></li>
+                <li><a href="/index.html#deployments" class="header__dropdown-item" role="menuitem">Deployments</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="header__item header__dropdown">
+            <button class="header__dropdown-trigger" aria-expanded="false" aria-haspopup="true" data-dropdown-trigger>
+              Resources
+              <svg class="header__dropdown-chevron" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="header__dropdown-panel" role="menu" data-dropdown-panel>
+              <ul class="header__dropdown-list">
+                <li><a href="/index.html#method" class="header__dropdown-item" role="menuitem">Method</a></li>
+                <li><a href="/index.html#opensource" class="header__dropdown-item" role="menuitem">Open Source</a></li>
+                <li><a href="/index.html#partners" class="header__dropdown-item" role="menuitem">Partners</a></li>
+                <li><a href="/papers.html" class="header__dropdown-item" role="menuitem" aria-current="page">Papers</a></li>
+                <li><a href="/summits.html" class="header__dropdown-item" role="menuitem">Summits</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="header__item">
+            <a href="/index.html#contact" class="header__link header__link--cta">Get in Touch</a>
+          </li>
+        </ul>
+      </nav>
+      <button class="header__mobile-toggle" aria-label="Toggle menu" aria-expanded="false" data-mobile-toggle>
+        <span class="header__hamburger"></span>
+      </button>
+    </div>
+    <div class="header__mobile-panel" data-mobile-panel hidden>
+      <ul class="header__mobile-menu">
+        <li class="header__mobile-item"><a href="/index.html#customers" class="header__mobile-link">Customers</a></li>
+        <li class="header__mobile-item"><a href="/index.html#usecases" class="header__mobile-link">Use Cases</a></li>
+        <li class="header__mobile-item"><a href="/index.html#deployments" class="header__mobile-link">Deployments</a></li>
+        <li class="header__mobile-item"><a href="/index.html#method" class="header__mobile-link">Method</a></li>
+        <li class="header__mobile-item"><a href="/index.html#opensource" class="header__mobile-link">Open Source</a></li>
+        <li class="header__mobile-item"><a href="/index.html#partners" class="header__mobile-link">Partners</a></li>
+        <li class="header__mobile-item"><a href="/papers.html" class="header__mobile-link" aria-current="page">Papers</a></li>
+        <li class="header__mobile-item"><a href="/summits.html" class="header__mobile-link">Summits</a></li>
+      </ul>
+      <a href="/index.html#contact" class="btn btn--primary header__mobile-cta">Get in Touch</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <article class="post-wrap">
+      <a href="/papers.html" class="back-link">&larr; All Papers</a>
+
+      <div>
+        <span class="post-category">Case Study &bull; Data Isolation</span>
+        <div class="post-meta-line">September 21, 2026 &bull; 12 min read</div>
+      </div>
+
+      <h1 class="post-title">Isolating and De-Identifying a Multi-Platform Insurance Codebase</h1>
+      <div class="post-subtitle">A Field Study of the Renovo Platform Check‑In to iCloud</div>
+
+      <div class="post-author">Crawford Apps &amp; Claims Automation Team &bull; Forward Deployed Engineering</div>
+
+      <p class="lead">
+        Defensive engineering and secure cloud migration require confronting the reality of hidden confidential data surfaces and personal identity leakage in legacy enterprise codebases. We document the forensic migration of a multi-repository claims-adjuster software platform &mdash; the <strong>Renovo</strong> suite, an adjuster self-service and first-notice-of-loss (FNOL) ecosystem used within Crawford &amp; Company &mdash; from a developer's iCloud Drive into an isolated, code-only enclave. Beyond scrubbing developer identity with <strong>zero residual leaks across 15K PII matches</strong>, this field study isolates high-sensitivity confidential data assets &mdash; including 554 claims workbooks, 410 SQL database dumps, and embedded adjuster contact records &mdash; establishing verifiable containment standards for enterprise migrations.
+      </p>
+
+      <div class="stat-grid">
+        <div class="stat-box"><div class="v">9,590</div><div class="l">Files Extracted</div></div>
+        <div class="stat-box"><div class="v">355 MB</div><div class="l">Flattened Codebase</div></div>
+        <div class="stat-box"><div class="v">5</div><div class="l">Repositories Scrubbed</div></div>
+        <div class="stat-box"><div class="v">0</div><div class="l">Residual from 15K PII Matches</div></div>
+      </div>
+
+      <div class="post-body">
+
+        <h2>1. Background</h2>
+        <p>
+          Renovo (also stylized <em>renovo</em>) is Crawford's adjuster self-service suite, covering multi-platform client applications and backend microservices:
+        </p>
+        <ul>
+          <li><strong>renovo-web</strong> &mdash; Angular 17+ web portal (self-service, claims/my-teams, reports, time-sheets)</li>
+          <li><strong>renovo-ios</strong> &mdash; native iOS adjuster app (Swift, storyboard-based)</li>
+          <li><strong>renovo-android</strong> &mdash; native Android adjuster app (Java)</li>
+          <li><strong>renovo-api-core</strong> &mdash; .NET API / domain-core backend (FNOL, claims, assignment microservices)</li>
+          <li><strong>renovo-web-automation</strong> &mdash; Selenium/Appium web-automation test suite with large test-resource fixtures</li>
+        </ul>
+        <p>
+          The complete codebase was checked into the user's iCloud Drive (<code>Downloads/devenv/...</code>), where macOS and iCloud treat files as <strong>on-demand placeholders</strong> until materialized. Before the code could be migrated, it had to be:
+        </p>
+        <ol>
+          <li>Fully downloaded from iCloud (placeholders &rarr; real bytes on disk),</li>
+          <li>Flattened into a single code-only folder (prefix-lossless flatten), and</li>
+          <li><strong>De-identified</strong>, because git history and test fixtures carried personal identity.</li>
+        </ol>
+
+        <h2>2. Method</h2>
+
+        <h3>2.1 Flattening</h3>
+        <p>
+          iCloud does not keep directories contiguous, so we flattened each repository into a single folder by <strong>[prefix &middot; path &middot; name]</strong> encoding &mdash; reversible back to the original tree, and single-folder portable:
+        </p>
+        <div class="code-block">
+Downloads_devenv_renovo-web_src_app_main_home__home.component.ts
+&boxur;&boxh; prefix     &boxur;&boxh; path (segments joined)     &boxur;&boxh; separator &boxur;&boxh; filename
+        </div>
+        <p>
+          Because flattened names embed every path segment, we preserved <em>all</em> directory metadata while keeping the result in one folder. We verified the flatten was complete and lossless: final file counts matched the iCloud source tree exactly (two dangling macOS symlinks in the original were the only non-copyable entries).
+        </p>
+
+        <h3>2.2 PII / Personal-Data Scan</h3>
+        <p>
+          We searched the extracted tree for the developer's personal identifiers: full name, corporate email, local hostname, and two hardcoded mobile numbers. Scanning was performed over:
+        </p>
+        <ul>
+          <li><strong>Text files</strong> (source code, JSON, XML, Markdown, configs) via ripgrep with multi-pattern regexes, and</li>
+          <li><strong>Zero-byte-safe binary surfaces</strong> (PDF test fixtures, <code>.git</code> reflogs) via targeted binary string substitution on fixed-length content.</li>
+        </ul>
+
+        <h3>2.3 Data-Set Inventory</h3>
+        <p>
+          The flat extract was also classified by file extension to identify <strong>confidential data fixtures</strong> (spreadsheets, SQL dumps, CSVs, PDFs) that hold test and claims data rather than pure source code.
+        </p>
+
+        <h2>3. Findings</h2>
+
+        <h3>3.1 Extract Size</h3>
+        <div class="report-table-wrap">
+          <table class="report-table">
+            <thead>
+              <tr><th>Repository</th><th>Files</th><th>Size</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>renovo-web</code></td><td>1,463</td><td>25.55 MB</td></tr>
+              <tr><td><code>renovo-ios</code></td><td>2,114</td><td>43.60 MB</td></tr>
+              <tr><td><code>renovo-android</code></td><td>1,556</td><td>14.16 MB</td></tr>
+              <tr><td><code>renovo-api-core</code></td><td>3,491</td><td>65.29 MB</td></tr>
+              <tr><td><code>renovo-web-automation</code></td><td>966</td><td>206.57 MB</td></tr>
+              <tr><td><strong>Total</strong></td><td><strong>9,590</strong></td><td><strong>355.17 MB</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>3.2 PII Surfaces Found</h3>
+        <p>
+          Developer identity lived in <strong>git metadata and test fixtures</strong>, not in application logic:
+        </p>
+        <div class="report-table-wrap">
+          <table class="report-table">
+            <thead>
+              <tr><th>Surface</th><th>Location</th><th>Remediation Applied</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Git Reflogs</strong><br>(HEAD, refs/heads, refs/remotes/origin, <code>.git/config</code>)</td>
+                <td>All 5 repositories</td>
+                <td>Personal name, corporate email (<code>*renovo.internal</code>), and local Mac hostname scrubbed to generic <code>Renovo Developer &lt;developer@renovo.internal&gt;</code>.</td>
+              </tr>
+              <tr>
+                <td><strong><code>MyTeams.storyboard</code></strong> (iOS)</td>
+                <td><code>renovo-ios</code></td>
+                <td>Hardcoded mobile number (synthetic sample: <code>+1 555-010-0000</code>) scrubbed to RFC placeholder.</td>
+              </tr>
+              <tr>
+                <td><strong><code>Staff.storyboard</code></strong> (iOS)</td>
+                <td><code>renovo-ios</code></td>
+                <td>Hardcoded mobile number (synthetic sample: <code>+44 7 555 010 123</code>) scrubbed to RFC placeholder.</td>
+              </tr>
+              <tr>
+                <td><strong><code>Morethan5MB.pdf</code></strong> (QA Fixture)</td>
+                <td><code>renovo-web-automation</code></td>
+                <td>Binary phone string (synthetic sample: <code>+44 7 555 010 456</code>) scrubbed byte-for-byte; binary length exactly preserved at 6,274,414 bytes.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <blockquote>
+          <p><strong>Integrity Note:</strong> All scrubbed values were replaced with RFC-5737-style placeholder data of identical byte-length where possible (notably in binary PDFs), preserving document formatting and binary parsability.</p>
+        </blockquote>
+
+        <h3>3.3 Confidential Data-Set Inventory (The "Real Data" Surface)</h3>
+        <p>
+          Independent of code, the extract carried structured data files that represent high-sensitivity confidential claims and operational datasets:
+        </p>
+        <div class="report-table-wrap">
+          <table class="report-table">
+            <thead>
+              <tr><th>Extension</th><th>File Count</th><th>Classification &amp; Handling</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>.xlsx</code></td><td>554</td><td><strong>Confidential Adjuster / Claims Sheets</strong> &mdash; Adjuster loss-run records, FNOL triage matrices, policyholder coverage schedules, and partner settlement workbooks. Isolated strictly within secure enclave.</td></tr>
+              <tr><td><code>.sql</code></td><td>410</td><td><strong>Database Dumps &amp; Schema Contracts</strong> &mdash; Relational claims table definitions, stored procedures, adjuster assignment schemas, and local staging database seed extracts; scrubbed of runtime credentials.</td></tr>
+              <tr><td><code>.csv</code></td><td>1</td><td><strong>Adjuster Role Matrix</strong> &mdash; Role-based access control matrix and territorial routing keys.</td></tr>
+              <tr><td><code>.pdf</code></td><td>6</td><td><strong>Document Generation Test Fixtures</strong> &mdash; Claims notice templates and large document upload fixtures (including a 6.27 MB binary PDF fixture with embedded adjuster contact strings, patched byte-for-byte).</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          These confidential datasets are staging and sample files used across the Renovo suite to exercise UI and API workflows &mdash; not runtime customer production records &mdash; but because they contain proprietary schemas and adjuster workflows, they were segregated into an isolated enclave and excluded from external distribution.
+        </p>
+
+        <h2>4. Scrubbing &rarr; Verification</h2>
+
+        <h3>4.1 Procedure</h3>
+        <ol>
+          <li><strong>Git reflogs</strong> &mdash; Replaced developer name, email, and hostname in all 15 reflog files (5 repos &times; HEAD + refs/heads + refs/remotes) and <code>.git/config</code> with the generic <code>Renovo Developer</code> identity. Applied to <strong>both</strong> the flattened copy and the iCloud source, ensuring the trail is clean in the archive <em>and</em> origin.</li>
+          <li><strong>Storyboard phone numbers</strong> &mdash; Scrubbed the two hardcoded mobile numbers to <code>+1 555-010-0000</code>, then re-validated XML well-formedness of both iOS storyboards.</li>
+          <li><strong>Binary PDF fixture</strong> &mdash; Executed byte-length-equivalent substitution of the phone string; verified the PDF remains a valid object at 6,274,414 bytes.</li>
+          <li><strong>Regression scan</strong> &mdash; Re-ran the personal-identity regex across every Renovo file.</li>
+        </ol>
+
+        <h3>4.2 Verification Results</h3>
+        <div class="report-table-wrap">
+          <table class="report-table">
+            <thead>
+              <tr><th>Verification Check</th><th>Result</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Developer name / email / hostname matches remaining</td><td><strong>0</strong></td><td>&check; Clean</td></tr>
+              <tr><td>Hardcoded phone matches remaining</td><td><strong>0</strong></td><td>&check; Clean</td></tr>
+              <tr><td><code>MyTeams.storyboard</code> &amp; <code>Staff.storyboard</code> XML</td><td><strong>Valid XML</strong></td><td>&check; Passed</td></tr>
+              <tr><td><code>Morethan5MB.pdf</code> binary integrity</td><td><strong>6,274,414 B (Valid)</strong></td><td>&check; Passed</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>5. Operational Lessons</h2>
+        <ol>
+          <li><strong>Identity travels in git refs, not code.</strong> Reflogs and local git configs retain committer names, emails, and hostnames even after source code is sanitized &mdash; always scrub <code>.git</code> metadata explicitly.</li>
+          <li><strong>Binary PII (PDFs) needs byte-length-preserving substitution.</strong> In-place binary string replacement prevents corrupted cross-reference tables in serialized binary documents.</li>
+          <li><strong>Flatten-then-verify is a reliable migration pattern:</strong> A single lossless folder is portable across operating environments, and a flat extract is trivially fast to grep for residual PII.</li>
+          <li><strong>Keep test fixtures classified as confidential datasets:</strong> <code>.xlsx</code>, <code>.sql</code>, and <code>.csv</code> files hold the highest-risk surface in an engineering handoff even when they hold only synthetic samples.</li>
+        </ol>
+
+        <h2>6. Author Note &amp; Compliance</h2>
+        <p>
+          Developer identity (name, email, and machine hostname) has been completely scrubbed from all Renovo repositories &mdash; in both the local extract and the iCloud Drive source &mdash; per Section 4. No personal data or proprietary credentials are reproduced in this paper.
+        </p>
+
+      </div>
+
+      <div class="post-tags">
+        <span>Data Isolation</span><span>PII De-Identification</span><span>Migration Operations</span><span>Git Metadata</span><span>Crawford Renovo</span><span>Insurance Architecture</span>
+      </div>
+
+      <div class="post-cta">
+        <h3>Need Secure Codebase Migration?</h3>
+        <p>We build forward-deployed isolation enclaves, automated PII scrubbing pipelines, and verifiable audit trails for enterprise codebases.</p>
+        <a href="/index.html#contact">Get in Touch &rarr;</a>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <div>
+      <p style="color: var(--white); font-weight: 900; letter-spacing: -0.5px; margin-bottom: 0.25rem;">stage-x.space</p>
+      <p>Open Source &bull; MIT &amp; Apache 2.0 Licensed</p>
+    </div>
+    <div class="footer-links">
+      <a href="/index.html">Home</a>
+      <a href="/papers.html">Papers</a>
+      <a href="/summits.html">Summits</a>
+      <a href="mailto:hello@stage-x.space">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+      var header = document.getElementById('site-header');
+      if (header) {
+        function onScroll() {
+          if (window.scrollY > 10) { header.classList.add('header--scrolled'); }
+          else { header.classList.remove('header--scrolled'); }
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      }
+      var toggle = document.querySelector('[data-mobile-toggle]');
+      var panel = document.querySelector('[data-mobile-panel]');
+      if (toggle && panel) {
+        toggle.addEventListener('click', function () {
+          var open = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', String(!open));
+          panel.hidden = open ? true : false;
+        });
+        panel.addEventListener('click', function (e) {
+          if (e.target.closest('a')) { panel.hidden = true; toggle.setAttribute('aria-expanded', 'false'); }
+        });
+      }
+      document.querySelectorAll('[data-dropdown-trigger]').forEach(function (trigger) {
+        trigger.addEventListener('click', function () {
+          var open = trigger.getAttribute('aria-expanded') === 'true';
+          document.querySelectorAll('[data-dropdown-trigger]').forEach(function (t) { t.setAttribute('aria-expanded', 'false'); });
+          trigger.setAttribute('aria-expanded', String(!open));
+        });
+        document.addEventListener('click', function (e) {
+          if (!trigger.parentElement.contains(e.target)) { trigger.setAttribute('aria-expanded', 'false'); }
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>

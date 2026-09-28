@@ -1,0 +1,154 @@
+/* ==========================================================================
+   BUTTONS — Primary, Secondary, Ghost, Icon Variants
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.02em;
+  text-transform: none;
+  line-height: 1;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+/* ── Sizes ───────────────────────────────────────────────────────────── */
+.btn--sm { padding: var(--space-2) var(--space-4); font-size: var(--text-xs); }
+.btn--lg { padding: var(--space-4) var(--space-8); font-size: var(--text-base); }
+.btn--xl { padding: var(--space-5) var(--space-10); font-size: var(--text-lg); }
+
+/* ── Variants ────────────────────────────────────────────────────────── */
+
+/* Primary — Accent background */
+.btn--primary {
+  background: var(--color-accent);
+  color: var(--color-black);
+  border-color: var(--color-accent);
+}
+
+.btn--primary:hover:not(:disabled) {
+  background: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn--primary:active:not(:disabled) { transform: translateY(0); }
+
+/* Secondary — White outline */
+.btn--secondary {
+  background: transparent;
+  color: var(--color-white);
+  border-color: var(--color-white);
+}
+
+.btn--secondary:hover:not(:disabled) {
+  background: var(--color-white);
+  color: var(--color-black);
+  transform: translateY(-1px);
+}
+
+/* Ghost — Minimal, text only */
+.btn--ghost {
+  background: transparent;
+  color: var(--color-text-muted);
+  border-color: transparent;
+  padding: var(--space-2) var(--space-3);
+}
+
+.btn--ghost:hover:not(:disabled) {
+  color: var(--color-text);
+  background: var(--color-bg-elevated);
+}
+
+/* Outline — Subtle border */
+.btn--outline {
+  background: transparent;
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+.btn--outline:hover:not(:disabled) {
+  border-color: var(--color-border-hover);
+  background: var(--color-bg-elevated);
+}
+
+/* Destructive — Red accent */
+.btn--destructive {
+  background: var(--color-error);
+  color: var(--color-white);
+  border-color: var(--color-error);
+}
+
+.btn--destructive:hover:not(:disabled) {
+  background: #cc3333;
+  border-color: #cc3333;
+}
+
+/* ── Icon Button ─────────────────────────────────────────────────────── */
+.btn--icon {
+  padding: var(--space-2);
+  border-radius: var(--radius-full);
+}
+
+.btn--icon svg { width: 20px; height: 20px; }
+
+/* ── Full Width ──────────────────────────────────────────────────────── */
+.btn--block { width: 100%; }
+
+/* ── Loading State ───────────────────────────────────────────────────── */
+.btn--loading {
+  position: relative;
+  color: transparent !important;
+  pointer-events: none;
+}
+
+.btn--loading::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: btn-spin 0.6s linear infinite;
+}
+
+@keyframes btn-spin { to { transform: rotate(360deg); } }
+
+/* ── Button Group ────────────────────────────────────────────────────── */
+.btn-group {
+  display: inline-flex;
+  gap: var(--space-2);
+}
+
+.btn-group .btn:not(:first-child) { border-top-left-radius: 0; border-bottom-left-radius: 0; }
+.btn-group .btn:not(:last-child) { border-top-right-radius: 0; border-bottom-right-radius: 0; }
+.btn-group .btn:focus-visible { z-index: 1; }

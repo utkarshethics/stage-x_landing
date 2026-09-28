@@ -22,4 +22,4 @@ chromium-agent-loop.js
 chromium-guardrails.js
 rental/
   scripts/
-  artifacts/
+  artifacts/dist/
