@@ -31,28 +31,77 @@
   <link rel="apple-touch-icon" href="/public/logo.png">
   <link rel="stylesheet" href="/public/styles/pages/index.css?v=2">
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Stage-X.Space",
-        "url": "https://www.stage-x.space",
-        "logo": "https://www.stage-x.space/public/logo.png",
-        "description": "Forward Deployed Engineering — bridging research labs and operational reality. Embedding, integrating, and optimizing frontier AI systems inside existing infrastructure.",
-        "sameAs": []
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.stage-x.space/#organization",
+      "name": "Stage-X.Space",
+      "url": "https://www.stage-x.space/",
+      "logo": {
+        "@id": "https://www.stage-x.space/#logo"
       },
-      {
-        "@type": "WebSite",
-        "name": "Stage-X.Space",
-        "url": "https://www.stage-x.space/",
-        "description": "Forward deployed engineering — bridging research labs and operational reality.",
-        "inLanguage": "en"
+      "image": {
+        "@id": "https://www.stage-x.space/#logo"
+      },
+      "description": "Forward Deployed Engineering - bridging research labs and operational reality. Embedding, integrating, and optimising frontier AI systems inside existing infrastructure."
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://www.stage-x.space/#logo",
+      "url": "https://www.stage-x.space/public/logo.png",
+      "contentUrl": "https://www.stage-x.space/public/logo.png",
+      "caption": "Stage-X.Space"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.stage-x.space/#website",
+      "url": "https://www.stage-x.space/",
+      "name": "Stage-X.Space",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://www.stage-x.space/#organization"
       }
-    ]
-  }
-  </script>
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.stage-x.space/#webpage",
+      "url": "https://www.stage-x.space/",
+      "name": "Stage-X.Space - Forward Deployed Engineering",
+      "description": "Forward deployed engineering - bridging research labs and operational reality.",
+      "isPartOf": {
+        "@id": "https://www.stage-x.space/#website"
+      },
+      "about": {
+        "@id": "https://www.stage-x.space/#organization"
+      },
+      "breadcrumb": {
+        "@id": "https://www.stage-x.space/#breadcrumb"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.stage-x.space/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.stage-x.space/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Stage-X.Space - Forward Deployed Engineering",
+          "item": "https://www.stage-x.space/"
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 

@@ -37,51 +37,107 @@
   <link rel="stylesheet" href="/public/styles.css">
   <link rel="stylesheet" href="/public/styles/pages/london-2026.css">
     <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Event",
-    "name": "Stage-X Summit 2026: London",
-    "description": "EU AI Act Compliance, Data Sovereignty & Heavy Industrial Edge — Closed-door technical roundtable for infrastructure leaders in London.",
-    "url": "https://www.stage-x.space/summits/london-2026.html",
-    "startDate": "2026-11-19",
-    "endDate": "2026-11-20",
-    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-    "eventStatus": "https://schema.org/EventScheduled",
-    "location": {
-      "@type": "Place",
-      "name": "Level39 — One Canada Square",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "One Canada Square, Canary Wharf",
-        "addressLocality": "London",
-        "postalCode": "E14 5AA",
-        "addressCountry": "GB",
-        "addressRegion": "GB-LND"
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.stage-x.space/#organization",
+      "name": "Stage-X.Space",
+      "url": "https://www.stage-x.space/",
+      "logo": {
+        "@id": "https://www.stage-x.space/#logo"
       },
-      "hasMap": "https://www.google.com/maps/search/?api=1&query=Level39%20%E2%80%94%20One%20Canada%20Square%2C%20Canary%20Wharf",
-      "sameAs": "https://www.google.com/maps/search/?api=1&query=Level39%20%E2%80%94%20One%20Canada%20Square%2C%20Canary%20Wharf",
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 51.5049,
-        "longitude": -0.0195
+      "image": {
+        "@id": "https://www.stage-x.space/#logo"
+      },
+      "description": "Forward Deployed Engineering - bridging research labs and operational reality. Embedding, integrating, and optimising frontier AI systems inside existing infrastructure."
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://www.stage-x.space/#logo",
+      "url": "https://www.stage-x.space/public/logo.png",
+      "contentUrl": "https://www.stage-x.space/public/logo.png",
+      "caption": "Stage-X.Space"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.stage-x.space/#website",
+      "url": "https://www.stage-x.space/",
+      "name": "Stage-X.Space",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://www.stage-x.space/#organization"
       }
     },
-    "organizer": {
-      "@type": "Organization",
-      "name": "Stage-X.Space",
-      "url": "https://www.stage-x.space"
-    },
-    "maximumAttendeeCapacity": 40,
-    "image": "https://www.stage-x.space/public/og/london-2026.png",
-    "offers": {
-      "@type": "Offer",
+    {
+      "@type": "Event",
+      "@id": "https://www.stage-x.space/summits/london-2026.html#event",
+      "name": "Stage-X Summit 2026: London | AI Events in London",
+      "description": "Closed-door AI events in London: EU AI Act Compliance, Data Sovereignty & Heavy Industrial Edge. November 19, 2026 · Level39 — One Canada Square, Canary Wharf. 40 seats — apply to attend.",
       "url": "https://www.stage-x.space/summits/london-2026.html",
-      "price": "0",
-      "priceCurrency": "USD",
-      "availability": "https://schema.org/InStock"
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "isAccessibleForFree": false,
+      "location": {
+        "@id": "https://www.stage-x.space/summits/london-2026.html#venue"
+      },
+      "organizer": {
+        "@id": "https://www.stage-x.space/#organization"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://www.stage-x.space/summits/london-2026.html#webpage"
+      }
+    },
+    {
+      "@type": "Place",
+      "name": "To be announced",
+      "@id": "https://www.stage-x.space/summits/london-2026.html#venue"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.stage-x.space/summits/london-2026.html#webpage",
+      "url": "https://www.stage-x.space/summits/london-2026.html",
+      "name": "Stage-X Summit 2026: London | AI Events in London",
+      "description": "Closed-door AI events in London: EU AI Act Compliance, Data Sovereignty & Heavy Industrial Edge. November 19, 2026 · Level39 — One Canada Square, Canary Wharf. 40 seats — apply to attend.",
+      "isPartOf": {
+        "@id": "https://www.stage-x.space/#website"
+      },
+      "about": {
+        "@id": "https://www.stage-x.space/#organization"
+      },
+      "breadcrumb": {
+        "@id": "https://www.stage-x.space/summits/london-2026.html#breadcrumb"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.stage-x.space/summits/london-2026.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.stage-x.space/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Summits",
+          "item": "https://www.stage-x.space/summits/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Stage-X Summit 2026: London | AI Events in London",
+          "item": "https://www.stage-x.space/summits/london-2026.html"
+        }
+      ]
     }
-  }
-  </script>
+  ]
+}
+</script>
 </head>
 <body>
 

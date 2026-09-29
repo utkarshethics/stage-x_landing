@@ -33,19 +33,142 @@
   <link rel="stylesheet" href="/public/styles/pages/summits.css">
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "name": "Stage-X Summits",
-    "url": "https://www.stage-x.space/summits.html",
-    "description": "Closed-door, Chatham House Rule summits bringing together enterprise infrastructure leaders and frontier AI research lab engineers.",
-    "isPartOf": {
-      "@type": "WebSite",
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.stage-x.space/#organization",
       "name": "Stage-X.Space",
-      "url": "https://www.stage-x.space"
+      "url": "https://www.stage-x.space/",
+      "logo": {
+        "@id": "https://www.stage-x.space/#logo"
+      },
+      "image": {
+        "@id": "https://www.stage-x.space/#logo"
+      },
+      "description": "Forward Deployed Engineering - bridging research labs and operational reality. Embedding, integrating, and optimising frontier AI systems inside existing infrastructure."
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://www.stage-x.space/#logo",
+      "url": "https://www.stage-x.space/public/logo.png",
+      "contentUrl": "https://www.stage-x.space/public/logo.png",
+      "caption": "Stage-X.Space"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.stage-x.space/#website",
+      "url": "https://www.stage-x.space/",
+      "name": "Stage-X.Space",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://www.stage-x.space/#organization"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.stage-x.space/summits.html#summitlist",
+      "name": "Stage-X Summit 2026 events",
+      "numberOfItems": 9,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Stage-X Summit 2026: Berlin | AI Events in Berlin",
+          "url": "https://www.stage-x.space/summits/berlin-2026.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Stage-X Summit 2026: Boston | AI Events in Boston",
+          "url": "https://www.stage-x.space/summits/boston-2026.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Stage-X Summit 2026: Dubai | AI Events in Dubai",
+          "url": "https://www.stage-x.space/summits/dubai-2026.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Stage-X Summit 2026: London | AI Events in London",
+          "url": "https://www.stage-x.space/summits/london-2026.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Stage-X Summit 2026: Melbourne | AI Events in Melbourne",
+          "url": "https://www.stage-x.space/summits/melbourne-2026.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "Stage-X Summit 2026: Mumbai | AI Events in Mumbai",
+          "url": "https://www.stage-x.space/summits/mumbai-2026.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "name": "Stage-X Summit 2026: New York | AI Events in New York",
+          "url": "https://www.stage-x.space/summits/nyc-2026.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "name": "Stage-X Summit 2026: San Francisco | AI Events in San Francisco",
+          "url": "https://www.stage-x.space/summits/sf-2026.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "name": "Stage-X Summit 2026: Toronto | AI Events in Toronto",
+          "url": "https://www.stage-x.space/summits/toronto-2026.html"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.stage-x.space/summits.html#webpage",
+      "url": "https://www.stage-x.space/summits.html",
+      "name": "Stage-X Summits",
+      "description": "Closed-door technical roundtables for infrastructure leaders.",
+      "isPartOf": {
+        "@id": "https://www.stage-x.space/#website"
+      },
+      "about": {
+        "@id": "https://www.stage-x.space/#organization"
+      },
+      "breadcrumb": {
+        "@id": "https://www.stage-x.space/summits.html#breadcrumb"
+      },
+      "inLanguage": "en",
+      "mainEntity": {
+        "@id": "https://www.stage-x.space/summits.html#summitlist"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.stage-x.space/summits.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.stage-x.space/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Stage-X Summits",
+          "item": "https://www.stage-x.space/summits.html"
+        }
+      ]
     }
-  }
-  </script>
+  ]
+}
+</script>
 </head>
 <body>
 
