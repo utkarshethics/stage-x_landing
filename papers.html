@@ -40,7 +40,11 @@
       --card-bg: #0a0a0a;
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      /* The site header is sticky, so deep links to a paper need to clear it. */
+      scroll-padding-top: 6.5rem;
+    }
 
     /* Accessibility: Skip link */
     .skip-link {
@@ -730,7 +734,7 @@
       </div>
       <div class="papers-grid">
 
-        <article class="paper-card paper-card--wide">
+        <article class="paper-card paper-card--wide" id="paper-sovereign-weights">
           <div>
             <div class="paper-card-top">
               <span class="paper-series-tag">Air-Gapped Systems &bull; 2026</span>
@@ -834,7 +838,7 @@
       </div>
       <div class="papers-grid">
 
-        <article class="paper-card">
+        <article class="paper-card" id="paper-sub50ms-ttft">
           <div>
             <div class="paper-card-top">
               <span class="paper-series-tag">Latency Engineering &bull; 2026</span>
@@ -905,7 +909,7 @@
           </div>
         </article>
 
-        <article class="paper-card">
+        <article class="paper-card" id="paper-petabyte-telemetry">
           <div>
             <div class="paper-card-top">
               <span class="paper-series-tag">High-Throughput &bull; 2025</span>
@@ -939,7 +943,7 @@
       </div>
       <div class="papers-grid">
 
-        <article class="paper-card">
+        <article class="paper-card" id="paper-safety-hardening">
           <div>
             <div class="paper-card-top">
               <span class="paper-series-tag">Hardening &bull; 2026</span>
@@ -984,7 +988,7 @@
           </div>
         </article>
 
-        <article class="paper-card">
+        <article class="paper-card" id="paper-zk-clinical">
           <div>
             <div class="paper-card-top">
               <span class="paper-series-tag">Hardening &bull; 2025</span>
@@ -1052,7 +1056,7 @@
           </div>
         </article>
 
-        <article class="paper-card paper-card--placeholder">
+        <article class="paper-card paper-card--placeholder" id="paper-kiln-control-loop">
           <div>
             <div class="paper-card-top">
               <span class="paper-series-tag">Research Program &bull; 2026</span>
