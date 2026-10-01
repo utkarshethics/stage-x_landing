@@ -6,17 +6,17 @@
   <title>FP8 / FP4 Serving Without Accuracy Degradation: A Benchmark Audit</title>
   <meta name="description" content="Head-to-head benchmark of native FP16 vs vLLM, TensorRT-LLM, and SGLang FP8/FP4 kernels across enterprise reasoning workloads. Live GPU memory pressure, cache eviction, and quantization-aware eval methodology.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://stage-x.space/papers/posts/fp8-fp4-serving-audit.html">
+  <link rel="canonical" href="https://www.stage-x.space/papers/posts/fp8-fp4-serving-audit.html">
   <meta property="og:type" content="article">
   <meta property="og:title" content="FP8 / FP4 Serving Without Accuracy Degradation: A Benchmark Audit">
   <meta property="og:description" content="Head-to-head benchmark of native FP16 vs vLLM, TensorRT-LLM, and SGLang FP8/FP4 kernels across enterprise reasoning workloads.">
-  <meta property="og:url" content="https://stage-x.space/papers/posts/fp8-fp4-serving-audit.html">
+  <meta property="og:url" content="https://www.stage-x.space/papers/posts/fp8-fp4-serving-audit.html">
   <meta property="og:site_name" content="Stage-X.Space">
-  <meta property="og:image" content="https://stage-x.space/public/logo.png">
+  <meta property="og:image" content="https://www.stage-x.space/public/logo.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="FP8 / FP4 Serving Without Accuracy Degradation: A Benchmark Audit">
   <meta name="twitter:description" content="FP16 vs FP8/FP4 kernels across enterprise reasoning workloads.">
-  <meta name="twitter:image" content="https://stage-x.space/public/logo.png">
+  <meta name="twitter:image" content="https://www.stage-x.space/public/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -62,6 +62,101 @@
     .footer-links a:hover { border-bottom: 1px solid var(--white); }
     @media (max-width: 900px) { .nav-links { display: none; } .post-wrap { padding-top: 3.5rem; } }
   </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.stage-x.space/#organization",
+      "name": "Stage-X.Space",
+      "url": "https://www.stage-x.space/",
+      "logo": {
+        "@id": "https://www.stage-x.space/#logo"
+      },
+      "image": {
+        "@id": "https://www.stage-x.space/#logo"
+      },
+      "description": "Forward Deployed Engineering - bridging research labs and operational reality. Embedding, integrating, and optimising frontier AI systems inside existing infrastructure."
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://www.stage-x.space/#logo",
+      "url": "https://www.stage-x.space/public/logo.png",
+      "contentUrl": "https://www.stage-x.space/public/logo.png",
+      "caption": "Stage-X.Space"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.stage-x.space/#website",
+      "url": "https://www.stage-x.space/",
+      "name": "Stage-X.Space",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://www.stage-x.space/#organization"
+      }
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://www.stage-x.space/papers/posts/fp8-fp4-serving-audit.html#article",
+      "headline": "FP8 / FP4 Serving Without Accuracy Degradation: A Benchmark Audit",
+      "description": "Head-to-head benchmark of native FP16 vs vLLM, TensorRT-LLM, and SGLang FP8/FP4 kernels across enterprise reasoning workloads. Live GPU memory pressure, cache eviction, and quantization-aware eval methodology.",
+      "url": "https://www.stage-x.space/papers/posts/fp8-fp4-serving-audit.html",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://www.stage-x.space/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://www.stage-x.space/#website"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://www.stage-x.space/papers/posts/fp8-fp4-serving-audit.html#webpage"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.stage-x.space/papers/posts/fp8-fp4-serving-audit.html#webpage",
+      "url": "https://www.stage-x.space/papers/posts/fp8-fp4-serving-audit.html",
+      "name": "FP8 / FP4 Serving Without Accuracy Degradation: A Benchmark Audit",
+      "description": "Head-to-head benchmark of native FP16 vs vLLM, TensorRT-LLM, and SGLang FP8/FP4 kernels across enterprise reasoning workloads. Live GPU memory pressure, cache eviction, and quantization-aware eval methodology.",
+      "isPartOf": {
+        "@id": "https://www.stage-x.space/#website"
+      },
+      "about": {
+        "@id": "https://www.stage-x.space/#organization"
+      },
+      "breadcrumb": {
+        "@id": "https://www.stage-x.space/papers/posts/fp8-fp4-serving-audit.html#breadcrumb"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.stage-x.space/papers/posts/fp8-fp4-serving-audit.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.stage-x.space/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Papers",
+          "item": "https://www.stage-x.space/papers/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "FP8 / FP4 Serving Without Accuracy Degradation: A Benchmark Audit",
+          "item": "https://www.stage-x.space/papers/posts/fp8-fp4-serving-audit.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 

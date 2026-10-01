@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" fill="none">
+  <rect width="1920" height="1080" fill="#000000"/>
+  <defs>
+    <linearGradient id="heroGradient" x1="0" y1="0" x2="1920" y2="1080" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#000000"/>
+      <stop offset="30%" stop-color="#0a0a0a"/>
+      <stop offset="60%" stop-color="#0d0d0d"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="576" cy="216" r="432" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="rgba(0,212,255,0.08)"/>
+      <stop offset="100%" stop-color="rgba(0,212,255,0)"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="1344" cy="864" r="432" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="rgba(0,212,255,0.05)"/>
+      <stop offset="100%" stop-color="rgba(0,212,255,0)"/>
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#heroGradient)"/>
+  <ellipse cx="576" cy="216" rx="432" ry="432" fill="url(#glow1)"/>
+  <ellipse cx="1344" cy="864" rx="432" ry="432" fill="url(#glow2)"/>
+  <g opacity="0.03">
+    <path d="M0 0h1920v1080H0z" fill="none" stroke="#FFFFFF" stroke-width="1" vector-effect="non-scaling-stroke">
+      <animate attributeName="stroke-dashoffset" from="0" to="100" dur="20s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  <text x="960" y="540" text-anchor="middle" dominant-baseline="middle" font-family="system-ui" font-size="48" font-weight="900" fill="rgba(255,255,255,0.05)">stage-x.space</text>
+</svg>

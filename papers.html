@@ -6,19 +6,19 @@
   <title>Stage-X Papers | Forward Deployed Engineering Technical Papers</title>
   <meta name="description" content="Technical papers, field reports, and architecture notes from forward deployed engineering engagements: air-gapped inference, FP8 kernel tuning, deterministic latency, and sovereign deployment topologies.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://stage-x.space/papers.html">
+  <link rel="canonical" href="https://www.stage-x.space/papers.html">
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Stage-X Papers | Forward Deployed Engineering Technical Papers">
   <meta property="og:description" content="Technical papers, field reports, and architecture notes from forward deployed engineering engagements: air-gapped inference, FP8 kernel tuning, deterministic latency, and sovereign deployment topologies.">
-  <meta property="og:url" content="https://stage-x.space/papers.html">
+  <meta property="og:url" content="https://www.stage-x.space/papers.html">
   <meta property="og:site_name" content="Stage-X.Space">
-  <meta property="og:image" content="https://stage-x.space/public/logo.png">
+  <meta property="og:image" content="https://www.stage-x.space/public/logo.png">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Stage-X Papers | Forward Deployed Engineering Technical Papers">
   <meta name="twitter:description" content="Technical papers, field reports, and architecture notes from forward deployed engineering engagements.">
-  <meta name="twitter:image" content="https://stage-x.space/public/logo.png">
+  <meta name="twitter:image" content="https://www.stage-x.space/public/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -40,7 +40,11 @@
       --card-bg: #0a0a0a;
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      /* The site header is sticky, so deep links to a paper need to clear it. */
+      scroll-padding-top: 6.5rem;
+    }
 
     /* Accessibility: Skip link */
     .skip-link {
@@ -498,19 +502,136 @@
     }
   </style>
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "name": "Stage-X Papers",
-    "url": "https://stage-x.space/papers.html",
-    "description": "Technical papers, field reports, and architecture notes from forward deployed engineering engagements.",
-    "isPartOf": {
-      "@type": "WebSite",
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.stage-x.space/#organization",
       "name": "Stage-X.Space",
-      "url": "https://stage-x.space"
+      "url": "https://www.stage-x.space/",
+      "logo": {
+        "@id": "https://www.stage-x.space/#logo"
+      },
+      "image": {
+        "@id": "https://www.stage-x.space/#logo"
+      },
+      "description": "Forward Deployed Engineering - bridging research labs and operational reality. Embedding, integrating, and optimising frontier AI systems inside existing infrastructure."
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://www.stage-x.space/#logo",
+      "url": "https://www.stage-x.space/public/logo.png",
+      "contentUrl": "https://www.stage-x.space/public/logo.png",
+      "caption": "Stage-X.Space"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.stage-x.space/#website",
+      "url": "https://www.stage-x.space/",
+      "name": "Stage-X.Space",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://www.stage-x.space/#organization"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.stage-x.space/papers.html#paperlist",
+      "name": "Stage-X technical papers",
+      "numberOfItems": 8,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Crawford Security Findings: BFSIboard.org-Aligned Security Research Report",
+          "url": "https://www.stage-x.space/papers/posts/crawford-bfsi-security.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "ERP Line-Item Auditing with Formal Guardrails: Catching Pricing Discrepancies at Scale",
+          "url": "https://www.stage-x.space/papers/posts/erp-line-item-auditing.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "FP8 / FP4 Serving Without Accuracy Degradation: A Benchmark Audit",
+          "url": "https://www.stage-x.space/papers/posts/fp8-fp4-serving-audit.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Optimizing Fuel-Burn Control Loops in 1,400&deg;C Kiln Combustion",
+          "url": "https://www.stage-x.space/papers/posts/kiln-combustion-control.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Isolating and De-Identifying a Multi-Platform Insurance Codebase: A Field Study of the Renovo Platform",
+          "url": "https://www.stage-x.space/papers/posts/renovo-data-isolation.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "Sovereign Weights: Quantized 405B-Class Models in Zero-Egress Air-Gapped Environments",
+          "url": "https://www.stage-x.space/papers/posts/sovereign-weights-405b-airgap.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "name": "Sub-50ms TTFT Under Extreme Concurrent Load: Event-Driven Inference Gateways",
+          "url": "https://www.stage-x.space/papers/posts/sub-50ms-ttft-gateway.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "name": "Petabyte-Scale Telemetry Fusion on Rotating-Asset Fleets",
+          "url": "https://www.stage-x.space/papers/posts/telemetry-fusion-rotating-assets.html"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.stage-x.space/papers.html#webpage",
+      "url": "https://www.stage-x.space/papers.html",
+      "name": "Papers",
+      "description": "Technical papers and field audits from Stage-X.Space.",
+      "isPartOf": {
+        "@id": "https://www.stage-x.space/#website"
+      },
+      "about": {
+        "@id": "https://www.stage-x.space/#organization"
+      },
+      "breadcrumb": {
+        "@id": "https://www.stage-x.space/papers.html#breadcrumb"
+      },
+      "inLanguage": "en",
+      "mainEntity": {
+        "@id": "https://www.stage-x.space/papers.html#paperlist"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.stage-x.space/papers.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.stage-x.space/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Papers",
+          "item": "https://www.stage-x.space/papers.html"
+        }
+      ]
     }
-  }
-  </script>
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -613,7 +734,7 @@
       </div>
       <div class="papers-grid">
 
-        <article class="paper-card paper-card--wide">
+        <article class="paper-card paper-card--wide" id="paper-sovereign-weights">
           <div>
             <div class="paper-card-top">
               <span class="paper-series-tag">Air-Gapped Systems &bull; 2026</span>
@@ -717,7 +838,7 @@
       </div>
       <div class="papers-grid">
 
-        <article class="paper-card">
+        <article class="paper-card" id="paper-sub50ms-ttft">
           <div>
             <div class="paper-card-top">
               <span class="paper-series-tag">Latency Engineering &bull; 2026</span>
@@ -788,7 +909,7 @@
           </div>
         </article>
 
-        <article class="paper-card">
+        <article class="paper-card" id="paper-petabyte-telemetry">
           <div>
             <div class="paper-card-top">
               <span class="paper-series-tag">High-Throughput &bull; 2025</span>
@@ -822,7 +943,7 @@
       </div>
       <div class="papers-grid">
 
-        <article class="paper-card">
+        <article class="paper-card" id="paper-safety-hardening">
           <div>
             <div class="paper-card-top">
               <span class="paper-series-tag">Hardening &bull; 2026</span>
@@ -867,7 +988,7 @@
           </div>
         </article>
 
-        <article class="paper-card">
+        <article class="paper-card" id="paper-zk-clinical">
           <div>
             <div class="paper-card-top">
               <span class="paper-series-tag">Hardening &bull; 2025</span>
@@ -935,7 +1056,7 @@
           </div>
         </article>
 
-        <article class="paper-card paper-card--placeholder">
+        <article class="paper-card paper-card--placeholder" id="paper-kiln-control-loop">
           <div>
             <div class="paper-card-top">
               <span class="paper-series-tag">Research Program &bull; 2026</span>
