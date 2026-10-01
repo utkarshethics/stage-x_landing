@@ -116,7 +116,8 @@
       <a href="#method">Runbook</a>
       <a href="#opensource">Open Source</a>
       <a href="#partners">Driver Matrix</a>
-      <a href="#briefings">Briefings</a>
+      <a href="#briefings">Operator Briefings</a>
+      <a href="#dispatch" class="nav-cta">[OPEN DISPATCH]</a>
     </div>
   </nav>
 
@@ -648,7 +649,7 @@
         <div class="term-bar">
           <span class="term-dots" aria-hidden="true"><i></i><i></i><i></i></span>
           <span class="term-title" data-term-title>harness.py</span>
-          <button type="button" class="term-copy" data-copy aria-label="Copy code to clipboard">Copy</button>
+          <button type="button" class="term-copy" data-copy aria-label="Copy code to clipboard">[COPY]</button>
         </div>
 
         <pre class="term-body" id="panel-python" role="tabpanel" aria-labelledby="tab-python" tabindex="0"><code><span class="t-k">from</span> stage_x <span class="t-k">import</span> <span class="t-f">Runtime</span>, <span class="t-f">AirGapEnclave</span>
@@ -667,56 +668,19 @@ harness<span class="t-o">.</span><span class="t-f">bridge</span><span class="t-p
 
 harness<span class="t-o">.</span><span class="t-f">index</span><span class="t-p">(</span>corpus<span class="t-o">=</span><span class="t-s">"./technical-orders"</span><span class="t-p">,</span> mode<span class="t-o">=</span><span class="t-s">"hybrid"</span><span class="t-p">)</span></code></pre>
 
-        <pre class="term-body is-hidden" id="panel-go" role="tabpanel" aria-labelledby="tab-go" tabindex="0" hidden><code><span class="t-c">// sensor frames are pooled; the hot loop never touches the heap</span>
-cfg <span class="t-o">:=</span> stagex<span class="t-o">.</span><span class="t-f">EnclaveConfig</span><span class="t-p">{</span>
-    <span class="t-f">EgressPolicy</span><span class="t-o">:</span> stagex<span class="t-o">.</span><span class="t-f">PolicyDropAll</span><span class="t-p">,</span>
-    <span class="t-f">AuditSocket</span><span class="t-o">:</span> <span class="t-s">"unixgram:///var/run/stagex.audit"</span><span class="t-p">,</span>
-<span class="t-p">}</span>
+        <pre class="term-body is-hidden" id="panel-go" role="tabpanel" aria-labelledby="tab-go" tabindex="0" hidden><code><span class="t-k">package</span> main
 
-rt<span class="t-p">,</span> err <span class="t-o">:=</span> stagex<span class="t-o">.</span><span class="t-f">NewRuntime</span><span class="t-p">(</span>cfg<span class="t-p">)</span>
-<span class="t-k">if</span> err <span class="t-o">!=</span> <span class="t-k">nil</span> <span class="t-p">{</span>
-    <span class="t-k">return</span> err
-<span class="t-p">}</span>
+<span class="t-k">import</span> <span class="t-s">"github.com/stage-x/runtime"</span>
 
-<span class="t-c">// read-only subscription; propose_only never opens a write handle</span>
-err = rt<span class="t-o">.</span><span class="t-f">Bridge</span><span class="t-p">(</span>stagex<span class="t-o">.</span><span class="t-f">OPCUA</span><span class="t-p">{</span>
-    <span class="t-f">Endpoint</span><span class="t-o">:</span> <span class="t-s">"opc.tcp://10.20.0.12:4840"</span><span class="t-p">,</span>
-    <span class="t-f">Mode</span>      <span class="t-o">:</span> stagex<span class="t-o">.</span><span class="t-f">ProposeOnly</span><span class="t-p">,</span>
-    <span class="t-f">Security</span>  <span class="t-o">:</span> <span class="t-s">"Aes256_Sha256_RsaPss"</span><span class="t-p">,</span>
-<span class="t-p">})</span>
-<span class="t-k">if</span> err <span class="t-o">!=</span> <span class="t-k">nil</span> <span class="t-p">{</span>
-    <span class="t-k">return</span> err
-<span class="t-p">}</span>
-
-<span class="t-c">// one goroutine per source, one channel of pooled frames downstream</span>
-frames <span class="t-o">:=</span> <span class="t-k">make</span><span class="t-p">(</span><span class="t-k">chan</span> <span class="t-o">*</span>stagex<span class="t-o">.</span><span class="t-f">Frame</span><span class="t-p">,</span> <span class="t-s">256</span><span class="t-p">)</span>
-<span class="t-k">go</span> rt<span class="t-o">.</span><span class="t-f">Consume</span><span class="t-p">(</span>ctx<span class="t-p">,</span> frames<span class="t-p">)</span>
-
-<span class="t-k">for</span> <span class="t-p">{</span>
-    <span class="t-k">select</span> <span class="t-p">{</span>
-    <span class="t-k">case</span> f <span class="t-o">:=</span> <span class="t-o">&lt;-</span>frames<span class="t-o">:</span>
-        rt<span class="t-o">.</span><span class="t-f">Score</span><span class="t-p">(</span>f<span class="t-p">)</span>   <span class="t-c">// in-place, no allocation</span>
-        rt<span class="t-o">.</span><span class="t-f">Release</span><span class="t-p">(</span>f<span class="t-p">)</span> <span class="t-c">// frame returns to the pool</span>
-    <span class="t-k">case</span> <span class="t-o">&lt;-</span>ctx<span class="t-o">.</span><span class="t-f">Done</span><span class="t-p">():</span>
-        <span class="t-k">return</span> ctx<span class="t-o">.</span><span class="t-f">Err</span><span class="t-p">()</span>
-    <span class="t-p">}</span>
+<span class="t-k">func</span> <span class="t-f">main</span><span class="t-p">() {</span>
+    rt <span class="t-o">:=</span> runtime<span class="t-o">.</span><span class="t-f">New</span><span class="t-p">(</span>runtime<span class="t-o">.</span><span class="t-f">AirGapEnclave</span><span class="t-p">,</span> runtime<span class="t-o">.</span><span class="t-f">PolicyDropAll</span><span class="t-p">)</span>
+    rt<span class="t-o">.</span><span class="t-f">BridgeOPCUA</span><span class="t-p">(</span><span class="t-s">"opc.tcp://10.20.0.12:4840"</span><span class="t-p">,</span> runtime<span class="t-o">.</span><span class="t-f">ModeProposeOnly</span><span class="t-p">)</span>
+    rt<span class="t-o">.</span><span class="t-f">ServeHybridIndex</span><span class="t-p">(</span><span class="t-s">"./technical-orders"</span><span class="t-p">)</span>
 <span class="t-p">}</span></code></pre>
 
-        <pre class="term-body is-hidden" id="panel-cli" role="tabpanel" aria-labelledby="tab-cli" tabindex="0" hidden><code><span class="t-c"># idempotent: safe to re-run on a configured depot, converges on the same state</span>
-<span class="t-f">stagex</span> run \
-  <span class="t-o">--</span><span class="t-f">enclave</span> airgap \
-  <span class="t-o">--</span><span class="t-f">egress</span> drop_all \
-  <span class="t-o">--</span><span class="t-f">protocol</span> <span class="t-s">opc-ua://10.20.0.12:4840</span> \
-  <span class="t-o">--</span><span class="t-f">mode</span> propose_only \
-  <span class="t-o">--</span><span class="t-f">audit</span> <span class="t-s">unixgram:///var/run/stagex.audit</span> \
-  <span class="t-o">--</span><span class="t-f">weights</span> <span class="t-s">./models/sdx-fp8.gguf</span>
-
-<span class="t-c"># prove the boundary holds before anything reaches the process network</span>
-<span class="t-f">stagex</span> <span class="t-f">verify-egress</span> <span class="t-o">--</span><span class="t-f">policy</span> drop_all <span class="t-o">--</span><span class="t-f">expect</span> denied
-
-<span class="t-c"># inspector: what this process can actually open</span>
-<span class="t-f">stagex</span> <span class="t-f">inspect</span> <span class="t-o">--</span><span class="t-f">json</span> <span class="t-o">|</span> jq <span class="t-s">".sockets"</span>
-<span class="t-c"># { "af_unix": ["/var/run/stagex.sock"], "tcp": ["127.0.0.1:8000"], "egress": "deny" }</span></code></pre>
+        <pre class="term-body is-hidden" id="panel-cli" role="tabpanel" aria-labelledby="tab-cli" tabindex="0" hidden><code><span class="t-f">stagex</span> run <span class="t-o">--</span><span class="t-f">enclave</span> airgap <span class="t-o">--</span><span class="t-f">egress</span> drop_all \
+           <span class="t-o">--</span><span class="t-f">bridge</span> opc.tcp://10.20.0.12:4840 <span class="t-o">--</span><span class="t-f">mode</span> propose_only \
+           <span class="t-o">--</span><span class="t-f">corpus</span> ./technical-orders</code></pre>
       </div>
     </div>
   </section>
@@ -729,7 +693,7 @@ frames <span class="t-o">:=</span> <span class="t-k">make</span><span class="t-p
     <p class="briefings-intro">Not marketing collateral. Each brief documents a constraint that broke a deployment, the mechanism that fixed it, and the measurement that proves it, including the cases where the result was worse than the target. MIT and Apache 2.0, because a constraint you cannot read is a constraint you cannot audit. Four are readable now; the kiln control paper is still in review.</p>
 
     <div class="brief-list">
-      <a class="brief-card" href="papers/posts/sovereign-weights-405b-airgap.html">
+      <div class="brief-card" data-brief-ref="BRIEF-001" data-brief-drawer="true" tabindex="0" role="button" aria-haspopup="dialog">
         <div class="brief-head">
           <span class="brief-ref">BRIEF-001</span>
           <span class="brief-status">Air-Gapped Systems &middot; 2026</span>
@@ -741,9 +705,13 @@ frames <span class="t-o">:=</span> <span class="t-k">make</span><span class="t-p
           <span>MIT / Apache 2.0</span>
           <span>Published</span>
         </div>
-      </a>
+        <div class="brief-actions">
+          <button type="button" class="brief-btn brief-btn-read">[READ BRIEF]</button>
+          <a href="/briefs/brief-001.pdf" class="brief-btn brief-btn-pdf" download>[PDF]</a>
+        </div>
+      </div>
 
-      <a class="brief-card" href="papers/posts/telemetry-fusion-rotating-assets.html">
+      <div class="brief-card" data-brief-ref="BRIEF-002" data-brief-drawer="true" tabindex="0" role="button" aria-haspopup="dialog">
         <div class="brief-head">
           <span class="brief-ref">BRIEF-002</span>
           <span class="brief-status">High-Throughput &middot; 2025</span>
@@ -755,9 +723,13 @@ frames <span class="t-o">:=</span> <span class="t-k">make</span><span class="t-p
           <span>MIT / Apache 2.0</span>
           <span>Published</span>
         </div>
-      </a>
+        <div class="brief-actions">
+          <button type="button" class="brief-btn brief-btn-read">[READ BRIEF]</button>
+          <a href="/briefs/brief-002.pdf" class="brief-btn brief-btn-pdf" download>[PDF]</a>
+        </div>
+      </div>
 
-      <a class="brief-card" href="papers/posts/sub-50ms-ttft-gateway.html">
+      <div class="brief-card" data-brief-ref="BRIEF-003" data-brief-drawer="true" tabindex="0" role="button" aria-haspopup="dialog">
         <div class="brief-head">
           <span class="brief-ref">BRIEF-003</span>
           <span class="brief-status">Latency Engineering &middot; 2026</span>
@@ -769,9 +741,13 @@ frames <span class="t-o">:=</span> <span class="t-k">make</span><span class="t-p
           <span>MIT / Apache 2.0</span>
           <span>Published</span>
         </div>
-      </a>
+        <div class="brief-actions">
+          <button type="button" class="brief-btn brief-btn-read">[READ BRIEF]</button>
+          <a href="/briefs/brief-003.pdf" class="brief-btn brief-btn-pdf" download>[PDF]</a>
+        </div>
+      </div>
 
-      <a class="brief-card" href="papers/posts/kiln-combustion-control.html">
+      <div class="brief-card" data-brief-ref="BRIEF-004" data-request-access="true" data-target="Target: BRIEF-004 Pre-print Access" tabindex="0" role="button">
         <div class="brief-head">
           <span class="brief-ref">BRIEF-004</span>
           <span class="brief-status">Research Program &middot; 2026</span>
@@ -781,11 +757,14 @@ frames <span class="t-o">:=</span> <span class="t-k">make</span><span class="t-p
         <div class="brief-meta">
           <span>Forthcoming</span>
           <span>MIT / Apache 2.0</span>
-          <span>Request access</span>
+          <span style="color: var(--alert); font-weight: 700;">Request access</span>
         </div>
-      </a>
+        <div class="brief-actions">
+          <button type="button" class="brief-btn brief-btn-request">[REQUEST ACCESS &darr;]</button>
+        </div>
+      </div>
 
-      <a class="brief-card" href="papers.html#paper-zk-clinical">
+      <div class="brief-card" data-brief-ref="BRIEF-005" data-brief-drawer="true" tabindex="0" role="button" aria-haspopup="dialog">
         <div class="brief-head">
           <span class="brief-ref">BRIEF-005</span>
           <span class="brief-status">Hardening &middot; 2025</span>
@@ -797,7 +776,11 @@ frames <span class="t-o">:=</span> <span class="t-k">make</span><span class="t-p
           <span>MIT / Apache 2.0</span>
           <span>Published</span>
         </div>
-      </a>
+        <div class="brief-actions">
+          <button type="button" class="brief-btn brief-btn-read">[READ BRIEF]</button>
+          <a href="/briefs/brief-005.pdf" class="brief-btn brief-btn-pdf" download>[PDF]</a>
+        </div>
+      </div>
 
     </div>
   </section>
@@ -1165,12 +1148,22 @@ frames <span class="t-o">:=</span> <span class="t-k">make</span><span class="t-p
 
       <div class="dispatch-action">
         <div class="dispatch-line">
-          <label for="dispatch-email" class="dispatch-prompt">$ dispatch to:</label>
-          <input type="email" id="dispatch-email" class="dispatch-input" placeholder="engineering-lead@enterprise.com" autocomplete="email" spellcheck="false" aria-label="Engineering dispatch email">
+          <label for="dispatch-email" class="dispatch-prompt">$ dispatch spec to:</label>
+          <input type="email" id="dispatch-email" class="dispatch-input" placeholder="lead-engineer@defense.gov" autocomplete="email" spellcheck="false" aria-label="Engineering dispatch email">
           <div class="dispatch-btns">
-            <button type="button" class="btn-primary dispatch-transmit-btn" id="btn-transmit-spec">[TRANSMIT SPEC]</button>
+            <button type="button" class="btn-primary dispatch-transmit-btn" id="btn-transmit-spec">[TRANSMIT TO ON-CALL]</button>
             <button type="button" class="btn-secondary dispatch-copy-btn" id="btn-copy-cli" data-copy-cmd>[COPY CLI COMMAND]</button>
+            <button type="button" class="btn-secondary dispatch-copy-btn" id="btn-copy-curl">[COPY CURL]</button>
           </div>
+        </div>
+        <div class="dispatch-terminal-curl">
+          <span class="curl-label">Operator Terminal:</span>
+          <code id="dispatch-curl-cmd">curl -s https://api.stage-x.space/v1/dispatch -d @topology.json</code>
+        </div>
+        <div class="dispatch-target-badge" id="dispatch-target-banner" style="display: none;">
+          <span class="target-tag">Target:</span>
+          <span class="target-val" id="dispatch-target-val"></span>
+          <button type="button" class="target-clear" id="dispatch-target-clear" aria-label="Clear target">&times;</button>
         </div>
         <div class="dispatch-feedback" id="dispatch-feedback" role="status" aria-live="polite"></div>
       </div>
@@ -1205,7 +1198,7 @@ frames <span class="t-o">:=</span> <span class="t-k">make</span><span class="t-p
 
 <script>
     (function () {
-      var words = ["Operator", "Critical Infrastructure", "Industrial Plant", "Defense Depot", "Power Grid", "Enterprise"];
+      var words = ["Operator", "Critical Infrastructure", "Industrial Plant", "Defense Depot", "Power Grid"];
       var word = document.getElementById("hw");
       if (!word) { return; }
       var i = 0;
@@ -1236,10 +1229,13 @@ frames <span class="t-o">:=</span> <span class="t-k">make</span><span class="t-p
         });
         var title = document.querySelector("[data-term-title]");
         if (title) {
-          title.textContent = { python: "harness.py", go: "harness.go", cli: "airgap-init.sh" }[tab.dataset.lang] || "";
+          title.textContent = { python: "harness.py", go: "main.go", cli: "run.sh" }[tab.dataset.lang] || "";
         }
         var copy = document.querySelector("[data-copy]");
-        if (copy) { copy.textContent = "Copy"; }
+        if (copy) {
+          copy.textContent = "[COPY]";
+          copy.classList.remove("is-done");
+        }
       }
 
       tabs.forEach(function (tab, i) {
@@ -1263,24 +1259,7 @@ frames <span class="t-o">:=</span> <span class="t-k">make</span><span class="t-p
       var btn = document.querySelector("[data-copy]");
       if (!btn) { return; }
 
-      btn.addEventListener("click", function () {
-        var panel = document.querySelector(".term-body:not([hidden])");
-        var text = panel ? panel.innerText.replace(/\s+$/, "") : "";
-        if (!text) { return; }
-
-        var done = function () {
-          btn.textContent = "Copied";
-          btn.classList.add("is-done");
-          setTimeout(function () {
-            btn.textContent = "Copy";
-            btn.classList.remove("is-done");
-          }, 1600);
-        };
-
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(text).then(done, function () { btn.textContent = "Press Ctrl+C"; });
-          return;
-        }
+      function tryFallback(text, cb) {
         var ta = document.createElement("textarea");
         ta.value = text;
         ta.setAttribute("readonly", "");
@@ -1288,8 +1267,32 @@ frames <span class="t-o">:=</span> <span class="t-k">make</span><span class="t-p
         ta.style.opacity = "0";
         document.body.appendChild(ta);
         ta.select();
-        try { document.execCommand("copy"); done(); } catch (err) { btn.textContent = "Copy failed"; }
+        try { document.execCommand("copy"); } catch (err) {}
         document.body.removeChild(ta);
+        cb();
+      }
+
+      btn.addEventListener("click", function () {
+        var panel = document.querySelector(".term-body:not([hidden])");
+        var text = panel ? panel.innerText.replace(/\s+$/, "") : "";
+        if (!text) { return; }
+
+        var done = function () {
+          btn.textContent = "[COPIED TO CLIPBOARD]";
+          btn.classList.add("is-done");
+          setTimeout(function () {
+            btn.textContent = "[COPY]";
+            btn.classList.remove("is-done");
+          }, 2000);
+        };
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done).catch(function () {
+            tryFallback(text, done);
+          });
+          return;
+        }
+        tryFallback(text, done);
       });
     })();
 
@@ -1314,9 +1317,9 @@ frames <span class="t-o">:=</span> <span class="t-k">make</span><span class="t-p
 
       function reset() {
         svg.classList.remove("has-focus");
-        nodes.forEach(function (n) { n.classList.remove("is-active"); });
+        nodes.forEach(function (n) { n.classList.remove("is-active", "is-dim"); });
         wires.forEach(function (w) { w.classList.remove("is-active", "is-muted"); });
-        labels.forEach(function (l) { l.classList.remove("is-muted"); });
+        labels.forEach(function (l) { l.classList.remove("is-active", "is-muted"); });
         if (readout) { readout.textContent = defaultText; }
         if (spec) { spec.hidden = true; }
       }
@@ -1332,7 +1335,10 @@ frames <span class="t-o">:=</span> <span class="t-k">make</span><span class="t-p
           w.classList.toggle("is-active", touches);
           w.classList.toggle("is-muted", !touches);
           var label = labelFor(i);
-          if (label) { label.classList.toggle("is-muted", !touches); }
+          if (label) {
+            label.classList.toggle("is-active", touches);
+            label.classList.toggle("is-muted", !touches);
+          }
           if (touches) {
             linked.push(w.dataset.from === id ? w.dataset.to : w.dataset.from);
           }
@@ -1372,6 +1378,223 @@ frames <span class="t-o">:=</span> <span class="t-k">make</span><span class="t-p
     })();
   </script>
 
+  <!-- ══ ARCHITECTURE BRIEF READER DRAWER ══ -->
+  <div class="drawer-backdrop" id="brief-drawer-backdrop" aria-hidden="true"></div>
+  <aside class="brief-drawer" id="brief-drawer" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="drawer-title">
+    <div class="drawer-head">
+      <div class="drawer-meta-tags">
+        <span class="drawer-ref" id="drawer-ref">BRIEF-001</span>
+        <span class="drawer-status" id="drawer-status">Air-Gapped Systems &middot; 2026</span>
+      </div>
+      <button type="button" class="drawer-close" id="drawer-close" aria-label="Close brief drawer">[ESC / &times;]</button>
+    </div>
+    <div class="drawer-body">
+      <h2 class="drawer-title" id="drawer-title">Title</h2>
+      <p class="drawer-lead" id="drawer-lead">Lead description</p>
+      
+      <h4 class="drawer-section-title">Executive Summary &amp; Context</h4>
+      <p id="drawer-summary" style="margin-bottom: 1.5rem; color: #ccc; font-size: 0.92rem; line-height: 1.75;"></p>
+
+      <h4 class="drawer-section-title">Core Architecture Proofs</h4>
+      <ul class="drawer-list" id="drawer-proofs"></ul>
+
+      <h4 class="drawer-section-title">Measured Operational Metrics</h4>
+      <ul class="drawer-list" id="drawer-metrics"></ul>
+    </div>
+    <div class="drawer-foot">
+      <a href="#" class="btn-primary" id="drawer-pdf-btn" download>[DOWNLOAD PDF]</a>
+      <a href="#" class="btn-secondary" id="drawer-post-btn">[READ FULL HTML POST &rarr;]</a>
+    </div>
+  </aside>
+
+  <script>
+  /* ══ ARCHITECTURE BRIEFS: READER DRAWER & REQUEST ACCESS ══ */
+  (function () {
+    var BRIEF_DETAILS = {
+      "BRIEF-001": {
+        ref: "BRIEF-001",
+        status: "Air-Gapped Systems \u00b7 2026",
+        title: "Sovereign Weights: Quantized 405B-Class Models in Zero-Egress Air-Gapped Environments",
+        lead: "Field notes from standing up Llama 3.1 405B and DeepSeek-R1 on in-house GPU nodes with no cloud egress of any kind.",
+        summary: "Standard deployments assume WAN connectivity for tokenizer loading, weight streaming, and licensing call-homes. In a SCIF or isolated plant depot, all assumptions break. This brief documents the exact weight partitioning, host bus topologies, and kernel netfilter rules required to run 405B models strictly from local physical storage.",
+        proofs: [
+          "Block-wise FP8 scaling preserves 99.4% benchmark parity with unquantized checkpoints.",
+          "Dual 8x H100 SXM nodes host full tensor-parallel shards with zero host-to-device paging bottlenecks.",
+          "Netfilter kernel rules (drop_all) enforce complete isolation; 0 bytes outbound across 90-day soak test."
+        ],
+        metrics: [
+          "< 80ms cold TTFT on local storage",
+          "0 external network packets permitted",
+          "Part requisition turnaround down from 72 hours to < 4 minutes"
+        ],
+        pdf: "/briefs/brief-001.pdf",
+        post: "papers/posts/sovereign-weights-405b-airgap.html"
+      },
+      "BRIEF-002": {
+        ref: "BRIEF-002",
+        status: "High-Throughput \u00b7 2025",
+        title: "Petabyte-Scale Telemetry Fusion at Industrial Rotating-Asset Fleets",
+        lead: "Streaming vibrational and thermal waveforms into OSIsoft PI and SCADA historians for roughly a thousand rotating assets.",
+        summary: "Polling historians causes catastrophic read pressure when thousands of vibration sensors sample at kilohertz frequencies. We replaced polling shims with direct memory-mapped ring buffers and an event-driven subscriber architecture directly terminating on OPC-UA and Modbus.",
+        proofs: [
+          "Direct memory-mapped ring buffers eliminate polling-based query pressure on plant historians.",
+          "Native OPC-UA 1.04 binary client with automated fallback to raw Modbus/TCP 502.",
+          "In-place frame scoring in pre-allocated buffers guarantees zero heap allocations in the critical telemetry loop."
+        ],
+        metrics: [
+          "48 to 72 hours advance warning on mechanical failure modes",
+          "Historian read pressure dropped by 88%",
+          "99.2% uptime across marine turbine and refinery assets"
+        ],
+        pdf: "/briefs/brief-002.pdf",
+        post: "papers/posts/telemetry-fusion-rotating-assets.html"
+      },
+      "BRIEF-003": {
+        ref: "BRIEF-003",
+        status: "Latency Engineering \u00b7 2026",
+        title: "Sub-50ms TTFT Under Extreme Concurrent Load: Event-Driven Inference Gateways",
+        lead: "Holding a 50ms first-token target on smart-grid state estimation across five million meter streams.",
+        summary: "High-concurrency streaming inference usually trades latency for batch throughput. By applying AF_XDP kernel-bypass networking and pinning inference workers to isolated NUMA nodes, we achieve sub-50ms TTFT without caching sensitive grid telemetry.",
+        proofs: [
+          "AF_XDP kernel-bypass socket layer delivers 120,000 requests/sec per server node.",
+          "Ephemeral memory rings are cryptographically zeroed immediately following inference output generation.",
+          "Pipelined draft verification ensures single-pass classification of sudden power line harmonics."
+        ],
+        metrics: [
+          "44.8ms P99 TTFT under 300% simulated grid surge events",
+          "120,000 operations per second per server node",
+          "0 bytes retained in memory post-session execution"
+        ],
+        pdf: "/briefs/brief-003.pdf",
+        post: "papers/posts/sub-50ms-ttft-gateway.html"
+      },
+      "BRIEF-005": {
+        ref: "BRIEF-005",
+        status: "Hardening \u00b7 2025",
+        title: "Zero-Knowledge Clinical Reasoning: PHI-Safe Pipelines in Confidential Enclaves",
+        lead: "Clinical reasoning that never retains or exposes protected health information in confidential enclaves.",
+        summary: "Healthcare institutions cannot forward patient records to third-party model providers. This architecture runs within hardware-isolated AMD SEV-SNP enclaves where host administrators, hypervisors, and cloud providers cannot inspect enclave memory.",
+        proofs: [
+          "Hardware remote attestation verifies enclave firmware integrity prior to key release.",
+          "Ephemeral session keys are destroyed in RAM upon completion of every diagnostic consultation pass.",
+          "Deterministic formulary verification cross-checks drug-drug interactions with verifiable citation trails."
+        ],
+        metrics: [
+          "0 bytes cryptographic boundary leakage across automated red-team audits",
+          "< 120ms P95 verification pass per clinical query",
+          "100% adherence to peer-reviewed clinical safety guidelines"
+        ],
+        pdf: "/briefs/brief-005.pdf",
+        post: "papers.html#paper-zk-clinical"
+      }
+    };
+
+    var backdrop = document.getElementById("brief-drawer-backdrop");
+    var drawer = document.getElementById("brief-drawer");
+    var closeBtn = document.getElementById("drawer-close");
+    var refEl = document.getElementById("drawer-ref");
+    var statusEl = document.getElementById("drawer-status");
+    var titleEl = document.getElementById("drawer-title");
+    var leadEl = document.getElementById("drawer-lead");
+    var summaryEl = document.getElementById("drawer-summary");
+    var proofsEl = document.getElementById("drawer-proofs");
+    var metricsEl = document.getElementById("drawer-metrics");
+    var pdfBtn = document.getElementById("drawer-pdf-btn");
+    var postBtn = document.getElementById("drawer-post-btn");
+
+    function openDrawer(ref) {
+      var d = BRIEF_DETAILS[ref];
+      if (!d) return;
+      refEl.textContent = d.ref;
+      statusEl.textContent = d.status;
+      titleEl.textContent = d.title;
+      leadEl.textContent = d.lead;
+      summaryEl.textContent = d.summary;
+
+      proofsEl.innerHTML = d.proofs.map(function (p) { return "<li>" + p + "</li>"; }).join("");
+      metricsEl.innerHTML = d.metrics.map(function (m) { return "<li>" + m + "</li>"; }).join("");
+
+      pdfBtn.setAttribute("href", d.pdf);
+      pdfBtn.textContent = "[DOWNLOAD PDF (" + d.ref.toLowerCase() + ".pdf)]";
+      postBtn.setAttribute("href", d.post);
+
+      backdrop.classList.add("is-open");
+      backdrop.setAttribute("aria-hidden", "false");
+      drawer.classList.add("is-open");
+      drawer.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      closeBtn.focus();
+    }
+
+    function closeDrawer() {
+      backdrop.classList.remove("is-open");
+      backdrop.setAttribute("aria-hidden", "true");
+      drawer.classList.remove("is-open");
+      drawer.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    if (closeBtn) closeBtn.addEventListener("click", closeDrawer);
+    if (backdrop) backdrop.addEventListener("click", closeDrawer);
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && drawer.classList.contains("is-open")) {
+        closeDrawer();
+      }
+    });
+
+    // Delegate clicks for drawer triggers
+    document.querySelectorAll("[data-brief-drawer='true']").forEach(function (card) {
+      card.addEventListener("click", function (e) {
+        if (e.target.closest("a") && e.target.closest("a").hasAttribute("download")) {
+          return; // Let native download happen
+        }
+        e.preventDefault();
+        var ref = card.getAttribute("data-brief-ref");
+        openDrawer(ref);
+      });
+      card.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          var ref = card.getAttribute("data-brief-ref");
+          openDrawer(ref);
+        }
+      });
+    });
+
+    // Request Access handler for BRIEF-004
+    var reqCard = document.querySelector("[data-request-access='true']");
+    if (reqCard) {
+      reqCard.addEventListener("click", function (e) {
+        e.preventDefault();
+        var targetFlag = reqCard.getAttribute("data-target") || "Target: BRIEF-004 Pre-print Access";
+        var banner = document.getElementById("dispatch-target-banner");
+        var bannerVal = document.getElementById("dispatch-target-val");
+        var emailInput = document.getElementById("dispatch-email");
+        var dispatchSec = document.getElementById("dispatch");
+
+        if (banner && bannerVal) {
+          bannerVal.textContent = targetFlag;
+          banner.style.display = "inline-flex";
+        }
+        if (dispatchSec) {
+          dispatchSec.scrollIntoView({ behavior: "smooth" });
+        }
+        setTimeout(function () {
+          if (emailInput) emailInput.focus();
+        }, 500);
+      });
+    }
+
+    var targetClear = document.getElementById("dispatch-target-clear");
+    if (targetClear) {
+      targetClear.addEventListener("click", function () {
+        var banner = document.getElementById("dispatch-target-banner");
+        if (banner) banner.style.display = "none";
+      });
+    }
+  })();
+  </script>
+
   <script>
   /* ══ TECHNICAL INTAKE: fully reactive builder + dispatch actions ══ */
   (function () {
@@ -1393,7 +1616,9 @@ frames <span class="t-o">:=</span> <span class="t-k">make</span><span class="t-p
 
     var result = form.querySelector("[data-intake-result]");
     var transmitBtn = document.getElementById("btn-transmit-spec");
-    var copyBtn = document.getElementById("btn-copy-cli");
+    var copyCliBtn = document.getElementById("btn-copy-cli");
+    var copyCurlBtn = document.getElementById("btn-copy-curl");
+    var curlCmdEl = document.getElementById("dispatch-curl-cmd");
     var emailInput = document.getElementById("dispatch-email");
     var feedback = document.getElementById("dispatch-feedback");
 
@@ -1407,7 +1632,7 @@ frames <span class="t-o">:=</span> <span class="t-k">make</span><span class="t-p
         .map(function (i) { return i.value; });
     }
 
-    function compose() {
+    function composeCli() {
       var zone = picked("zone") || "scif";
       var egress = picked("egress") || "drop_all";
       var tel = pickedAll("telemetry");
@@ -1419,13 +1644,31 @@ frames <span class="t-o">:=</span> <span class="t-k">make</span><span class="t-p
       return parts.join(" ");
     }
 
+    function composeCurl() {
+      var zone = picked("zone") || "scif";
+      var egress = picked("egress") || "drop_all";
+      var tel = pickedAll("telemetry");
+      var payload = {
+        enclave: ZONES[zone].enclave,
+        egress: egress,
+        protocols: tel.map(function (t) { return t === "pi" ? "osi-pi" : t === "opcua" ? "opc-ua" : t; }),
+        mode: "propose_only"
+      };
+      return "curl -s https://api.stage-x.space/v1/dispatch -d '" + JSON.stringify(payload) + "'";
+    }
+
     function updateTopology() {
       if (!result) return;
       var zone = picked("zone") || "scif";
       var egress = picked("egress") || "drop_all";
       var tel = pickedAll("telemetry");
       var zoneInfo = ZONES[zone];
-      var cmd = compose();
+      var cmd = composeCli();
+      var curlCmd = composeCurl();
+
+      if (curlCmdEl) {
+        curlCmdEl.textContent = curlCmd;
+      }
 
       var ingress;
       if (tel.length === 0) {
@@ -1446,6 +1689,7 @@ frames <span class="t-o">:=</span> <span class="t-k">make</span><span class="t-p
           '<div><dt>Egress constraint</dt><dd><code>' + EGRESS[egress] + '</code></dd></div>' +
           '<div><dt>Write path</dt><dd><code>propose_only</code>. The runtime never holds a credential that can write to the process network, because it is never provisioned one.</dd></div>' +
           '<div><dt>Entry point</dt><dd><code data-intake-cmd>' + cmd + '</code></dd></div>' +
+          '<div><dt>API Dispatch</dt><dd><code>' + curlCmd + '</code></dd></div>' +
           '<div><dt>What we will tell you first</dt><dd>If this constraint envelope has defeated a prior vendor, the reply leads with that rather than with a proposal.</dd></div>' +
         '</dl>';
     }
@@ -1453,21 +1697,40 @@ frames <span class="t-o">:=</span> <span class="t-k">make</span><span class="t-p
     form.addEventListener("change", updateTopology);
     updateTopology();
 
-    if (copyBtn) {
-      copyBtn.addEventListener("click", function () {
-        var cmd = compose();
+    if (copyCliBtn) {
+      copyCliBtn.addEventListener("click", function () {
+        var cmd = composeCli();
         navigator.clipboard.writeText(cmd).then(function () {
-          var oldText = copyBtn.textContent;
-          copyBtn.textContent = "[COPIED CLI COMMAND]";
-          if (feedback) feedback.textContent = "Copied to clipboard: " + cmd;
+          var oldText = copyCliBtn.textContent;
+          copyCliBtn.textContent = "[COPIED CLI COMMAND]";
+          if (feedback) feedback.textContent = "Copied CLI command to clipboard: " + cmd;
           setTimeout(function () {
-            copyBtn.textContent = oldText;
-            if (feedback && feedback.textContent.indexOf("Copied") !== -1) {
+            copyCliBtn.textContent = oldText;
+            if (feedback && feedback.textContent.indexOf("Copied CLI") !== -1) {
               feedback.textContent = "";
             }
           }, 2500);
         }).catch(function () {
           if (feedback) feedback.textContent = "Run: " + cmd;
+        });
+      });
+    }
+
+    if (copyCurlBtn) {
+      copyCurlBtn.addEventListener("click", function () {
+        var curlCmd = composeCurl();
+        navigator.clipboard.writeText(curlCmd).then(function () {
+          var oldText = copyCurlBtn.textContent;
+          copyCurlBtn.textContent = "[COPIED CURL]";
+          if (feedback) feedback.textContent = "Copied curl command to clipboard: " + curlCmd;
+          setTimeout(function () {
+            copyCurlBtn.textContent = oldText;
+            if (feedback && feedback.textContent.indexOf("Copied curl") !== -1) {
+              feedback.textContent = "";
+            }
+          }, 2500);
+        }).catch(function () {
+          if (feedback) feedback.textContent = "Run: " + curlCmd;
         });
       });
     }
@@ -1478,18 +1741,22 @@ frames <span class="t-o">:=</span> <span class="t-k">make</span><span class="t-p
         if (!email || email.indexOf("@") === -1 || email.indexOf(".") === -1) {
           if (feedback) {
             feedback.style.color = "var(--alert)";
-            feedback.textContent = "Enter a valid engineering contact email to transmit the dispatch.";
+            feedback.textContent = "Enter a valid operator or engineering contact email to transmit the dispatch spec.";
           }
           if (emailInput) emailInput.focus();
           return;
         }
-        var cmd = compose();
+        var cmd = composeCli();
+        var banner = document.getElementById("dispatch-target-banner");
+        var bannerVal = document.getElementById("dispatch-target-val");
+        var targetFlag = (banner && banner.style.display !== "none" && bannerVal) ? bannerVal.textContent : "";
+
         if (feedback) {
           feedback.style.color = "var(--signal)";
-          feedback.textContent = "DISPATCH TRANSMITTED. An embedded FDE will review this constraint envelope (" + cmd + ") and reply to " + email + " within 4 hours.";
+          feedback.textContent = "DISPATCH TRANSMITTED TO ON-CALL. Spec queued for embedded FDE review. Acknowledgement routing to " + email + (targetFlag ? " [" + targetFlag + "]" : "") + " within 4 hours.";
         }
         var oldBtn = transmitBtn.textContent;
-        transmitBtn.textContent = "[SPEC TRANSMITTED]";
+        transmitBtn.textContent = "[TRANSMITTED TO ON-CALL]";
         transmitBtn.disabled = true;
         setTimeout(function () {
           transmitBtn.textContent = oldBtn;

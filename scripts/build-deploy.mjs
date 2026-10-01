@@ -14,7 +14,7 @@ const ROOT = resolve(process.cwd());
 const OUT = resolve(ROOT, 'dist/site');
 
 /** Directories published verbatim. None of them contain internal files. */
-const PUBLISH_DIRS = ['events', 'papers', 'public', 'summits'];
+const PUBLISH_DIRS = ['events', 'papers', 'public', 'summits', 'briefs'];
 
 /** Individual root files published verbatim, on top of every root *.html. */
 const PUBLISH_FILES = [
