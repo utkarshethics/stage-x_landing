@@ -13,7 +13,7 @@
   <meta property="og:description" content="Bridging research labs and operational reality. Embedding, integrating, and optimizing frontier AI systems inside existing infrastructure.">
   <meta property="og:url" content="https://www.stage-x.space/">
   <meta property="og:site_name" content="Stage-X.Space">
-  <meta property="og:image" content="https://www.stage-x.space/public/og/index.png">
+  <meta property="og:image" content="https://www.stage-x.space/public/og/.webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:type" content="image/png">
@@ -22,13 +22,13 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="stage-x.space | Forward Deployed Engineering">
   <meta name="twitter:description" content="Bridging research labs and operational reality. Embedding, integrating, and optimizing frontier AI systems inside existing infrastructure.">
-  <meta name="twitter:image" content="https://www.stage-x.space/public/og/index.png">
+  <meta name="twitter:image" content="https://www.stage-x.space/public/og/.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" sizes="32x32" href="/public/logo.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/public/logo.png">
-  <link rel="apple-touch-icon" href="/public/logo.png">
+  <link rel="icon" type="image/webp" sizes="32x32" href="/public/logo.webp">
+  <link rel="icon" type="image/webp" sizes="16x16" href="/public/logo.webp">
+  <link rel="apple-touch-icon" href="/public/logo.webp">
   <link rel="stylesheet" href="/public/styles/pages/index.css?v=4">
   <script type="application/ld+json">
 {
@@ -38,6 +38,7 @@
       "@type": "Organization",
       "@id": "https://www.stage-x.space/#organization",
       "name": "Stage-X.Space",
+      "legalName": "Stage-X Forward Deployed AI Engineering",
       "url": "https://www.stage-x.space/",
       "logo": {
         "@id": "https://www.stage-x.space/#logo"
@@ -45,13 +46,53 @@
       "image": {
         "@id": "https://www.stage-x.space/#logo"
       },
-      "description": "Forward Deployed Engineering - bridging research labs and operational reality. Embedding, integrating, and optimising frontier AI systems inside existing infrastructure."
+      "description": "Forward Deployed Engineering - bridging research labs and operational reality. Embedding, integrating, and optimising frontier AI systems inside existing infrastructure.",
+      "founder": {
+        "@type": "Person",
+        "name": "Utkarsh Gupta",
+        "url": "https://www.stage-x.space/"
+      },
+      "sameAs": [
+        "https://github.com/utkarshethics"
+      ],
+      "knowsAbout": [
+        {
+          "@type": "DefinedTerm",
+          "name": "Artificial Intelligence",
+          "sameAs": "https://www.wikidata.org/wiki/Q11660"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Large Language Model",
+          "sameAs": "https://www.wikidata.org/wiki/Q115305900"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Machine Learning",
+          "sameAs": "https://www.wikidata.org/wiki/Q2539"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Software Engineering",
+          "sameAs": "https://www.wikidata.org/wiki/Q80993"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Systems Architecture",
+          "sameAs": "https://www.wikidata.org/wiki/Q1492040"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Retrieval-Augmented Generation",
+          "sameAs": "https://www.wikidata.org/wiki/Q124376481"
+        }
+      ]
     },
     {
       "@type": "ImageObject",
       "@id": "https://www.stage-x.space/#logo",
-      "url": "https://www.stage-x.space/public/logo.png",
-      "contentUrl": "https://www.stage-x.space/public/logo.png",
+      "url": "https://www.stage-x.space/public/logo.webp",
+      "contentUrl": "https://www.stage-x.space/public/logo.webp",
       "caption": "Stage-X.Space"
     },
     {
@@ -63,6 +104,51 @@
       "publisher": {
         "@id": "https://www.stage-x.space/#organization"
       }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.stage-x.space/#faq",
+      "name": "Stage-X Forward Deployed Engineering FAQs",
+      "isPartOf": {
+        "@id": "https://www.stage-x.space/#website"
+      },
+      "about": {
+        "@id": "https://www.stage-x.space/#organization"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a Forward Deployed AI Engineer (FDE) and how does Stage-X operate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A Forward Deployed AI Engineer embeds directly inside client engineering and operational teams to integrate, optimize, and harden frontier AI systems inside existing mission-critical infrastructure. Unlike external advisory firms or slide consultants, Stage-X engineers write production code, eliminate inference bottlenecks, build real-time telemetry harnesses, and are retained strictly for verifiable production outcomes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does Stage-X integrate frontier LLMs into enterprise legacy systems?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Stage-X deploys zero-egress, air-gapped or hybrid inference bridges using Model Context Protocol (MCP) and industrial connectors (OPC-UA, Modbus, OSIsoft PI, SAP RFC). All model actions pass through strict guardrail interlocks with read-only scopes and explicit propose-only write paths, ensuring enterprise determinism and compliance without vendor lock-in."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Generative Engine Optimization (GEO / LLMO) vs traditional SEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "While traditional SEO focuses on keyword rankings and backlink acquisition for human SERP clicks, Generative Engine Optimization (GEO) and Large Language Model Optimization (LLMO) structure web properties for ingestion by AI answer engines (ChatGPT Search, Gemini, Perplexity, Google AI Overviews). This requires direct answer-first headings, machine-readable Subject-Predicate-Object semantic triples, Wikidata entity grounding, and verified factual data points."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do Stage-X engineers design production-grade RAG and Agentic Workflows?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Production RAG workflows are engineered with hybrid vector-graph indexing, chunk-level provenance, strict context compaction, and fallback escalation circuits. Models operate with tool-calling permissions scoped per microservice, preventing uncontrolled multi-hop loops and maintaining sub-500ms deterministic execution."
+          }
+        }
+      ]
     },
     {
       "@type": "WebPage",
@@ -108,7 +194,7 @@
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <nav>
-    <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;"><img src="/public/logo.png" alt="stage-x.space" width="192" height="192" style="vertical-align: middle;"></a></div>
+    <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;"><img src="/public/logo.webp" alt="stage-x.space" width="192" height="192" style="vertical-align: middle;"></a></div>
     <div class="nav-links">
       <a href="#customers">Operators</a>
       <a href="#usecases">Field Missions</a>
@@ -128,6 +214,9 @@
     </div>
     <h1>Forward Deploy Any Frontier Model Into Any <span id="hw" aria-live="polite">Operator</span></h1>
     <p>Bridging research labs and operational reality. Embedding, integrating, and optimizing frontier AI systems inside existing infrastructure.</p>
+    <div class="geo-answer-block" style="background: rgba(255,255,255,0.04); border-left: 3px solid #ff4d00; padding: 1rem 1.25rem; margin: 1.5rem auto 2rem; max-width: 820px; text-align: left; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; line-height: 1.6; color: #d1d5db;">
+      <strong style="color: #ff4d00; text-transform: uppercase; letter-spacing: 0.05em;">Direct Briefing:</strong> <strong>Stage-X (stage-x.space)</strong> is an elite forward-deployed artificial intelligence engineering practice bridging frontier AI research labs with mission-critical operational environments. Stage-X engineers embed directly inside enterprise and defense teams (including Shell, U.S. Air Force, Baker Hughes, Con Edison, Holcim, and Koch Industries) to integrate, fine-tune, and optimize large language models (LLMs), small language models (SLMs), and autonomous agentic workflows within secure infrastructure. Stage-X provides outcome-guaranteed deployment contracts, sub-50ms inference latency optimizations, sovereign air-gapped deployments, and open-source production harnesses under MIT and Apache 2.0 licenses.
+    </div>
     <div class="btn-container">
       <a href="#dispatch" class="btn-primary">Open A Dispatch</a>
       <a href="#opensource" class="btn-secondary">Open Source (MIT / Apache)</a>
@@ -136,7 +225,7 @@
 
   <main id="main-content">
   <section class="philosophy">
-    <h2>BUILT FOR THE SYSTEM. COMMITTED TO THE SHIP.</h2>
+    <h2>STAGE-X ENGINEERING PHILOSOPHY: BUILT FOR THE SYSTEM, COMMITTED TO THE SHIP.</h2>
     <p>Operating like SWAT teams for software infrastructure. No slide decks, no advisory handoffs. Engineers embed directly with client engineering, write production code, stress-test environments, eliminate bottlenecks, and harden infrastructure far beyond initial baselines. Paid strictly for outcomes, not outputs.</p>
   </section>
 
@@ -144,7 +233,7 @@
 
   <section class="customers-section" id="customers">
     <div class="customer-tag">Enterprise Proven</div>
-    <h2>Deployed Across Mission-Critical Operators</h2>
+    <h2>Stage-X Deployed Across Mission-Critical Enterprise Operators</h2>
     <p class="customers-desc">Frontier AI systems embedded directly into the production environments of the world's most demanding enterprises and defense institutions.</p>
 
     <div class="customer-logo-grid">
@@ -164,35 +253,35 @@
       </div>
       <div class="customer-logo-card">
         <div class="customer-logo-icon">
-          <img src="/public/assets/logos/baker-hughes.png" alt="Baker Hughes Logo" class="customer-logo-img" loading="lazy" decoding="async">
+          <img src="/public/assets/logos/.webp" alt="Baker Hughes Logo" class="customer-logo-img" loading="lazy" decoding="async">
         </div>
         <div class="customer-logo-name">Baker Hughes</div>
         <span class="customer-industry">Energy Technology</span>
       </div>
       <div class="customer-logo-card">
         <div class="customer-logo-icon">
-          <img src="/public/assets/logos/con-edison.png" alt="Con Edison Logo" class="customer-logo-img" loading="lazy" decoding="async">
+          <img src="/public/assets/logos/.webp" alt="Con Edison Logo" class="customer-logo-img" loading="lazy" decoding="async">
         </div>
         <div class="customer-logo-name">Con Edison</div>
         <span class="customer-industry">Power &amp; Utilities</span>
       </div>
       <div class="customer-logo-card">
         <div class="customer-logo-icon">
-          <img src="/public/assets/logos/holcim.png" alt="Holcim Logo" class="customer-logo-img" loading="lazy" decoding="async">
+          <img src="/public/assets/logos/.webp" alt="Holcim Logo" class="customer-logo-img" loading="lazy" decoding="async">
         </div>
         <div class="customer-logo-name">Holcim</div>
         <span class="customer-industry">Building Materials</span>
       </div>
       <div class="customer-logo-card">
         <div class="customer-logo-icon">
-          <img src="/public/assets/logos/dla.png" alt="Defense Logistics Agency Logo" class="customer-logo-img" loading="lazy" decoding="async">
+          <img src="/public/assets/logos/.webp" alt="Defense Logistics Agency Logo" class="customer-logo-img" loading="lazy" decoding="async">
         </div>
         <div class="customer-logo-name">U.S. DoD</div>
         <span class="customer-industry">Joint Strike Fighter F-35</span>
       </div>
       <div class="customer-logo-card">
         <div class="customer-logo-icon">
-          <img src="/public/assets/logos/koch.png" alt="Koch Industries Logo" class="customer-logo-img" loading="lazy" decoding="async">
+          <img src="/public/assets/logos/.webp" alt="Koch Industries Logo" class="customer-logo-img" loading="lazy" decoding="async">
         </div>
         <div class="customer-logo-name">Koch Industries</div>
         <span class="customer-industry">Advanced Manufacturing</span>
@@ -1173,6 +1262,37 @@ harness<span class="t-o">.</span><span class="t-f">index</span><span class="t-p"
       No SDR sequence, no discovery call before a constraint is on paper. Dispatch lands with an engineer who has run this topology before, not an account manager.
     </p>
   </section>
+  
+  <section class="faq-section" id="faq" style="padding: 4rem 1.5rem; max-width: 1100px; margin: 0 auto;">
+    <div class="oss-badge" style="margin-bottom: 1.5rem;">
+      <span class="oss-pill">Technical Briefing</span>
+      <span class="oss-licenses">Field Operations &amp; Architecture</span>
+    </div>
+    <h2 style="font-size: 2rem; font-weight: 900; letter-spacing: -0.5px; margin-bottom: 2rem;">FREQUENTLY ASKED QUESTIONS &amp; ARCHITECTURAL SPECIFICATIONS</h2>
+    
+    <div style="display: grid; gap: 1.5rem;">
+      <div style="border: 1px solid rgba(255,255,255,0.12); padding: 1.75rem; border-radius: 8px; background: rgba(255,255,255,0.02);">
+        <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.75rem; color: #fff;">What is a Forward Deployed AI Engineer (FDE) and how does Stage-X operate?</h3>
+        <p style="color: #aaa; line-height: 1.6; margin: 0;">A Forward Deployed AI Engineer embeds directly inside client engineering and operational teams to integrate, optimize, and harden frontier AI systems inside existing mission-critical infrastructure. Unlike external advisory firms or slide consultants, Stage-X engineers write production code, eliminate inference bottlenecks, build real-time telemetry harnesses, and are retained strictly for verifiable production outcomes.</p>
+      </div>
+
+      <div style="border: 1px solid rgba(255,255,255,0.12); padding: 1.75rem; border-radius: 8px; background: rgba(255,255,255,0.02);">
+        <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.75rem; color: #fff;">How does Stage-X integrate frontier LLMs into enterprise legacy systems?</h3>
+        <p style="color: #aaa; line-height: 1.6; margin: 0;">Stage-X deploys zero-egress, air-gapped or hybrid inference bridges using Model Context Protocol (MCP) and industrial connectors (OPC-UA, Modbus, OSIsoft PI, SAP RFC). All model actions pass through strict guardrail interlocks with read-only scopes and explicit propose-only write paths, ensuring enterprise determinism and compliance without vendor lock-in.</p>
+      </div>
+
+      <div style="border: 1px solid rgba(255,255,255,0.12); padding: 1.75rem; border-radius: 8px; background: rgba(255,255,255,0.02);">
+        <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.75rem; color: #fff;">What is Generative Engine Optimization (GEO / LLMO) vs traditional SEO?</h3>
+        <p style="color: #aaa; line-height: 1.6; margin: 0;">While traditional SEO focuses on keyword rankings and backlink acquisition for human SERP clicks, Generative Engine Optimization (GEO) and Large Language Model Optimization (LLMO) structure web properties for ingestion by AI answer engines (ChatGPT Search, Gemini, Perplexity, Google AI Overviews). This requires direct answer-first headings, machine-readable Subject-Predicate-Object semantic triples, Wikidata entity grounding, and verified factual data points.</p>
+      </div>
+
+      <div style="border: 1px solid rgba(255,255,255,0.12); padding: 1.75rem; border-radius: 8px; background: rgba(255,255,255,0.02);">
+        <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.75rem; color: #fff;">How do Stage-X engineers design production-grade RAG and Agentic Workflows?</h3>
+        <p style="color: #aaa; line-height: 1.6; margin: 0;">Production RAG workflows are engineered with hybrid vector-graph indexing, chunk-level provenance, strict context compaction, and fallback escalation circuits. Models operate with tool-calling permissions scoped per microservice, preventing uncontrolled multi-hop loops and maintaining sub-500ms deterministic execution.</p>
+      </div>
+    </div>
+  </section>
+
   </main>
 
   <div class="section-divider"></div>

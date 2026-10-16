@@ -1,4 +1,24 @@
 #!/usr/bin/env node
+
+const STAGE_X_FAQS = [
+  {
+    question: 'What is a Forward Deployed AI Engineer (FDE) and how does Stage-X operate?',
+    answer: 'A Forward Deployed AI Engineer embeds directly inside client engineering and operational teams to integrate, optimize, and harden frontier AI systems inside existing mission-critical infrastructure. Unlike external advisory firms or slide consultants, Stage-X engineers write production code, eliminate inference bottlenecks, build real-time telemetry harnesses, and are retained strictly for verifiable production outcomes.',
+  },
+  {
+    question: 'How does Stage-X integrate frontier LLMs into enterprise legacy systems?',
+    answer: 'Stage-X deploys zero-egress, air-gapped or hybrid inference bridges using Model Context Protocol (MCP) and industrial connectors (OPC-UA, Modbus, OSIsoft PI, SAP RFC). All model actions pass through strict guardrail interlocks with read-only scopes and explicit propose-only write paths, ensuring enterprise determinism and compliance without vendor lock-in.',
+  },
+  {
+    question: 'What is Generative Engine Optimization (GEO / LLMO) vs traditional SEO?',
+    answer: 'While traditional SEO focuses on keyword rankings and backlink acquisition for human SERP clicks, Generative Engine Optimization (GEO) and Large Language Model Optimization (LLMO) structure web properties for ingestion by AI answer engines (ChatGPT Search, Gemini, Perplexity, Google AI Overviews). This requires direct answer-first headings, machine-readable Subject-Predicate-Object semantic triples, Wikidata entity grounding, and verified factual data points.',
+  },
+  {
+    question: 'How do Stage-X engineers design production-grade RAG and Agentic Workflows?',
+    answer: 'Production RAG workflows are engineered with hybrid vector-graph indexing, chunk-level provenance, strict context compaction, and fallback escalation circuits. Models operate with tool-calling permissions scoped per microservice, preventing uncontrolled multi-hop loops and maintaining sub-500ms deterministic execution.',
+  },
+];
+
 /**
  * Normalise and enrich the Stage-X.Space page set into one interlinked
  * Schema.org entity graph.
@@ -16,7 +36,7 @@ import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const ORIGIN = 'https://www.stage-x.space';
-const LOGO = `${ORIGIN}/public/logo.png`;
+const LOGO = `${ORIGIN}/public/logo.webp`;
 const LD = /<script[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>\s*/g;
 
 const slug = (s) =>
@@ -28,11 +48,52 @@ const globals = () => [
     '@type': 'Organization',
     '@id': `${ORIGIN}/#organization`,
     name: 'Stage-X.Space',
+    legalName: 'Stage-X Forward Deployed AI Engineering',
     url: `${ORIGIN}/`,
     logo: { '@id': `${ORIGIN}/#logo` },
     image: { '@id': `${ORIGIN}/#logo` },
     description:
       'Forward Deployed Engineering - bridging research labs and operational reality. Embedding, integrating, and optimising frontier AI systems inside existing infrastructure.',
+    founder: {
+      '@type': 'Person',
+      name: 'Utkarsh Gupta',
+      url: `${ORIGIN}/`,
+    },
+    sameAs: [
+      'https://github.com/utkarshethics',
+    ],
+    knowsAbout: [
+      {
+        '@type': 'DefinedTerm',
+        name: 'Artificial Intelligence',
+        sameAs: 'https://www.wikidata.org/wiki/Q11660',
+      },
+      {
+        '@type': 'DefinedTerm',
+        name: 'Large Language Model',
+        sameAs: 'https://www.wikidata.org/wiki/Q115305900',
+      },
+      {
+        '@type': 'DefinedTerm',
+        name: 'Machine Learning',
+        sameAs: 'https://www.wikidata.org/wiki/Q2539',
+      },
+      {
+        '@type': 'DefinedTerm',
+        name: 'Software Engineering',
+        sameAs: 'https://www.wikidata.org/wiki/Q80993',
+      },
+      {
+        '@type': 'DefinedTerm',
+        name: 'Systems Architecture',
+        sameAs: 'https://www.wikidata.org/wiki/Q1492040',
+      },
+      {
+        '@type': 'DefinedTerm',
+        name: 'Retrieval-Augmented Generation',
+        sameAs: 'https://www.wikidata.org/wiki/Q124376481',
+      },
+    ],
   },
   {
     '@type': 'ImageObject',
@@ -217,6 +278,23 @@ for (const p of landings) {
   const url = `${ORIGIN}${p.path}`;
   const extra = {};
   const before = [];
+  if (p.file === 'index.html') {
+    before.push({
+      '@type': 'FAQPage',
+      '@id': `${url}#faq`,
+      name: 'Stage-X Forward Deployed Engineering FAQs',
+      isPartOf: { '@id': `${ORIGIN}/#website` },
+      about: { '@id': `${ORIGIN}/#organization` },
+      mainEntity: STAGE_X_FAQS.map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.answer,
+        },
+      })),
+    });
+  }
   if (p.list) {
     extra.mainEntity = { '@id': p.listId };
     before.push({
