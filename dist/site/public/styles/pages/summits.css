@@ -1018,10 +1018,16 @@
       .form-row {
         grid-template-columns: minmax(0, 1fr);
       }
+      .section-platforms, .section-invite {
+        padding: 4rem 5%;
+      }
       .platform-feature-card {
-        padding: 1.5rem;
+        padding: 1.25rem 1rem;
         max-width: 100%;
         box-sizing: border-box;
+      }
+      .platform-type-tag {
+        white-space: normal;
       }
       .invite-container, .invite-form {
         max-width: 100%;
