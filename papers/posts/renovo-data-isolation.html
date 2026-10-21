@@ -6,23 +6,23 @@
   <title>Isolating and De-Identifying a Multi-Platform Insurance Codebase: A Field Study of the Renovo Platform</title>
   <meta name="description" content="A field study on migrating and de-identifying the multi-repository Renovo claims platform from iCloud Drive, scrubbing git reflogs, binary test fixtures, and preserving document integrity.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.stage-x.space/papers/posts/renovo-data-isolation.html">
+  <link rel="canonical" href="https://www.stage-x.space/papers/posts/renovo-data-isolation">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Isolating and De-Identifying a Multi-Platform Insurance Codebase: A Field Study of the Renovo Platform">
   <meta property="og:description" content="Field study on migrating and de-identifying 5 claims repositories (9,590 files / 355 MB) from iCloud Drive with zero residual PII in git metadata or test fixtures.">
-  <meta property="og:url" content="https://www.stage-x.space/papers/posts/renovo-data-isolation.html">
+  <meta property="og:url" content="https://www.stage-x.space/papers/posts/renovo-data-isolation">
   <meta property="og:site_name" content="Stage-X.Space">
-  <meta property="og:image" content="https://www.stage-x.space/public/logo.png">
+  <meta property="og:image" content="https://www.stage-x.space/public/logo.webp">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Renovo Platform: Codebase Isolation & De-Identification Field Study">
   <meta name="twitter:description" content="Field study documenting the migration and sanitization of the multi-repo Renovo platform with zero-leak verification.">
-  <meta name="twitter:image" content="https://www.stage-x.space/public/logo.png">
+  <meta name="twitter:image" content="https://www.stage-x.space/public/logo.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" sizes="32x32" href="/public/logo.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/public/logo.png">
-  <link rel="apple-touch-icon" href="/public/logo.png">
+  <link rel="icon" type="image/webp" sizes="32x32" href="/public/logo.webp">
+  <link rel="icon" type="image/webp" sizes="16x16" href="/public/logo.webp">
+  <link rel="apple-touch-icon" href="/public/logo.webp">
   <link rel="stylesheet" href="/public/styles.css">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -81,6 +81,7 @@
       "@type": "Organization",
       "@id": "https://www.stage-x.space/#organization",
       "name": "Stage-X.Space",
+      "legalName": "Stage-X Forward Deployed AI Engineering",
       "url": "https://www.stage-x.space/",
       "logo": {
         "@id": "https://www.stage-x.space/#logo"
@@ -88,13 +89,53 @@
       "image": {
         "@id": "https://www.stage-x.space/#logo"
       },
-      "description": "Forward Deployed Engineering - bridging research labs and operational reality. Embedding, integrating, and optimising frontier AI systems inside existing infrastructure."
+      "description": "Forward Deployed Engineering - bridging research labs and operational reality. Embedding, integrating, and optimising frontier AI systems inside existing infrastructure.",
+      "founder": {
+        "@type": "Person",
+        "name": "Utkarsh Gupta",
+        "url": "https://www.stage-x.space/"
+      },
+      "sameAs": [
+        "https://github.com/utkarshethics"
+      ],
+      "knowsAbout": [
+        {
+          "@type": "DefinedTerm",
+          "name": "Artificial Intelligence",
+          "sameAs": "https://www.wikidata.org/wiki/Q11660"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Large Language Model",
+          "sameAs": "https://www.wikidata.org/wiki/Q115305900"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Machine Learning",
+          "sameAs": "https://www.wikidata.org/wiki/Q2539"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Software Engineering",
+          "sameAs": "https://www.wikidata.org/wiki/Q80993"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Systems Architecture",
+          "sameAs": "https://www.wikidata.org/wiki/Q1492040"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Retrieval-Augmented Generation",
+          "sameAs": "https://www.wikidata.org/wiki/Q124376481"
+        }
+      ]
     },
     {
       "@type": "ImageObject",
       "@id": "https://www.stage-x.space/#logo",
-      "url": "https://www.stage-x.space/public/logo.png",
-      "contentUrl": "https://www.stage-x.space/public/logo.png",
+      "url": "https://www.stage-x.space/public/logo.webp",
+      "contentUrl": "https://www.stage-x.space/public/logo.webp",
       "caption": "Stage-X.Space"
     },
     {
@@ -109,10 +150,10 @@
     },
     {
       "@type": "TechArticle",
-      "@id": "https://www.stage-x.space/papers/posts/renovo-data-isolation.html#article",
+      "@id": "https://www.stage-x.space/papers/posts/renovo-data-isolation#article",
       "headline": "Isolating and De-Identifying a Multi-Platform Insurance Codebase: A Field Study of the Renovo Platform",
       "description": "A field study on migrating and de-identifying the multi-repository Renovo claims platform from iCloud Drive, scrubbing git reflogs, binary test fixtures, and preserving document integrity.",
-      "url": "https://www.stage-x.space/papers/posts/renovo-data-isolation.html",
+      "url": "https://www.stage-x.space/papers/posts/renovo-data-isolation",
       "inLanguage": "en",
       "publisher": {
         "@id": "https://www.stage-x.space/#organization"
@@ -121,13 +162,13 @@
         "@id": "https://www.stage-x.space/#website"
       },
       "mainEntityOfPage": {
-        "@id": "https://www.stage-x.space/papers/posts/renovo-data-isolation.html#webpage"
+        "@id": "https://www.stage-x.space/papers/posts/renovo-data-isolation#webpage"
       }
     },
     {
       "@type": "WebPage",
-      "@id": "https://www.stage-x.space/papers/posts/renovo-data-isolation.html#webpage",
-      "url": "https://www.stage-x.space/papers/posts/renovo-data-isolation.html",
+      "@id": "https://www.stage-x.space/papers/posts/renovo-data-isolation#webpage",
+      "url": "https://www.stage-x.space/papers/posts/renovo-data-isolation",
       "name": "Isolating and De-Identifying a Multi-Platform Insurance Codebase: A Field Study of the Renovo Platform",
       "description": "A field study on migrating and de-identifying the multi-repository Renovo claims platform from iCloud Drive, scrubbing git reflogs, binary test fixtures, and preserving document integrity.",
       "isPartOf": {
@@ -137,13 +178,13 @@
         "@id": "https://www.stage-x.space/#organization"
       },
       "breadcrumb": {
-        "@id": "https://www.stage-x.space/papers/posts/renovo-data-isolation.html#breadcrumb"
+        "@id": "https://www.stage-x.space/papers/posts/renovo-data-isolation#breadcrumb"
       },
       "inLanguage": "en"
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://www.stage-x.space/papers/posts/renovo-data-isolation.html#breadcrumb",
+      "@id": "https://www.stage-x.space/papers/posts/renovo-data-isolation#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -161,7 +202,7 @@
           "@type": "ListItem",
           "position": 3,
           "name": "Isolating and De-Identifying a Multi-Platform Insurance Codebase: A Field Study of the Renovo Platform",
-          "item": "https://www.stage-x.space/papers/posts/renovo-data-isolation.html"
+          "item": "https://www.stage-x.space/papers/posts/renovo-data-isolation"
         }
       ]
     }
@@ -177,7 +218,7 @@
     <div class="header__inner">
       <div class="header__brand">
         <a href="/index.html" class="header__logo" aria-label="stage-x.space home">
-          <img src="/public/logo.png" alt="" class="header__logo-img" width="56" height="56">
+          <img src="/public/logo.webp" alt="" class="header__logo-img" width="56" height="56">
           <span class="header__logo-text">stage-x.space</span>
           <span class="header__logo-badge">Papers</span>
         </a>

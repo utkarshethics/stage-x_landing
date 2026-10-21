@@ -6,23 +6,23 @@
   <title>Petabyte-Scale Telemetry Fusion on Rotating-Asset Fleets</title>
   <meta name="description" content="High-throughput streaming consumers fused into OSIsoft PI and SCADA historians, parsing vibrational and thermal waveforms across 10,000+ rotating assets with 72-hour pre-failure alerts and sub-100ms inference.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.stage-x.space/papers/posts/telemetry-fusion-rotating-assets.html">
+  <link rel="canonical" href="https://www.stage-x.space/papers/posts/telemetry-fusion-rotating-assets">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Petabyte-Scale Telemetry Fusion on Rotating-Asset Fleets">
   <meta property="og:description" content="Multimodal waveform fusion across 10,000+ rotating assets with 72-hour pre-failure alerts.">
-  <meta property="og:url" content="https://www.stage-x.space/papers/posts/telemetry-fusion-rotating-assets.html">
+  <meta property="og:url" content="https://www.stage-x.space/papers/posts/telemetry-fusion-rotating-assets">
   <meta property="og:site_name" content="Stage-X.Space">
-  <meta property="og:image" content="https://www.stage-x.space/public/logo.png">
+  <meta property="og:image" content="https://www.stage-x.space/public/logo.webp">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Petabyte-Scale Telemetry Fusion on Rotating-Asset Fleets">
   <meta name="twitter:description" content="72-hour pre-failure alerts on 10,000+ rotating assets.">
-  <meta name="twitter:image" content="https://www.stage-x.space/public/logo.png">
+  <meta name="twitter:image" content="https://www.stage-x.space/public/logo.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" sizes="32x32" href="/public/logo.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/public/logo.png">
-  <link rel="apple-touch-icon" href="/public/logo.png">
+  <link rel="icon" type="image/webp" sizes="32x32" href="/public/logo.webp">
+  <link rel="icon" type="image/webp" sizes="16x16" href="/public/logo.webp">
+  <link rel="apple-touch-icon" href="/public/logo.webp">
   <link rel="stylesheet" href="/public/styles.css">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -70,6 +70,7 @@
       "@type": "Organization",
       "@id": "https://www.stage-x.space/#organization",
       "name": "Stage-X.Space",
+      "legalName": "Stage-X Forward Deployed AI Engineering",
       "url": "https://www.stage-x.space/",
       "logo": {
         "@id": "https://www.stage-x.space/#logo"
@@ -77,13 +78,53 @@
       "image": {
         "@id": "https://www.stage-x.space/#logo"
       },
-      "description": "Forward Deployed Engineering - bridging research labs and operational reality. Embedding, integrating, and optimising frontier AI systems inside existing infrastructure."
+      "description": "Forward Deployed Engineering - bridging research labs and operational reality. Embedding, integrating, and optimising frontier AI systems inside existing infrastructure.",
+      "founder": {
+        "@type": "Person",
+        "name": "Utkarsh Gupta",
+        "url": "https://www.stage-x.space/"
+      },
+      "sameAs": [
+        "https://github.com/utkarshethics"
+      ],
+      "knowsAbout": [
+        {
+          "@type": "DefinedTerm",
+          "name": "Artificial Intelligence",
+          "sameAs": "https://www.wikidata.org/wiki/Q11660"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Large Language Model",
+          "sameAs": "https://www.wikidata.org/wiki/Q115305900"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Machine Learning",
+          "sameAs": "https://www.wikidata.org/wiki/Q2539"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Software Engineering",
+          "sameAs": "https://www.wikidata.org/wiki/Q80993"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Systems Architecture",
+          "sameAs": "https://www.wikidata.org/wiki/Q1492040"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Retrieval-Augmented Generation",
+          "sameAs": "https://www.wikidata.org/wiki/Q124376481"
+        }
+      ]
     },
     {
       "@type": "ImageObject",
       "@id": "https://www.stage-x.space/#logo",
-      "url": "https://www.stage-x.space/public/logo.png",
-      "contentUrl": "https://www.stage-x.space/public/logo.png",
+      "url": "https://www.stage-x.space/public/logo.webp",
+      "contentUrl": "https://www.stage-x.space/public/logo.webp",
       "caption": "Stage-X.Space"
     },
     {
@@ -98,10 +139,10 @@
     },
     {
       "@type": "TechArticle",
-      "@id": "https://www.stage-x.space/papers/posts/telemetry-fusion-rotating-assets.html#article",
+      "@id": "https://www.stage-x.space/papers/posts/telemetry-fusion-rotating-assets#article",
       "headline": "Petabyte-Scale Telemetry Fusion on Rotating-Asset Fleets",
       "description": "High-throughput streaming consumers fused into OSIsoft PI and SCADA historians, parsing vibrational and thermal waveforms across 10,000+ rotating assets with 72-hour pre-failure alerts and sub-100ms inference.",
-      "url": "https://www.stage-x.space/papers/posts/telemetry-fusion-rotating-assets.html",
+      "url": "https://www.stage-x.space/papers/posts/telemetry-fusion-rotating-assets",
       "inLanguage": "en",
       "publisher": {
         "@id": "https://www.stage-x.space/#organization"
@@ -110,13 +151,13 @@
         "@id": "https://www.stage-x.space/#website"
       },
       "mainEntityOfPage": {
-        "@id": "https://www.stage-x.space/papers/posts/telemetry-fusion-rotating-assets.html#webpage"
+        "@id": "https://www.stage-x.space/papers/posts/telemetry-fusion-rotating-assets#webpage"
       }
     },
     {
       "@type": "WebPage",
-      "@id": "https://www.stage-x.space/papers/posts/telemetry-fusion-rotating-assets.html#webpage",
-      "url": "https://www.stage-x.space/papers/posts/telemetry-fusion-rotating-assets.html",
+      "@id": "https://www.stage-x.space/papers/posts/telemetry-fusion-rotating-assets#webpage",
+      "url": "https://www.stage-x.space/papers/posts/telemetry-fusion-rotating-assets",
       "name": "Petabyte-Scale Telemetry Fusion on Rotating-Asset Fleets",
       "description": "High-throughput streaming consumers fused into OSIsoft PI and SCADA historians, parsing vibrational and thermal waveforms across 10,000+ rotating assets with 72-hour pre-failure alerts and sub-100ms inference.",
       "isPartOf": {
@@ -126,13 +167,13 @@
         "@id": "https://www.stage-x.space/#organization"
       },
       "breadcrumb": {
-        "@id": "https://www.stage-x.space/papers/posts/telemetry-fusion-rotating-assets.html#breadcrumb"
+        "@id": "https://www.stage-x.space/papers/posts/telemetry-fusion-rotating-assets#breadcrumb"
       },
       "inLanguage": "en"
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://www.stage-x.space/papers/posts/telemetry-fusion-rotating-assets.html#breadcrumb",
+      "@id": "https://www.stage-x.space/papers/posts/telemetry-fusion-rotating-assets#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -150,7 +191,7 @@
           "@type": "ListItem",
           "position": 3,
           "name": "Petabyte-Scale Telemetry Fusion on Rotating-Asset Fleets",
-          "item": "https://www.stage-x.space/papers/posts/telemetry-fusion-rotating-assets.html"
+          "item": "https://www.stage-x.space/papers/posts/telemetry-fusion-rotating-assets"
         }
       ]
     }
@@ -166,7 +207,7 @@
     <div class="header__inner">
       <div class="header__brand">
         <a href="/index.html" class="header__logo" aria-label="stage-x.space home">
-          <img src="/public/logo.png" alt="" class="header__logo-img" width="56" height="56">
+          <img src="/public/logo.webp" alt="" class="header__logo-img" width="56" height="56">
           <span class="header__logo-text">stage-x.space</span>
           <span class="header__logo-badge">Papers</span>
         </a>

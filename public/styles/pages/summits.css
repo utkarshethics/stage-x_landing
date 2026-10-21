@@ -599,6 +599,10 @@
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
+      min-width: 0;
+      max-width: 100%;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .form-field label {
@@ -621,6 +625,9 @@
       border-radius: 0;
       outline: none;
       transition: border-color 0.2s ease;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
     }
 
     .form-field input:focus,
@@ -977,6 +984,10 @@
       }
     }
     @media (max-width: 900px) {
+      html, body {
+        overflow-x: hidden;
+        max-width: 100vw;
+      }
       .protocol-grid,
       .tracks-grid,
       .cohort-names,
@@ -1005,7 +1016,23 @@
         align-items: flex-start;
       }
       .form-row {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .section-platforms, .section-invite {
+        padding: 4rem 5%;
+      }
+      .platform-feature-card {
+        padding: 1.25rem 1rem;
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+      .platform-type-tag {
+        white-space: normal;
+      }
+      .invite-container, .invite-form {
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
       }
       .nav-links {
         display: none;
