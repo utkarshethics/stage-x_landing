@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stage-X Summits | Closed-Door Frontier Model Enterprise Summits</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stage-X Summits | Closed-Door Frontier Model Enterprise Summits</title>
   <meta name="description" content="Closed-door, Chatham House Rule summits bringing together enterprise infrastructure leaders and frontier AI research lab engineers. Zero sales pitches. Direct architecture teardowns.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.stage-x.space/summits">
@@ -25,13 +25,9 @@
   <meta name="twitter:image" content="https://www.stage-x.space/public/og/summits.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="icon" type="image/webp" sizes="32x32" href="/public/logo.webp">
   <link rel="icon" type="image/webp" sizes="16x16" href="/public/logo.webp">
   <link rel="apple-touch-icon" href="/public/logo.webp">
-  <link rel="stylesheet" href="/public/styles.css">
-  <link rel="stylesheet" href="/public/styles/pages/summits.css?v=5">
-
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -210,880 +206,1402 @@
   ]
 }
 </script>
+<meta name="theme-color" content="#0A0A0A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap">
+<link rel="stylesheet" href="/public/x/css/summits.css">
 </head>
-<body>
+<body style="margin:0;background:#0A0A0A">
+<main id="sx-root"><div class="" style="width: 100%; background: #0A0A0A; color: #EDEDED; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased">
 
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+<!-- NAV -->
+<header style="position: sticky; top: 0; z-index: 30; background: rgba(10,10,10,0.82); backdrop-filter: blur(14px); border-bottom: 1px solid #222222">
+<div style="max-width: 1240px; margin: 0 auto; padding: 10px 24px; display: flex; align-items: center; justify-content: space-between; gap: 24px">
+<a href="/" aria-label="Stage-X Space home" style="display: flex; align-items: center; min-height: 44px">
+<img src="/public/x/img/stagex-logo.png" alt="Stage-X Space" style="height: 40px; width: auto; display: block">
+</a>
+<nav class="sx-nav" aria-label="Primary" style="align-items: center; gap: 28px; font-size: 14px; font-weight: 500">
+<a href="/" style="color: #B3B3B3">Home</a>
+<a href="#calendar" style="color: #B3B3B3">Calendar</a>
+<a href="#circuits" style="color: #B3B3B3">Circuits</a>
+<a href="#agenda" style="color: #B3B3B3">Agenda</a>
+<a href="#cohorts" style="color: #B3B3B3">Cohorts</a>
+<a href="#summits-top" aria-current="page" style="color: #FFFFFF; border-bottom: 2px solid #FFFFFF; padding-bottom: 2px">Summits</a>
+</nav>
+<a href="#apply" class="sx-btn sx-btn-solid" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; background: #FFFFFF; color: #0A0A0A; font-weight: 700; font-size: 14px; border-radius: 2px">Request Invite
+<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+</a>
+</div>
+</header>
 
-  <!-- NAVIGATION -->
-  <header class="header" id="site-header">
-    <div class="header__inner">
-      <div class="header__brand">
-        <a href="index.html" class="header__logo" aria-label="stage-x.space home">
-          <img src="/public/logo.webp" alt="" class="header__logo-img" width="56" height="56">
-          <span class="header__logo-text">stage-x.space</span>
-          <span class="header__logo-badge">Summits</span>
-        </a>
-      </div>
+<!-- HERO -->
+<section id="summits-top" style="position: relative; overflow: hidden; border-bottom: 1px solid #222222">
+<img class="sx-zoom" src="/public/x/img/summit-roundtable.jpg" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.6">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(90deg, #0A0A0A 0%, rgba(10,10,10,0.88) 42%, rgba(10,10,10,0.4) 100%)"></div>
+<div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, #0A0A0A 100%)"></div>
+<div style="position: relative; max-width: 1240px; margin: 0 auto; padding: 112px 24px 64px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 48px; align-items: end">
+<div>
+<div class="sx-rise" style="display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px 6px 10px; border: 1px solid #3A3A3A; border-radius: 999px; background: rgba(17,17,17,0.8); font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.06em; color: #D4D4D4">
+<span class="sx-rec" style="width: 8px; height: 8px; border-radius: 50%; background: #FF3B30"></span>
+INVITATION ONLY · CHATHAM HOUSE RULE
+</div>
+<h1 class="sx-rise sx-d1" style="margin: 26px 0 0; font-size: clamp(42px, 6.2vw, 80px); line-height: 1; letter-spacing: -0.04em; font-weight: 900; color: #FFFFFF">Frontier Model Enterprise <span class="sx-outline">Summits</span></h1>
+<p class="sx-rise sx-d2" style="margin: 24px 0 0; max-width: 580px; font-size: clamp(17px, 1.6vw, 20px); color: #D4D4D4">Bringing together Chief Architects, Enterprise Infrastructure Leaders, and Frontier AI Research Lab Leads.</p>
+<p class="sx-rise sx-d2" style="margin: 12px 0 0; max-width: 580px; font-size: 16px; color: #A8A8A8">Zero sales decks. Raw operational telemetry, air-gapped deployment topologies, and battle-tested production post-mortems.</p>
+<div class="sx-rise sx-d3" style="margin-top: 34px; display: flex; flex-wrap: wrap; gap: 12px">
+<a href="#apply" class="sx-btn sx-btn-solid" style="display: inline-flex; align-items: center; gap: 10px; min-height: 54px; padding: 0 26px; background: #FFFFFF; color: #0A0A0A; font-weight: 700; border-radius: 2px">Request Invitation
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+</a>
+<a href="#calendar" class="sx-btn sx-btn-ghost" style="display: inline-flex; align-items: center; gap: 10px; min-height: 54px; padding: 0 26px; border: 1px solid #FFFFFF; color: #FFFFFF; font-weight: 600; border-radius: 2px">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="1"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg>
+Q4 2026 Calendar</a>
+</div>
+</div>
 
-      <nav class="header__nav" aria-label="Main navigation">
-        <ul class="header__menu">
-          <li class="header__item header__dropdown">
-            <button class="header__dropdown-trigger" aria-expanded="false" aria-haspopup="true" data-dropdown-trigger>
-              Solutions
-              <svg class="header__dropdown-chevron" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <div class="header__dropdown-panel" role="menu" data-dropdown-panel>
-              <ul class="header__dropdown-list">
-                <li><a href="index.html#customers" class="header__dropdown-item" role="menuitem">Customers</a></li>
-                <li><a href="index.html#usecases" class="header__dropdown-item" role="menuitem">Use Cases</a></li>
-                <li><a href="index.html#deployments" class="header__dropdown-item" role="menuitem">Deployments</a></li>
-              </ul>
-            </div>
-          </li>
+<!-- Countdown -->
+<div class="sx-rise sx-d3" style="justify-self: stretch; border: 1px solid #333333; border-radius: 4px; background: rgba(13,13,13,0.85); backdrop-filter: blur(10px); overflow: hidden">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 18px; border-bottom: 1px solid #262626; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.12em; color: #A8A8A8">
+<span>CIRCUIT OPENS · SAN FRANCISCO · OCT 31</span>
+<span style="display: flex; align-items: center; gap: 6px; color: #FFFFFF"><span class="sx-blink" style="width: 6px; height: 6px; border-radius: 50%; background: #FFFFFF"></span>T-MINUS</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr))">
 
-          <li class="header__item header__dropdown">
-            <button class="header__dropdown-trigger" aria-expanded="false" aria-haspopup="true" data-dropdown-trigger>
-              Resources
-              <svg class="header__dropdown-chevron" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <div class="header__dropdown-panel" role="menu" data-dropdown-panel>
-              <ul class="header__dropdown-list">
-                <li><a href="index.html#method" class="header__dropdown-item" role="menuitem">Method</a></li>
-                <li><a href="index.html#opensource" class="header__dropdown-item" role="menuitem">Open Source</a></li>
-                <li><a href="index.html#partners" class="header__dropdown-item" role="menuitem">Partners</a></li>
-                <li><a href="papers.html" class="header__dropdown-item" role="menuitem">Papers</a></li>
-                <li><a href="summits.html" class="header__dropdown-item" role="menuitem">Summits</a></li>
-              </ul>
-            </div>
-          </li>
+<div style="padding: 20px 8px 18px; text-align: center; border-right: 1px solid #262626">
+<div style="font-size: clamp(30px, 4vw, 48px); font-weight: 900; letter-spacing: -0.03em; line-height: 1; color: #FFFFFF; font-variant-numeric: tabular-nums">10</div>
+<div style="margin-top: 8px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.16em; color: #8A8A8A">DAYS</div>
+</div>
 
-          <li class="header__item">
-            <a href="#request-invite" class="header__link header__link--cta">Request Invite</a>
-          </li>
-        </ul>
-      </nav>
+<div style="padding: 20px 8px 18px; text-align: center; border-right: 1px solid #262626">
+<div style="font-size: clamp(30px, 4vw, 48px); font-weight: 900; letter-spacing: -0.03em; line-height: 1; color: #FFFFFF; font-variant-numeric: tabular-nums">12</div>
+<div style="margin-top: 8px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.16em; color: #8A8A8A">HOURS</div>
+</div>
 
-      <button class="header__mobile-toggle" aria-label="Toggle menu" aria-expanded="false" data-mobile-toggle>
-        <span class="header__hamburger"></span>
-      </button>
-    </div>
+<div style="padding: 20px 8px 18px; text-align: center; border-right: 1px solid #262626">
+<div style="font-size: clamp(30px, 4vw, 48px); font-weight: 900; letter-spacing: -0.03em; line-height: 1; color: #FFFFFF; font-variant-numeric: tabular-nums">09</div>
+<div style="margin-top: 8px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.16em; color: #8A8A8A">MIN</div>
+</div>
 
-    <div class="header__mobile-panel" data-mobile-panel hidden>
-      <ul class="header__mobile-menu">
-        <li class="header__mobile-item"><a href="index.html#customers" class="header__mobile-link">Customers</a></li>
-        <li class="header__mobile-item"><a href="index.html#usecases" class="header__mobile-link">Use Cases</a></li>
-        <li class="header__mobile-item"><a href="index.html#deployments" class="header__mobile-link">Deployments</a></li>
-        <li class="header__mobile-item"><a href="index.html#method" class="header__mobile-link">Method</a></li>
-        <li class="header__mobile-item"><a href="index.html#opensource" class="header__mobile-link">Open Source</a></li>
-        <li class="header__mobile-item"><a href="index.html#partners" class="header__mobile-link">Partners</a></li>
-        <li class="header__mobile-item"><a href="papers.html" class="header__mobile-link">Papers</a></li>
-        <li class="header__mobile-item"><a href="summits.html" class="header__mobile-link">Summits</a></li>
-      </ul>
-      <a href="#request-invite" class="btn btn--primary header__mobile-cta">Request Invite</a>
-    </div>
-  </header>
+<div style="padding: 20px 8px 18px; text-align: center; border-right: 1px solid #262626">
+<div style="font-size: clamp(30px, 4vw, 48px); font-weight: 900; letter-spacing: -0.03em; line-height: 1; color: #FFFFFF; font-variant-numeric: tabular-nums">06</div>
+<div style="margin-top: 8px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.16em; color: #8A8A8A">SEC</div>
+</div>
 
-  <!-- HERO -->
-  <header class="summit-hero">
-    <div class="hero-content">
-      <h1>Frontier Model Enterprise Summits</h1>
-      <p>
-        Bringing together Chief Architects, Enterprise Infrastructure Leaders, and Frontier AI Research Lab Leads.
-        Zero sales decks. Raw operational telemetry, air-gapped deployment topologies, and battle-tested production post-mortems.
-      </p>
-      <div class="btn-container">
-        <a href="#request-invite" class="btn-primary">Request Invitation</a>
-        <a href="#calendar" class="btn-secondary">Q4 2026 Calendar</a>
-      </div>
-      <div class="hero-platforms-bar">
-        <span class="hero-platforms-label">Listed &amp; Verified On:</span>
-        <a href="https://lu.ma" target="_blank" rel="noopener" class="platform-pill-link" title="Stage-X Summits on Lu.ma">
-          <svg class="platform-pill-icon" viewBox="0 0 133 134" aria-hidden="true"><path d="M133 67C96.282 67 66.5 36.994 66.5 0c0 36.994-29.782 67-66.5 67 36.718 0 66.5 30.006 66.5 67 0-36.994 29.782-67 66.5-67z"/></svg>
-          <span>Lu.ma</span>
-        </a>
-        <a href="https://www.eventbrite.com" target="_blank" rel="noopener" class="platform-pill-link" title="Stage-X Summits on Eventbrite">
-          <svg class="platform-pill-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.542 5.81c2.653-.6 5.3.487 6.775 2.54L5.591 11c.405-2.479 2.298-4.591 4.951-5.19zm6.84 9.746a6.47 6.47 0 0 1-3.919 2.634c-2.67.604-5.335-.501-6.804-2.582l11.763-2.657 1.915-.433L24 11.691a11.57 11.57 0 0 0-.305-2.333C22.205 3.04 15.76-.9 9.303.558 2.846 2.017-1.18 8.322.31 14.642c1.491 6.319 7.935 10.259 14.392 8.8 3.805-.86 6.765-3.402 8.25-6.638z"/></svg>
-          <span>Eventbrite</span>
-        </a>
-      </div>
-    </div>
-  </header>
+</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid #262626">
 
-  <main id="main-content">
+<div style="padding: 14px 10px; text-align: center; border-right: 1px solid #262626">
+<div style="font-size: 20px; font-weight: 800; color: #FFFFFF">9</div>
+<div style="margin-top: 2px; font-size: 12px; color: #A8A8A8">Summits</div>
+</div>
 
-  <!-- PROTOCOLS -->
-  <section class="section-protocols">
-    <h2 class="section-title">Roundtable Protocols</h2>
-    <div class="protocol-grid">
-      <div class="protocol-card">
-        <div class="protocol-num">01</div>
-        <h3>Strict Chatham House Rule</h3>
-        <p>
-          Participants are free to use the information and code strategies received, but neither the identity nor the affiliation of the speaker or any participant may be revealed. Absolute operational candor is required.
-        </p>
-      </div>
-      <div class="protocol-card">
-        <div class="protocol-num">02</div>
-        <h3>Zero Slide Decks &amp; Pitches</h3>
-        <p>
-          No vendor pitches, marketing narratives, or high-level hypotheticals. Every session centers on architecture diagrams, kernel optimization profiles, latency traces, and live infrastructure code.
-        </p>
-      </div>
-      <div class="protocol-card">
-        <div class="protocol-num">03</div>
-        <h3>Principals &amp; Builders Only</h3>
-        <p>
-          Strictly capped at 40 participants per summit. Attendees must hold direct technical authority over mission-critical enterprise compute, forward deployment teams, or frontier model engineering stacks.
-        </p>
-      </div>
-    </div>
-  </section>
- 
-  <!-- CROSS-PLATFORM AVAILABILITY -->
-  <section class="section-platforms" id="platforms">
-    <div class="section-tag">Cross-Platform Availability</div>
-    <h2 class="section-title">Official Listing &amp; Verification Channels</h2>
-    <div class="platforms-grid">
-      <div class="platform-feature-card">
-        <div>
-          <div class="platform-feature-header">
-            <div class="platform-feature-brand">
-              <svg viewBox="0 0 133 134" aria-hidden="true"><path d="M133 67C96.282 67 66.5 36.994 66.5 0c0 36.994-29.782 67-66.5 67 36.718 0 66.5 30.006 66.5 67 0-36.994 29.782-67 66.5-67z"/></svg>
-              <h3>Lu.ma</h3>
-            </div>
-            <span class="platform-type-tag">Executive Calendar &bull; Mobile Passes</span>
-          </div>
-          <p class="platform-feature-desc">
-            Direct RSVP synchronization for executive guests. Automated integration with Google Calendar, Outlook 365, and Apple Wallet. Private peer guest directories vetted under Chatham House Rule credentials.
-          </p>
-          <ul class="platform-bullet-list">
-            <li>Instant Calendar Hold &bull; Direct Google &amp; Outlook .ics Sync</li>
-            <li>Confidential Guest List Verification &bull; No Public Scraping</li>
-            <li>Direct Executive Mobile Pass QR &bull; On-Site Biometric Check-in</li>
-          </ul>
-        </div>
-        <a href="https://lu.ma" target="_blank" rel="noopener" class="platform-action-link">
-          <span>View Summits on Lu.ma</span>
-          <span>&rarr;</span>
-        </a>
-      </div>
+<div style="padding: 14px 10px; text-align: center; border-right: 1px solid #262626">
+<div style="font-size: 20px; font-weight: 800; color: #FFFFFF">3</div>
+<div style="margin-top: 2px; font-size: 12px; color: #A8A8A8">Circuits</div>
+</div>
 
-      <div class="platform-feature-card">
-        <div>
-          <div class="platform-feature-header">
-            <div class="platform-feature-brand">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.542 5.81c2.653-.6 5.3.487 6.775 2.54L5.591 11c.405-2.479 2.298-4.591 4.951-5.19zm6.84 9.746a6.47 6.47 0 0 1-3.919 2.634c-2.67.604-5.335-.501-6.804-2.582l11.763-2.657 1.915-.433L24 11.691a11.57 11.57 0 0 0-.305-2.333C22.205 3.04 15.76-.9 9.303.558 2.846 2.017-1.18 8.322.31 14.642c1.491 6.319 7.935 10.259 14.392 8.8 3.805-.86 6.765-3.402 8.25-6.638z"/></svg>
-              <h3>Eventbrite</h3>
-            </div>
-            <span class="platform-type-tag">Corporate Procurement &bull; Invoicing &bull; PO</span>
-          </div>
-          <p class="platform-feature-desc">
-            Institutional purchasing pathways for enterprise organizations, public sector entities, and defense contractors. Streamlined vendor compliance, Net 30 corporate PO invoicing, and centralized expense auditing.
-          </p>
-          <ul class="platform-bullet-list">
-            <li>Enterprise PO &amp; Institutional Invoicing Compliance</li>
-            <li>Multi-Seat Enterprise Delegation &amp; Group Billing Passes</li>
-            <li>Centralized Tax Receipting &amp; W-9 / Vendor Packets</li>
-          </ul>
-        </div>
-        <a href="https://www.eventbrite.com" target="_blank" rel="noopener" class="platform-action-link">
-          <span>View Summits on Eventbrite</span>
-          <span>&rarr;</span>
-        </a>
-      </div>
-    </div>
-  </section>
+<div style="padding: 14px 10px; text-align: center; border-right: 1px solid #262626">
+<div style="font-size: 20px; font-weight: 800; color: #FFFFFF">40</div>
+<div style="margin-top: 2px; font-size: 12px; color: #A8A8A8">Seats each</div>
+</div>
 
-  <!-- CALENDAR -->
-  <section class="section-calendar" id="calendar">
-    <div class="section-tag">Global Schedule</div>
-    <h2 class="section-title">Q4 2026 Summit Calendar</h2>
-    <p style="color: #888; max-width: 720px; font-size: 1.05rem; line-height: 1.6; margin-bottom: 3rem;">
-      Nine invitation-only technical roundtables convened across three international circuits. Strict 40-seat limits, peer-vetted VP/CTO cohorts, and binding Chatham House Rule confidentiality.
-    </p>
+<div style="padding: 14px 10px; text-align: center; border-right: 1px solid #262626">
+<div style="font-size: 20px; font-weight: 800; color: #FFFFFF">360</div>
+<div style="margin-top: 2px; font-size: 12px; color: #A8A8A8">Total seats</div>
+</div>
 
-        <!-- CIRCUIT EXPLAINER -->
-    <div class="circuit-explainer-banner" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 1.5rem 1.75rem; margin-bottom: 2.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
-      <div style="display: flex; align-items: center; gap: 0.5rem;">
-        <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #6366f1; font-weight: 700;">Tour Structure</span>
-        <span style="color: #444;">&bull;</span>
-        <span style="font-size: 0.85rem; color: #aaa; font-weight: 600;">Understanding Our 3 Regional Circuits</span>
-      </div>
-      <p style="margin: 0; color: #ccc; font-size: 0.95rem; line-height: 1.6;">
-        A <strong>Circuit</strong> represents a regional tour phase of our global technical roadshow. Each circuit convenes 3 consecutive weekend roundtables (Saturdays &amp; Sundays) focused on regional infrastructure challenges, regulatory frameworks, and peer cohorts:
-      </p>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 0.5rem;">
-        <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); padding: 1rem; border-radius: 6px;">
-          <div style="color: #fff; font-weight: 700; font-size: 0.9rem; margin-bottom: 0.25rem;">Phase 01 &bull; North American Frontier</div>
-          <div style="color: #888; font-size: 0.8rem; margin-bottom: 0.5rem;">Oct 31 &ndash; Nov 15, 2026 &bull; SF, NYC, Boston</div>
-          <p style="margin: 0; font-size: 0.8rem; color: #aaa; line-height: 1.4;">Air-gapped defense, grid telemetry &amp; bio-pharma physical robotics.</p>
-        </div>
-        <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); padding: 1rem; border-radius: 6px;">
-          <div style="color: #fff; font-weight: 700; font-size: 0.9rem; margin-bottom: 0.25rem;">Phase 02 &bull; Transatlantic Corridor</div>
-          <div style="color: #888; font-size: 0.8rem; margin-bottom: 0.5rem;">Nov 21 &ndash; Dec 6, 2026 &bull; Toronto, London, Berlin</div>
-          <p style="margin: 0; font-size: 0.8rem; color: #aaa; line-height: 1.4;">Cross-border banking mesh, EU AI Act compliance &amp; industrial SCADA.</p>
-        </div>
-        <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); padding: 1rem; border-radius: 6px;">
-          <div style="color: #fff; font-weight: 700; font-size: 0.9rem; margin-bottom: 0.25rem;">Phase 03 &bull; Middle East &amp; APAC</div>
-          <div style="color: #888; font-size: 0.8rem; margin-bottom: 0.5rem;">Dec 12 &ndash; Dec 27, 2026 &bull; Dubai, Mumbai, Melbourne</div>
-          <p style="margin: 0; font-size: 0.8rem; color: #aaa; line-height: 1.4;">Sovereign national LLM clusters, hyper-scale BFSI &amp; remote mining fleets.</p>
-        </div>
-      </div>
-    </div>
+</div>
+</div>
+</div>
 
-    <!-- SECTION 1: NORTH AMERICAN FRONTIER -->
-    <div class="calendar-phase-section" id="phase-na">
-      <div class="phase-header">
-        <div class="phase-title-group">
-          <span class="phase-badge">Circuit Phase 01 &bull; Q4 2026</span>
-          <h3 class="phase-title">North American Frontier</h3>
-          <p class="phase-desc">Air-gapped defense architectures, sub-millisecond financial telemetry, and bio-pharma physical robotics.</p>
-        </div>
-        <div class="phase-region-pill">3 Summits &bull; 120 Total Seats</div>
-      </div>
-      <div class="summit-horizontal-grid">
-        <!-- SF CARD -->
-        <div class="summit-card-box">
-          <div>
-            <div class="summit-card-top">
-              <span class="summit-quarter-tag">Q4 2026</span>
-              <span class="summit-status-badge live">&bull; 12 Seats Left</span>
-            </div>
-            <div class="summit-card-city">San Francisco</div>
-            <div class="summit-card-date">October 31&ndash;November 1, 2026 &bull; The Presidio</div>
-            <h4 class="summit-card-title">
-              <a href="summits/sf-2026.html">San Francisco &mdash; Air-Gapped Frontier Model Orchestration &amp; Sovereign Weights</a>
-            </h4>
-            <p class="summit-card-desc">
-              Examining isolated on-premises deployments of 70B+ and MoE frontier models in classified, defense, and sovereign enterprise environments without cloud connectivity.
-            </p>
-            <div class="summit-card-tags">
-              <span class="summit-card-tag">Air-Gapped</span>
-              <span class="summit-card-tag">Zero-Trust VPC</span>
-              <span class="summit-card-tag">Defense Tech</span>
-              <span class="summit-card-tag">40 Seats</span>
-            </div>
-          </div>
-          <div class="summit-card-footer">
-            <a href="summits/sf-2026.html" class="summit-card-btn">View Summit Details &rarr;</a>
-            <div class="summit-card-platforms">
-              <span>Verified RSVP:</span>
-              <a href="https://lu.ma" target="_blank" rel="noopener" title="RSVP on Lu.ma">
-                <svg viewBox="0 0 133 134"><path d="M133 67C96.282 67 66.5 36.994 66.5 0c0 36.994-29.782 67-66.5 67 36.718 0 66.5 30.006 66.5 67 0-36.994 29.782-67 66.5-67z"/></svg>
-                <span>Lu.ma</span>
-              </a>
-              <span>&bull;</span>
-              <a href="https://www.eventbrite.com" target="_blank" rel="noopener" title="Register on Eventbrite">
-                <svg viewBox="0 0 24 24"><path d="M10.542 5.81c2.653-.6 5.3.487 6.775 2.54L5.591 11c.405-2.479 2.298-4.591 4.951-5.19zm6.84 9.746a6.47 6.47 0 0 1-3.919 2.634c-2.67.604-5.335-.501-6.804-2.582l11.763-2.657 1.915-.433L24 11.691a11.57 11.57 0 0 0-.305-2.333C22.205 3.04 15.76-.9 9.303.558 2.846 2.017-1.18 8.322.31 14.642c1.491 6.319 7.935 10.259 14.392 8.8 3.805-.86 6.765-3.402 8.25-6.638z"/></svg>
-                <span>Eventbrite</span>
-              </a>
-            </div>
-          </div>
-        </div>
+<!-- Listed on -->
+<div style="position: relative; max-width: 1240px; margin: 0 auto; padding: 0 24px 48px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.1em; color: #8A8A8A">
+<span>LISTED &amp; VERIFIED ON:</span>
+<a href="https://lu.ma" style="display: inline-flex; align-items: center; min-height: 44px; color: #FFFFFF; font-weight: 700">LU.MA ↗</a>
+<a href="https://www.eventbrite.com" style="display: inline-flex; align-items: center; min-height: 44px; color: #FFFFFF; font-weight: 700">EVENTBRITE ↗</a>
+</div>
+</section>
 
-        <!-- NYC CARD -->
-        <div class="summit-card-box">
-          <div>
-            <div class="summit-card-top">
-              <span class="summit-quarter-tag">Q4 2026</span>
-              <span class="summit-status-badge">&bull; Applications Open</span>
-            </div>
-            <div class="summit-card-city">New York</div>
-            <div class="summit-card-date">November 7&ndash;8, 2026 &bull; Hudson Yards</div>
-            <h4 class="summit-card-title">
-              <a href="summits/nyc-2026.html">New York &mdash; Deterministic Latency &amp; High-Throughput Energy / Financial Inference</a>
-            </h4>
-            <p class="summit-card-desc">
-              Architecture teardowns of sub-50ms TTFT under extreme concurrent load. Integration patterns across legacy SCADA, power grids (Con Edison, Shell), and institutional trading systems.
-            </p>
-            <div class="summit-card-tags">
-              <span class="summit-card-tag">Sub-50ms TTFT</span>
-              <span class="summit-card-tag">Grid Telemetry</span>
-              <span class="summit-card-tag">Trading Infra</span>
-              <span class="summit-card-tag">40 Seats</span>
-            </div>
-          </div>
-          <div class="summit-card-footer">
-            <a href="summits/nyc-2026.html" class="summit-card-btn">View Summit Details &rarr;</a>
-            <div class="summit-card-platforms">
-              <span>Verified RSVP:</span>
-              <a href="https://lu.ma" target="_blank" rel="noopener" title="RSVP on Lu.ma">
-                <svg viewBox="0 0 133 134"><path d="M133 67C96.282 67 66.5 36.994 66.5 0c0 36.994-29.782 67-66.5 67 36.718 0 66.5 30.006 66.5 67 0-36.994 29.782-67 66.5-67z"/></svg>
-                <span>Lu.ma</span>
-              </a>
-              <span>&bull;</span>
-              <a href="https://www.eventbrite.com" target="_blank" rel="noopener" title="Register on Eventbrite">
-                <svg viewBox="0 0 24 24"><path d="M10.542 5.81c2.653-.6 5.3.487 6.775 2.54L5.591 11c.405-2.479 2.298-4.591 4.951-5.19zm6.84 9.746a6.47 6.47 0 0 1-3.919 2.634c-2.67.604-5.335-.501-6.804-2.582l11.763-2.657 1.915-.433L24 11.691a11.57 11.57 0 0 0-.305-2.333C22.205 3.04 15.76-.9 9.303.558 2.846 2.017-1.18 8.322.31 14.642c1.491 6.319 7.935 10.259 14.392 8.8 3.805-.86 6.765-3.402 8.25-6.638z"/></svg>
-                <span>Eventbrite</span>
-              </a>
-            </div>
-          </div>
-        </div>
+<!-- PROTOCOLS -->
+<section style="border-bottom: 1px solid #222222">
+<div style="max-width: 1240px; margin: 0 auto; padding: 112px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 56px; align-items: start">
+<div>
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.16em; color: #FFFFFF">01 / ROUNDTABLE PROTOCOLS</div>
+<h2 style="margin: 20px 0 0; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.04; letter-spacing: -0.035em; font-weight: 900; color: #FFFFFF">Forty seats. <span class="sx-outline">No pitches.</span></h2>
+<!-- Seat map -->
+<figure style="margin: 40px 0 0; padding: 28px; border: 1px solid #262626; border-radius: 4px; background: #0F0F0F">
+<div role="img" aria-label="Seating plan: 40 seats around one table" style="position: relative; display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 10px; padding: 8px 0">
 
-        <!-- BOSTON CARD -->
-        <div class="summit-card-box">
-          <div>
-            <div class="summit-card-top">
-              <span class="summit-quarter-tag">Q4 2026</span>
-              <span class="summit-status-badge">&bull; Applications Open</span>
-            </div>
-            <div class="summit-card-city">Boston</div>
-            <div class="summit-card-date">November 14&ndash;15, 2026 &bull; Kendall Square</div>
-            <h4 class="summit-card-title">
-              <a href="summits/boston-2026.html">Boston &mdash; Frontier Deep Tech, Bio-Pharma Reasoning &amp; Physical AI Robotics</a>
-            </h4>
-            <p class="summit-card-desc">
-              Deploying multimodal frontier models in regulated biomedical research, high-throughput automated laboratory discovery, and real-time physical robotics control loops.
-            </p>
-            <div class="summit-card-tags">
-              <span class="summit-card-tag">Bio-Pharma</span>
-              <span class="summit-card-tag">FDA 21 CFR 11</span>
-              <span class="summit-card-tag">Physical AI</span>
-              <span class="summit-card-tag">40 Seats</span>
-            </div>
-          </div>
-          <div class="summit-card-footer">
-            <a href="summits/boston-2026.html" class="summit-card-btn">View Summit Details &rarr;</a>
-            <div class="summit-card-platforms">
-              <span>Verified RSVP:</span>
-              <a href="https://lu.ma" target="_blank" rel="noopener" title="RSVP on Lu.ma">
-                <svg viewBox="0 0 133 134"><path d="M133 67C96.282 67 66.5 36.994 66.5 0c0 36.994-29.782 67-66.5 67 36.718 0 66.5 30.006 66.5 67 0-36.994 29.782-67 66.5-67z"/></svg>
-                <span>Lu.ma</span>
-              </a>
-              <span>&bull;</span>
-              <a href="https://www.eventbrite.com" target="_blank" rel="noopener" title="Register on Eventbrite">
-                <svg viewBox="0 0 24 24"><path d="M10.542 5.81c2.653-.6 5.3.487 6.775 2.54L5.591 11c.405-2.479 2.298-4.591 4.951-5.19zm6.84 9.746a6.47 6.47 0 0 1-3.919 2.634c-2.67.604-5.335-.501-6.804-2.582l11.763-2.657 1.915-.433L24 11.691a11.57 11.57 0 0 0-.305-2.333C22.205 3.04 15.76-.9 9.303.558 2.846 2.017-1.18 8.322.31 14.642c1.491 6.319 7.935 10.259 14.392 8.8 3.805-.86 6.765-3.402 8.25-6.638z"/></svg>
-                <span>Eventbrite</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 0.00s; background: transparent;"></span>
 
-    <!-- SECTION 2: TRANSATLANTIC & EUROPEAN CORRIDOR -->
-    <div class="calendar-phase-section" id="phase-eu">
-      <div class="phase-header">
-        <div class="phase-title-group">
-          <span class="phase-badge">Circuit Phase 02 &bull; Q4 2026</span>
-          <h3 class="phase-title">Transatlantic &amp; European Corridor</h3>
-          <p class="phase-desc">Cross-border sovereign data mesh, EU AI Act compliance pipelines, and automotive SCADA automation.</p>
-        </div>
-        <div class="phase-region-pill">3 Summits &bull; 120 Total Seats</div>
-      </div>
-      <div class="summit-horizontal-grid">
-        <!-- TORONTO CARD -->
-        <div class="summit-card-box">
-          <div>
-            <div class="summit-card-top">
-              <span class="summit-quarter-tag">Q4 2026</span>
-              <span class="summit-status-badge">&bull; Applications Open</span>
-            </div>
-            <div class="summit-card-city">Toronto</div>
-            <div class="summit-card-date">November 21&ndash;22, 2026 &bull; MaRS Discovery District</div>
-            <h4 class="summit-card-title">
-              <a href="summits/toronto-2026.html">Toronto &mdash; Cross-Border Enterprise Compute &amp; Sovereign North American Mesh</a>
-            </h4>
-            <p class="summit-card-desc">
-              Architectural topologies for multi-national financial institutions navigating cross-border data sovereignty, PIPEDA / SOC2 boundaries, and distributed hybrid inference.
-            </p>
-            <div class="summit-card-tags">
-              <span class="summit-card-tag">PIPEDA</span>
-              <span class="summit-card-tag">Hybrid Mesh</span>
-              <span class="summit-card-tag">Banking Core</span>
-              <span class="summit-card-tag">40 Seats</span>
-            </div>
-          </div>
-          <div class="summit-card-footer">
-            <a href="summits/toronto-2026.html" class="summit-card-btn">View Summit Details &rarr;</a>
-            <div class="summit-card-platforms">
-              <span>Verified RSVP:</span>
-              <a href="https://lu.ma" target="_blank" rel="noopener" title="RSVP on Lu.ma">
-                <svg viewBox="0 0 133 134"><path d="M133 67C96.282 67 66.5 36.994 66.5 0c0 36.994-29.782 67-66.5 67 36.718 0 66.5 30.006 66.5 67 0-36.994 29.782-67 66.5-67z"/></svg>
-                <span>Lu.ma</span>
-              </a>
-              <span>&bull;</span>
-              <a href="https://www.eventbrite.com" target="_blank" rel="noopener" title="Register on Eventbrite">
-                <svg viewBox="0 0 24 24"><path d="M10.542 5.81c2.653-.6 5.3.487 6.775 2.54L5.591 11c.405-2.479 2.298-4.591 4.951-5.19zm6.84 9.746a6.47 6.47 0 0 1-3.919 2.634c-2.67.604-5.335-.501-6.804-2.582l11.763-2.657 1.915-.433L24 11.691a11.57 11.57 0 0 0-.305-2.333C22.205 3.04 15.76-.9 9.303.558 2.846 2.017-1.18 8.322.31 14.642c1.491 6.319 7.935 10.259 14.392 8.8 3.805-.86 6.765-3.402 8.25-6.638z"/></svg>
-                <span>Eventbrite</span>
-              </a>
-            </div>
-          </div>
-        </div>
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 0.07s; background: transparent;"></span>
 
-        <!-- LONDON CARD -->
-        <div class="summit-card-box">
-          <div>
-            <div class="summit-card-top">
-              <span class="summit-quarter-tag">Q4 2026</span>
-              <span class="summit-status-badge">&bull; Applications Open</span>
-            </div>
-            <div class="summit-card-city">London</div>
-            <div class="summit-card-date">November 28&ndash;29, 2026 &bull; Canary Wharf</div>
-            <h4 class="summit-card-title">
-              <a href="summits/london-2026.html">London &mdash; EU AI Act Compliance, Data Sovereignty &amp; Heavy Industrial Edge</a>
-            </h4>
-            <p class="summit-card-desc">
-              Deploying frontier models directly onto industrial plant hardware and edge compute clusters (Holcim, Baker Hughes) with strict immutable audit trails and zero data egress.
-            </p>
-            <div class="summit-card-tags">
-              <span class="summit-card-tag">EU AI Act</span>
-              <span class="summit-card-tag">Industrial Edge</span>
-              <span class="summit-card-tag">Zero Egress</span>
-              <span class="summit-card-tag">40 Seats</span>
-            </div>
-          </div>
-          <div class="summit-card-footer">
-            <a href="summits/london-2026.html" class="summit-card-btn">View Summit Details &rarr;</a>
-            <div class="summit-card-platforms">
-              <span>Verified RSVP:</span>
-              <a href="https://lu.ma" target="_blank" rel="noopener" title="RSVP on Lu.ma">
-                <svg viewBox="0 0 133 134"><path d="M133 67C96.282 67 66.5 36.994 66.5 0c0 36.994-29.782 67-66.5 67 36.718 0 66.5 30.006 66.5 67 0-36.994 29.782-67 66.5-67z"/></svg>
-                <span>Lu.ma</span>
-              </a>
-              <span>&bull;</span>
-              <a href="https://www.eventbrite.com" target="_blank" rel="noopener" title="Register on Eventbrite">
-                <svg viewBox="0 0 24 24"><path d="M10.542 5.81c2.653-.6 5.3.487 6.775 2.54L5.591 11c.405-2.479 2.298-4.591 4.951-5.19zm6.84 9.746a6.47 6.47 0 0 1-3.919 2.634c-2.67.604-5.335-.501-6.804-2.582l11.763-2.657 1.915-.433L24 11.691a11.57 11.57 0 0 0-.305-2.333C22.205 3.04 15.76-.9 9.303.558 2.846 2.017-1.18 8.322.31 14.642c1.491 6.319 7.935 10.259 14.392 8.8 3.805-.86 6.765-3.402 8.25-6.638z"/></svg>
-                <span>Eventbrite</span>
-              </a>
-            </div>
-          </div>
-        </div>
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 0.15s; background: transparent;"></span>
 
-        <!-- BERLIN CARD -->
-        <div class="summit-card-box">
-          <div>
-            <div class="summit-card-top">
-              <span class="summit-quarter-tag">Q4 2026</span>
-              <span class="summit-status-badge">&bull; Applications Open</span>
-            </div>
-            <div class="summit-card-city">Berlin</div>
-            <div class="summit-card-date">December 5&ndash;6, 2026 &bull; Factory Berlin</div>
-            <h4 class="summit-card-title">
-              <a href="summits/berlin-2026.html">Berlin &mdash; Industrial SCADA Automation, Automotive Edge &amp; Hardware Security</a>
-            </h4>
-            <p class="summit-card-desc">
-              Real-time model inference embedded into automotive assembly lines, robotic manufacturing cells, and safety-critical industrial SCADA controllers.
-            </p>
-            <div class="summit-card-tags">
-              <span class="summit-card-tag">Automotive Edge</span>
-              <span class="summit-card-tag">SCADA RT</span>
-              <span class="summit-card-tag">Safety Controls</span>
-              <span class="summit-card-tag">40 Seats</span>
-            </div>
-          </div>
-          <div class="summit-card-footer">
-            <a href="summits/berlin-2026.html" class="summit-card-btn">View Summit Details &rarr;</a>
-            <div class="summit-card-platforms">
-              <span>Verified RSVP:</span>
-              <a href="https://lu.ma" target="_blank" rel="noopener" title="RSVP on Lu.ma">
-                <svg viewBox="0 0 133 134"><path d="M133 67C96.282 67 66.5 36.994 66.5 0c0 36.994-29.782 67-66.5 67 36.718 0 66.5 30.006 66.5 67 0-36.994 29.782-67 66.5-67z"/></svg>
-                <span>Lu.ma</span>
-              </a>
-              <span>&bull;</span>
-              <a href="https://www.eventbrite.com" target="_blank" rel="noopener" title="Register on Eventbrite">
-                <svg viewBox="0 0 24 24"><path d="M10.542 5.81c2.653-.6 5.3.487 6.775 2.54L5.591 11c.405-2.479 2.298-4.591 4.951-5.19zm6.84 9.746a6.47 6.47 0 0 1-3.919 2.634c-2.67.604-5.335-.501-6.804-2.582l11.763-2.657 1.915-.433L24 11.691a11.57 11.57 0 0 0-.305-2.333C22.205 3.04 15.76-.9 9.303.558 2.846 2.017-1.18 8.322.31 14.642c1.491 6.319 7.935 10.259 14.392 8.8 3.805-.86 6.765-3.402 8.25-6.638z"/></svg>
-                <span>Eventbrite</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 0.22s; background: transparent;"></span>
 
-    <!-- SECTION 3: MIDDLE EAST & ASIA-PACIFIC EXPANSION -->
-    <div class="calendar-phase-section" id="phase-apac">
-      <div class="phase-header">
-        <div class="phase-title-group">
-          <span class="phase-badge">Circuit Phase 03 &bull; Q4 2026</span>
-          <h3 class="phase-title">Middle East &amp; Asia-Pacific Expansion</h3>
-          <p class="phase-desc">National sovereign LLM clusters, hyper-scale real-time transaction gateways, and remote industrial edge fleets.</p>
-        </div>
-        <div class="phase-region-pill">3 Summits &bull; 120 Total Seats</div>
-      </div>
-      <div class="summit-horizontal-grid">
-        <!-- DUBAI CARD -->
-        <div class="summit-card-box">
-          <div>
-            <div class="summit-card-top">
-              <span class="summit-quarter-tag">Q4 2026</span>
-              <span class="summit-status-badge">&bull; Applications Open</span>
-            </div>
-            <div class="summit-card-city">Dubai</div>
-            <div class="summit-card-date">December 12&ndash;13, 2026 &bull; DIFC &amp; Museum of the Future</div>
-            <h4 class="summit-card-title">
-              <a href="summits/dubai-2026.html">Dubai &mdash; Sovereign Energy Grids, Upstream Oil &amp; Gas Telemetry &amp; High-Cap Compute</a>
-            </h4>
-            <p class="summit-card-desc">
-              High-density frontier model infrastructure powering remote oil rigs, regional sovereign cloud enclaves, and autonomous desalination &amp; microgrid balancing.
-            </p>
-            <div class="summit-card-tags">
-              <span class="summit-card-tag">Upstream Energy</span>
-              <span class="summit-card-tag">Sovereign Enclave</span>
-              <span class="summit-card-tag">Desalination</span>
-              <span class="summit-card-tag">40 Seats</span>
-            </div>
-          </div>
-          <div class="summit-card-footer">
-            <a href="summits/dubai-2026.html" class="summit-card-btn">View Summit Details &rarr;</a>
-            <div class="summit-card-platforms">
-              <span>Verified RSVP:</span>
-              <a href="https://lu.ma" target="_blank" rel="noopener" title="RSVP on Lu.ma">
-                <svg viewBox="0 0 133 134"><path d="M133 67C96.282 67 66.5 36.994 66.5 0c0 36.994-29.782 67-66.5 67 36.718 0 66.5 30.006 66.5 67 0-36.994 29.782-67 66.5-67z"/></svg>
-                <span>Lu.ma</span>
-              </a>
-              <span>&bull;</span>
-              <a href="https://www.eventbrite.com" target="_blank" rel="noopener" title="Register on Eventbrite">
-                <svg viewBox="0 0 24 24"><path d="M10.542 5.81c2.653-.6 5.3.487 6.775 2.54L5.591 11c.405-2.479 2.298-4.591 4.951-5.19zm6.84 9.746a6.47 6.47 0 0 1-3.919 2.634c-2.67.604-5.335-.501-6.804-2.582l11.763-2.657 1.915-.433L24 11.691a11.57 11.57 0 0 0-.305-2.333C22.205 3.04 15.76-.9 9.303.558 2.846 2.017-1.18 8.322.31 14.642c1.491 6.319 7.935 10.259 14.392 8.8 3.805-.86 6.765-3.402 8.25-6.638z"/></svg>
-                <span>Eventbrite</span>
-              </a>
-            </div>
-          </div>
-        </div>
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 0.30s; background: transparent;"></span>
 
-        <!-- MUMBAI CARD -->
-        <div class="summit-card-box">
-          <div>
-            <div class="summit-card-top">
-              <span class="summit-quarter-tag">Q4 2026</span>
-              <span class="summit-status-badge">&bull; Applications Open</span>
-            </div>
-            <div class="summit-card-city">Mumbai</div>
-            <div class="summit-card-date">December 19&ndash;20, 2026 &bull; Jio World Convention Centre</div>
-            <h4 class="summit-card-title">
-              <a href="summits/mumbai-2026.html">Mumbai &mdash; Hyper-Scale BFSI Transaction Gateways &amp; Sovereign Telecom AI Stacks</a>
-            </h4>
-            <p class="summit-card-desc">
-              High-throughput reasoning architectures handling billions of daily real-time UPI and telecom telemetry transactions with zero downtime and strict domestic data localization.
-            </p>
-            <div class="summit-card-tags">
-              <span class="summit-card-tag">UPI Telemetry</span>
-              <span class="summit-card-tag">RBI Compliance</span>
-              <span class="summit-card-tag">5G Stacks</span>
-              <span class="summit-card-tag">40 Seats</span>
-            </div>
-          </div>
-          <div class="summit-card-footer">
-            <a href="summits/mumbai-2026.html" class="summit-card-btn">View Summit Details &rarr;</a>
-            <div class="summit-card-platforms">
-              <span>Verified RSVP:</span>
-              <a href="https://lu.ma" target="_blank" rel="noopener" title="RSVP on Lu.ma">
-                <svg viewBox="0 0 133 134"><path d="M133 67C96.282 67 66.5 36.994 66.5 0c0 36.994-29.782 67-66.5 67 36.718 0 66.5 30.006 66.5 67 0-36.994 29.782-67 66.5-67z"/></svg>
-                <span>Lu.ma</span>
-              </a>
-              <span>&bull;</span>
-              <a href="https://www.eventbrite.com" target="_blank" rel="noopener" title="Register on Eventbrite">
-                <svg viewBox="0 0 24 24"><path d="M10.542 5.81c2.653-.6 5.3.487 6.775 2.54L5.591 11c.405-2.479 2.298-4.591 4.951-5.19zm6.84 9.746a6.47 6.47 0 0 1-3.919 2.634c-2.67.604-5.335-.501-6.804-2.582l11.763-2.657 1.915-.433L24 11.691a11.57 11.57 0 0 0-.305-2.333C22.205 3.04 15.76-.9 9.303.558 2.846 2.017-1.18 8.322.31 14.642c1.491 6.319 7.935 10.259 14.392 8.8 3.805-.86 6.765-3.402 8.25-6.638z"/></svg>
-                <span>Eventbrite</span>
-              </a>
-            </div>
-          </div>
-        </div>
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 0.38s; background: transparent;"></span>
 
-        <!-- MELBOURNE CARD -->
-        <div class="summit-card-box">
-          <div>
-            <div class="summit-card-top">
-              <span class="summit-quarter-tag">Q4 2026</span>
-              <span class="summit-status-badge">&bull; Applications Open</span>
-            </div>
-            <div class="summit-card-city">Melbourne</div>
-            <div class="summit-card-date">December 26&ndash;27, 2026 &bull; MCEC South Wharf</div>
-            <h4 class="summit-card-title">
-              <a href="summits/melbourne-2026.html">Melbourne &mdash; Autonomous Heavy Mining Fleets, Natural Resources &amp; Remote Edge Compute</a>
-            </h4>
-            <p class="summit-card-desc">
-              Ruggedized edge AI compute powering autonomous haulage trucks, sub-surface seismic exploration models, and isolated mine site orchestration.
-            </p>
-            <div class="summit-card-tags">
-              <span class="summit-card-tag">Autonomous Fleets</span>
-              <span class="summit-card-tag">Seismic Models</span>
-              <span class="summit-card-tag">Mining AI</span>
-              <span class="summit-card-tag">40 Seats</span>
-            </div>
-          </div>
-          <div class="summit-card-footer">
-            <a href="summits/melbourne-2026.html" class="summit-card-btn">View Summit Details &rarr;</a>
-            <div class="summit-card-platforms">
-              <span>Verified RSVP:</span>
-              <a href="https://lu.ma" target="_blank" rel="noopener" title="RSVP on Lu.ma">
-                <svg viewBox="0 0 133 134"><path d="M133 67C96.282 67 66.5 36.994 66.5 0c0 36.994-29.782 67-66.5 67 36.718 0 66.5 30.006 66.5 67 0-36.994 29.782-67 66.5-67z"/></svg>
-                <span>Lu.ma</span>
-              </a>
-              <span>&bull;</span>
-              <a href="https://www.eventbrite.com" target="_blank" rel="noopener" title="Register on Eventbrite">
-                <svg viewBox="0 0 24 24"><path d="M10.542 5.81c2.653-.6 5.3.487 6.775 2.54L5.591 11c.405-2.479 2.298-4.591 4.951-5.19zm6.84 9.746a6.47 6.47 0 0 1-3.919 2.634c-2.67.604-5.335-.501-6.804-2.582l11.763-2.657 1.915-.433L24 11.691a11.57 11.57 0 0 0-.305-2.333C22.205 3.04 15.76-.9 9.303.558 2.846 2.017-1.18 8.322.31 14.642c1.491 6.319 7.935 10.259 14.392 8.8 3.805-.86 6.765-3.402 8.25-6.638z"/></svg>
-                <span>Eventbrite</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 0.45s; background: transparent;"></span>
 
-  <!-- TEARDOWNS / TRACKS -->
-  <section class="section-tracks" id="tracks">
-    <div class="section-tag">Technical Agenda</div>
-    <h2 class="section-title">Architecture Teardown Sessions</h2>
-    <div class="tracks-grid">
-      <div class="track-card">
-        <div class="track-pill">Session 01 &bull; Model Quantization &amp; Kernel Tuning</div>
-        <h3>FP8 / FP4 Serving Without Accuracy Degradation</h3>
-        <p>
-          Deep dive into real-world benchmarks contrasting native FP16 execution with vLLM, TensorRT-LLM, and SGLang FP8 kernels across enterprise reasoning workloads. Live telemetry on GPU memory pressure and cache eviction.
-        </p>
-      </div>
-      <div class="track-card">
-        <div class="track-pill">Session 02 &bull; Adversarial Hardening</div>
-        <h3>Eliminating Non-Deterministic Hallucinations in Critical Ops</h3>
-        <p>
-          Hard-constraint decoding, grammar-constrained sampling, and formal verification frameworks for frontier model outputs deployed in defense, energy grid balancing, and predictive healthcare pipelines.
-        </p>
-      </div>
-      <div class="track-card">
-        <div class="track-pill">Session 03 &bull; Enterprise VPC Topology</div>
-        <h3>Zero-Trust Cross-Boundary Frontier Model Gateway</h3>
-        <p>
-          Reference architectures for embedding OpenAI, Anthropic, Google DeepMind, and open-weight models into multi-tenant VPCs with hardware security modules (HSMs) and zero plain-text data logging.
-        </p>
-      </div>
-      <div class="track-card">
-        <div class="track-pill">Session 04 &bull; TCO &amp; Model Governance</div>
-        <h3>Frontier Open Source vs. Closed Lab APIs: The 2026 Audit</h3>
-        <p>
-          Comprehensive capital expenditure and operational expenditure audit: training/fine-tuning cluster costs vs. token-based cloud bills at 100M+ tokens/day scale with full IP ownership.
-        </p>
-      </div>
-    </div>
-  </section>
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 0.53s; background: transparent;"></span>
 
-  <!-- REPRESENTED COHORTS -->
-  <section class="section-cohort" id="cohort">
-    <div class="section-tag">Attending Organizations</div>
-    <h2 class="section-title">Participating Cohorts</h2>
-    
-    <div class="cohort-group">
-      <div class="cohort-group-label">Enterprise Infrastructure &amp; Mission-Critical Operators</div>
-      <div class="cohort-names">
-        <div class="cohort-box">
-          <div class="name">Shell</div>
-          <div class="role-desc">Global Energy &bull; Upstream AI</div>
-        </div>
-        <div class="cohort-box">
-          <div class="name">U.S. Air Force</div>
-          <div class="role-desc">Rapid Sustainment &bull; Defense Ops</div>
-        </div>
-        <div class="cohort-box">
-          <div class="name">Baker Hughes</div>
-          <div class="role-desc">Energy Tech &bull; Industrial AI</div>
-        </div>
-        <div class="cohort-box">
-          <div class="name">Con Edison</div>
-          <div class="role-desc">Grid Reliability &bull; NYC Metro</div>
-        </div>
-        <div class="cohort-box">
-          <div class="name">Holcim</div>
-          <div class="role-desc">Global Building Materials &bull; Plants</div>
-        </div>
-        <div class="cohort-box">
-          <div class="name">Dept of Defense</div>
-          <div class="role-desc">Predictive Readiness &bull; Logistics</div>
-        </div>
-        <div class="cohort-box">
-          <div class="name">Koch Industries</div>
-          <div class="role-desc">Manufacturing &bull; Supply Chains</div>
-        </div>
-        <div class="cohort-box">
-          <div class="name">SmithRx</div>
-          <div class="role-desc">Health Tech &bull; Pharmacy Data</div>
-        </div>
-      </div>
-    </div>
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 0.60s; background: transparent;"></span>
 
-    <div class="cohort-group">
-      <div class="cohort-group-label">Frontier Model Ecosystem &amp; Research Labs Represented</div>
-      <div class="cohort-names">
-        <div class="cohort-box">
-          <div class="name">OpenAI</div>
-          <div class="role-desc">GPT-4o / o1 Architecture</div>
-        </div>
-        <div class="cohort-box">
-          <div class="name">Anthropic</div>
-          <div class="role-desc">Claude 3.5 Sonnet / Opus</div>
-        </div>
-        <div class="cohort-box">
-          <div class="name">Google DeepMind</div>
-          <div class="role-desc">Gemini 1.5 Pro / Flash</div>
-        </div>
-        <div class="cohort-box">
-          <div class="name">Meta AI</div>
-          <div class="role-desc">Llama 3.1 405B / 70B</div>
-        </div>
-        <div class="cohort-box">
-          <div class="name">DeepSeek</div>
-          <div class="role-desc">DeepSeek-V3 / R1 MoE</div>
-        </div>
-        <div class="cohort-box">
-          <div class="name">Mistral AI</div>
-          <div class="role-desc">Mistral Large 2 / Pixtral</div>
-        </div>
-      </div>
-    </div>
-  </section>
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 0.67s; background: transparent;"></span>
 
-  <!-- INVITATION FORM -->
-  <section class="section-invite" id="request-invite">
-    <div class="invite-container">
-      <div class="section-tag" style="text-align: center;">Confidential Application</div>
-      <h2 class="section-title" style="text-align: center; margin-bottom: 1.5rem;">Request an Invitation</h2>
-      <p style="text-align: center; color: #888; max-width: 600px; margin: 0 auto 2.5rem; font-size: 1rem;">
-        Invitations are strictly non-transferable and subject to peer committee verification. Please use your corporate or government executive email.
-      </p>
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 0.75s; background: transparent;"></span>
 
-      <div class="invite-platforms-callout">
-        <div class="callout-content">
-          <span class="callout-tag">Procurement &amp; Calendar Options</span>
-          <h4>Prefer Direct Registration on Lu.ma or Eventbrite?</h4>
-          <p>For corporate purchasing orders, institutional invoicing, or 1-click calendar reservation, access verified listings directly:</p>
-        </div>
-        <div class="callout-buttons">
-          <a href="https://lu.ma" target="_blank" rel="noopener" class="callout-btn">
-            <svg viewBox="0 0 133 134"><path d="M133 67C96.282 67 66.5 36.994 66.5 0c0 36.994-29.782 67-66.5 67 36.718 0 66.5 30.006 66.5 67 0-36.994 29.782-67 66.5-67z"/></svg>
-            <span>RSVP via Lu.ma</span>
-          </a>
-          <a href="https://www.eventbrite.com" target="_blank" rel="noopener" class="callout-btn">
-            <svg viewBox="0 0 24 24"><path d="M10.542 5.81c2.653-.6 5.3.487 6.775 2.54L5.591 11c.405-2.479 2.298-4.591 4.951-5.19zm6.84 9.746a6.47 6.47 0 0 1-3.919 2.634c-2.67.604-5.335-.501-6.804-2.582l11.763-2.657 1.915-.433L24 11.691a11.57 11.57 0 0 0-.305-2.333C22.205 3.04 15.76-.9 9.303.558 2.846 2.017-1.18 8.322.31 14.642c1.491 6.319 7.935 10.259 14.392 8.8 3.805-.86 6.765-3.402 8.25-6.638z"/></svg>
-            <span>Procure on Eventbrite</span>
-          </a>
-        </div>
-      </div>
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 0.82s; background: transparent;"></span>
 
-      <form class="invite-form" onsubmit="event.preventDefault(); alert('Invitation request received. The committee reviews applications on a rolling basis under NDA.');">
-        <div class="form-row">
-          <div class="form-field">
-            <label for="fullname">Full Name *</label>
-            <input type="text" id="fullname" required placeholder="Jane Doe">
-          </div>
-          <div class="form-field">
-            <label for="email">Enterprise Work Email *</label>
-            <input type="email" id="email" required placeholder="jane@enterprise.com">
-          </div>
-        </div>
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 0.90s; background: transparent;"></span>
 
-        <div class="form-row">
-          <div class="form-field">
-            <label for="org">Organization / Agency *</label>
-            <input type="text" id="org" required placeholder="e.g. Shell, Con Edison, USAF">
-          </div>
-          <div class="form-field">
-            <label for="title">Official Title *</label>
-            <input type="text" id="title" required placeholder="CTO / Head of Infrastructure / Chief Architect">
-          </div>
-        </div>
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 0.97s; background: transparent;"></span>
 
-        <div class="form-row">
-          <div class="form-field">
-            <label for="summit-choice">Select Summit Location *</label>
-            <select id="summit-choice" required>
-              <option value="" disabled selected>Select location &amp; date</option>
-              <option value="sf">San Francisco &bull; October 31 – November 1, 2026 (Air-Gapped &amp; Sovereign)</option>
-              <option value="nyc">New York &bull; November 7-8, 2026 (Latency &amp; Critical Infra)</option>
-              <option value="boston">Boston &bull; November 14-15, 2026 (Bio-ML &amp; Autonomous Robotics)</option>
-              <option value="toronto">Toronto &bull; November 21-22, 2026 (Vector Search &amp; Distributed Training)</option>
-              <option value="london">London &bull; November 28-29, 2026 (EU AI Act &amp; Heavy Industrial)</option>
-              <option value="berlin">Berlin &bull; December 5-6, 2026 (Embedded Systems &amp; Edge Telemetry)</option>
-              <option value="dubai">Dubai &bull; December 12-13, 2026 (National LLM Clusters &amp; Sovereign Compute)</option>
-              <option value="mumbai">Mumbai &bull; December 19-20, 2026 (High-Concurrency Voice Agents &amp; Real-Time Scale)</option>
-              <option value="melbourne">Melbourne &bull; December 26-27, 2026 (Decentralized AI Networks &amp; Resilient Grids)</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label for="models">Primary Frontier Model(s) Deployed</label>
-            <input type="text" id="models" placeholder="e.g. Claude 3.5, Llama 3.1 405B, Gemini, DeepSeek">
-          </div>
-        </div>
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 1.05s; background: transparent;"></span>
 
-        <div class="form-field">
-          <label for="scope">Production Deployment Scope / Core Architecture Bottleneck</label>
-          <textarea id="scope" rows="3" placeholder="Brief summary of your production scale, air-gap requirements, or latency targets."></textarea>
-        </div>
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 1.13s; background: transparent;"></span>
 
-        <button type="submit" class="submit-btn">Submit Confidential Request</button>
-      </form>
-    </div>
-  </section>
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 1.20s; background: transparent;"></span>
 
-  </main>
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 1.27s; background: transparent;"></span>
 
-  <!-- FOOTER -->
-  <footer>
-    <div>
-      <p style="color: var(--white); font-weight: 900; letter-spacing: -0.5px; margin-bottom: 0.25rem;">stage-x.space</p>
-      <p>Open Source &bull; MIT &amp; Apache 2.0 Licensed</p>
-    </div>
-    <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="index.html#customers">Customers</a>
-      <a href="index.html#usecases">Use Cases</a>
-      <a href="index.html#deployments">Deployments</a>
-      <a href="index.html#method">Method</a>
-      <a href="index.html#opensource">Open Source</a>
-      <a href="index.html#partners">Partners</a>
-      <a href="papers.html">Papers</a>
-      <a href="https://lu.ma" target="_blank" rel="noopener">Lu.ma</a>
-      <a href="https://www.eventbrite.com" target="_blank" rel="noopener">Eventbrite</a>
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 1.35s; background: transparent;"></span>
 
-      <a href="index.html#contact">Contact</a>
-    </div>
-  </footer>
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 1.43s; background: transparent;"></span>
 
-  <script>
-    (function () {
-      'use strict';
-      var header = document.getElementById('site-header');
-      if (header) {
-        function onScroll() {
-          if (window.scrollY > 10) { header.classList.add('header--scrolled'); }
-          else { header.classList.remove('header--scrolled'); }
-        }
-        window.addEventListener('scroll', onScroll, { passive: true });
-        onScroll();
-      }
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 1.50s; background: transparent;"></span>
 
-      var toggle = document.querySelector('[data-mobile-toggle]');
-      var panel = document.querySelector('[data-mobile-panel]');
-      if (toggle && panel) {
-        toggle.addEventListener('click', function () {
-          var open = toggle.getAttribute('aria-expanded') === 'true';
-          toggle.setAttribute('aria-expanded', String(!open));
-          panel.hidden = open ? true : false;
-        });
-        panel.addEventListener('click', function (e) {
-          if (e.target.closest('a')) {
-            panel.hidden = true;
-            toggle.setAttribute('aria-expanded', 'false');
-          }
-        });
-      }
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 1.57s; background: transparent;"></span>
 
-      document.querySelectorAll('[data-dropdown-trigger]').forEach(function (trigger) {
-        trigger.addEventListener('click', function () {
-          var open = trigger.getAttribute('aria-expanded') === 'true';
-          document.querySelectorAll('[data-dropdown-trigger]').forEach(function (t) {
-            t.setAttribute('aria-expanded', 'false');
-          });
-          trigger.setAttribute('aria-expanded', String(!open));
-        });
-        document.addEventListener('click', function (e) {
-          if (!trigger.parentElement.contains(e.target)) {
-            trigger.setAttribute('aria-expanded', 'false');
-          }
-        });
-      });
-    })();
-  </script>
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 1.65s; background: transparent;"></span>
 
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 1.72s; background: transparent;"></span>
+
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 1.80s; background: transparent;"></span>
+
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 1.88s; background: transparent;"></span>
+
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 1.95s; background: transparent;"></span>
+
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 2.02s; background: transparent;"></span>
+
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 2.10s; background: transparent;"></span>
+
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 2.17s; background: transparent;"></span>
+
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 2.25s; background: transparent;"></span>
+
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 2.32s; background: transparent;"></span>
+
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 2.40s; background: transparent;"></span>
+
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 2.48s; background: transparent;"></span>
+
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 2.55s; background: transparent;"></span>
+
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 2.63s; background: transparent;"></span>
+
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 2.70s; background: transparent;"></span>
+
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 2.77s; background: transparent;"></span>
+
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 2.85s; background: transparent;"></span>
+
+<span class="sx-seat" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; animation-delay: 2.92s; background: transparent;"></span>
+
+<div aria-hidden="true" style="position: absolute; left: 4%; right: 4%; top: 50%; height: 12px; margin-top: -6px; background: #262626; border-radius: 2px"></div>
+</div>
+<figcaption style="margin-top: 18px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.12em; color: #A8A8A8">
+<span>ONE TABLE · 40 PRINCIPALS</span><span>CAPPED PER SUMMIT</span>
+</figcaption>
+</figure>
+</div>
+<div style="display: flex; flex-direction: column; gap: 16px">
+
+<div class="sx-card" style="display: flex; gap: 20px; padding: 28px; border: 1px solid #262626; border-radius: 4px; background: #0F0F0F">
+<div style="flex: none; width: 40px; height: 40px; display: grid; place-items: center; background: #FFFFFF; color: #0A0A0A; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; font-weight: 700">01</div>
+<div>
+<h3 style="margin: 0; font-size: 20px; font-weight: 800; color: #FFFFFF">Strict Chatham House Rule</h3>
+<p style="margin: 8px 0 0; font-size: 15px; color: #B3B3B3">Participants are free to use the information and code strategies received, but neither the identity nor the affiliation of the speaker or any participant may be revealed. Absolute operational candor is required.</p>
+</div>
+</div>
+
+<div class="sx-card" style="display: flex; gap: 20px; padding: 28px; border: 1px solid #262626; border-radius: 4px; background: #0F0F0F">
+<div style="flex: none; width: 40px; height: 40px; display: grid; place-items: center; background: #FFFFFF; color: #0A0A0A; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; font-weight: 700">02</div>
+<div>
+<h3 style="margin: 0; font-size: 20px; font-weight: 800; color: #FFFFFF">Zero Slide Decks &amp; Pitches</h3>
+<p style="margin: 8px 0 0; font-size: 15px; color: #B3B3B3">No vendor pitches, marketing narratives, or high-level hypotheticals. Every session centers on architecture diagrams, kernel optimization profiles, latency traces, and live infrastructure code.</p>
+</div>
+</div>
+
+<div class="sx-card" style="display: flex; gap: 20px; padding: 28px; border: 1px solid #262626; border-radius: 4px; background: #0F0F0F">
+<div style="flex: none; width: 40px; height: 40px; display: grid; place-items: center; background: #FFFFFF; color: #0A0A0A; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; font-weight: 700">03</div>
+<div>
+<h3 style="margin: 0; font-size: 20px; font-weight: 800; color: #FFFFFF">Principals &amp; Builders Only</h3>
+<p style="margin: 8px 0 0; font-size: 15px; color: #B3B3B3">Strictly capped at 40 participants per summit. Attendees must hold direct technical authority over mission-critical enterprise compute, forward deployment teams, or frontier model engineering stacks.</p>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- CIRCUIT MAP -->
+<section id="circuits" style="position: relative; border-bottom: 1px solid #222222; background: #0C0C0C; overflow: hidden">
+<div aria-hidden="true" class="sx-gridbg" style="position: absolute; inset: 0"></div>
+<div style="position: relative; max-width: 1240px; margin: 0 auto; padding: 112px 24px 96px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 32px; align-items: end">
+<div>
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.16em; color: #FFFFFF">02 / TOUR STRUCTURE</div>
+<h2 style="margin: 20px 0 0; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.04; letter-spacing: -0.035em; font-weight: 900; color: #FFFFFF">Nine cities. Three circuits. <span class="sx-outline">One route.</span></h2>
+</div>
+<p style="margin: 0; font-size: 17px; color: #B3B3B3">A circuit is a regional tour phase of our global technical roadshow. Each circuit convenes three consecutive weekend roundtables (Saturdays &amp; Sundays) focused on regional infrastructure challenges, regulatory frameworks, and peer cohorts.</p>
+</div>
+
+<figure style="margin: 48px 0 0; border: 1px solid #2A2A2A; border-radius: 4px; background: rgba(10,10,10,0.7); overflow: hidden">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding: 12px 18px; border-bottom: 1px solid #262626; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.12em; color: #A8A8A8">
+<span>FIG.S1 · Q4 2026 CIRCUIT ROUTE</span><span>OCT 31 → DEC 27</span>
+</div>
+<div style="overflow-x: auto">
+<svg role="img" aria-label="Route map: San Francisco, New York, Boston, Toronto, London, Berlin, Dubai, Mumbai, Melbourne, in date order" viewBox="0 -40 1000 430" style="display: block; width: 100%; min-width: 720px; height: auto">
+<g stroke="#1E1E1E" stroke-width="1">
+<path d="M0 -40V390M125 -40V390M250 -40V390M375 -40V390M500 -40V390M625 -40V390M750 -40V390M875 -40V390M1000 -40V390"></path>
+<path d="M0 0H1000M0 100H1000M0 200H1000M0 300H1000"></path>
+</g>
+<path d="M0 214H1000" stroke="#333333" stroke-dasharray="2 6"></path>
+<text x="6" y="208" fill="#5A5A5A" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1">EQUATOR</text>
+<g fill="none" stroke-width="2" stroke-linecap="round">
+<path class="sx-flow" stroke="#FFFFFF" d="M27 79 Q113 39 200 69 Q205 55 210 63 Q195 45 181 58"></path>
+<path class="sx-flow" stroke="#BDBDBD" d="M181 58 Q322 -16 464 30 Q488 10 512 27"></path>
+<path class="sx-flow" stroke="#8A8A8A" d="M512 27 Q610 40 662 124 Q700 110 725 146 Q900 170 982 349"></path>
+</g>
+<circle r="5" fill="#FFFFFF">
+<animateMotion dur="16s" repeatCount="indefinite" path="M27 79 Q113 39 200 69 Q205 55 210 63 Q195 45 181 58 Q322 -16 464 30 Q488 10 512 27 Q610 40 662 124 Q700 110 725 146 Q900 170 982 349"></animateMotion>
+</circle>
+
+<g>
+<circle class="sx-pulse" cx="27" cy="79" r="9" fill="none" stroke="#FFFFFF" stroke-width="1"></circle>
+<circle cx="27" cy="79" r="4.5" fill="#FFFFFF"></circle>
+<text x="27" y="106" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" text-anchor="start">San Francisco</text>
+<text x="27" y="119" fill="#A8A8A8" font-family="JetBrains Mono, monospace" font-size="9.5" letter-spacing="0.6" text-anchor="start">OCT 31</text>
+</g>
+
+<g>
+<circle class="sx-pulse" cx="200" cy="69" r="9" fill="none" stroke="#FFFFFF" stroke-width="1"></circle>
+<circle cx="200" cy="69" r="4.5" fill="#FFFFFF"></circle>
+<text x="206" y="96" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" text-anchor="start">New York</text>
+<text x="206" y="109" fill="#A8A8A8" font-family="JetBrains Mono, monospace" font-size="9.5" letter-spacing="0.6" text-anchor="start">NOV 07</text>
+</g>
+
+<g>
+<circle class="sx-pulse" cx="210" cy="63" r="9" fill="none" stroke="#FFFFFF" stroke-width="1"></circle>
+<circle cx="210" cy="63" r="4.5" fill="#FFFFFF"></circle>
+<text x="226" y="52" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" text-anchor="start">Boston</text>
+<text x="226" y="65" fill="#A8A8A8" font-family="JetBrains Mono, monospace" font-size="9.5" letter-spacing="0.6" text-anchor="start">NOV 14</text>
+</g>
+
+<g>
+<circle class="sx-pulse" cx="181" cy="58" r="9" fill="none" stroke="#FFFFFF" stroke-width="1"></circle>
+<circle cx="181" cy="58" r="4.5" fill="#FFFFFF"></circle>
+<text x="172" y="30" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" text-anchor="end">Toronto</text>
+<text x="172" y="43" fill="#A8A8A8" font-family="JetBrains Mono, monospace" font-size="9.5" letter-spacing="0.6" text-anchor="end">NOV 21</text>
+</g>
+
+<g>
+<circle class="sx-pulse" cx="464" cy="30" r="9" fill="none" stroke="#FFFFFF" stroke-width="1"></circle>
+<circle cx="464" cy="30" r="4.5" fill="#FFFFFF"></circle>
+<text x="456" y="58" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" text-anchor="end">London</text>
+<text x="456" y="71" fill="#A8A8A8" font-family="JetBrains Mono, monospace" font-size="9.5" letter-spacing="0.6" text-anchor="end">NOV 28</text>
+</g>
+
+<g>
+<circle class="sx-pulse" cx="512" cy="27" r="9" fill="none" stroke="#FFFFFF" stroke-width="1"></circle>
+<circle cx="512" cy="27" r="4.5" fill="#FFFFFF"></circle>
+<text x="522" y="52" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" text-anchor="start">Berlin</text>
+<text x="522" y="65" fill="#A8A8A8" font-family="JetBrains Mono, monospace" font-size="9.5" letter-spacing="0.6" text-anchor="start">DEC 05</text>
+</g>
+
+<g>
+<circle class="sx-pulse" cx="662" cy="124" r="9" fill="none" stroke="#FFFFFF" stroke-width="1"></circle>
+<circle cx="662" cy="124" r="4.5" fill="#FFFFFF"></circle>
+<text x="650" y="150" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" text-anchor="end">Dubai</text>
+<text x="650" y="163" fill="#A8A8A8" font-family="JetBrains Mono, monospace" font-size="9.5" letter-spacing="0.6" text-anchor="end">DEC 12</text>
+</g>
+
+<g>
+<circle class="sx-pulse" cx="725" cy="146" r="9" fill="none" stroke="#FFFFFF" stroke-width="1"></circle>
+<circle cx="725" cy="146" r="4.5" fill="#FFFFFF"></circle>
+<text x="738" y="172" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" text-anchor="start">Mumbai</text>
+<text x="738" y="185" fill="#A8A8A8" font-family="JetBrains Mono, monospace" font-size="9.5" letter-spacing="0.6" text-anchor="start">DEC 19</text>
+</g>
+
+<g>
+<circle class="sx-pulse" cx="982" cy="349" r="9" fill="none" stroke="#FFFFFF" stroke-width="1"></circle>
+<circle cx="982" cy="349" r="4.5" fill="#FFFFFF"></circle>
+<text x="970" y="334" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" text-anchor="end">Melbourne</text>
+<text x="970" y="321" fill="#A8A8A8" font-family="JetBrains Mono, monospace" font-size="9.5" letter-spacing="0.6" text-anchor="end">DEC 26</text>
+</g>
+
+</svg>
+</div>
+</figure>
+
+<div style="margin-top: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px">
+
+<a href="#circuit-1" class="sx-card" style="display: block; padding: 24px; border: 1px solid #262626; border-radius: 4px; background: #0F0F0F; color: inherit">
+<div style="display: flex; align-items: center; gap: 12px">
+<svg aria-hidden="true" width="44" height="6" viewBox="0 0 44 6"><path d="M0 3H44" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="6 6"></path></svg>
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.12em; color: #FFFFFF">PHASE 01</span>
+</div>
+<div style="margin-top: 12px; font-size: 20px; font-weight: 800; color: #FFFFFF">North American Frontier</div>
+<div style="margin-top: 4px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #A8A8A8">Oct 31 – Nov 15, 2026 • SF, NYC, Boston</div>
+<p style="margin: 10px 0 0; font-size: 14px; color: #B3B3B3">Air-gapped defense, grid telemetry &amp; bio-pharma physical robotics.</p>
+</a>
+
+<a href="#circuit-2" class="sx-card" style="display: block; padding: 24px; border: 1px solid #262626; border-radius: 4px; background: #0F0F0F; color: inherit">
+<div style="display: flex; align-items: center; gap: 12px">
+<svg aria-hidden="true" width="44" height="6" viewBox="0 0 44 6"><path d="M0 3H44" stroke="#BDBDBD" stroke-width="2" stroke-dasharray="6 6"></path></svg>
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.12em; color: #FFFFFF">PHASE 02</span>
+</div>
+<div style="margin-top: 12px; font-size: 20px; font-weight: 800; color: #FFFFFF">Transatlantic Corridor</div>
+<div style="margin-top: 4px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #A8A8A8">Nov 21 – Dec 6, 2026 • Toronto, London, Berlin</div>
+<p style="margin: 10px 0 0; font-size: 14px; color: #B3B3B3">Cross-border banking mesh, EU AI Act compliance &amp; industrial SCADA.</p>
+</a>
+
+<a href="#circuit-3" class="sx-card" style="display: block; padding: 24px; border: 1px solid #262626; border-radius: 4px; background: #0F0F0F; color: inherit">
+<div style="display: flex; align-items: center; gap: 12px">
+<svg aria-hidden="true" width="44" height="6" viewBox="0 0 44 6"><path d="M0 3H44" stroke="#8A8A8A" stroke-width="2" stroke-dasharray="6 6"></path></svg>
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.12em; color: #FFFFFF">PHASE 03</span>
+</div>
+<div style="margin-top: 12px; font-size: 20px; font-weight: 800; color: #FFFFFF">Middle East &amp; APAC</div>
+<div style="margin-top: 4px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #A8A8A8">Dec 12 – Dec 27, 2026 • Dubai, Mumbai, Melbourne</div>
+<p style="margin: 10px 0 0; font-size: 14px; color: #B3B3B3">Sovereign national LLM clusters, hyper-scale BFSI &amp; remote mining fleets.</p>
+</a>
+
+</div>
+</div>
+</section>
+
+<!-- CALENDAR -->
+<section id="calendar" style="border-bottom: 1px solid #222222">
+<div style="max-width: 1240px; margin: 0 auto; padding: 112px 24px">
+<div style="max-width: 780px">
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.16em; color: #FFFFFF">03 / GLOBAL SCHEDULE</div>
+<h2 style="margin: 20px 0 0; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.04; letter-spacing: -0.035em; font-weight: 900; color: #FFFFFF">Q4 2026 Summit Calendar</h2>
+<p style="margin: 20px 0 0; font-size: 18px; color: #B3B3B3">Nine invitation-only technical roundtables convened across three international circuits. Strict 40-seat limits, peer-vetted VP/CTO cohorts, and binding Chatham House Rule confidentiality.</p>
+</div>
+
+
+<div id="circuit-1" style="margin-top: 72px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 32px; padding-bottom: 18px; border-bottom: 1px solid #FFFFFF">
+<div>
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.14em; color: #A8A8A8">CIRCUIT PHASE 01 • Q4 2026</div>
+<h3 style="margin: 8px 0 0; font-size: clamp(24px, 2.6vw, 34px); font-weight: 900; letter-spacing: -0.02em; color: #FFFFFF">North American Frontier</h3>
+<p style="margin: 6px 0 0; font-size: 15px; color: #B3B3B3; max-width: 640px">Air-gapped defense architectures, sub-millisecond financial telemetry, and bio-pharma physical robotics.</p>
+</div>
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.08em; color: #FFFFFF">3 SUMMITS • 120 TOTAL SEATS</div>
+</div>
+<div style="margin-top: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 20px">
+
+<article class="sx-card" style="display: flex; flex-direction: column; border: 1px solid #262626; border-radius: 4px; background: #0F0F0F; overflow: hidden">
+<a href="/summits/sf-2026.html" class="sx-photo" aria-label="San Francisco summit details" style="position: relative; display: block; height: 200px; overflow: hidden; background: #151515">
+<img src="/public/x/img/summit-sf.jpg" alt="Golden Gate Bridge and San Francisco at dusk" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<span aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,10,0.1) 30%, rgba(10,10,10,0.85) 100%)"></span>
+<span style="position: absolute; left: 16px; top: 16px; display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; background: #FF3B30; color: #FFFFFF; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.08em">12 Seats Left</span>
+<span style="position: absolute; right: 16px; top: 16px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.1em; color: #FFFFFF">STOP 1/9</span>
+<span style="position: absolute; left: 16px; bottom: 14px; font-size: 30px; font-weight: 900; letter-spacing: -0.03em; color: #FFFFFF">San Francisco</span>
+</a>
+<div style="flex: 1; display: flex; flex-direction: column; padding: 22px">
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #D4D4D4">October 31–November 1, 2026 · The Presidio</div>
+<h4 style="margin: 12px 0 0; font-size: 18px; line-height: 1.3; font-weight: 800; color: #FFFFFF">San Francisco — Air-Gapped Frontier Model Orchestration &amp; Sovereign Weights</h4>
+<p style="margin: 10px 0 0; font-size: 14px; color: #B3B3B3; flex: 1">Examining isolated on-premises deployments of 70B+ and MoE frontier models in classified, defense, and sovereign enterprise environments without cloud connectivity.</p>
+<div style="margin-top: 16px; display: flex; flex-wrap: wrap; gap: 6px">
+
+<span style="padding: 3px 9px; border: 1px solid #3A3A3A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #D4D4D4">Air-Gapped</span>
+
+<span style="padding: 3px 9px; border: 1px solid #3A3A3A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #D4D4D4">Zero-Trust VPC</span>
+
+<span style="padding: 3px 9px; border: 1px solid #3A3A3A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #D4D4D4">Defense Tech</span>
+
+<span style="padding: 3px 9px; background: #FFFFFF; color: #0A0A0A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 700">40 Seats</span>
+</div>
+<div style="margin-top: 18px; padding-top: 14px; border-top: 1px solid #262626; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px">
+<a href="/summits/sf-2026.html" style="display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; border-bottom: 1px solid #FFFFFF">View Summit Details →</a>
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #A8A8A8">RSVP: <a href="https://lu.ma" style="color: #FFFFFF">Lu.ma</a> · <a href="https://www.eventbrite.com" style="color: #FFFFFF">Eventbrite</a></span>
+</div>
+</div>
+</article>
+
+<article class="sx-card" style="display: flex; flex-direction: column; border: 1px solid #262626; border-radius: 4px; background: #0F0F0F; overflow: hidden">
+<a href="/summits/nyc-2026.html" class="sx-photo" aria-label="New York summit details" style="position: relative; display: block; height: 200px; overflow: hidden; background: #151515">
+<img src="/public/x/img/summit-nyc.jpg" alt="Hudson Yards and the Manhattan skyline at night" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<span aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,10,0.1) 30%, rgba(10,10,10,0.85) 100%)"></span>
+<span style="position: absolute; left: 16px; top: 16px; display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; background: #FFFFFF; color: #0A0A0A; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.08em">Applications Open</span>
+<span style="position: absolute; right: 16px; top: 16px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.1em; color: #FFFFFF">STOP 2/9</span>
+<span style="position: absolute; left: 16px; bottom: 14px; font-size: 30px; font-weight: 900; letter-spacing: -0.03em; color: #FFFFFF">New York</span>
+</a>
+<div style="flex: 1; display: flex; flex-direction: column; padding: 22px">
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #D4D4D4">November 7–8, 2026 · Hudson Yards</div>
+<h4 style="margin: 12px 0 0; font-size: 18px; line-height: 1.3; font-weight: 800; color: #FFFFFF">New York — Deterministic Latency &amp; High-Throughput Energy / Financial Inference</h4>
+<p style="margin: 10px 0 0; font-size: 14px; color: #B3B3B3; flex: 1">Architecture teardowns of sub-50ms TTFT under extreme concurrent load. Integration patterns across legacy SCADA, power grids (Con Edison, Shell), and institutional trading systems.</p>
+<div style="margin-top: 16px; display: flex; flex-wrap: wrap; gap: 6px">
+
+<span style="padding: 3px 9px; border: 1px solid #3A3A3A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #D4D4D4">Sub-50ms TTFT</span>
+
+<span style="padding: 3px 9px; border: 1px solid #3A3A3A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #D4D4D4">Grid Telemetry</span>
+
+<span style="padding: 3px 9px; border: 1px solid #3A3A3A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #D4D4D4">Trading Infra</span>
+
+<span style="padding: 3px 9px; background: #FFFFFF; color: #0A0A0A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 700">40 Seats</span>
+</div>
+<div style="margin-top: 18px; padding-top: 14px; border-top: 1px solid #262626; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px">
+<a href="/summits/nyc-2026.html" style="display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; border-bottom: 1px solid #FFFFFF">View Summit Details →</a>
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #A8A8A8">RSVP: <a href="https://lu.ma" style="color: #FFFFFF">Lu.ma</a> · <a href="https://www.eventbrite.com" style="color: #FFFFFF">Eventbrite</a></span>
+</div>
+</div>
+</article>
+
+<article class="sx-card" style="display: flex; flex-direction: column; border: 1px solid #262626; border-radius: 4px; background: #0F0F0F; overflow: hidden">
+<a href="/summits/boston-2026.html" class="sx-photo" aria-label="Boston summit details" style="position: relative; display: block; height: 200px; overflow: hidden; background: #151515">
+<img src="/public/x/img/summit-boston.jpg" alt="Boston skyline across the Charles River from Cambridge" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<span aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,10,0.1) 30%, rgba(10,10,10,0.85) 100%)"></span>
+<span style="position: absolute; left: 16px; top: 16px; display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; background: #FFFFFF; color: #0A0A0A; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.08em">Applications Open</span>
+<span style="position: absolute; right: 16px; top: 16px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.1em; color: #FFFFFF">STOP 3/9</span>
+<span style="position: absolute; left: 16px; bottom: 14px; font-size: 30px; font-weight: 900; letter-spacing: -0.03em; color: #FFFFFF">Boston</span>
+</a>
+<div style="flex: 1; display: flex; flex-direction: column; padding: 22px">
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #D4D4D4">November 14–15, 2026 · Kendall Square</div>
+<h4 style="margin: 12px 0 0; font-size: 18px; line-height: 1.3; font-weight: 800; color: #FFFFFF">Boston — Frontier Deep Tech, Bio-Pharma Reasoning &amp; Physical AI Robotics</h4>
+<p style="margin: 10px 0 0; font-size: 14px; color: #B3B3B3; flex: 1">Deploying multimodal frontier models in regulated biomedical research, high-throughput automated laboratory discovery, and real-time physical robotics control loops.</p>
+<div style="margin-top: 16px; display: flex; flex-wrap: wrap; gap: 6px">
+
+<span style="padding: 3px 9px; border: 1px solid #3A3A3A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #D4D4D4">Bio-Pharma</span>
+
+<span style="padding: 3px 9px; border: 1px solid #3A3A3A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #D4D4D4">FDA 21 CFR 11</span>
+
+<span style="padding: 3px 9px; border: 1px solid #3A3A3A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #D4D4D4">Physical AI</span>
+
+<span style="padding: 3px 9px; background: #FFFFFF; color: #0A0A0A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 700">40 Seats</span>
+</div>
+<div style="margin-top: 18px; padding-top: 14px; border-top: 1px solid #262626; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px">
+<a href="/summits/boston-2026.html" style="display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; border-bottom: 1px solid #FFFFFF">View Summit Details →</a>
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #A8A8A8">RSVP: <a href="https://lu.ma" style="color: #FFFFFF">Lu.ma</a> · <a href="https://www.eventbrite.com" style="color: #FFFFFF">Eventbrite</a></span>
+</div>
+</div>
+</article>
+
+</div>
+</div>
+
+<div id="circuit-2" style="margin-top: 72px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 32px; padding-bottom: 18px; border-bottom: 1px solid #FFFFFF">
+<div>
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.14em; color: #A8A8A8">CIRCUIT PHASE 02 • Q4 2026</div>
+<h3 style="margin: 8px 0 0; font-size: clamp(24px, 2.6vw, 34px); font-weight: 900; letter-spacing: -0.02em; color: #FFFFFF">Transatlantic &amp; European Corridor</h3>
+<p style="margin: 6px 0 0; font-size: 15px; color: #B3B3B3; max-width: 640px">Cross-border sovereign data mesh, EU AI Act compliance pipelines, and automotive SCADA automation.</p>
+</div>
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.08em; color: #FFFFFF">3 SUMMITS • 120 TOTAL SEATS</div>
+</div>
+<div style="margin-top: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 20px">
+
+<article class="sx-card" style="display: flex; flex-direction: column; border: 1px solid #262626; border-radius: 4px; background: #0F0F0F; overflow: hidden">
+<a href="/summits/toronto-2026.html" class="sx-photo" aria-label="Toronto summit details" style="position: relative; display: block; height: 200px; overflow: hidden; background: #151515">
+<img src="/public/x/img/summit-toronto.jpg" alt="Toronto skyline with the CN Tower at blue hour" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<span aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,10,0.1) 30%, rgba(10,10,10,0.85) 100%)"></span>
+<span style="position: absolute; left: 16px; top: 16px; display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; background: #FFFFFF; color: #0A0A0A; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.08em">Applications Open</span>
+<span style="position: absolute; right: 16px; top: 16px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.1em; color: #FFFFFF">STOP 4/9</span>
+<span style="position: absolute; left: 16px; bottom: 14px; font-size: 30px; font-weight: 900; letter-spacing: -0.03em; color: #FFFFFF">Toronto</span>
+</a>
+<div style="flex: 1; display: flex; flex-direction: column; padding: 22px">
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #D4D4D4">November 21–22, 2026 · MaRS Discovery District</div>
+<h4 style="margin: 12px 0 0; font-size: 18px; line-height: 1.3; font-weight: 800; color: #FFFFFF">Toronto — Cross-Border Enterprise Compute &amp; Sovereign North American Mesh</h4>
+<p style="margin: 10px 0 0; font-size: 14px; color: #B3B3B3; flex: 1">Architectural topologies for multi-national financial institutions navigating cross-border data sovereignty, PIPEDA / SOC2 boundaries, and distributed hybrid inference.</p>
+<div style="margin-top: 16px; display: flex; flex-wrap: wrap; gap: 6px">
+
+<span style="padding: 3px 9px; border: 1px solid #3A3A3A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #D4D4D4">PIPEDA</span>
+
+<span style="padding: 3px 9px; border: 1px solid #3A3A3A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #D4D4D4">Hybrid Mesh</span>
+
+<span style="padding: 3px 9px; border: 1px solid #3A3A3A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #D4D4D4">Banking Core</span>
+
+<span style="padding: 3px 9px; background: #FFFFFF; color: #0A0A0A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 700">40 Seats</span>
+</div>
+<div style="margin-top: 18px; padding-top: 14px; border-top: 1px solid #262626; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px">
+<a href="/summits/toronto-2026.html" style="display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; border-bottom: 1px solid #FFFFFF">View Summit Details →</a>
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #A8A8A8">RSVP: <a href="https://lu.ma" style="color: #FFFFFF">Lu.ma</a> · <a href="https://www.eventbrite.com" style="color: #FFFFFF">Eventbrite</a></span>
+</div>
+</div>
+</article>
+
+<article class="sx-card" style="display: flex; flex-direction: column; border: 1px solid #262626; border-radius: 4px; background: #0F0F0F; overflow: hidden">
+<a href="/summits/london-2026.html" class="sx-photo" aria-label="London summit details" style="position: relative; display: block; height: 200px; overflow: hidden; background: #151515">
+<img src="/public/x/img/summit-london.jpg" alt="Canary Wharf towers reflected in the docks at night" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<span aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,10,0.1) 30%, rgba(10,10,10,0.85) 100%)"></span>
+<span style="position: absolute; left: 16px; top: 16px; display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; background: #FFFFFF; color: #0A0A0A; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.08em">Applications Open</span>
+<span style="position: absolute; right: 16px; top: 16px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.1em; color: #FFFFFF">STOP 5/9</span>
+<span style="position: absolute; left: 16px; bottom: 14px; font-size: 30px; font-weight: 900; letter-spacing: -0.03em; color: #FFFFFF">London</span>
+</a>
+<div style="flex: 1; display: flex; flex-direction: column; padding: 22px">
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #D4D4D4">November 28–29, 2026 · Canary Wharf</div>
+<h4 style="margin: 12px 0 0; font-size: 18px; line-height: 1.3; font-weight: 800; color: #FFFFFF">London — EU AI Act Compliance, Data Sovereignty &amp; Heavy Industrial Edge</h4>
+<p style="margin: 10px 0 0; font-size: 14px; color: #B3B3B3; flex: 1">Deploying frontier models directly onto industrial plant hardware and edge compute clusters (Holcim, Baker Hughes) with strict immutable audit trails and zero data egress.</p>
+<div style="margin-top: 16px; display: flex; flex-wrap: wrap; gap: 6px">
+
+<span style="padding: 3px 9px; border: 1px solid #3A3A3A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #D4D4D4">EU AI Act</span>
+
+<span style="padding: 3px 9px; border: 1px solid #3A3A3A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #D4D4D4">Industrial Edge</span>
+
+<span style="padding: 3px 9px; border: 1px solid #3A3A3A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #D4D4D4">Zero Egress</span>
+
+<span style="padding: 3px 9px; background: #FFFFFF; color: #0A0A0A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 700">40 Seats</span>
+</div>
+<div style="margin-top: 18px; padding-top: 14px; border-top: 1px solid #262626; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px">
+<a href="/summits/london-2026.html" style="display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; border-bottom: 1px solid #FFFFFF">View Summit Details →</a>
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #A8A8A8">RSVP: <a href="https://lu.ma" style="color: #FFFFFF">Lu.ma</a> · <a href="https://www.eventbrite.com" style="color: #FFFFFF">Eventbrite</a></span>
+</div>
+</div>
+</article>
+
+<article class="sx-card" style="display: flex; flex-direction: column; border: 1px solid #262626; border-radius: 4px; background: #0F0F0F; overflow: hidden">
+<a href="/summits/berlin-2026.html" class="sx-photo" aria-label="Berlin summit details" style="position: relative; display: block; height: 200px; overflow: hidden; background: #151515">
+<img src="/public/x/img/summit-berlin.jpg" alt="Berlin TV tower and the Spree river at blue hour" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<span aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,10,0.1) 30%, rgba(10,10,10,0.85) 100%)"></span>
+<span style="position: absolute; left: 16px; top: 16px; display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; background: #FFFFFF; color: #0A0A0A; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.08em">Applications Open</span>
+<span style="position: absolute; right: 16px; top: 16px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.1em; color: #FFFFFF">STOP 6/9</span>
+<span style="position: absolute; left: 16px; bottom: 14px; font-size: 30px; font-weight: 900; letter-spacing: -0.03em; color: #FFFFFF">Berlin</span>
+</a>
+<div style="flex: 1; display: flex; flex-direction: column; padding: 22px">
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #D4D4D4">December 5–6, 2026 · Factory Berlin</div>
+<h4 style="margin: 12px 0 0; font-size: 18px; line-height: 1.3; font-weight: 800; color: #FFFFFF">Berlin — Industrial SCADA Automation, Automotive Edge &amp; Hardware Security</h4>
+<p style="margin: 10px 0 0; font-size: 14px; color: #B3B3B3; flex: 1">Real-time model inference embedded into automotive assembly lines, robotic manufacturing cells, and safety-critical industrial SCADA controllers.</p>
+<div style="margin-top: 16px; display: flex; flex-wrap: wrap; gap: 6px">
+
+<span style="padding: 3px 9px; border: 1px solid #3A3A3A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #D4D4D4">Automotive Edge</span>
+
+<span style="padding: 3px 9px; border: 1px solid #3A3A3A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #D4D4D4">SCADA RT</span>
+
+<span style="padding: 3px 9px; border: 1px solid #3A3A3A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #D4D4D4">Safety Controls</span>
+
+<span style="padding: 3px 9px; background: #FFFFFF; color: #0A0A0A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 700">40 Seats</span>
+</div>
+<div style="margin-top: 18px; padding-top: 14px; border-top: 1px solid #262626; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px">
+<a href="/summits/berlin-2026.html" style="display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; border-bottom: 1px solid #FFFFFF">View Summit Details →</a>
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #A8A8A8">RSVP: <a href="https://lu.ma" style="color: #FFFFFF">Lu.ma</a> · <a href="https://www.eventbrite.com" style="color: #FFFFFF">Eventbrite</a></span>
+</div>
+</div>
+</article>
+
+</div>
+</div>
+
+<div id="circuit-3" style="margin-top: 72px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 32px; padding-bottom: 18px; border-bottom: 1px solid #FFFFFF">
+<div>
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.14em; color: #A8A8A8">CIRCUIT PHASE 03 • Q4 2026</div>
+<h3 style="margin: 8px 0 0; font-size: clamp(24px, 2.6vw, 34px); font-weight: 900; letter-spacing: -0.02em; color: #FFFFFF">Middle East &amp; Asia-Pacific Expansion</h3>
+<p style="margin: 6px 0 0; font-size: 15px; color: #B3B3B3; max-width: 640px">National sovereign LLM clusters, hyper-scale real-time transaction gateways, and remote industrial edge fleets.</p>
+</div>
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.08em; color: #FFFFFF">3 SUMMITS • 120 TOTAL SEATS</div>
+</div>
+<div style="margin-top: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 20px">
+
+<article class="sx-card" style="display: flex; flex-direction: column; border: 1px solid #262626; border-radius: 4px; background: #0F0F0F; overflow: hidden">
+<a href="/summits/dubai-2026.html" class="sx-photo" aria-label="Dubai summit details" style="position: relative; display: block; height: 200px; overflow: hidden; background: #151515">
+<img src="/public/x/img/summit-dubai.jpg" alt="Dubai skyline with the Museum of the Future at dusk" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<span aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,10,0.1) 30%, rgba(10,10,10,0.85) 100%)"></span>
+<span style="position: absolute; left: 16px; top: 16px; display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; background: #FFFFFF; color: #0A0A0A; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.08em">Applications Open</span>
+<span style="position: absolute; right: 16px; top: 16px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.1em; color: #FFFFFF">STOP 7/9</span>
+<span style="position: absolute; left: 16px; bottom: 14px; font-size: 30px; font-weight: 900; letter-spacing: -0.03em; color: #FFFFFF">Dubai</span>
+</a>
+<div style="flex: 1; display: flex; flex-direction: column; padding: 22px">
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #D4D4D4">December 12–13, 2026 · DIFC &amp; Museum of the Future</div>
+<h4 style="margin: 12px 0 0; font-size: 18px; line-height: 1.3; font-weight: 800; color: #FFFFFF">Dubai — Sovereign Energy Grids, Upstream Oil &amp; Gas Telemetry &amp; High-Cap Compute</h4>
+<p style="margin: 10px 0 0; font-size: 14px; color: #B3B3B3; flex: 1">High-density frontier model infrastructure powering remote oil rigs, regional sovereign cloud enclaves, and autonomous desalination &amp; microgrid balancing.</p>
+<div style="margin-top: 16px; display: flex; flex-wrap: wrap; gap: 6px">
+
+<span style="padding: 3px 9px; border: 1px solid #3A3A3A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #D4D4D4">Upstream Energy</span>
+
+<span style="padding: 3px 9px; border: 1px solid #3A3A3A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #D4D4D4">Sovereign Enclave</span>
+
+<span style="padding: 3px 9px; border: 1px solid #3A3A3A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #D4D4D4">Desalination</span>
+
+<span style="padding: 3px 9px; background: #FFFFFF; color: #0A0A0A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 700">40 Seats</span>
+</div>
+<div style="margin-top: 18px; padding-top: 14px; border-top: 1px solid #262626; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px">
+<a href="/summits/dubai-2026.html" style="display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; border-bottom: 1px solid #FFFFFF">View Summit Details →</a>
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #A8A8A8">RSVP: <a href="https://lu.ma" style="color: #FFFFFF">Lu.ma</a> · <a href="https://www.eventbrite.com" style="color: #FFFFFF">Eventbrite</a></span>
+</div>
+</div>
+</article>
+
+<article class="sx-card" style="display: flex; flex-direction: column; border: 1px solid #262626; border-radius: 4px; background: #0F0F0F; overflow: hidden">
+<a href="/summits/mumbai-2026.html" class="sx-photo" aria-label="Mumbai summit details" style="position: relative; display: block; height: 200px; overflow: hidden; background: #151515">
+<img src="/public/x/img/summit-mumbai.jpg" alt="Mumbai skyline and the Bandra-Worli Sea Link at night" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<span aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,10,0.1) 30%, rgba(10,10,10,0.85) 100%)"></span>
+<span style="position: absolute; left: 16px; top: 16px; display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; background: #FFFFFF; color: #0A0A0A; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.08em">Applications Open</span>
+<span style="position: absolute; right: 16px; top: 16px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.1em; color: #FFFFFF">STOP 8/9</span>
+<span style="position: absolute; left: 16px; bottom: 14px; font-size: 30px; font-weight: 900; letter-spacing: -0.03em; color: #FFFFFF">Mumbai</span>
+</a>
+<div style="flex: 1; display: flex; flex-direction: column; padding: 22px">
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #D4D4D4">December 19–20, 2026 · Jio World Convention Centre</div>
+<h4 style="margin: 12px 0 0; font-size: 18px; line-height: 1.3; font-weight: 800; color: #FFFFFF">Mumbai — Hyper-Scale BFSI Transaction Gateways &amp; Sovereign Telecom AI Stacks</h4>
+<p style="margin: 10px 0 0; font-size: 14px; color: #B3B3B3; flex: 1">High-throughput reasoning architectures handling billions of daily real-time UPI and telecom telemetry transactions with zero downtime and strict domestic data localization.</p>
+<div style="margin-top: 16px; display: flex; flex-wrap: wrap; gap: 6px">
+
+<span style="padding: 3px 9px; border: 1px solid #3A3A3A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #D4D4D4">UPI Telemetry</span>
+
+<span style="padding: 3px 9px; border: 1px solid #3A3A3A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #D4D4D4">RBI Compliance</span>
+
+<span style="padding: 3px 9px; border: 1px solid #3A3A3A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #D4D4D4">5G Stacks</span>
+
+<span style="padding: 3px 9px; background: #FFFFFF; color: #0A0A0A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 700">40 Seats</span>
+</div>
+<div style="margin-top: 18px; padding-top: 14px; border-top: 1px solid #262626; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px">
+<a href="/summits/mumbai-2026.html" style="display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; border-bottom: 1px solid #FFFFFF">View Summit Details →</a>
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #A8A8A8">RSVP: <a href="https://lu.ma" style="color: #FFFFFF">Lu.ma</a> · <a href="https://www.eventbrite.com" style="color: #FFFFFF">Eventbrite</a></span>
+</div>
+</div>
+</article>
+
+<article class="sx-card" style="display: flex; flex-direction: column; border: 1px solid #262626; border-radius: 4px; background: #0F0F0F; overflow: hidden">
+<a href="/summits/melbourne-2026.html" class="sx-photo" aria-label="Melbourne summit details" style="position: relative; display: block; height: 200px; overflow: hidden; background: #151515">
+<img src="/public/x/img/summit-melbourne.jpg" alt="Melbourne skyline and South Wharf on the Yarra at dusk" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<span aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,10,0.1) 30%, rgba(10,10,10,0.85) 100%)"></span>
+<span style="position: absolute; left: 16px; top: 16px; display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; background: #FFFFFF; color: #0A0A0A; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.08em">Applications Open</span>
+<span style="position: absolute; right: 16px; top: 16px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.1em; color: #FFFFFF">STOP 9/9</span>
+<span style="position: absolute; left: 16px; bottom: 14px; font-size: 30px; font-weight: 900; letter-spacing: -0.03em; color: #FFFFFF">Melbourne</span>
+</a>
+<div style="flex: 1; display: flex; flex-direction: column; padding: 22px">
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #D4D4D4">December 26–27, 2026 · MCEC South Wharf</div>
+<h4 style="margin: 12px 0 0; font-size: 18px; line-height: 1.3; font-weight: 800; color: #FFFFFF">Melbourne — Autonomous Heavy Mining Fleets, Natural Resources &amp; Remote Edge Compute</h4>
+<p style="margin: 10px 0 0; font-size: 14px; color: #B3B3B3; flex: 1">Ruggedized edge AI compute powering autonomous haulage trucks, sub-surface seismic exploration models, and isolated mine site orchestration.</p>
+<div style="margin-top: 16px; display: flex; flex-wrap: wrap; gap: 6px">
+
+<span style="padding: 3px 9px; border: 1px solid #3A3A3A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #D4D4D4">Autonomous Fleets</span>
+
+<span style="padding: 3px 9px; border: 1px solid #3A3A3A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #D4D4D4">Seismic Models</span>
+
+<span style="padding: 3px 9px; border: 1px solid #3A3A3A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #D4D4D4">Mining AI</span>
+
+<span style="padding: 3px 9px; background: #FFFFFF; color: #0A0A0A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 700">40 Seats</span>
+</div>
+<div style="margin-top: 18px; padding-top: 14px; border-top: 1px solid #262626; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px">
+<a href="/summits/melbourne-2026.html" style="display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; border-bottom: 1px solid #FFFFFF">View Summit Details →</a>
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #A8A8A8">RSVP: <a href="https://lu.ma" style="color: #FFFFFF">Lu.ma</a> · <a href="https://www.eventbrite.com" style="color: #FFFFFF">Eventbrite</a></span>
+</div>
+</div>
+</article>
+
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- AGENDA -->
+<section id="agenda" style="position: relative; overflow: hidden; border-bottom: 1px solid #222222; background: #0C0C0C">
+<div style="position: relative; max-width: 1240px; margin: 0 auto; padding: 112px 24px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 32px; align-items: end">
+<div>
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.16em; color: #FFFFFF">04 / TECHNICAL AGENDA</div>
+<h2 style="margin: 20px 0 0; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.04; letter-spacing: -0.035em; font-weight: 900; color: #FFFFFF">Architecture Teardown Sessions</h2>
+</div>
+<p style="margin: 0; font-size: 17px; color: #B3B3B3">Every session centers on architecture diagrams, kernel optimization profiles, latency traces, and live infrastructure code.</p>
+</div>
+<ol style="list-style: none; margin: 56px 0 0; padding: 0; border-top: 1px solid #FFFFFF">
+
+<li class="sx-card" style="display: flex; flex-wrap: wrap; gap: 12px 40px; padding: 32px 0; border-bottom: 1px solid #262626">
+<div style="flex: 0 0 220px">
+<div style="font-size: 56px; font-weight: 900; letter-spacing: -0.04em; line-height: 0.9; color: transparent; -webkit-text-stroke: 1.2px #FFFFFF">01</div>
+<div style="margin-top: 12px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.12em; color: #A8A8A8">MODEL QUANTIZATION &amp; KERNEL TUNING</div>
+</div>
+<div style="flex: 1 1 480px; min-width: 0">
+<h3 style="margin: 0; font-size: clamp(20px, 2.2vw, 26px); font-weight: 800; letter-spacing: -0.015em; color: #FFFFFF">FP8 / FP4 Serving Without Accuracy Degradation</h3>
+<p style="margin: 10px 0 0; font-size: 15.5px; color: #B3B3B3; max-width: 760px">Deep dive into real-world benchmarks contrasting native FP16 execution with vLLM, TensorRT-LLM, and SGLang FP8 kernels across enterprise reasoning workloads. Live telemetry on GPU memory pressure and cache eviction.</p>
+</div>
+</li>
+
+<li class="sx-card" style="display: flex; flex-wrap: wrap; gap: 12px 40px; padding: 32px 0; border-bottom: 1px solid #262626">
+<div style="flex: 0 0 220px">
+<div style="font-size: 56px; font-weight: 900; letter-spacing: -0.04em; line-height: 0.9; color: transparent; -webkit-text-stroke: 1.2px #FFFFFF">02</div>
+<div style="margin-top: 12px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.12em; color: #A8A8A8">ADVERSARIAL HARDENING</div>
+</div>
+<div style="flex: 1 1 480px; min-width: 0">
+<h3 style="margin: 0; font-size: clamp(20px, 2.2vw, 26px); font-weight: 800; letter-spacing: -0.015em; color: #FFFFFF">Eliminating Non-Deterministic Hallucinations in Critical Ops</h3>
+<p style="margin: 10px 0 0; font-size: 15.5px; color: #B3B3B3; max-width: 760px">Hard-constraint decoding, grammar-constrained sampling, and formal verification frameworks for frontier model outputs deployed in defense, energy grid balancing, and predictive healthcare pipelines.</p>
+</div>
+</li>
+
+<li class="sx-card" style="display: flex; flex-wrap: wrap; gap: 12px 40px; padding: 32px 0; border-bottom: 1px solid #262626">
+<div style="flex: 0 0 220px">
+<div style="font-size: 56px; font-weight: 900; letter-spacing: -0.04em; line-height: 0.9; color: transparent; -webkit-text-stroke: 1.2px #FFFFFF">03</div>
+<div style="margin-top: 12px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.12em; color: #A8A8A8">ENTERPRISE VPC TOPOLOGY</div>
+</div>
+<div style="flex: 1 1 480px; min-width: 0">
+<h3 style="margin: 0; font-size: clamp(20px, 2.2vw, 26px); font-weight: 800; letter-spacing: -0.015em; color: #FFFFFF">Zero-Trust Cross-Boundary Frontier Model Gateway</h3>
+<p style="margin: 10px 0 0; font-size: 15.5px; color: #B3B3B3; max-width: 760px">Reference architectures for embedding OpenAI, Anthropic, Google DeepMind, and open-weight models into multi-tenant VPCs with hardware security modules (HSMs) and zero plain-text data logging.</p>
+</div>
+</li>
+
+<li class="sx-card" style="display: flex; flex-wrap: wrap; gap: 12px 40px; padding: 32px 0; border-bottom: 1px solid #262626">
+<div style="flex: 0 0 220px">
+<div style="font-size: 56px; font-weight: 900; letter-spacing: -0.04em; line-height: 0.9; color: transparent; -webkit-text-stroke: 1.2px #FFFFFF">04</div>
+<div style="margin-top: 12px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.12em; color: #A8A8A8">TCO &amp; MODEL GOVERNANCE</div>
+</div>
+<div style="flex: 1 1 480px; min-width: 0">
+<h3 style="margin: 0; font-size: clamp(20px, 2.2vw, 26px); font-weight: 800; letter-spacing: -0.015em; color: #FFFFFF">Frontier Open Source vs. Closed Lab APIs: The 2026 Audit</h3>
+<p style="margin: 10px 0 0; font-size: 15.5px; color: #B3B3B3; max-width: 760px">Comprehensive capital expenditure and operational expenditure audit: training/fine-tuning cluster costs vs. token-based cloud bills at 100M+ tokens/day scale with full IP ownership.</p>
+</div>
+</li>
+
+</ol>
+</div>
+</section>
+
+<!-- COHORTS -->
+<section id="cohorts" style="border-bottom: 1px solid #222222; overflow: hidden">
+<div style="max-width: 1240px; margin: 0 auto; padding: 112px 24px 40px">
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.16em; color: #FFFFFF">05 / PARTICIPATING COHORTS</div>
+<h2 style="margin: 20px 0 0; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.04; letter-spacing: -0.035em; font-weight: 900; color: #FFFFFF">Attending Organizations</h2>
+<h3 style="margin: 48px 0 0; font-size: 15px; font-weight: 600; color: #B3B3B3">Enterprise Infrastructure &amp; Mission-Critical Operators</h3>
+</div>
+<div style="position: relative; overflow: hidden; border-top: 1px solid #222222; border-bottom: 1px solid #222222">
+<div aria-hidden="true" style="position: absolute; left: 0; top: 0; bottom: 0; width: 80px; z-index: 2; background: linear-gradient(90deg, #0A0A0A, transparent)"></div>
+<div aria-hidden="true" style="position: absolute; right: 0; top: 0; bottom: 0; width: 80px; z-index: 2; background: linear-gradient(270deg, #0A0A0A, transparent)"></div>
+<div class="sx-marquee">
+
+<div style="display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 10px; padding: 26px 40px; border-right: 1px solid #222222; min-width: 230px">
+<img src="/public/x/img/logo-shell.png" alt="Shell" style="height: 44px; width: auto; display: block">
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.06em; color: #A8A8A8; white-space: nowrap">Global Energy • Upstream AI</span>
+</div>
+
+<div style="display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 10px; padding: 26px 40px; border-right: 1px solid #222222; min-width: 230px">
+<img src="/public/x/img/logo-us-air-force.png" alt="U.S. Air Force" style="height: 44px; width: auto; display: block">
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.06em; color: #A8A8A8; white-space: nowrap">Rapid Sustainment • Defense Ops</span>
+</div>
+
+<div style="display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 10px; padding: 26px 40px; border-right: 1px solid #222222; min-width: 230px">
+<img src="/public/x/img/logo-baker-hughes.png" alt="Baker Hughes" style="height: 28px; width: auto; display: block">
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.06em; color: #A8A8A8; white-space: nowrap">Energy Tech • Industrial AI</span>
+</div>
+
+<div style="display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 10px; padding: 26px 40px; border-right: 1px solid #222222; min-width: 230px">
+<img src="/public/x/img/logo-con-edison.png" alt="Con Edison" style="height: 28px; width: auto; display: block">
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.06em; color: #A8A8A8; white-space: nowrap">Grid Reliability • NYC Metro</span>
+</div>
+
+<div style="display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 10px; padding: 26px 40px; border-right: 1px solid #222222; min-width: 230px">
+<img src="/public/x/img/logo-holcim.png" alt="Holcim" style="height: 28px; width: auto; display: block">
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.06em; color: #A8A8A8; white-space: nowrap">Global Building Materials • Plants</span>
+</div>
+
+<div style="display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 10px; padding: 26px 40px; border-right: 1px solid #222222; min-width: 230px">
+<img src="/public/x/img/logo-dla.png" alt="Dept of Defense" style="height: 48px; width: auto; display: block">
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.06em; color: #A8A8A8; white-space: nowrap">Predictive Readiness • Logistics</span>
+</div>
+
+<div style="display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 10px; padding: 26px 40px; border-right: 1px solid #222222; min-width: 230px">
+<img src="/public/x/img/logo-koch.png" alt="Koch Industries" style="height: 24px; width: auto; display: block">
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.06em; color: #A8A8A8; white-space: nowrap">Manufacturing • Supply Chains</span>
+</div>
+
+<div style="display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 10px; padding: 26px 40px; border-right: 1px solid #222222; min-width: 230px">
+<img src="/public/x/img/logo-smithrx.png" alt="SmithRx" style="height: 30px; width: auto; display: block">
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.06em; color: #A8A8A8; white-space: nowrap">Health Tech • Pharmacy Data</span>
+</div>
+
+<div style="display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 10px; padding: 26px 40px; border-right: 1px solid #222222; min-width: 230px">
+<img src="/public/x/img/logo-shell.png" alt="Shell" style="height: 44px; width: auto; display: block">
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.06em; color: #A8A8A8; white-space: nowrap">Global Energy • Upstream AI</span>
+</div>
+
+<div style="display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 10px; padding: 26px 40px; border-right: 1px solid #222222; min-width: 230px">
+<img src="/public/x/img/logo-us-air-force.png" alt="U.S. Air Force" style="height: 44px; width: auto; display: block">
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.06em; color: #A8A8A8; white-space: nowrap">Rapid Sustainment • Defense Ops</span>
+</div>
+
+<div style="display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 10px; padding: 26px 40px; border-right: 1px solid #222222; min-width: 230px">
+<img src="/public/x/img/logo-baker-hughes.png" alt="Baker Hughes" style="height: 28px; width: auto; display: block">
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.06em; color: #A8A8A8; white-space: nowrap">Energy Tech • Industrial AI</span>
+</div>
+
+<div style="display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 10px; padding: 26px 40px; border-right: 1px solid #222222; min-width: 230px">
+<img src="/public/x/img/logo-con-edison.png" alt="Con Edison" style="height: 28px; width: auto; display: block">
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.06em; color: #A8A8A8; white-space: nowrap">Grid Reliability • NYC Metro</span>
+</div>
+
+<div style="display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 10px; padding: 26px 40px; border-right: 1px solid #222222; min-width: 230px">
+<img src="/public/x/img/logo-holcim.png" alt="Holcim" style="height: 28px; width: auto; display: block">
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.06em; color: #A8A8A8; white-space: nowrap">Global Building Materials • Plants</span>
+</div>
+
+<div style="display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 10px; padding: 26px 40px; border-right: 1px solid #222222; min-width: 230px">
+<img src="/public/x/img/logo-dla.png" alt="Dept of Defense" style="height: 48px; width: auto; display: block">
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.06em; color: #A8A8A8; white-space: nowrap">Predictive Readiness • Logistics</span>
+</div>
+
+<div style="display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 10px; padding: 26px 40px; border-right: 1px solid #222222; min-width: 230px">
+<img src="/public/x/img/logo-koch.png" alt="Koch Industries" style="height: 24px; width: auto; display: block">
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.06em; color: #A8A8A8; white-space: nowrap">Manufacturing • Supply Chains</span>
+</div>
+
+<div style="display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 10px; padding: 26px 40px; border-right: 1px solid #222222; min-width: 230px">
+<img src="/public/x/img/logo-smithrx.png" alt="SmithRx" style="height: 30px; width: auto; display: block">
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.06em; color: #A8A8A8; white-space: nowrap">Health Tech • Pharmacy Data</span>
+</div>
+
+</div>
+</div>
+<div style="max-width: 1240px; margin: 0 auto; padding: 48px 24px 112px">
+<h3 style="margin: 0; font-size: 15px; font-weight: 600; color: #B3B3B3">Frontier Model Ecosystem &amp; Research Labs Represented</h3>
+<div style="margin-top: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 12px">
+
+<div class="sx-card" style="padding: 20px; border: 1px solid #262626; border-radius: 4px; background: #0F0F0F">
+<div style="font-size: 18px; font-weight: 800; color: #FFFFFF">OpenAI</div>
+<div style="margin-top: 6px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #A8A8A8">GPT-4o / o1 Architecture</div>
+</div>
+
+<div class="sx-card" style="padding: 20px; border: 1px solid #262626; border-radius: 4px; background: #0F0F0F">
+<div style="font-size: 18px; font-weight: 800; color: #FFFFFF">Anthropic</div>
+<div style="margin-top: 6px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #A8A8A8">Claude 3.5 Sonnet / Opus</div>
+</div>
+
+<div class="sx-card" style="padding: 20px; border: 1px solid #262626; border-radius: 4px; background: #0F0F0F">
+<div style="font-size: 18px; font-weight: 800; color: #FFFFFF">Google DeepMind</div>
+<div style="margin-top: 6px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #A8A8A8">Gemini 1.5 Pro / Flash</div>
+</div>
+
+<div class="sx-card" style="padding: 20px; border: 1px solid #262626; border-radius: 4px; background: #0F0F0F">
+<div style="font-size: 18px; font-weight: 800; color: #FFFFFF">Meta AI</div>
+<div style="margin-top: 6px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #A8A8A8">Llama 3.1 405B / 70B</div>
+</div>
+
+<div class="sx-card" style="padding: 20px; border: 1px solid #262626; border-radius: 4px; background: #0F0F0F">
+<div style="font-size: 18px; font-weight: 800; color: #FFFFFF">DeepSeek</div>
+<div style="margin-top: 6px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #A8A8A8">DeepSeek-V3 / R1 MoE</div>
+</div>
+
+<div class="sx-card" style="padding: 20px; border: 1px solid #262626; border-radius: 4px; background: #0F0F0F">
+<div style="font-size: 18px; font-weight: 800; color: #FFFFFF">Mistral AI</div>
+<div style="margin-top: 6px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #A8A8A8">Mistral Large 2 / Pixtral</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- CHANNELS -->
+<section style="border-bottom: 1px solid #222222; background: #0C0C0C">
+<div style="max-width: 1240px; margin: 0 auto; padding: 112px 24px">
+<div style="max-width: 780px">
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.16em; color: #FFFFFF">06 / CROSS-PLATFORM AVAILABILITY</div>
+<h2 style="margin: 20px 0 0; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.04; letter-spacing: -0.035em; font-weight: 900; color: #FFFFFF">Official Listing &amp; Verification Channels</h2>
+</div>
+<div style="margin-top: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 20px">
+
+<div class="sx-card" style="display: flex; flex-direction: column; padding: 32px; border: 1px solid #2A2A2A; border-radius: 4px; background: #0F0F0F">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px">
+<h3 style="margin: 0; font-size: 28px; font-weight: 900; color: #FFFFFF">Lu.ma</h3>
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.1em; color: #A8A8A8">EXECUTIVE CALENDAR • MOBILE PASSES</span>
+</div>
+<p style="margin: 14px 0 0; font-size: 15px; color: #B3B3B3">Direct RSVP synchronization for executive guests. Automated integration with Google Calendar, Outlook 365, and Apple Wallet. Private peer guest directories vetted under Chatham House Rule credentials.</p>
+<ul style="margin: 18px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; flex: 1">
+
+<li style="display: flex; gap: 10px; font-size: 14px; color: #D4D4D4"><span aria-hidden="true" style="color: #FFFFFF">→</span>Instant Calendar Hold • Direct Google &amp; Outlook .ics Sync</li>
+
+<li style="display: flex; gap: 10px; font-size: 14px; color: #D4D4D4"><span aria-hidden="true" style="color: #FFFFFF">→</span>Confidential Guest List Verification • No Public Scraping</li>
+
+<li style="display: flex; gap: 10px; font-size: 14px; color: #D4D4D4"><span aria-hidden="true" style="color: #FFFFFF">→</span>Direct Executive Mobile Pass QR • On-Site Biometric Check-in</li>
+
+</ul>
+<a href="https://lu.ma" class="sx-btn sx-btn-ghost" style="margin-top: 24px; align-self: flex-start; display: inline-flex; align-items: center; min-height: 48px; padding: 0 20px; border: 1px solid #FFFFFF; border-radius: 2px; font-weight: 700">View Summits on Lu.ma ↗</a>
+</div>
+
+<div class="sx-card" style="display: flex; flex-direction: column; padding: 32px; border: 1px solid #2A2A2A; border-radius: 4px; background: #0F0F0F">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px">
+<h3 style="margin: 0; font-size: 28px; font-weight: 900; color: #FFFFFF">Eventbrite</h3>
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.1em; color: #A8A8A8">CORPORATE PROCUREMENT • INVOICING • PO</span>
+</div>
+<p style="margin: 14px 0 0; font-size: 15px; color: #B3B3B3">Institutional purchasing pathways for enterprise organizations, public sector entities, and defense contractors. Streamlined vendor compliance, Net 30 corporate PO invoicing, and centralized expense auditing.</p>
+<ul style="margin: 18px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; flex: 1">
+
+<li style="display: flex; gap: 10px; font-size: 14px; color: #D4D4D4"><span aria-hidden="true" style="color: #FFFFFF">→</span>Enterprise PO &amp; Institutional Invoicing Compliance</li>
+
+<li style="display: flex; gap: 10px; font-size: 14px; color: #D4D4D4"><span aria-hidden="true" style="color: #FFFFFF">→</span>Multi-Seat Enterprise Delegation &amp; Group Billing Passes</li>
+
+<li style="display: flex; gap: 10px; font-size: 14px; color: #D4D4D4"><span aria-hidden="true" style="color: #FFFFFF">→</span>Centralized Tax Receipting &amp; W-9 / Vendor Packets</li>
+
+</ul>
+<a href="https://www.eventbrite.com" class="sx-btn sx-btn-ghost" style="margin-top: 24px; align-self: flex-start; display: inline-flex; align-items: center; min-height: 48px; padding: 0 20px; border: 1px solid #FFFFFF; border-radius: 2px; font-weight: 700">View Summits on Eventbrite ↗</a>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- APPLY -->
+<section id="apply" style="position: relative; overflow: hidden; border-bottom: 1px solid #222222">
+<img class="sx-zoom" src="/public/x/img/summit-roundtable.jpg" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.22">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(90deg, #0A0A0A 0%, rgba(10,10,10,0.9) 60%, rgba(10,10,10,0.8) 100%)"></div>
+<div style="position: relative; max-width: 1240px; margin: 0 auto; padding: 112px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 56px; align-items: start">
+<div>
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.16em; color: #FFFFFF">07 / CONFIDENTIAL APPLICATION</div>
+<h2 style="margin: 20px 0 0; font-size: clamp(40px, 5vw, 66px); line-height: 1; letter-spacing: -0.04em; font-weight: 900; color: #FFFFFF">Request an Invitation</h2>
+<p style="margin: 20px 0 0; font-size: 17px; color: #C2C2C2">Invitations are strictly non-transferable and subject to peer committee verification. Please use your corporate or government executive email.</p>
+<div style="margin-top: 36px; padding: 24px; border: 1px solid #333333; border-radius: 4px; background: rgba(15,15,15,0.85)">
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.12em; color: #A8A8A8">PROCUREMENT &amp; CALENDAR OPTIONS</div>
+<h3 style="margin: 10px 0 0; font-size: 19px; font-weight: 800; color: #FFFFFF">Prefer Direct Registration on Lu.ma or Eventbrite?</h3>
+<p style="margin: 8px 0 0; font-size: 14px; color: #B3B3B3">For corporate purchasing orders, institutional invoicing, or 1-click calendar reservation, access verified listings directly:</p>
+<div style="margin-top: 16px; display: flex; flex-wrap: wrap; gap: 10px">
+<a href="https://lu.ma" class="sx-btn sx-btn-ghost" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border: 1px solid #FFFFFF; border-radius: 2px; font-weight: 700; font-size: 14px">RSVP via Lu.ma</a>
+<a href="https://www.eventbrite.com" class="sx-btn sx-btn-ghost" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border: 1px solid #FFFFFF; border-radius: 2px; font-weight: 700; font-size: 14px">Procure on Eventbrite</a>
+</div>
+</div>
+</div>
+
+<div style="border: 1px solid #333333; border-radius: 4px; background: rgba(13,13,13,0.94); overflow: hidden">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 18px; border-bottom: 1px solid #262626; background: #141414; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.12em; color: #A8A8A8">
+<span>APPLICATION · NDA</span>
+<span style="display: flex; align-items: center; gap: 6px; color: #FFFFFF"><span class="sx-blink" style="width: 6px; height: 6px; border-radius: 50%; background: #FFFFFF"></span>SECURE</span>
+</div>
+
+
+<form style="padding: 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 18px">
+<div class="sx-field"><label for="sx-name" style="display: block; margin-bottom: 6px; font-size: 13px; font-weight: 600; color: #D4D4D4">Full Name *</label><input id="sx-name" type="text" required="" autocomplete="name" placeholder="Jane Doe"></div>
+<div class="sx-field"><label for="sx-email" style="display: block; margin-bottom: 6px; font-size: 13px; font-weight: 600; color: #D4D4D4">Enterprise Work Email *</label><input id="sx-email" type="email" required="" autocomplete="email" placeholder="jane@enterprise.com"></div>
+<div class="sx-field"><label for="sx-org" style="display: block; margin-bottom: 6px; font-size: 13px; font-weight: 600; color: #D4D4D4">Organization / Agency *</label><input id="sx-org" type="text" required="" autocomplete="organization" placeholder="e.g. Shell, Con Edison, USAF"></div>
+<div class="sx-field"><label for="sx-title" style="display: block; margin-bottom: 6px; font-size: 13px; font-weight: 600; color: #D4D4D4">Official Title *</label><input id="sx-title" type="text" required="" autocomplete="organization-title" placeholder="CTO / Head of Infrastructure / Chief Architect"></div>
+<div class="sx-field" style="grid-column: 1 / -1"><label for="sx-summit" style="display: block; margin-bottom: 6px; font-size: 13px; font-weight: 600; color: #D4D4D4">Select Summit Location *</label>
+<select id="sx-summit" required="">
+<option value="">Select location &amp; date</option>
+
+<option value=""></option>
+
+</select></div>
+<div class="sx-field" style="grid-column: 1 / -1"><label for="sx-models" style="display: block; margin-bottom: 6px; font-size: 13px; font-weight: 600; color: #D4D4D4">Primary Frontier Model(s) Deployed</label><input id="sx-models" type="text" placeholder="e.g. Claude 3.5, Llama 3.1 405B, Gemini, DeepSeek"></div>
+<div class="sx-field" style="grid-column: 1 / -1"><label for="sx-scope" style="display: block; margin-bottom: 6px; font-size: 13px; font-weight: 600; color: #D4D4D4">Production Deployment Scope / Core Architecture Bottleneck</label><textarea id="sx-scope" rows="3" placeholder="Brief summary of your production scale, air-gap requirements, or latency targets."></textarea></div>
+<button type="submit" class="sx-btn sx-btn-solid" style="grid-column: 1 / -1; min-height: 54px; border: 0; border-radius: 2px; background: #FFFFFF; color: #0A0A0A; font: inherit; font-weight: 800; letter-spacing: 0.04em; cursor: pointer">Submit Confidential Request →</button>
+</form>
+
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer style="padding: 64px 0 40px; overflow: hidden">
+<div style="max-width: 1240px; margin: 0 auto; padding: 0 24px; display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 40px">
+<div style="max-width: 360px">
+<a href="/" aria-label="Stage-X Space home" style="display: inline-flex; min-height: 44px; align-items: center"><img src="/public/x/img/stagex-logo.png" alt="Stage-X Space" style="height: 56px; width: auto; display: block"></a>
+<p style="margin: 16px 0 0; font-size: 14px; color: #9A9A9A">Open Source • MIT &amp; Apache 2.0 Licensed</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(140px, 1fr)); gap: 10px 48px; font-size: 14px">
+<a href="/" style="color: #B3B3B3">Home</a>
+<a href="#calendar" style="color: #B3B3B3">All 9 Summits</a>
+<a href="#agenda" style="color: #B3B3B3">Technical Agenda</a>
+<a href="#cohorts" style="color: #B3B3B3">Cohorts</a>
+<a href="https://lu.ma" style="color: #B3B3B3">Lu.ma</a>
+<a href="https://www.eventbrite.com" style="color: #B3B3B3">Eventbrite</a>
+<a href="#apply" style="color: #FFFFFF; font-weight: 700">Request Invite →</a>
+</div>
+</div>
+<div style="max-width: 1240px; margin: 48px auto 0; padding: 24px 24px 0; border-top: 1px solid #222222; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #8A8A8A">
+<span>© 2026 STAGE-X.SPACE</span><span>CHATHAM HOUSE RULE APPLIES</span>
+</div>
+</footer>
+
+</div></main>
+<template id="sx-template"><div class="{{motionClass}}" style="width: 100%; background: #0A0A0A; color: #EDEDED; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased">
+
+<!-- NAV -->
+<header style="position: sticky; top: 0; z-index: 30; background: rgba(10,10,10,0.82); backdrop-filter: blur(14px); border-bottom: 1px solid #222222">
+<div style="max-width: 1240px; margin: 0 auto; padding: 10px 24px; display: flex; align-items: center; justify-content: space-between; gap: 24px">
+<a href="{{hrefHome}}" aria-label="Stage-X Space home" style="display: flex; align-items: center; min-height: 44px">
+<img src="/public/x/img/stagex-logo.png" alt="Stage-X Space" style="height: 40px; width: auto; display: block">
+</a>
+<nav class="sx-nav" aria-label="Primary" style="align-items: center; gap: 28px; font-size: 14px; font-weight: 500">
+<a href="{{hrefHome}}" style="color: #B3B3B3">Home</a>
+<a href="#calendar" style="color: #B3B3B3">Calendar</a>
+<a href="#circuits" style="color: #B3B3B3">Circuits</a>
+<a href="#agenda" style="color: #B3B3B3">Agenda</a>
+<a href="#cohorts" style="color: #B3B3B3">Cohorts</a>
+<a href="#summits-top" aria-current="page" style="color: #FFFFFF; border-bottom: 2px solid #FFFFFF; padding-bottom: 2px">Summits</a>
+</nav>
+<a href="#apply" class="sx-btn sx-btn-solid" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; background: #FFFFFF; color: #0A0A0A; font-weight: 700; font-size: 14px; border-radius: 2px">Request Invite
+<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+</a>
+</div>
+</header>
+
+<!-- HERO -->
+<section id="summits-top" style="position: relative; overflow: hidden; border-bottom: 1px solid #222222">
+<img class="sx-zoom" src="/public/x/img/summit-roundtable.jpg" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.6">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(90deg, #0A0A0A 0%, rgba(10,10,10,0.88) 42%, rgba(10,10,10,0.4) 100%)"></div>
+<div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, #0A0A0A 100%)"></div>
+<div style="position: relative; max-width: 1240px; margin: 0 auto; padding: 112px 24px 64px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 48px; align-items: end">
+<div>
+<div class="sx-rise" style="display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px 6px 10px; border: 1px solid #3A3A3A; border-radius: 999px; background: rgba(17,17,17,0.8); font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.06em; color: #D4D4D4">
+<span class="sx-rec" style="width: 8px; height: 8px; border-radius: 50%; background: #FF3B30"></span>
+INVITATION ONLY · CHATHAM HOUSE RULE
+</div>
+<h1 class="sx-rise sx-d1" style="margin: 26px 0 0; font-size: clamp(42px, 6.2vw, 80px); line-height: 1; letter-spacing: -0.04em; font-weight: 900; color: #FFFFFF">Frontier Model Enterprise <span class="sx-outline">Summits</span></h1>
+<p class="sx-rise sx-d2" style="margin: 24px 0 0; max-width: 580px; font-size: clamp(17px, 1.6vw, 20px); color: #D4D4D4">Bringing together Chief Architects, Enterprise Infrastructure Leaders, and Frontier AI Research Lab Leads.</p>
+<p class="sx-rise sx-d2" style="margin: 12px 0 0; max-width: 580px; font-size: 16px; color: #A8A8A8">Zero sales decks. Raw operational telemetry, air-gapped deployment topologies, and battle-tested production post-mortems.</p>
+<div class="sx-rise sx-d3" style="margin-top: 34px; display: flex; flex-wrap: wrap; gap: 12px">
+<a href="#apply" class="sx-btn sx-btn-solid" style="display: inline-flex; align-items: center; gap: 10px; min-height: 54px; padding: 0 26px; background: #FFFFFF; color: #0A0A0A; font-weight: 700; border-radius: 2px">Request Invitation
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+</a>
+<a href="#calendar" class="sx-btn sx-btn-ghost" style="display: inline-flex; align-items: center; gap: 10px; min-height: 54px; padding: 0 26px; border: 1px solid #FFFFFF; color: #FFFFFF; font-weight: 600; border-radius: 2px">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+Q4 2026 Calendar</a>
+</div>
+</div>
+
+<!-- Countdown -->
+<div class="sx-rise sx-d3" style="justify-self: stretch; border: 1px solid #333333; border-radius: 4px; background: rgba(13,13,13,0.85); backdrop-filter: blur(10px); overflow: hidden">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 18px; border-bottom: 1px solid #262626; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.12em; color: #A8A8A8">
+<span>{{countdownLabel}}</span>
+<span style="display: flex; align-items: center; gap: 6px; color: #FFFFFF"><span class="sx-blink" style="width: 6px; height: 6px; border-radius: 50%; background: #FFFFFF"></span>T-MINUS</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr))">
+<sc-for list="{{countdown}}" as="cd" hint-placeholder-count="4">
+<div style="padding: 20px 8px 18px; text-align: center; border-right: 1px solid #262626">
+<div style="font-size: clamp(30px, 4vw, 48px); font-weight: 900; letter-spacing: -0.03em; line-height: 1; color: #FFFFFF; font-variant-numeric: tabular-nums">{{cd.v}}</div>
+<div style="margin-top: 8px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.16em; color: #8A8A8A">{{cd.k}}</div>
+</div>
+</sc-for>
+</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid #262626">
+<sc-for list="{{heroStats}}" as="hs" hint-placeholder-count="4">
+<div style="padding: 14px 10px; text-align: center; border-right: 1px solid #262626">
+<div style="font-size: 20px; font-weight: 800; color: #FFFFFF">{{hs.v}}</div>
+<div style="margin-top: 2px; font-size: 12px; color: #A8A8A8">{{hs.k}}</div>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+
+<!-- Listed on -->
+<div style="position: relative; max-width: 1240px; margin: 0 auto; padding: 0 24px 48px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.1em; color: #8A8A8A">
+<span>LISTED &amp; VERIFIED ON:</span>
+<a href="https://lu.ma" style="display: inline-flex; align-items: center; min-height: 44px; color: #FFFFFF; font-weight: 700">LU.MA ↗</a>
+<a href="https://www.eventbrite.com" style="display: inline-flex; align-items: center; min-height: 44px; color: #FFFFFF; font-weight: 700">EVENTBRITE ↗</a>
+</div>
+</section>
+
+<!-- PROTOCOLS -->
+<section style="border-bottom: 1px solid #222222">
+<div style="max-width: 1240px; margin: 0 auto; padding: 112px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 56px; align-items: start">
+<div>
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.16em; color: #FFFFFF">01 / ROUNDTABLE PROTOCOLS</div>
+<h2 style="margin: 20px 0 0; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.04; letter-spacing: -0.035em; font-weight: 900; color: #FFFFFF">Forty seats. <span class="sx-outline">No pitches.</span></h2>
+<!-- Seat map -->
+<figure style="margin: 40px 0 0; padding: 28px; border: 1px solid #262626; border-radius: 4px; background: #0F0F0F">
+<div role="img" aria-label="Seating plan: 40 seats around one table" style="position: relative; display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 10px; padding: 8px 0">
+<sc-for list="{{seats}}" as="st" hint-placeholder-count="40">
+<span class="{{st.c}}" style="display: block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #FFFFFF; {{st.style}}"></span>
+</sc-for>
+<div aria-hidden="true" style="position: absolute; left: 4%; right: 4%; top: 50%; height: 12px; margin-top: -6px; background: #262626; border-radius: 2px"></div>
+</div>
+<figcaption style="margin-top: 18px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.12em; color: #A8A8A8">
+<span>ONE TABLE · 40 PRINCIPALS</span><span>CAPPED PER SUMMIT</span>
+</figcaption>
+</figure>
+</div>
+<div style="display: flex; flex-direction: column; gap: 16px">
+<sc-for list="{{protocols}}" as="p" hint-placeholder-count="3">
+<div class="sx-card" style="display: flex; gap: 20px; padding: 28px; border: 1px solid #262626; border-radius: 4px; background: #0F0F0F">
+<div style="flex: none; width: 40px; height: 40px; display: grid; place-items: center; background: #FFFFFF; color: #0A0A0A; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; font-weight: 700">{{p.n}}</div>
+<div>
+<h3 style="margin: 0; font-size: 20px; font-weight: 800; color: #FFFFFF">{{p.title}}</h3>
+<p style="margin: 8px 0 0; font-size: 15px; color: #B3B3B3">{{p.body}}</p>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- CIRCUIT MAP -->
+<section id="circuits" style="position: relative; border-bottom: 1px solid #222222; background: #0C0C0C; overflow: hidden">
+<div aria-hidden="true" class="sx-gridbg" style="position: absolute; inset: 0"></div>
+<div style="position: relative; max-width: 1240px; margin: 0 auto; padding: 112px 24px 96px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 32px; align-items: end">
+<div>
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.16em; color: #FFFFFF">02 / TOUR STRUCTURE</div>
+<h2 style="margin: 20px 0 0; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.04; letter-spacing: -0.035em; font-weight: 900; color: #FFFFFF">Nine cities. Three circuits. <span class="sx-outline">One route.</span></h2>
+</div>
+<p style="margin: 0; font-size: 17px; color: #B3B3B3">A circuit is a regional tour phase of our global technical roadshow. Each circuit convenes three consecutive weekend roundtables (Saturdays &amp; Sundays) focused on regional infrastructure challenges, regulatory frameworks, and peer cohorts.</p>
+</div>
+
+<figure style="margin: 48px 0 0; border: 1px solid #2A2A2A; border-radius: 4px; background: rgba(10,10,10,0.7); overflow: hidden">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding: 12px 18px; border-bottom: 1px solid #262626; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.12em; color: #A8A8A8">
+<span>FIG.S1 · Q4 2026 CIRCUIT ROUTE</span><span>OCT 31 → DEC 27</span>
+</div>
+<div style="overflow-x: auto">
+<svg role="img" aria-label="Route map: San Francisco, New York, Boston, Toronto, London, Berlin, Dubai, Mumbai, Melbourne, in date order" viewBox="0 -40 1000 430" style="display: block; width: 100%; min-width: 720px; height: auto">
+<g stroke="#1E1E1E" stroke-width="1">
+<path d="M0 -40V390M125 -40V390M250 -40V390M375 -40V390M500 -40V390M625 -40V390M750 -40V390M875 -40V390M1000 -40V390"/>
+<path d="M0 0H1000M0 100H1000M0 200H1000M0 300H1000"/>
+</g>
+<path d="M0 214H1000" stroke="#333333" stroke-dasharray="2 6"/>
+<text x="6" y="208" fill="#5A5A5A" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1">EQUATOR</text>
+<g fill="none" stroke-width="2" stroke-linecap="round">
+<path class="sx-flow" stroke="#FFFFFF" d="M27 79 Q113 39 200 69 Q205 55 210 63 Q195 45 181 58"/>
+<path class="sx-flow" stroke="#BDBDBD" d="M181 58 Q322 -16 464 30 Q488 10 512 27"/>
+<path class="sx-flow" stroke="#8A8A8A" d="M512 27 Q610 40 662 124 Q700 110 725 146 Q900 170 982 349"/>
+</g>
+<circle r="5" fill="#FFFFFF">
+<animateMotion dur="16s" repeatCount="indefinite" path="M27 79 Q113 39 200 69 Q205 55 210 63 Q195 45 181 58 Q322 -16 464 30 Q488 10 512 27 Q610 40 662 124 Q700 110 725 146 Q900 170 982 349"/>
+</circle>
+<sc-for list="{{mapCities}}" as="mc" hint-placeholder-count="9">
+<g>
+<circle class="sx-pulse" cx="{{mc.x}}" cy="{{mc.y}}" r="9" fill="none" stroke="#FFFFFF" stroke-width="1"/>
+<circle cx="{{mc.x}}" cy="{{mc.y}}" r="4.5" fill="#FFFFFF"/>
+<text x="{{mc.lx}}" y="{{mc.ly}}" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" text-anchor="{{mc.anchor}}">{{mc.name}}</text>
+<text x="{{mc.lx}}" y="{{mc.dy}}" fill="#A8A8A8" font-family="JetBrains Mono, monospace" font-size="9.5" letter-spacing="0.6" text-anchor="{{mc.anchor}}">{{mc.short}}</text>
+</g>
+</sc-for>
+</svg>
+</div>
+</figure>
+
+<div style="margin-top: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px">
+<sc-for list="{{phases}}" as="ph" hint-placeholder-count="3">
+<a href="{{ph.anchor}}" class="sx-card" style="display: block; padding: 24px; border: 1px solid #262626; border-radius: 4px; background: #0F0F0F; color: inherit">
+<div style="display: flex; align-items: center; gap: 12px">
+<svg aria-hidden="true" width="44" height="6" viewBox="0 0 44 6"><path d="M0 3H44" stroke="{{ph.stroke}}" stroke-width="2" stroke-dasharray="6 6"/></svg>
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.12em; color: #FFFFFF">{{ph.label}}</span>
+</div>
+<div style="margin-top: 12px; font-size: 20px; font-weight: 800; color: #FFFFFF">{{ph.name}}</div>
+<div style="margin-top: 4px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #A8A8A8">{{ph.when}}</div>
+<p style="margin: 10px 0 0; font-size: 14px; color: #B3B3B3">{{ph.focus}}</p>
+</a>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- CALENDAR -->
+<section id="calendar" style="border-bottom: 1px solid #222222">
+<div style="max-width: 1240px; margin: 0 auto; padding: 112px 24px">
+<div style="max-width: 780px">
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.16em; color: #FFFFFF">03 / GLOBAL SCHEDULE</div>
+<h2 style="margin: 20px 0 0; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.04; letter-spacing: -0.035em; font-weight: 900; color: #FFFFFF">Q4 2026 Summit Calendar</h2>
+<p style="margin: 20px 0 0; font-size: 18px; color: #B3B3B3">Nine invitation-only technical roundtables convened across three international circuits. Strict 40-seat limits, peer-vetted VP/CTO cohorts, and binding Chatham House Rule confidentiality.</p>
+</div>
+
+<sc-for list="{{circuits}}" as="ci" hint-placeholder-count="3">
+<div id="{{ci.id}}" style="margin-top: 72px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 32px; padding-bottom: 18px; border-bottom: 1px solid #FFFFFF">
+<div>
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.14em; color: #A8A8A8">{{ci.label}}</div>
+<h3 style="margin: 8px 0 0; font-size: clamp(24px, 2.6vw, 34px); font-weight: 900; letter-spacing: -0.02em; color: #FFFFFF">{{ci.name}}</h3>
+<p style="margin: 6px 0 0; font-size: 15px; color: #B3B3B3; max-width: 640px">{{ci.focus}}</p>
+</div>
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.08em; color: #FFFFFF">{{ci.meta}}</div>
+</div>
+<div style="margin-top: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 20px">
+<sc-for list="{{ci.cities}}" as="c" hint-placeholder-count="3">
+<article class="sx-card" style="display: flex; flex-direction: column; border: 1px solid #262626; border-radius: 4px; background: #0F0F0F; overflow: hidden">
+<a href="{{c.href}}" class="sx-photo" aria-label="{{c.name}} summit details" style="position: relative; display: block; height: 200px; overflow: hidden; background: #151515">
+<img src="{{c.img}}" alt="{{c.alt}}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<span aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,10,0.1) 30%, rgba(10,10,10,0.85) 100%)"></span>
+<span style="position: absolute; left: 16px; top: 16px; display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; background: {{c.badgeBg}}; color: {{c.badgeFg}}; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.08em">{{c.status}}</span>
+<span style="position: absolute; right: 16px; top: 16px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.1em; color: #FFFFFF">STOP {{c.stop}}/9</span>
+<span style="position: absolute; left: 16px; bottom: 14px; font-size: 30px; font-weight: 900; letter-spacing: -0.03em; color: #FFFFFF">{{c.name}}</span>
+</a>
+<div style="flex: 1; display: flex; flex-direction: column; padding: 22px">
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #D4D4D4">{{c.dates}} · {{c.venue}}</div>
+<h4 style="margin: 12px 0 0; font-size: 18px; line-height: 1.3; font-weight: 800; color: #FFFFFF">{{c.title}}</h4>
+<p style="margin: 10px 0 0; font-size: 14px; color: #B3B3B3; flex: 1">{{c.desc}}</p>
+<div style="margin-top: 16px; display: flex; flex-wrap: wrap; gap: 6px">
+<sc-for list="{{c.tags}}" as="t" hint-placeholder-count="3">
+<span style="padding: 3px 9px; border: 1px solid #3A3A3A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #D4D4D4">{{t}}</span>
+</sc-for>
+<span style="padding: 3px 9px; background: #FFFFFF; color: #0A0A0A; border-radius: 999px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 700">40 Seats</span>
+</div>
+<div style="margin-top: 18px; padding-top: 14px; border-top: 1px solid #262626; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px">
+<a href="{{c.href}}" style="display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; border-bottom: 1px solid #FFFFFF">View Summit Details →</a>
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #A8A8A8">RSVP: <a href="https://lu.ma" style="color: #FFFFFF">Lu.ma</a> · <a href="https://www.eventbrite.com" style="color: #FFFFFF">Eventbrite</a></span>
+</div>
+</div>
+</article>
+</sc-for>
+</div>
+</div>
+</sc-for>
+</div>
+</section>
+
+<!-- AGENDA -->
+<section id="agenda" style="position: relative; overflow: hidden; border-bottom: 1px solid #222222; background: #0C0C0C">
+<div style="position: relative; max-width: 1240px; margin: 0 auto; padding: 112px 24px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 32px; align-items: end">
+<div>
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.16em; color: #FFFFFF">04 / TECHNICAL AGENDA</div>
+<h2 style="margin: 20px 0 0; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.04; letter-spacing: -0.035em; font-weight: 900; color: #FFFFFF">Architecture Teardown Sessions</h2>
+</div>
+<p style="margin: 0; font-size: 17px; color: #B3B3B3">Every session centers on architecture diagrams, kernel optimization profiles, latency traces, and live infrastructure code.</p>
+</div>
+<ol style="list-style: none; margin: 56px 0 0; padding: 0; border-top: 1px solid #FFFFFF">
+<sc-for list="{{agenda}}" as="ag" hint-placeholder-count="4">
+<li class="sx-card" style="display: flex; flex-wrap: wrap; gap: 12px 40px; padding: 32px 0; border-bottom: 1px solid #262626">
+<div style="flex: 0 0 220px">
+<div style="font-size: 56px; font-weight: 900; letter-spacing: -0.04em; line-height: 0.9; color: transparent; -webkit-text-stroke: 1.2px #FFFFFF">{{ag.n}}</div>
+<div style="margin-top: 12px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.12em; color: #A8A8A8">{{ag.track}}</div>
+</div>
+<div style="flex: 1 1 480px; min-width: 0">
+<h3 style="margin: 0; font-size: clamp(20px, 2.2vw, 26px); font-weight: 800; letter-spacing: -0.015em; color: #FFFFFF">{{ag.title}}</h3>
+<p style="margin: 10px 0 0; font-size: 15.5px; color: #B3B3B3; max-width: 760px">{{ag.body}}</p>
+</div>
+</li>
+</sc-for>
+</ol>
+</div>
+</section>
+
+<!-- COHORTS -->
+<section id="cohorts" style="border-bottom: 1px solid #222222; overflow: hidden">
+<div style="max-width: 1240px; margin: 0 auto; padding: 112px 24px 40px">
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.16em; color: #FFFFFF">05 / PARTICIPATING COHORTS</div>
+<h2 style="margin: 20px 0 0; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.04; letter-spacing: -0.035em; font-weight: 900; color: #FFFFFF">Attending Organizations</h2>
+<h3 style="margin: 48px 0 0; font-size: 15px; font-weight: 600; color: #B3B3B3">Enterprise Infrastructure &amp; Mission-Critical Operators</h3>
+</div>
+<div style="position: relative; overflow: hidden; border-top: 1px solid #222222; border-bottom: 1px solid #222222">
+<div aria-hidden="true" style="position: absolute; left: 0; top: 0; bottom: 0; width: 80px; z-index: 2; background: linear-gradient(90deg, #0A0A0A, transparent)"></div>
+<div aria-hidden="true" style="position: absolute; right: 0; top: 0; bottom: 0; width: 80px; z-index: 2; background: linear-gradient(270deg, #0A0A0A, transparent)"></div>
+<div class="sx-marquee">
+<sc-for list="{{opsLoop}}" as="o" hint-placeholder-count="16">
+<div style="display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 10px; padding: 26px 40px; border-right: 1px solid #222222; min-width: 230px">
+<img src="{{o.logo}}" alt="{{o.name}}" style="height: {{o.h}}; width: auto; display: block">
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.06em; color: #A8A8A8; white-space: nowrap">{{o.role}}</span>
+</div>
+</sc-for>
+</div>
+</div>
+<div style="max-width: 1240px; margin: 0 auto; padding: 48px 24px 112px">
+<h3 style="margin: 0; font-size: 15px; font-weight: 600; color: #B3B3B3">Frontier Model Ecosystem &amp; Research Labs Represented</h3>
+<div style="margin-top: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 12px">
+<sc-for list="{{labs}}" as="lb" hint-placeholder-count="6">
+<div class="sx-card" style="padding: 20px; border: 1px solid #262626; border-radius: 4px; background: #0F0F0F">
+<div style="font-size: 18px; font-weight: 800; color: #FFFFFF">{{lb.name}}</div>
+<div style="margin-top: 6px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #A8A8A8">{{lb.models}}</div>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- CHANNELS -->
+<section style="border-bottom: 1px solid #222222; background: #0C0C0C">
+<div style="max-width: 1240px; margin: 0 auto; padding: 112px 24px">
+<div style="max-width: 780px">
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.16em; color: #FFFFFF">06 / CROSS-PLATFORM AVAILABILITY</div>
+<h2 style="margin: 20px 0 0; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.04; letter-spacing: -0.035em; font-weight: 900; color: #FFFFFF">Official Listing &amp; Verification Channels</h2>
+</div>
+<div style="margin-top: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 20px">
+<sc-for list="{{channels}}" as="ch" hint-placeholder-count="2">
+<div class="sx-card" style="display: flex; flex-direction: column; padding: 32px; border: 1px solid #2A2A2A; border-radius: 4px; background: #0F0F0F">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px">
+<h3 style="margin: 0; font-size: 28px; font-weight: 900; color: #FFFFFF">{{ch.name}}</h3>
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.1em; color: #A8A8A8">{{ch.tag}}</span>
+</div>
+<p style="margin: 14px 0 0; font-size: 15px; color: #B3B3B3">{{ch.body}}</p>
+<ul style="margin: 18px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; flex: 1">
+<sc-for list="{{ch.points}}" as="pt" hint-placeholder-count="3">
+<li style="display: flex; gap: 10px; font-size: 14px; color: #D4D4D4"><span aria-hidden="true" style="color: #FFFFFF">→</span>{{pt}}</li>
+</sc-for>
+</ul>
+<a href="{{ch.href}}" class="sx-btn sx-btn-ghost" style="margin-top: 24px; align-self: flex-start; display: inline-flex; align-items: center; min-height: 48px; padding: 0 20px; border: 1px solid #FFFFFF; border-radius: 2px; font-weight: 700">{{ch.cta}} ↗</a>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- APPLY -->
+<section id="apply" style="position: relative; overflow: hidden; border-bottom: 1px solid #222222">
+<img class="sx-zoom" src="/public/x/img/summit-roundtable.jpg" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.22">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(90deg, #0A0A0A 0%, rgba(10,10,10,0.9) 60%, rgba(10,10,10,0.8) 100%)"></div>
+<div style="position: relative; max-width: 1240px; margin: 0 auto; padding: 112px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 56px; align-items: start">
+<div>
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.16em; color: #FFFFFF">07 / CONFIDENTIAL APPLICATION</div>
+<h2 style="margin: 20px 0 0; font-size: clamp(40px, 5vw, 66px); line-height: 1; letter-spacing: -0.04em; font-weight: 900; color: #FFFFFF">Request an Invitation</h2>
+<p style="margin: 20px 0 0; font-size: 17px; color: #C2C2C2">Invitations are strictly non-transferable and subject to peer committee verification. Please use your corporate or government executive email.</p>
+<div style="margin-top: 36px; padding: 24px; border: 1px solid #333333; border-radius: 4px; background: rgba(15,15,15,0.85)">
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.12em; color: #A8A8A8">PROCUREMENT &amp; CALENDAR OPTIONS</div>
+<h3 style="margin: 10px 0 0; font-size: 19px; font-weight: 800; color: #FFFFFF">Prefer Direct Registration on Lu.ma or Eventbrite?</h3>
+<p style="margin: 8px 0 0; font-size: 14px; color: #B3B3B3">For corporate purchasing orders, institutional invoicing, or 1-click calendar reservation, access verified listings directly:</p>
+<div style="margin-top: 16px; display: flex; flex-wrap: wrap; gap: 10px">
+<a href="https://lu.ma" class="sx-btn sx-btn-ghost" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border: 1px solid #FFFFFF; border-radius: 2px; font-weight: 700; font-size: 14px">RSVP via Lu.ma</a>
+<a href="https://www.eventbrite.com" class="sx-btn sx-btn-ghost" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border: 1px solid #FFFFFF; border-radius: 2px; font-weight: 700; font-size: 14px">Procure on Eventbrite</a>
+</div>
+</div>
+</div>
+
+<div style="border: 1px solid #333333; border-radius: 4px; background: rgba(13,13,13,0.94); overflow: hidden">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 18px; border-bottom: 1px solid #262626; background: #141414; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.12em; color: #A8A8A8">
+<span>APPLICATION · NDA</span>
+<span style="display: flex; align-items: center; gap: 6px; color: #FFFFFF"><span class="sx-blink" style="width: 6px; height: 6px; border-radius: 50%; background: #FFFFFF"></span>{{formStatus}}</span>
+</div>
+<sc-if value="{{sent}}" hint-placeholder-val="{{false}}">
+<div role="status" style="padding: 40px 28px">
+<svg aria-hidden="true" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+<h3 style="margin: 16px 0 0; font-size: 24px; font-weight: 900; color: #FFFFFF">Invitation request received.</h3>
+<p style="margin: 10px 0 0; font-size: 15px; color: #B3B3B3">The committee reviews applications on a rolling basis under NDA.</p>
+<button type="button" onClick="{{reset}}" style="margin-top: 20px; min-height: 44px; padding: 0 18px; background: transparent; border: 1px solid #FFFFFF; border-radius: 2px; color: #FFFFFF; font: inherit; font-weight: 700; cursor: pointer">Submit another request</button>
+</div>
+</sc-if>
+<sc-if value="{{notSent}}" hint-placeholder-val="{{true}}">
+<form onSubmit="{{submit}}" style="padding: 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 18px">
+<div class="sx-field"><label for="sx-name" style="display: block; margin-bottom: 6px; font-size: 13px; font-weight: 600; color: #D4D4D4">Full Name *</label><input id="sx-name" type="text" required autocomplete="name" placeholder="Jane Doe"></div>
+<div class="sx-field"><label for="sx-email" style="display: block; margin-bottom: 6px; font-size: 13px; font-weight: 600; color: #D4D4D4">Enterprise Work Email *</label><input id="sx-email" type="email" required autocomplete="email" placeholder="jane@enterprise.com"></div>
+<div class="sx-field"><label for="sx-org" style="display: block; margin-bottom: 6px; font-size: 13px; font-weight: 600; color: #D4D4D4">Organization / Agency *</label><input id="sx-org" type="text" required autocomplete="organization" placeholder="e.g. Shell, Con Edison, USAF"></div>
+<div class="sx-field"><label for="sx-title" style="display: block; margin-bottom: 6px; font-size: 13px; font-weight: 600; color: #D4D4D4">Official Title *</label><input id="sx-title" type="text" required autocomplete="organization-title" placeholder="CTO / Head of Infrastructure / Chief Architect"></div>
+<div class="sx-field" style="grid-column: 1 / -1"><label for="sx-summit" style="display: block; margin-bottom: 6px; font-size: 13px; font-weight: 600; color: #D4D4D4">Select Summit Location *</label>
+<select id="sx-summit" required>
+<option value="">Select location &amp; date</option>
+<sc-for list="{{formOptions}}" as="fo" hint-placeholder-count="9">
+<option value="{{fo.v}}">{{fo.label}}</option>
+</sc-for>
+</select></div>
+<div class="sx-field" style="grid-column: 1 / -1"><label for="sx-models" style="display: block; margin-bottom: 6px; font-size: 13px; font-weight: 600; color: #D4D4D4">Primary Frontier Model(s) Deployed</label><input id="sx-models" type="text" placeholder="e.g. Claude 3.5, Llama 3.1 405B, Gemini, DeepSeek"></div>
+<div class="sx-field" style="grid-column: 1 / -1"><label for="sx-scope" style="display: block; margin-bottom: 6px; font-size: 13px; font-weight: 600; color: #D4D4D4">Production Deployment Scope / Core Architecture Bottleneck</label><textarea id="sx-scope" rows="3" placeholder="Brief summary of your production scale, air-gap requirements, or latency targets."></textarea></div>
+<button type="submit" class="sx-btn sx-btn-solid" style="grid-column: 1 / -1; min-height: 54px; border: 0; border-radius: 2px; background: #FFFFFF; color: #0A0A0A; font: inherit; font-weight: 800; letter-spacing: 0.04em; cursor: pointer">Submit Confidential Request →</button>
+</form>
+</sc-if>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer style="padding: 64px 0 40px; overflow: hidden">
+<div style="max-width: 1240px; margin: 0 auto; padding: 0 24px; display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 40px">
+<div style="max-width: 360px">
+<a href="{{hrefHome}}" aria-label="Stage-X Space home" style="display: inline-flex; min-height: 44px; align-items: center"><img src="/public/x/img/stagex-logo.png" alt="Stage-X Space" style="height: 56px; width: auto; display: block"></a>
+<p style="margin: 16px 0 0; font-size: 14px; color: #9A9A9A">Open Source • MIT &amp; Apache 2.0 Licensed</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(140px, 1fr)); gap: 10px 48px; font-size: 14px">
+<a href="{{hrefHome}}" style="color: #B3B3B3">Home</a>
+<a href="#calendar" style="color: #B3B3B3">All 9 Summits</a>
+<a href="#agenda" style="color: #B3B3B3">Technical Agenda</a>
+<a href="#cohorts" style="color: #B3B3B3">Cohorts</a>
+<a href="https://lu.ma" style="color: #B3B3B3">Lu.ma</a>
+<a href="https://www.eventbrite.com" style="color: #B3B3B3">Eventbrite</a>
+<a href="#apply" style="color: #FFFFFF; font-weight: 700">Request Invite →</a>
+</div>
+</div>
+<div style="max-width: 1240px; margin: 48px auto 0; padding: 24px 24px 0; border-top: 1px solid #222222; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #8A8A8A">
+<span>© 2026 STAGE-X.SPACE</span><span>CHATHAM HOUSE RULE APPLIES</span>
+</div>
+</footer>
+
+</div></template>
+<script src="/public/x/js/runtime.js" defer></script>
+<script src="/public/x/js/summits.js" defer></script>
+<script>window.SX_EXPORT = true; var SX_EXPORT = true; window.addEventListener('DOMContentLoaded', function () { sxBoot(Component, {"motion":true}); });</script>
 </body>
 </html>
