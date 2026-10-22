@@ -120,7 +120,7 @@ class Component extends DCLogic {
       return { style: 'opacity: ' + ((i + 1) * 0.35) };
     });
 
-    var hideSummits = Date.now() < Date.parse('2026-10-24T11:00:00Z');
+    var hideSummits = false;
 
     return {
       motionClass: (this.props.motion ?? true) ? '' : 'sx-still',

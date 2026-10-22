@@ -12,7 +12,7 @@ class Component extends DCLogic {
     var s = this.s;
     var accent = this.props.accent ?? '#FFFFFF';
     var motion = this.props.motion ?? true;
-    var hideSummits = Date.now() < Date.parse('2026-10-24T11:00:00Z');
+    var hideSummits = false;
     var openRow = s.openRow === undefined ? 0 : s.openRow;
     var openFaq = s.openFaq === undefined ? 0 : s.openFaq;
     var zone = s.zone || 'scif';
