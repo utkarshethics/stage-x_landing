@@ -4,7 +4,7 @@ class Component extends DCLogic {
     var s = this.state || {};
     var EXPORT = typeof SX_EXPORT !== 'undefined';
     var L = function (k) { return EXPORT ? '/' + k : 'Legal.dc.html'; };
-    var FEE = 0, POOL = 12000;
+    var FEE = 0, POOL = 5000000;
     var CITIES = [
       { slug: 'sf', name: 'San Francisco', demo: 'OCT 31', start: Date.UTC(2026, 9, 31, 16), theme: 'Energy Transition: Utilities, Solar & Grid Storage', img: '/public/x/img/summit-sf.jpg', alt: 'Golden Gate Bridge and San Francisco at dusk' },
       { slug: 'nyc', name: 'New York', demo: 'NOV 7', start: Date.UTC(2026, 10, 7, 14), theme: 'Power Grids & Utilities: Reliability, Demand & Outages', img: '/public/x/img/summit-nyc.jpg', alt: 'Hudson Yards and the Manhattan skyline at night' },
@@ -30,20 +30,19 @@ class Component extends DCLogic {
       ['How much does it cost?', 'Registration is free. Teams of 1–4 can join at no cost.'],
       ['How does registration work?', 'Submit your team details on this page. We review applications and confirm your team’s spot by email.'],
       ['Where and when does it happen?', 'In person, in all nine summit cities. Each sprint lasts 1–2 weeks and ends on that city’s summit weekend, where finalists demo their prototypes to the attending companies.'],
-      ['What can we win?', 'Every city has its own prize pool of $12,000, in US dollars.'],
+      ['What can we win?', 'Teams compete for a $5 Million YC Runway prize pool across the 9-city circuit.'],
       ['Can I change my team members?', 'Yes. If you need to update team members or details before demo day, email connect@stage-x.space with your changes.']
     ];
 
     var CHIP_ON = 'border: 1px solid #FFFFFF; background: #FFFFFF; color: #0A0A0A;';
     var CHIP_OFF = 'border: 1px solid #3A3A3A; background: #0F0F0F; color: #EDEDED;';
-    var ticker = ['$12,000 PER CITY', 'REAL INDUSTRY USE CASES', 'MANUFACTURING · OIL & GAS · ENERGY', 'TEAMS OF 1–4', 'FREE REGISTRATION', 'DEMO AT THE SUMMIT'];
+    var ticker = ['$5M YC RUNWAY POOL', 'REAL INDUSTRY USE CASES', 'MANUFACTURING · OIL & GAS · ENERGY', 'TEAMS OF 1–4', 'FREE REGISTRATION', 'DEMO AT THE SUMMIT'];
 
     return {
       motionClass: (this.props.motion ?? true) ? '' : 'sx-still',
       hrefHome: EXPORT ? '/' : 'Main.dc.html',
       hrefSummits: EXPORT ? '/summits.html' : 'Summits.dc.html',
       hrefContact: L('contact'),
-      hrefRefund: L('refund-policy'),
       totalPool: (POOL * CITIES.length).toLocaleString('en-US'),
       heroStats: [{ v: '9', k: 'Cities' }, { v: '1–4', k: 'Per team' }, { v: 'Free', k: 'Registration' }],
       tickerLoop: ticker.concat(ticker, ticker),
@@ -51,7 +50,7 @@ class Component extends DCLogic {
         { n: '01', t: 'Register', d: 'Pick your city and team (1–4 people). Registration is free.' },
         { n: '02', t: 'Build', d: 'Pick a real use case from the manufacturing, oil & gas and energy companies attending your city’s summit, and build a prototype in person over 1–2 weeks.' },
         { n: '03', t: 'Demo', d: 'Finalists present their prototypes to those companies at the STAGE-X Summit weekend in their city.' },
-        { n: '04', t: 'Win', d: 'Each city awards its own $12,000 prize pool.' }
+        { n: '04', t: 'Win', d: 'Compete for the $5 Million YC Runway prize pool.' }
       ],
       facts: [
         { k: 'OPEN TO', v: 'Students & AI enthusiasts', d: 'College students and anyone who builds with AI.' },
@@ -98,7 +97,7 @@ class Component extends DCLogic {
         { label: 'Residency', href: '#residency-top' },
         { label: 'Register', href: '#register' }
       ],
-      legalLinks: [['about', 'About Us'], ['contact', 'Contact Us'], ['terms', 'Terms & Conditions'], ['privacy', 'Privacy Policy'], ['refund-policy', 'Refund & Cancellation'], ['delivery-policy', 'Service Delivery Policy']].map(function (x, i, a) { return { label: x[1], href: L(x[0]), more: i < a.length - 1 }; })
+      legalLinks: [['about', 'About Us'], ['contact', 'Contact Us'], ['terms', 'Terms & Conditions'], ['privacy', 'Privacy Policy'], ['delivery-policy', 'Service Delivery Policy']].map(function (x, i, a) { return { label: x[1], href: L(x[0]), more: i < a.length - 1 }; })
     };
   }
 }
