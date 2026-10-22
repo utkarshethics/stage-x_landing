@@ -52,6 +52,9 @@ a{color:#FFFFFF;text-decoration:none}a:hover{color:#D4D4D4}
 .sx-redact{background:#EDEDED;color:transparent;padding:0 4px;transition:background .4s ease,color .4s ease}
 .sx-report:hover .sx-redact,.sx-report:focus-within .sx-redact{background:rgba(255,255,255,0.12);color:#FFFFFF}
 .sx-nav{display:flex}
-@media (max-width:960px){.sx-nav{display:none}}
+.sx-mnav{display:none}
+.sx-mnav summary{list-style:none}
+.sx-mnav summary::-webkit-details-marker{display:none}
+@media (max-width:960px){.sx-nav{display:none}.sx-mnav{display:block}}
 .sx-still *{animation:none !important}
 @media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
