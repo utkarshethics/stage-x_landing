@@ -75,6 +75,11 @@ class Component extends DCLogic {
       accent: accent,
       motionClass: motion ? '' : 'sx-still',
       hrefSummits: EXPORT ? '/summits.html' : 'Summits.dc.html',
+      hrefPricing: EXPORT ? '/pricing' : 'Legal.dc.html',
+      hrefContact: EXPORT ? '/contact' : 'Legal.dc.html',
+      hrefResidency: EXPORT ? '/residency' : 'Residency.dc.html',
+      mobileNav: [['Summits', EXPORT ? '/summits.html' : 'Summits.dc.html'], ['Residency', EXPORT ? '/residency' : 'Residency.dc.html'], ['Field Missions', '#missions'], ['Open Source', '#opensource'], ['About', EXPORT ? '/about' : 'Legal.dc.html'], ['Pricing', EXPORT ? '/pricing' : 'Legal.dc.html'], ['Contact', EXPORT ? '/contact' : 'Legal.dc.html']].map(function (x) { return { label: x[0], href: x[1] }; }),
+      legalLinks: [['about', 'About Us'], ['pricing', 'Pricing'], ['contact', 'Contact Us'], ['terms', 'Terms & Conditions'], ['privacy', 'Privacy Policy'], ['refund-policy', 'Refund & Cancellation'], ['delivery-policy', 'Service Delivery Policy']].map(function (x, i, a) { return { label: x[1], href: EXPORT ? '/' + x[0] : 'Legal.dc.html', more: i < a.length - 1 }; }),
       heroStats: [
         { value: '+25%', label: 'Fleet mission readiness, 90 days post-cutover' },
         { value: '< 4 min', label: 'Part requisition, down from 72 hours' },

@@ -53,6 +53,11 @@ class Component extends DCLogic {
     return {
       motionClass: motion ? '' : 'sx-still',
       hrefHome: EXPORT ? '/' : 'Main.dc.html',
+      hrefPricing: EXPORT ? '/pricing' : 'Legal.dc.html',
+      hrefContact: EXPORT ? '/contact' : 'Legal.dc.html',
+      hrefResidency: EXPORT ? '/residency' : 'Residency.dc.html',
+      mobileNav: [['Home', EXPORT ? '/' : 'Main.dc.html'], ['Calendar', '#calendar'], ['Residency', EXPORT ? '/residency' : 'Residency.dc.html'], ['Request Invite', '#apply'], ['Pricing', EXPORT ? '/pricing' : 'Legal.dc.html'], ['Contact', EXPORT ? '/contact' : 'Legal.dc.html']].map(function (x) { return { label: x[0], href: x[1] }; }),
+      legalLinks: [['about', 'About Us'], ['pricing', 'Pricing'], ['contact', 'Contact Us'], ['terms', 'Terms & Conditions'], ['privacy', 'Privacy Policy'], ['refund-policy', 'Refund & Cancellation'], ['delivery-policy', 'Service Delivery Policy']].map(function (x, i, a) { return { label: x[1], href: EXPORT ? '/' + x[0] : 'Legal.dc.html', more: i < a.length - 1 }; }),
       countdownLabel: diff > 0 ? 'CIRCUIT OPENS · SAN FRANCISCO · OCT 31' : 'CIRCUIT IN SESSION',
       countdown: [{ k: 'DAYS', v: pad(d) }, { k: 'HOURS', v: pad(h) }, { k: 'MIN', v: pad(m) }, { k: 'SEC', v: pad(sec) }],
       heroStats: [{ v: '9', k: 'Summits' }, { v: '3', k: 'Circuits' }, { v: '40', k: 'Seats each' }, { v: '360', k: 'Total seats' }],

@@ -208,6 +208,10 @@
 </script>
 <meta name="theme-color" content="#0A0A0A">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap">
 <link rel="stylesheet" href="/public/x/css/summits.css">
 </head>
@@ -223,14 +227,23 @@
 <nav class="sx-nav" aria-label="Primary" style="align-items: center; gap: 28px; font-size: 14px; font-weight: 500">
 <a href="/" style="color: #B3B3B3">Home</a>
 <a href="#calendar" style="color: #B3B3B3">Calendar</a>
-<a href="#circuits" style="color: #B3B3B3">Circuits</a>
 <a href="#agenda" style="color: #B3B3B3">Agenda</a>
-<a href="#cohorts" style="color: #B3B3B3">Cohorts</a>
 <a href="#summits-top" aria-current="page" style="color: #FFFFFF; border-bottom: 2px solid #FFFFFF; padding-bottom: 2px">Summits</a>
+<a href="/residency" style="color: #B3B3B3">Residency</a>
+<a href="/pricing" style="color: #B3B3B3">Pricing</a>
+<a href="/contact" style="color: #B3B3B3">Contact</a>
 </nav>
+<div style="display: flex; align-items: center; gap: 10px">
 <a href="#apply" class="sx-btn sx-btn-solid" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; background: #FFFFFF; color: #0A0A0A; font-weight: 700; font-size: 14px; border-radius: 2px">Request Invite
 <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
 </a>
+<details class="sx-mnav" style="position: relative">
+<summary aria-label="Open menu" style="min-height: 44px; min-width: 44px; display: grid; place-items: center; border: 1px solid #3A3A3A; border-radius: 2px; cursor: pointer"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></summary>
+<nav aria-label="Mobile" style="position: absolute; right: 0; top: 54px; width: 240px; padding: 8px; background: #0F0F0F; border: 1px solid #333333; border-radius: 4px; display: flex; flex-direction: column">
+<a href="/" style="display: flex; align-items: center; min-height: 44px; padding: 0 12px; color: #FFFFFF; font-size: 15px">Home</a><a href="#calendar" style="display: flex; align-items: center; min-height: 44px; padding: 0 12px; color: #FFFFFF; font-size: 15px">Calendar</a><a href="/residency" style="display: flex; align-items: center; min-height: 44px; padding: 0 12px; color: #FFFFFF; font-size: 15px">Residency</a><a href="#apply" style="display: flex; align-items: center; min-height: 44px; padding: 0 12px; color: #FFFFFF; font-size: 15px">Request Invite</a><a href="/pricing" style="display: flex; align-items: center; min-height: 44px; padding: 0 12px; color: #FFFFFF; font-size: 15px">Pricing</a><a href="/contact" style="display: flex; align-items: center; min-height: 44px; padding: 0 12px; color: #FFFFFF; font-size: 15px">Contact</a>
+</nav>
+</details>
+</div>
 </div>
 </header>
 
@@ -241,11 +254,7 @@
 <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, #0A0A0A 100%)"></div>
 <div style="position: relative; max-width: 1240px; margin: 0 auto; padding: 112px 24px 64px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 48px; align-items: end">
 <div>
-<div class="sx-rise" style="display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px 6px 10px; border: 1px solid #3A3A3A; border-radius: 999px; background: rgba(17,17,17,0.8); font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.06em; color: #D4D4D4">
-<span class="sx-rec" style="width: 8px; height: 8px; border-radius: 50%; background: #FF3B30"></span>
-INVITATION ONLY · CHATHAM HOUSE RULE
-</div>
-<h1 class="sx-rise sx-d1" style="margin: 26px 0 0; font-size: clamp(42px, 6.2vw, 80px); line-height: 1; letter-spacing: -0.04em; font-weight: 900; color: #FFFFFF">Frontier Model Enterprise <span class="sx-outline">Summits</span></h1>
+<h1 class="sx-rise sx-d1" style="margin: 0; font-size: clamp(42px, 6.2vw, 80px); line-height: 1; letter-spacing: -0.04em; font-weight: 900; color: #FFFFFF">Frontier Model Enterprise <span class="sx-outline">Summits</span></h1>
 <p class="sx-rise sx-d2" style="margin: 24px 0 0; max-width: 580px; font-size: clamp(17px, 1.6vw, 20px); color: #D4D4D4">Bringing together Chief Architects, Enterprise Infrastructure Leaders, and Frontier AI Research Lab Leads.</p>
 <p class="sx-rise sx-d2" style="margin: 12px 0 0; max-width: 580px; font-size: 16px; color: #A8A8A8">Zero sales decks. Raw operational telemetry, air-gapped deployment topologies, and battle-tested production post-mortems.</p>
 <div class="sx-rise sx-d3" style="margin-top: 34px; display: flex; flex-wrap: wrap; gap: 12px">
@@ -267,22 +276,22 @@ Q4 2026 Calendar</a>
 <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr))">
 
 <div style="padding: 20px 8px 18px; text-align: center; border-right: 1px solid #262626">
-<div style="font-size: clamp(30px, 4vw, 48px); font-weight: 900; letter-spacing: -0.03em; line-height: 1; color: #FFFFFF; font-variant-numeric: tabular-nums">10</div>
+<div style="font-size: clamp(30px, 4vw, 48px); font-weight: 900; letter-spacing: -0.03em; line-height: 1; color: #FFFFFF; font-variant-numeric: tabular-nums">09</div>
 <div style="margin-top: 8px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.16em; color: #8A8A8A">DAYS</div>
 </div>
 
 <div style="padding: 20px 8px 18px; text-align: center; border-right: 1px solid #262626">
-<div style="font-size: clamp(30px, 4vw, 48px); font-weight: 900; letter-spacing: -0.03em; line-height: 1; color: #FFFFFF; font-variant-numeric: tabular-nums">12</div>
+<div style="font-size: clamp(30px, 4vw, 48px); font-weight: 900; letter-spacing: -0.03em; line-height: 1; color: #FFFFFF; font-variant-numeric: tabular-nums">14</div>
 <div style="margin-top: 8px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.16em; color: #8A8A8A">HOURS</div>
 </div>
 
 <div style="padding: 20px 8px 18px; text-align: center; border-right: 1px solid #262626">
-<div style="font-size: clamp(30px, 4vw, 48px); font-weight: 900; letter-spacing: -0.03em; line-height: 1; color: #FFFFFF; font-variant-numeric: tabular-nums">09</div>
+<div style="font-size: clamp(30px, 4vw, 48px); font-weight: 900; letter-spacing: -0.03em; line-height: 1; color: #FFFFFF; font-variant-numeric: tabular-nums">59</div>
 <div style="margin-top: 8px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.16em; color: #8A8A8A">MIN</div>
 </div>
 
 <div style="padding: 20px 8px 18px; text-align: center; border-right: 1px solid #262626">
-<div style="font-size: clamp(30px, 4vw, 48px); font-weight: 900; letter-spacing: -0.03em; line-height: 1; color: #FFFFFF; font-variant-numeric: tabular-nums">06</div>
+<div style="font-size: clamp(30px, 4vw, 48px); font-weight: 900; letter-spacing: -0.03em; line-height: 1; color: #FFFFFF; font-variant-numeric: tabular-nums">59</div>
 <div style="margin-top: 8px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.16em; color: #8A8A8A">SEC</div>
 </div>
 
@@ -1192,10 +1201,13 @@ Q4 2026 Calendar</a>
 <!-- FOOTER -->
 <footer style="padding: 64px 0 40px; overflow: hidden">
 <div style="max-width: 1240px; margin: 0 auto; padding: 0 24px; display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 40px">
-<div style="max-width: 360px">
-<a href="/" aria-label="Stage-X Space home" style="display: inline-flex; min-height: 44px; align-items: center"><img src="/public/x/img/stagex-logo.png" alt="Stage-X Space" style="height: 56px; width: auto; display: block"></a>
-<p style="margin: 16px 0 0; font-size: 14px; color: #9A9A9A">Open Source • MIT &amp; Apache 2.0 Licensed</p>
-</div>
+<address style="flex: 1 1 320px; max-width: 520px; font-style: normal">
+<a href="/" aria-label="STAGE-X home" style="display: inline-flex; min-height: 44px; align-items: center"><img src="/public/x/img/stagex-logo.png" alt="STAGE-X" style="height: 56px; width: auto; display: block"></a>
+<div style="margin-top: 18px; font-size: 20px; font-weight: 900; letter-spacing: 0.04em; color: #FFFFFF">STAGE-X</div>
+<p style="margin: 8px 0 0; font-size: 14px; color: #D4D4D4">Owned and operated by Ayesha Sultana (Proprietor), STAGE-X</p>
+<p style="margin: 6px 0 0; font-size: 14px; color: #B3B3B3">2nd Floor, No. 235, 13th Cross Road, Binnamangala, Indiranagar 2nd Stage, Bengaluru, Karnataka 560038, India</p>
+<p style="margin: 6px 0 0; font-size: 14px; color: #B3B3B3">Phone / WhatsApp: <a href="tel:+917892240243" style="color: #FFFFFF">+91 78922 40243</a> · Email: <a href="mailto:connect@stage-x.space" style="color: #FFFFFF">connect@stage-x.space</a></p>
+</address>
 <div style="display: grid; grid-template-columns: repeat(2, minmax(140px, 1fr)); gap: 10px 48px; font-size: 14px">
 <a href="/" style="color: #B3B3B3">Home</a>
 <a href="#calendar" style="color: #B3B3B3">All 9 Summits</a>
@@ -1206,8 +1218,32 @@ Q4 2026 Calendar</a>
 <a href="#apply" style="color: #FFFFFF; font-weight: 700">Request Invite →</a>
 </div>
 </div>
-<div style="max-width: 1240px; margin: 48px auto 0; padding: 24px 24px 0; border-top: 1px solid #222222; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #8A8A8A">
-<span>© 2026 STAGE-X.SPACE</span><span>CHATHAM HOUSE RULE APPLIES</span>
+<nav aria-label="Legal" style="max-width: 1240px; margin: 40px auto 0; padding: 16px 24px 0; border-top: 1px solid #222222; display: flex; flex-wrap: wrap; align-items: center; font-size: 14px">
+
+<a href="/about" style="display: inline-flex; align-items: center; min-height: 44px; color: #E5E5E5">About Us</a>
+<span aria-hidden="true" style="padding: 0 12px; color: #4A4A4A">|</span>
+
+<a href="/pricing" style="display: inline-flex; align-items: center; min-height: 44px; color: #E5E5E5">Pricing</a>
+<span aria-hidden="true" style="padding: 0 12px; color: #4A4A4A">|</span>
+
+<a href="/contact" style="display: inline-flex; align-items: center; min-height: 44px; color: #E5E5E5">Contact Us</a>
+<span aria-hidden="true" style="padding: 0 12px; color: #4A4A4A">|</span>
+
+<a href="/terms" style="display: inline-flex; align-items: center; min-height: 44px; color: #E5E5E5">Terms &amp; Conditions</a>
+<span aria-hidden="true" style="padding: 0 12px; color: #4A4A4A">|</span>
+
+<a href="/privacy" style="display: inline-flex; align-items: center; min-height: 44px; color: #E5E5E5">Privacy Policy</a>
+<span aria-hidden="true" style="padding: 0 12px; color: #4A4A4A">|</span>
+
+<a href="/refund-policy" style="display: inline-flex; align-items: center; min-height: 44px; color: #E5E5E5">Refund &amp; Cancellation</a>
+<span aria-hidden="true" style="padding: 0 12px; color: #4A4A4A">|</span>
+
+<a href="/delivery-policy" style="display: inline-flex; align-items: center; min-height: 44px; color: #E5E5E5">Service Delivery Policy</a>
+
+
+</nav>
+<div style="max-width: 1240px; margin: 12px auto 0; padding: 0 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #8A8A8A">
+<span>© 2026 STAGE-X. All rights reserved.</span><span>CHATHAM HOUSE RULE APPLIES</span>
 </div>
 </footer>
 
@@ -1223,14 +1259,23 @@ Q4 2026 Calendar</a>
 <nav class="sx-nav" aria-label="Primary" style="align-items: center; gap: 28px; font-size: 14px; font-weight: 500">
 <a href="{{hrefHome}}" style="color: #B3B3B3">Home</a>
 <a href="#calendar" style="color: #B3B3B3">Calendar</a>
-<a href="#circuits" style="color: #B3B3B3">Circuits</a>
 <a href="#agenda" style="color: #B3B3B3">Agenda</a>
-<a href="#cohorts" style="color: #B3B3B3">Cohorts</a>
 <a href="#summits-top" aria-current="page" style="color: #FFFFFF; border-bottom: 2px solid #FFFFFF; padding-bottom: 2px">Summits</a>
+<a href="{{hrefResidency}}" style="color: #B3B3B3">Residency</a>
+<a href="{{hrefPricing}}" style="color: #B3B3B3">Pricing</a>
+<a href="{{hrefContact}}" style="color: #B3B3B3">Contact</a>
 </nav>
+<div style="display: flex; align-items: center; gap: 10px">
 <a href="#apply" class="sx-btn sx-btn-solid" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; background: #FFFFFF; color: #0A0A0A; font-weight: 700; font-size: 14px; border-radius: 2px">Request Invite
 <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
 </a>
+<details class="sx-mnav" style="position: relative">
+<summary aria-label="Open menu" style="min-height: 44px; min-width: 44px; display: grid; place-items: center; border: 1px solid #3A3A3A; border-radius: 2px; cursor: pointer"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
+<nav aria-label="Mobile" style="position: absolute; right: 0; top: 54px; width: 240px; padding: 8px; background: #0F0F0F; border: 1px solid #333333; border-radius: 4px; display: flex; flex-direction: column">
+<sc-for list="{{mobileNav}}" as="mn" hint-placeholder-count="6"><a href="{{mn.href}}" style="display: flex; align-items: center; min-height: 44px; padding: 0 12px; color: #FFFFFF; font-size: 15px">{{mn.label}}</a></sc-for>
+</nav>
+</details>
+</div>
 </div>
 </header>
 
@@ -1241,11 +1286,7 @@ Q4 2026 Calendar</a>
 <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, #0A0A0A 100%)"></div>
 <div style="position: relative; max-width: 1240px; margin: 0 auto; padding: 112px 24px 64px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 48px; align-items: end">
 <div>
-<div class="sx-rise" style="display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px 6px 10px; border: 1px solid #3A3A3A; border-radius: 999px; background: rgba(17,17,17,0.8); font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.06em; color: #D4D4D4">
-<span class="sx-rec" style="width: 8px; height: 8px; border-radius: 50%; background: #FF3B30"></span>
-INVITATION ONLY · CHATHAM HOUSE RULE
-</div>
-<h1 class="sx-rise sx-d1" style="margin: 26px 0 0; font-size: clamp(42px, 6.2vw, 80px); line-height: 1; letter-spacing: -0.04em; font-weight: 900; color: #FFFFFF">Frontier Model Enterprise <span class="sx-outline">Summits</span></h1>
+<h1 class="sx-rise sx-d1" style="margin: 0; font-size: clamp(42px, 6.2vw, 80px); line-height: 1; letter-spacing: -0.04em; font-weight: 900; color: #FFFFFF">Frontier Model Enterprise <span class="sx-outline">Summits</span></h1>
 <p class="sx-rise sx-d2" style="margin: 24px 0 0; max-width: 580px; font-size: clamp(17px, 1.6vw, 20px); color: #D4D4D4">Bringing together Chief Architects, Enterprise Infrastructure Leaders, and Frontier AI Research Lab Leads.</p>
 <p class="sx-rise sx-d2" style="margin: 12px 0 0; max-width: 580px; font-size: 16px; color: #A8A8A8">Zero sales decks. Raw operational telemetry, air-gapped deployment topologies, and battle-tested production post-mortems.</p>
 <div class="sx-rise sx-d3" style="margin-top: 34px; display: flex; flex-wrap: wrap; gap: 12px">
@@ -1580,10 +1621,13 @@ Q4 2026 Calendar</a>
 <!-- FOOTER -->
 <footer style="padding: 64px 0 40px; overflow: hidden">
 <div style="max-width: 1240px; margin: 0 auto; padding: 0 24px; display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 40px">
-<div style="max-width: 360px">
-<a href="{{hrefHome}}" aria-label="Stage-X Space home" style="display: inline-flex; min-height: 44px; align-items: center"><img src="/public/x/img/stagex-logo.png" alt="Stage-X Space" style="height: 56px; width: auto; display: block"></a>
-<p style="margin: 16px 0 0; font-size: 14px; color: #9A9A9A">Open Source • MIT &amp; Apache 2.0 Licensed</p>
-</div>
+<address style="flex: 1 1 320px; max-width: 520px; font-style: normal">
+<a href="{{hrefHome}}" aria-label="STAGE-X home" style="display: inline-flex; min-height: 44px; align-items: center"><img src="/public/x/img/stagex-logo.png" alt="STAGE-X" style="height: 56px; width: auto; display: block"></a>
+<div style="margin-top: 18px; font-size: 20px; font-weight: 900; letter-spacing: 0.04em; color: #FFFFFF">STAGE-X</div>
+<p style="margin: 8px 0 0; font-size: 14px; color: #D4D4D4">Owned and operated by Ayesha Sultana (Proprietor), STAGE-X</p>
+<p style="margin: 6px 0 0; font-size: 14px; color: #B3B3B3">2nd Floor, No. 235, 13th Cross Road, Binnamangala, Indiranagar 2nd Stage, Bengaluru, Karnataka 560038, India</p>
+<p style="margin: 6px 0 0; font-size: 14px; color: #B3B3B3">Phone / WhatsApp: <a href="tel:+917892240243" style="color: #FFFFFF">+91 78922 40243</a> · Email: <a href="mailto:connect@stage-x.space" style="color: #FFFFFF">connect@stage-x.space</a></p>
+</address>
 <div style="display: grid; grid-template-columns: repeat(2, minmax(140px, 1fr)); gap: 10px 48px; font-size: 14px">
 <a href="{{hrefHome}}" style="color: #B3B3B3">Home</a>
 <a href="#calendar" style="color: #B3B3B3">All 9 Summits</a>
@@ -1594,8 +1638,14 @@ Q4 2026 Calendar</a>
 <a href="#apply" style="color: #FFFFFF; font-weight: 700">Request Invite →</a>
 </div>
 </div>
-<div style="max-width: 1240px; margin: 48px auto 0; padding: 24px 24px 0; border-top: 1px solid #222222; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #8A8A8A">
-<span>© 2026 STAGE-X.SPACE</span><span>CHATHAM HOUSE RULE APPLIES</span>
+<nav aria-label="Legal" style="max-width: 1240px; margin: 40px auto 0; padding: 16px 24px 0; border-top: 1px solid #222222; display: flex; flex-wrap: wrap; align-items: center; font-size: 14px">
+<sc-for list="{{legalLinks}}" as="ll" hint-placeholder-count="7">
+<a href="{{ll.href}}" style="display: inline-flex; align-items: center; min-height: 44px; color: #E5E5E5">{{ll.label}}</a>
+<sc-if value="{{ll.more}}" hint-placeholder-val="{{true}}"><span aria-hidden="true" style="padding: 0 12px; color: #4A4A4A">|</span></sc-if>
+</sc-for>
+</nav>
+<div style="max-width: 1240px; margin: 12px auto 0; padding: 0 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #8A8A8A">
+<span>© 2026 STAGE-X. All rights reserved.</span><span>CHATHAM HOUSE RULE APPLIES</span>
 </div>
 </footer>
 

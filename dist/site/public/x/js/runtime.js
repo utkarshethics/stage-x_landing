@@ -106,7 +106,7 @@ window.sxBoot = function (Component, props) {
     if (pending) return; pending = true;
     requestAnimationFrame(function () { pending = false; render(); });
   };
-  ['click', 'submit'].forEach(function (type) {
+  ['click', 'submit', 'change'].forEach(function (type) {
     document.addEventListener(type, function (e) {
       var n = e.target;
       while (n && n !== document) {

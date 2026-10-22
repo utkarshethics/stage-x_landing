@@ -33,7 +33,10 @@ a{color:#FFFFFF;text-decoration:none}a:hover{color:#D4D4D4}
 .sx-outline{color:transparent;-webkit-text-stroke:1.5px #FFFFFF}
 .sx-gridbg{background-image:linear-gradient(rgba(255,255,255,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.045) 1px,transparent 1px);background-size:56px 56px}
 .sx-nav{display:flex}
-@media (max-width:960px){.sx-nav{display:none}}
+.sx-mnav{display:none}
+.sx-mnav summary{list-style:none}
+.sx-mnav summary::-webkit-details-marker{display:none}
+@media (max-width:960px){.sx-nav{display:none}.sx-mnav{display:block}}
 .sx-field input,.sx-field select,.sx-field textarea{width:100%;min-height:48px;padding:12px 14px;background:#0F0F0F;border:1px solid #333333;border-radius:2px;color:#FFFFFF;font:inherit;font-size:15px}
 .sx-field input:focus,.sx-field select:focus,.sx-field textarea:focus{outline:2px solid #FFFFFF;outline-offset:1px;border-color:#FFFFFF}
 .sx-field input::placeholder,.sx-field textarea::placeholder{color:#7A7A7A}
