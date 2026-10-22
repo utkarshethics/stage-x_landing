@@ -3,7 +3,7 @@ class Component extends DCLogic {
     var self = this;
     var s = this.state || {};
     var EXPORT = typeof SX_EXPORT !== 'undefined';
-    var KEYS = ['about', 'pricing', 'contact', 'terms', 'privacy', 'refund-policy', 'delivery-policy'];
+    var KEYS = ['about', 'contact', 'terms', 'privacy', 'refund-policy', 'delivery-policy'];
     var cur = s.page || this.props.page || 'contact';
     if (KEYS.indexOf(cur) === -1) cur = 'contact';
 
@@ -163,8 +163,8 @@ class Component extends DCLogic {
     var card = (cardFor[cur] || []).map(function (c) { return Object.assign({ span: 'auto', plain: !c.href, href: c.href || '' }, c); });
 
     var chev = [0, 1, 2].map(function (i) { return { style: 'animation-delay: ' + (i * 0.2).toFixed(1) + 's' }; });
-    var order = ['about', 'pricing', 'contact', 'terms', 'privacy', 'refund-policy', 'delivery-policy'];
-    var footerLabels = { about: 'About Us', pricing: 'Pricing', contact: 'Contact Us', terms: 'Terms & Conditions', privacy: 'Privacy Policy', 'refund-policy': 'Refund & Cancellation', 'delivery-policy': 'Service Delivery Policy' };
+    var order = ['about', 'contact', 'terms', 'privacy', 'refund-policy', 'delivery-policy'];
+    var footerLabels = { about: 'About Us', contact: 'Contact Us', terms: 'Terms & Conditions', privacy: 'Privacy Policy', 'refund-policy': 'Refund & Cancellation', 'delivery-policy': 'Service Delivery Policy' };
 
     return {
       hrefHome: EXPORT ? '/' : 'Main.dc.html',
@@ -174,7 +174,7 @@ class Component extends DCLogic {
         { label: 'Home', href: EXPORT ? '/' : 'Main.dc.html', pick: null, current: 'false', fg: '#B3B3B3', line: 'transparent' },
         { label: 'Summits', href: EXPORT ? '/summits.html' : 'Summits.dc.html', pick: null, current: 'false', fg: '#B3B3B3', line: 'transparent' },
         { label: 'Residency', href: EXPORT ? '/residency' : 'Residency.dc.html', pick: null, current: 'false', fg: '#B3B3B3', line: 'transparent' }
-      ].concat(['about', 'pricing', 'contact'].map(function (k) {
+      ].concat(['about', 'contact'].map(function (k) {
         var on = k === cur;
         return { label: k === 'about' ? 'About' : k === 'pricing' ? 'Pricing' : 'Contact', href: href(k), pick: pick(k), current: on ? 'page' : 'false', fg: on ? '#FFFFFF' : '#B3B3B3', line: on ? '#FFFFFF' : 'transparent' };
       })),

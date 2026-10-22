@@ -6,3 +6,7 @@ https://stage-x.space/* https://www.stage-x.space/:splat 301
 /summits / 302
 /summits/* / 302
 
+
+# Permanent 301 Redirect for removed pricing page
+/pricing /contact 301
+/pricing.html /contact 301
