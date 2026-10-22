@@ -21,6 +21,7 @@ class Component extends DCLogic {
     var firstOpen = CITIES.filter(function (c) { return c.start > now; })[0] || CITIES[0];
     var city = s.city || firstOpen.slug;
     var size = s.size || 1;
+    var hideSummits = Date.now() < Date.parse('2026-10-24T11:00:00Z');
     var cityObj = CITIES.filter(function (c) { return c.slug === city; })[0];
     var faqOpen = s.faq === undefined ? 0 : s.faq;
     var faqs = [
@@ -91,7 +92,7 @@ class Component extends DCLogic {
         var body = 'City: ' + cityObj.name + ' (demo day ' + cityObj.demo + ')\nTeam size: ' + size + ' (total $' + (size * FEE) + ')\n\nTeam lead: ' + f.name.value + '\nEmail: ' + f.email.value + '\nPhone / WhatsApp: ' + f.phone.value + (f.org.value ? '\nCollege / company: ' + f.org.value : '') + (f.team.value ? '\n\nOther members:\n' + f.team.value : '') + (f.idea.value ? '\n\nWhat we want to build:\n' + f.idea.value : '');
         window.location.href = 'mailto:connect@stage-x.space?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
       },
-      mobileNav: [['Home', EXPORT ? '/' : 'Main.dc.html'], ['Summits', EXPORT ? '/summits.html' : 'Summits.dc.html'], ['Cities', '#cities'], ['Register', '#register'], ['Pricing', L('pricing')], ['Contact', L('contact')]].map(function (x) { return { label: x[0], href: x[1] }; }),
+      mobileNav: [['Home', EXPORT ? '/' : 'Main.dc.html']].concat(hideSummits ? [] : [['Summits', EXPORT ? '/summits.html' : 'Summits.dc.html']]).concat([ ['Cities', '#cities'], ['Register', '#register'], ['Pricing', L('pricing')], ['Contact', L('contact')]])).map(function (x) { return { label: x[0], href: x[1] }; }),
       siteLinks: [
         { label: 'Home', href: EXPORT ? '/' : 'Main.dc.html' },
         { label: 'Summits', href: EXPORT ? '/summits.html' : 'Summits.dc.html' },

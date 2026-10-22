@@ -12,6 +12,7 @@ class Component extends DCLogic {
     var s = this.s;
     var accent = this.props.accent ?? '#FFFFFF';
     var motion = this.props.motion ?? true;
+    var hideSummits = Date.now() < Date.parse('2026-10-24T11:00:00Z');
     var openRow = s.openRow === undefined ? 0 : s.openRow;
     var openFaq = s.openFaq === undefined ? 0 : s.openFaq;
     var zone = s.zone || 'scif';
@@ -74,11 +75,12 @@ class Component extends DCLogic {
     return {
       accent: accent,
       motionClass: motion ? '' : 'sx-still',
+      showSummits: !hideSummits,
       hrefSummits: EXPORT ? '/summits.html' : 'Summits.dc.html',
       hrefPricing: EXPORT ? '/pricing' : 'Legal.dc.html',
       hrefContact: EXPORT ? '/contact' : 'Legal.dc.html',
       hrefResidency: EXPORT ? '/residency' : 'Residency.dc.html',
-      mobileNav: [['Summits', EXPORT ? '/summits.html' : 'Summits.dc.html'], ['Residency', EXPORT ? '/residency' : 'Residency.dc.html'], ['Field Missions', '#missions'], ['Open Source', '#opensource'], ['About', EXPORT ? '/about' : 'Legal.dc.html'], ['Pricing', EXPORT ? '/pricing' : 'Legal.dc.html'], ['Contact', EXPORT ? '/contact' : 'Legal.dc.html']].map(function (x) { return { label: x[0], href: x[1] }; }),
+      mobileNav: (hideSummits ? [] : [['Summits', EXPORT ? '/summits.html' : 'Summits.dc.html']]).concat([ ['Residency', EXPORT ? '/residency' : 'Residency.dc.html'], ['Field Missions', '#missions'], ['Open Source', '#opensource'], ['About', EXPORT ? '/about' : 'Legal.dc.html'], ['Pricing', EXPORT ? '/pricing' : 'Legal.dc.html'], ['Contact', EXPORT ? '/contact' : 'Legal.dc.html']])).map(function (x) { return { label: x[0], href: x[1] }; }),
       legalLinks: [['about', 'About Us'], ['pricing', 'Pricing'], ['contact', 'Contact Us'], ['terms', 'Terms & Conditions'], ['privacy', 'Privacy Policy'], ['refund-policy', 'Refund & Cancellation'], ['delivery-policy', 'Service Delivery Policy']].map(function (x, i, a) { return { label: x[1], href: EXPORT ? '/' + x[0] : 'Legal.dc.html', more: i < a.length - 1 }; }),
       heroStats: [
         { value: '+25%', label: 'Fleet mission readiness, 90 days post-cutover' },
