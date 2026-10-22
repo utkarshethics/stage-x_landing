@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>if(Date.now()<Date.parse('2026-10-24T11:00:00Z')){var _s=document.createElement('style');_s.id='sx-hide-summits';_s.textContent='a[href*="summits"]{display:none!important}';document.head.appendChild(_s);}</script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>stage-x.space | Forward Deployed Engineering</title>
   <meta name="description" content="Bridging research labs and operational reality. Embedding, integrating, and optimizing frontier AI systems inside existing infrastructure.">
@@ -1453,11 +1455,13 @@ harness.index(corpus=<span style="color: #EDEDED">"./technical-orders"</span>, m
 <template id="sx-template"><div class="{{motionClass}}" style="width: 100%; background: #0A0A0A; color: #EDEDED; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased">
 
 <!-- ANNOUNCEMENT -->
+<sc-if value="{{showSummits}}">
 <a href="{{hrefSummits}}" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px 14px; min-height: 44px; padding: 8px 24px; background: #FFFFFF; color: #0A0A0A; font-family: Inter, system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 12px; letter-spacing: 0.01em; text-align: center; font-weight: 600">
 <span style="display: inline-flex; align-items: center; gap: 8px; font-weight: 700">Q4 2026 SUMMIT CIRCUIT</span>
 <span>AI use cases for manufacturing, oil &amp; gas and energy · 9 cities · San Francisco opens Oct 31</span>
 <span style="font-weight: 700; text-decoration: underline">View summits →</span>
 </a>
+</sc-if>
 
 <!-- NAV -->
 <header style="position: sticky; top: 0; z-index: 30; background: rgba(10,10,10,0.82); backdrop-filter: blur(14px); border-bottom: 1px solid #222222">
@@ -1469,7 +1473,7 @@ harness.index(corpus=<span style="color: #EDEDED">"./technical-orders"</span>, m
 <a href="#missions" style="color: #B3B3B3">Field Missions</a>
 <a href="#runbook" style="color: #B3B3B3">Runbook</a>
 <a href="#opensource" style="color: #B3B3B3">Open Source</a>
-<a href="{{hrefSummits}}" style="color: #B3B3B3">Summits</a>
+<sc-if value="{{showSummits}}"><a href="{{hrefSummits}}" style="color: #B3B3B3">Summits</a></sc-if>
 <a href="{{hrefResidency}}" style="color: #B3B3B3">Residency</a>
 <a href="{{hrefPricing}}" style="color: #FFFFFF; font-weight: 600">Pricing</a>
 <a href="{{hrefContact}}" style="color: #FFFFFF; font-weight: 600">Contact</a>
@@ -2037,7 +2041,7 @@ harness.index(corpus=<span style="color: #EDEDED">"./technical-orders"</span>, m
 <a href="#briefs" style="color: #B3B3B3">Briefings</a>
 <a href="#runbook" style="color: #B3B3B3">Runbook</a>
 <a href="#drivers" style="color: #B3B3B3">Driver Matrix</a>
-<a href="{{hrefSummits}}" style="color: #B3B3B3">Summits</a>
+<sc-if value="{{showSummits}}"><a href="{{hrefSummits}}" style="color: #B3B3B3">Summits</a></sc-if>
 <a href="{{hrefResidency}}" style="color: #B3B3B3">Residency</a>
 <a href="https://opensource.org/licenses/MIT" style="color: #B3B3B3">MIT License</a>
 <a href="#dispatch" style="color: #FFFFFF; font-weight: 700">Open a Dispatch →</a>
