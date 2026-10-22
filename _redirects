@@ -1,12 +1,6 @@
 # 301 Permanent Redirects for canonical domain consolidation
 https://stage-x.space/* https://www.stage-x.space/:splat 301
 
-# Temporary 302 Redirect: Hide summit page for 48 hrs (until 2026-10-24T11:00:00Z)
-/summits.html / 302
-/summits / 302
-/summits/* / 302
-
-
 # Permanent 301 Redirect for removed pricing page
 /pricing /contact 301
 /pricing.html /contact 301

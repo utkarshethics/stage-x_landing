@@ -21,7 +21,7 @@ class Component extends DCLogic {
     var firstOpen = CITIES.filter(function (c) { return c.start > now; })[0] || CITIES[0];
     var city = s.city || firstOpen.slug;
     var size = s.size || 1;
-    var hideSummits = Date.now() < Date.parse('2026-10-24T11:00:00Z');
+    var hideSummits = false;
     var cityObj = CITIES.filter(function (c) { return c.slug === city; })[0];
     var faqOpen = s.faq === undefined ? 0 : s.faq;
     var faqs = [
