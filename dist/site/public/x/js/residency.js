@@ -6,15 +6,16 @@ class Component extends DCLogic {
     var L = function (k) { return EXPORT ? '/' + k : 'Legal.dc.html'; };
     var FEE = 6, POOL = 12000;
     var CITIES = [
-      { slug: 'sf', name: 'San Francisco', demo: 'OCT 31', start: Date.UTC(2026, 9, 31, 16), theme: 'Air-Gapped Frontier Model Orchestration & Sovereign Weights', img: '/public/x/img/summit-sf.jpg', alt: 'Golden Gate Bridge and San Francisco at dusk' },
-      { slug: 'nyc', name: 'New York', demo: 'NOV 7', start: Date.UTC(2026, 10, 7, 14), theme: 'Deterministic Latency & High-Throughput Energy / Financial Inference', img: '/public/x/img/summit-nyc.jpg', alt: 'Hudson Yards and the Manhattan skyline at night' },
-      { slug: 'boston', name: 'Boston', demo: 'NOV 14', start: Date.UTC(2026, 10, 14, 14), theme: 'Frontier Deep Tech, Bio-Pharma Reasoning & Physical AI Robotics', img: '/public/x/img/summit-boston.jpg', alt: 'Boston skyline across the Charles River' },
-      { slug: 'toronto', name: 'Toronto', demo: 'NOV 21', start: Date.UTC(2026, 10, 21, 14), theme: 'Cross-Border Enterprise Compute & Sovereign North American Mesh', img: '/public/x/img/summit-toronto.jpg', alt: 'Toronto skyline with the CN Tower' },
-      { slug: 'london', name: 'London', demo: 'NOV 28', start: Date.UTC(2026, 10, 28, 9), theme: 'EU AI Act Compliance, Data Sovereignty & Heavy Industrial Edge', img: '/public/x/img/summit-london.jpg', alt: 'Canary Wharf at night' },
-      { slug: 'berlin', name: 'Berlin', demo: 'DEC 5', start: Date.UTC(2026, 11, 5, 8), theme: 'Industrial SCADA Automation, Automotive Edge & Hardware Security', img: '/public/x/img/summit-berlin.jpg', alt: 'Berlin TV tower and the Spree river' },
-      { slug: 'dubai', name: 'Dubai', demo: 'DEC 12', start: Date.UTC(2026, 11, 12, 5), theme: 'Sovereign Energy Grids, Upstream Oil & Gas Telemetry & High-Cap Compute', img: '/public/x/img/summit-dubai.jpg', alt: 'Dubai skyline with the Museum of the Future' },
-      { slug: 'mumbai', name: 'Mumbai', demo: 'DEC 19', start: Date.UTC(2026, 11, 19, 3, 30), theme: 'Hyper-Scale BFSI Transaction Gateways & Sovereign Telecom AI Stacks', img: '/public/x/img/summit-mumbai.jpg', alt: 'Mumbai skyline and the Bandra-Worli Sea Link' },
-      { slug: 'melbourne', name: 'Melbourne', demo: 'DEC 26', start: Date.UTC(2026, 11, 25, 22), theme: 'Autonomous Heavy Mining Fleets, Natural Resources & Remote Edge Compute', img: '/public/x/img/summit-melbourne.jpg', alt: 'Melbourne skyline and South Wharf' }
+      { slug: 'sf', name: 'San Francisco', demo: 'OCT 31', start: Date.UTC(2026, 9, 31, 16), theme: 'Energy Transition: Utilities, Solar & Grid Storage', img: '/public/x/img/summit-sf.jpg', alt: 'Golden Gate Bridge and San Francisco at dusk' },
+      { slug: 'nyc', name: 'New York', demo: 'NOV 7', start: Date.UTC(2026, 10, 7, 14), theme: 'Power Grids & Utilities: Reliability, Demand & Outages', img: '/public/x/img/summit-nyc.jpg', alt: 'Hudson Yards and the Manhattan skyline at night' },
+      { slug: 'boston', name: 'Boston', demo: 'NOV 14', start: Date.UTC(2026, 10, 14, 14), theme: 'Advanced Manufacturing: AI on the Factory Floor', img: '/public/x/img/summit-boston.jpg', alt: 'Boston skyline across the Charles River' },
+      { slug: 'toronto', name: 'Toronto', demo: 'NOV 21', start: Date.UTC(2026, 10, 21, 14), theme: 'Process Manufacturing: Steel, Chemicals & Materials', img: '/public/x/img/summit-toronto.jpg', alt: 'Toronto skyline with the CN Tower' },
+      { slug: 'london', name: 'London', demo: 'NOV 28', start: Date.UTC(2026, 10, 28, 9), theme: 'Offshore Energy: North Sea Oil & Gas and Wind', img: '/public/x/img/summit-london.jpg', alt: 'Canary Wharf at night' },
+      { slug: 'berlin', name: 'Berlin', demo: 'DEC 5', start: Date.UTC(2026, 11, 5, 8), theme: 'Automotive & Industrial Manufacturing', img: '/public/x/img/summit-berlin.jpg', alt: 'Berlin TV tower and the Spree river' },
+      { slug: 'mumbai', name: 'Mumbai', demo: 'DEC 5', start: Date.UTC(2026, 11, 5, 3, 30), theme: 'Refining, Petrochemicals & Power', img: '/public/x/img/summit-mumbai.jpg', alt: 'Mumbai skyline and the Bandra-Worli Sea Link' },
+      { slug: 'melbourne', name: 'Melbourne', demo: 'DEC 12', start: Date.UTC(2026, 11, 11, 22), theme: 'Mining & Resources: Heavy Equipment & Remote Sites', img: '/public/x/img/summit-melbourne.jpg', alt: 'Melbourne skyline and South Wharf' },
+      // Dubai moved to 2027 on Lu.ma (date not announced yet); placeholder start keeps it "upcoming".
+      { slug: 'dubai', name: 'Dubai', demo: '2027', start: Date.UTC(2027, 0, 1), theme: 'Upstream Oil & Gas: Production, Drilling & Pipelines', img: '/public/x/img/summit-dubai.jpg', alt: 'Dubai skyline with the Museum of the Future' }
     ];
     var now = Date.now();
     var firstOpen = CITIES.filter(function (c) { return c.start > now; })[0] || CITIES[0];
@@ -24,16 +25,17 @@ class Component extends DCLogic {
     var faqOpen = s.faq === undefined ? 0 : s.faq;
     var faqs = [
       ['Who can join?', 'AI enthusiasts and college students. You can join on your own or as a team of up to four.'],
+      ['What will we build?', 'A prototype for a real AI use case brought by manufacturing, oil & gas or energy companies attending your city’s summit, such as predictive maintenance, quality inspection or demand forecasting.'],
       ['How much does it cost?', 'Registration is $6 per person. A team of four pays $24 in total.'],
       ['How do I pay?', 'Send your registration from this page. We reply by email with a secure payment link, and your spot is confirmed once payment is received.'],
-      ['Where and when does it happen?', 'In person, in all nine summit cities. Each sprint lasts 1–2 weeks and ends on that city’s summit weekend, where finalists demo their work.'],
+      ['Where and when does it happen?', 'In person, in all nine summit cities. Each sprint lasts 1–2 weeks and ends on that city’s summit weekend, where finalists demo their prototypes to the attending companies.'],
       ['What can we win?', 'Every city has its own prize pool of $12,000, in US dollars.'],
       ['Can I get a refund?', 'Refunds follow our Refund & Cancellation Policy. Email connect@stage-x.space with your name, invoice number and reason.']
     ];
 
     var CHIP_ON = 'border: 1px solid #FFFFFF; background: #FFFFFF; color: #0A0A0A;';
     var CHIP_OFF = 'border: 1px solid #3A3A3A; background: #0F0F0F; color: #EDEDED;';
-    var ticker = ['$12,000 PER CITY', '9 CITIES', 'TEAMS OF 1–4', '$6 PER PERSON', '1–2 WEEK SPRINTS', 'DEMO AT THE SUMMIT'];
+    var ticker = ['$12,000 PER CITY', 'REAL INDUSTRY USE CASES', 'MANUFACTURING · OIL & GAS · ENERGY', 'TEAMS OF 1–4', '$6 PER PERSON', 'DEMO AT THE SUMMIT'];
 
     return {
       motionClass: (this.props.motion ?? true) ? '' : 'sx-still',
@@ -47,8 +49,8 @@ class Component extends DCLogic {
       tickerLoop: ticker.concat(ticker, ticker),
       steps: [
         { n: '01', t: 'Register', d: 'Pick your city and team (1–4 people). Registration is $6 per person.' },
-        { n: '02', t: 'Build', d: 'Spend 1–2 weeks building in person in your city, around that city’s summit theme.' },
-        { n: '03', t: 'Demo', d: 'Finalists present their work at the STAGE-X Summit weekend in their city.' },
+        { n: '02', t: 'Build', d: 'Pick a real use case from the manufacturing, oil & gas and energy companies attending your city’s summit, and build a prototype in person over 1–2 weeks.' },
+        { n: '03', t: 'Demo', d: 'Finalists present their prototypes to those companies at the STAGE-X Summit weekend in their city.' },
         { n: '04', t: 'Win', d: 'Each city awards its own $12,000 prize pool.' }
       ],
       facts: [
