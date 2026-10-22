@@ -3,71 +3,44 @@ class Component extends DCLogic {
     var self = this;
     var s = this.state || {};
     var EXPORT = typeof SX_EXPORT !== 'undefined';
-    var KEYS = ['about', 'contact', 'terms', 'privacy', 'refund-policy', 'delivery-policy'];
+    var KEYS = ['about', 'contact', 'terms', 'privacy', 'delivery-policy'];
     var cur = s.page || this.props.page || 'contact';
     if (KEYS.indexOf(cur) === -1) cur = 'contact';
 
-    var ADDRESS = '2nd Floor, No. 235, 13th Cross Road, Binnamangala, Indiranagar 2nd Stage, Bengaluru, Karnataka 560038, India';
+    var ADDRESS = '';
     var UPDATED = '21 October 2026';
 
     var PAGES = {
       contact: {
         label: 'Contact Us', kicker: 'CONTACT', title: 'Contact Us', updated: '',
         lede: 'We reply to every message within 1 business day.',
-        blocks: [
-          { p: 'Business hours: Monday to Saturday, 10:00 AM – 7:00 PM IST' },
-          { p: 'For billing, refunds or payment questions, email connect@stage-x.space with your invoice number. We respond within 1 business day.' },
-          { p: 'Grievance contact: Ayesha Sultana, connect@stage-x.space' }
-        ]
+        blocks: []
       },
       about: {
         label: 'About Us', kicker: 'ABOUT', title: 'About STAGE-X', updated: '',
-        lede: "STAGE-X is an IT services and computer consultancy business based in Bengaluru. We help companies take AI systems from research to everyday use: our engineers work inside the client's team to integrate, optimise and secure AI tools on the client's own infrastructure, including on-premise, private cloud and air-gapped environments.",
+        lede: "STAGE-X provides forward deployed AI engineering services for enterprises and industrial operations: our engineers embed inside client teams to integrate, optimize and harden frontier AI systems inside existing mission-critical infrastructure, including on-premise, private cloud and air-gapped environments.",
         blocks: [
           { h: 'What we do' },
-          { ul: ['AI integration with existing systems such as SAP, Kafka, OSIsoft PI and cloud platforms', 'Retrieval (RAG) and monitoring setups for business data', "Hands-on training and handover so the client's team can run the system", 'Technical assessments and briefings'] },
-          { h: 'Who we are' },
-          { p: 'STAGE-X is a sole proprietorship owned by Ayesha Sultana. It is registered as a micro enterprise under Udyam (UDYAM-WB-13-0171146) and as a commercial establishment under the Karnataka Shops and Commercial Establishments Act (Reg. No. 19/80/CE/0296/2026).' },
-          { p: 'Office: 2nd Floor, No. 235, 13th Cross Road, Binnamangala, Indiranagar 2nd Stage, Bengaluru 560038' },
-          { p: 'Contact: +1 (331) 328-7053 · connect@stage-x.space' }
-        ]
-      },
-      pricing: {
-        label: 'Pricing', kicker: 'PRICING & BILLING', title: 'Pricing & Billing', updated: '',
-        lede: "Every STAGE-X engagement is priced to the client's needs. We share a written quote before any payment, and all amounts are in US Dollars (USD).",
-        blocks: [
-          { h: 'Our services' },
-          { cards: [
-            { t: 'AI Readiness Assessment', d: 'A review of your data, systems and use case, with a written plan' },
-            { t: 'Pilot Deployment', d: 'One AI use case integrated into your environment and tested with your team' },
-            { t: 'Embedded Engineer', d: 'A STAGE-X engineer working with your team, billed monthly' },
-            { t: 'Training & Handover', d: 'Hands-on training for your operators, with documentation' }
-          ] },
-          { h: 'How pricing works' },
-          { ol: [
-            { n: '1', t: 'Tell us what you need through our Contact page or at connect@stage-x.space.' },
-            { n: '2', t: 'We send a written quote with the scope, timeline and total amount in USD within 2 working days.' },
-            { n: '3', t: 'Once you accept, we send a secure payment link. You can pay by UPI, card, net banking or wallet.' },
-            { n: '4', t: 'You receive an invoice by email for every payment, and work starts as per our Service Delivery Policy.' }
-          ] },
-          { p: 'The amount on the quote is the final amount payable. Cancellations and refunds follow our Refund & Cancellation Policy.' }
+          { ul: ['AI integration with existing systems such as SAP, Kafka, OSIsoft PI and cloud platforms', 'Retrieval (RAG) and monitoring setups for business data', "Hands-on training and handover so the client's team runs the system independently", 'Technical assessments and executive briefings'] },
+          { h: 'Contact & Retainers' },
+          { p: 'For enterprise engagements, technical briefings or dispatch requests, reach our engineering team directly at +1 (331) 328-7053 or connect@stage-x.space.' }
         ]
       },
       terms: {
         label: 'Terms & Conditions', kicker: 'LEGAL', title: 'Terms & Conditions', updated: UPDATED, lede: '',
         blocks: [
           { h: '1. About us' },
-          { p: 'This website, stage-x.space, is owned and operated by STAGE-X, a sole proprietorship of Ayesha Sultana, with its office at 2nd Floor, No. 235, 13th Cross Road, Binnamangala, Indiranagar 2nd Stage, Bengaluru, Karnataka 560038, India ("STAGE-X", "we", "us"). By using this website or buying our services, you agree to these terms.' },
+          { p: 'This website, stage-x.space, is operated by STAGE-X ("STAGE-X", "we", "us"). By using this website or buying our services, you agree to these terms.' },
           { h: '2. Our services' },
           { p: 'We provide IT services and computer consultancy, including AI integration, deployment, training and technical assessments, as described on our website and in the quote or order you accept.' },
           { h: '3. Quotes and orders' },
-          { p: 'Prices are shown on our Pricing page or in a written quote. An order is confirmed when we receive your payment or signed acceptance of a quote. The scope of work is what is written in the order or quote.' },
+          { p: 'Prices are agreed in a written quote. An order is confirmed when we receive your payment or signed acceptance of a quote. The scope of work is what is written in the order or quote.' },
           { h: '4. Payments' },
           { p: 'Payments are made in US Dollars (USD) through our payment gateway partner, which accepts UPI, cards, net banking and wallets. We do not store your card or bank details. You receive an invoice by email for every payment.' },
           { h: '5. Client responsibilities' },
           { p: 'You agree to give us timely access to the systems, data and people needed to deliver the service, and to have the right to share any data you give us.' },
           { h: '6. Cancellations and refunds' },
-          { p: 'Cancellations and refunds follow our Refund & Cancellation Policy at stage-x.space/refund-policy.' },
+          { p: 'For cancellations, billing or order enquiries, email connect@stage-x.space.' },
           { h: '7. Intellectual property' },
           { p: "Code and documents we create specifically for you become yours once paid in full, unless the order says otherwise. Our own tools, open-source components and know-how remain ours or their owners' and are licensed to you for use with the delivered work." },
           { h: '8. Confidentiality' },
@@ -81,15 +54,15 @@ class Component extends DCLogic {
           { h: '12. Governing law' },
           { p: 'These terms are governed by the laws of India. Courts in Bengaluru, Karnataka have exclusive jurisdiction.' },
           { h: '13. Contact' },
-          { p: 'STAGE-X, 2nd Floor, No. 235, 13th Cross Road, Binnamangala, Indiranagar 2nd Stage, Bengaluru 560038 · +1 (331) 328-7053 · connect@stage-x.space' }
+          { p: 'STAGE-X · +1 (331) 328-7053 · connect@stage-x.space' }
         ]
       },
       privacy: {
         label: 'Privacy Policy', kicker: 'LEGAL', title: 'Privacy Policy', updated: UPDATED,
-        lede: 'This policy explains how STAGE-X (sole proprietorship of Ayesha Sultana, 2nd Floor, No. 235, 13th Cross Road, Binnamangala, Indiranagar 2nd Stage, Bengaluru 560038) collects and uses personal data through stage-x.space, in line with the Digital Personal Data Protection Act, 2023 and the Information Technology Act, 2000.',
+        lede: 'This policy explains how STAGE-X collects and uses personal data through stage-x.space, in line with the Digital Personal Data Protection Act, 2023 and the Information Technology Act, 2000.',
         blocks: [
           { h: '1. What we collect' },
-          { ul: ['Details you give us: name, company, email, phone number and the message you send through our forms.', 'Billing details: name, billing address and invoice details. Card, UPI and bank details are collected and processed by our payment gateway partner, not stored by us.', 'Basic website data: IP address, browser type and pages visited, collected through cookies and analytics.'] },
+          { ul: ['Details you give us: name, company, email, phone number and the message you send through our forms.', 'Billing details: name, billing address and invoice details. Card, UPI and bank details are processed by our payment gateway partner, not stored by us.', 'Basic website data: IP address, browser type and pages visited, collected through cookies and analytics.'] },
           { h: '2. Why we use it' },
           { ul: ['To reply to enquiries and deliver the services you buy', 'To send invoices and payment confirmations', 'To improve our website and services', 'To meet legal and tax obligations'] },
           { h: '3. Sharing' },
@@ -103,28 +76,7 @@ class Component extends DCLogic {
           { h: '7. Changes' },
           { p: 'We may update this policy; the latest version is always on this page.' },
           { h: '8. Grievance officer' },
-          { p: 'Ayesha Sultana, STAGE-X · connect@stage-x.space · +1 (331) 328-7053' }
-        ]
-      },
-      'refund-policy': {
-        label: 'Refund & Cancellation', kicker: 'LEGAL', title: 'Refund & Cancellation Policy', updated: UPDATED,
-        lede: 'This policy applies to all services bought from STAGE-X through stage-x.space.',
-        blocks: [
-          { h: '1. Cancelling before work starts' },
-          { p: 'You can cancel an order by emailing connect@stage-x.space before work begins. You receive a full refund.' },
-          { h: '2. Cancelling after work starts' },
-          { p: 'If you cancel after work has started, we refund the amount paid minus the value of work already done, calculated on the time spent at the rates in your order or quote. We send you a written breakup.' },
-          { h: '3. Monthly services' },
-          { p: "Monthly plans (such as Embedded Engineer) can be cancelled with 15 days' written notice. No refund is given for a month already started, and you are not charged for the following month." },
-          { h: '4. Completed work' },
-          { p: 'Once a deliverable is delivered and accepted, its fee is not refundable. If a deliverable does not match the agreed scope, tell us within 7 days of delivery and we will fix it at no extra cost.' },
-          { h: '5. Duplicate or failed payments' },
-          { p: 'If you are charged twice, or money is deducted but the payment fails, we refund the extra amount in full after verification.' },
-          { h: '6. How refunds are paid' },
-          { p: 'Approved refunds are sent to the original payment method (card, UPI, net banking or wallet) within 5–7 working days of approval. Your bank may take a few more days to show it.' },
-          { h: '7. How to request a refund' },
-          { p: 'Email connect@stage-x.space with your name, invoice number and reason. We reply within 2 working days.' },
-          { p: 'STAGE-X, 2nd Floor, No. 235, 13th Cross Road, Binnamangala, Indiranagar 2nd Stage, Bengaluru 560038 · +1 (331) 328-7053' }
+          { p: 'STAGE-X · connect@stage-x.space · +1 (331) 328-7053' }
         ]
       },
       'delivery-policy': {
@@ -132,7 +84,7 @@ class Component extends DCLogic {
         lede: 'STAGE-X sells IT and consultancy services. We do not ship physical products.',
         blocks: [
           { h: '1. How services are delivered' },
-          { p: "Services are delivered online (video calls, remote access, shared repositories and email) or on-site at the client's office in India when agreed in the order." },
+          { p: "Services are delivered online (video calls, remote access, shared repositories and email) or on-site at the client's office when agreed in the order." },
           { h: '2. When delivery starts' },
           { p: 'Work starts within 3 working days of payment confirmation, or on the start date written in your order or quote.' },
           { h: '3. Timelines' },
@@ -140,7 +92,7 @@ class Component extends DCLogic {
           { h: '4. Confirmation' },
           { p: 'You receive an email confirmation and invoice after payment, and a delivery note or report when each deliverable is handed over.' },
           { h: '5. Delays' },
-          { p: 'If a delivery date will be missed, we tell you by email in advance with a new date. If the delay is on our side and you no longer want the service, you can cancel under our Refund & Cancellation Policy.' },
+          { p: 'If a delivery date will be missed, we tell you by email in advance with a new date.' },
           { h: '6. Questions' },
           { p: 'connect@stage-x.space · +1 (331) 328-7053' }
         ]
@@ -151,49 +103,80 @@ class Component extends DCLogic {
     var pick = function (k) { return EXPORT ? null : function () { self.setState({ page: k }); }; };
     var p = PAGES[cur];
 
-    var cardFor = {
-      contact: [
-        { k: 'BUSINESS NAME', v: 'STAGE-X' },
-        { k: 'PROPRIETOR', v: 'Ayesha Sultana' },
-        { k: 'OFFICE ADDRESS', v: ADDRESS, span: '1 / -1' },
-        { k: 'PHONE / WHATSAPP', v: '+1 (331) 328-7053', href: 'tel:+13313287053' },
-        { k: 'EMAIL', v: 'connect@stage-x.space', href: 'mailto:connect@stage-x.space' }
-      ]
-    };
+    var cardFor = {};
     var card = (cardFor[cur] || []).map(function (c) { return Object.assign({ span: 'auto', plain: !c.href, href: c.href || '' }, c); });
 
-    var chev = [0, 1, 2].map(function (i) { return { style: 'animation-delay: ' + (i * 0.2).toFixed(1) + 's' }; });
-    var order = ['about', 'contact', 'terms', 'privacy', 'refund-policy', 'delivery-policy'];
-    var footerLabels = { about: 'About Us', contact: 'Contact Us', terms: 'Terms & Conditions', privacy: 'Privacy Policy', 'refund-policy': 'Refund & Cancellation', 'delivery-policy': 'Service Delivery Policy' };
+    var footerLabels = {
+      about: 'About Us',
+      contact: 'Contact Us',
+      terms: 'Terms & Conditions',
+      privacy: 'Privacy Policy',
+      'delivery-policy': 'Service Delivery Policy'
+    };
+
+    var order = ['about', 'contact', 'terms', 'privacy', 'delivery-policy'];
+
+    var chev = [0, 1, 2].map(function (i) {
+      return { style: 'opacity: ' + ((i + 1) * 0.35) };
+    });
+
+    var hideSummits = Date.now() < Date.parse('2026-10-24T11:00:00Z');
 
     return {
+      motionClass: (this.props.motion ?? true) ? '' : 'sx-still',
       hrefHome: EXPORT ? '/' : 'Main.dc.html',
-      contactHref: href('contact'),
-      pickContact: pick('contact'),
-      topNav: [
-        { label: 'Home', href: EXPORT ? '/' : 'Main.dc.html', pick: null, current: 'false', fg: '#B3B3B3', line: 'transparent' },
-        { label: 'Summits', href: EXPORT ? '/summits.html' : 'Summits.dc.html', pick: null, current: 'false', fg: '#B3B3B3', line: 'transparent' },
-        { label: 'Residency', href: EXPORT ? '/residency' : 'Residency.dc.html', pick: null, current: 'false', fg: '#B3B3B3', line: 'transparent' }
-      ].concat(['about', 'contact'].map(function (k) {
-        var on = k === cur;
-        return { label: k === 'about' ? 'About' : k === 'pricing' ? 'Pricing' : 'Contact', href: href(k), pick: pick(k), current: on ? 'page' : 'false', fg: on ? '#FFFFFF' : '#B3B3B3', line: on ? '#FFFFFF' : 'transparent' };
-      })),
+      hrefSummits: EXPORT ? '/summits.html' : 'Summits.dc.html',
+      mobileNav: [['Home', EXPORT ? '/' : 'Main.dc.html']].concat(hideSummits ? [] : [['Summits', EXPORT ? '/summits.html' : 'Summits.dc.html']]).concat([['Residency', EXPORT ? '/residency' : 'Residency.dc.html'], ['About', href('about')], ['Contact', href('contact')], ['Terms', href('terms')]]).map(function (x) {
+        return { label: x[0], href: x[1] };
+      }),
       chev: chev,
       p: p,
       tabs: order.map(function (k) {
         var on = k === cur;
         return { label: PAGES[k].label, href: href(k), pick: pick(k), current: on ? 'page' : 'false', line: on ? '#FFFFFF' : 'transparent', fg: on ? '#FFFFFF' : '#A8A8A8', weight: on ? '700' : '500' };
       }),
-      showCard: card.length > 0,
-      card: card,
+      showCard: false,
+      card: [],
       isContact: cur === 'contact',
       sendMail: function (e) {
         if (e && e.preventDefault) e.preventDefault();
-        var f = e && e.target && e.target.elements;
+        var f = e && e.target && e.target.elements ? e.target.elements : (e && e.target ? e.target : null);
         if (!f) return;
-        var subject = 'Website enquiry from ' + f.name.value + (f.company.value ? ' (' + f.company.value + ')' : '');
-        var body = f.message.value + '\n\n— ' + f.name.value + '\nEmail: ' + f.email.value + (f.phone.value ? '\nPhone: ' + f.phone.value : '') + (f.company.value ? '\nCompany: ' + f.company.value : '');
-        window.location.href = 'mailto:connect@stage-x.space?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+        var name = (f.name && f.name.value) ? f.name.value.trim() : '';
+        var company = (f.company && f.company.value) ? f.company.value.trim() : '';
+        var email = (f.email && f.email.value) ? f.email.value.trim() : '';
+        var phone = (f.phone && f.phone.value) ? f.phone.value.trim() : '';
+        var msg = (f.message && f.message.value) ? f.message.value.trim() : '';
+
+        var alertEl = document.getElementById('contact-success');
+        if (alertEl) {
+          alertEl.style.display = 'block';
+          alertEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+        var btn = document.getElementById('cf-submit-btn');
+        if (btn) {
+          btn.disabled = true;
+          btn.style.opacity = '0.6';
+          btn.textContent = 'Query Received';
+        }
+
+        var subject = 'Website enquiry from ' + name + (company ? ' (' + company + ')' : '');
+        var body = msg + '\n\n— ' + name + '\nEmail: ' + email + (phone ? '\nPhone: ' + phone : '') + (company ? '\nCompany: ' + company : '');
+
+        try {
+          fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name: name, company: company, email: email, phone: phone, message: msg })
+          }).catch(function () {});
+        } catch (err) {}
+
+        setTimeout(function () {
+          window.location.href = 'mailto:connect@stage-x.space?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+        }, 350);
+
+        var formEl = e && e.target && e.target.tagName === 'FORM' ? e.target : document.getElementById('contact-form');
+        if (formEl && formEl.reset) formEl.reset();
       },
       siteLinks: [
         { label: 'Home', href: EXPORT ? '/' : 'Main.dc.html' },
