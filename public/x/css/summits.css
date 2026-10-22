@@ -30,7 +30,7 @@ a{color:#FFFFFF;text-decoration:none}a:hover{color:#D4D4D4}
 .sx-btn:hover{transform:translateY(-2px)}
 .sx-btn-solid:hover{background:#D4D4D4 !important;color:#0A0A0A !important}
 .sx-btn-ghost:hover{background:#FFFFFF !important;color:#0A0A0A !important}
-.sx-outline{color:transparent;-webkit-text-stroke:1.5px #FFFFFF}
+.sx-outline{color:inherit}
 .sx-gridbg{background-image:linear-gradient(rgba(255,255,255,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.045) 1px,transparent 1px);background-size:56px 56px}
 .sx-nav{display:flex}
 .sx-mnav{display:none}
