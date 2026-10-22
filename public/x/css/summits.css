@@ -1,5 +1,5 @@
-html{scroll-behavior:smooth}
-body{margin:0;background:#0A0A0A}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{margin:0;background:#0A0A0A;overflow-x:hidden}
 a{color:#FFFFFF;text-decoration:none}a:hover{color:#D4D4D4}
 *{box-sizing:border-box}
 @keyframes sxMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
