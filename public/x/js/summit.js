@@ -115,8 +115,8 @@ class Component extends DCLogic {
         { title: 'Capacity Bound', body: 'Strictly limited to 40 verified technical principals per session.' }
       ],
       channels: [
-        { name: 'Lu.ma Listing', tag: 'EXECUTIVE CALENDAR', body: 'Automated calendar synchronization for Google Calendar, Outlook 365, and Apple Wallet passes. Guest directory verified under Chatham House Rule credentials.', cta: 'View ' + d.name + ' on Lu.ma →', href: lumaHref },
-        { name: 'Eventbrite Listing', tag: 'CORPORATE PROCUREMENT', body: 'Institutional purchase order (PO) invoicing, Net 30 corporate payment settlement, multi-seat executive delegation passes, and centralized tax/W-9 receipting.', cta: 'View ' + d.name + ' on Eventbrite →', href: 'https://www.eventbrite.com' }
+        { name: 'Lu.ma Listing', tag: 'EXECUTIVE CALENDAR', body: 'Automated calendar synchronization for Google Calendar, Outlook 365, and Apple Wallet passes. Guest directory verified under Chatham House Rule credentials.', cta: 'View ' + d.name + ' on Lu.ma', href: lumaHref },
+        { name: 'Eventbrite Listing', tag: 'CORPORATE PROCUREMENT', body: 'Institutional purchase order (PO) invoicing, Net 30 corporate payment settlement, multi-seat executive delegation passes, and centralized tax/W-9 receipting.', cta: 'View ' + d.name + ' on Eventbrite', href: 'https://www.eventbrite.com' }
       ],
       chev: chev,
       formOptions: [slug].concat(ORDER.filter(function (k3) { return k3 !== slug; })).map(function (k3) { return { v: k3, label: OPT[k3] }; }),

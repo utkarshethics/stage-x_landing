@@ -65,7 +65,7 @@ class Component extends DCLogic {
       heroStats: [{ v: '9', k: 'Summits' }, { v: '3', k: 'Circuits' }, { v: '40', k: 'Seats each' }, { v: '360', k: 'Total seats' }],
       seats: seats,
       protocols: [
-        { n: '01', title: 'Strict Chatham House Rule', body: 'Participants are free to use the information and code strategies received, but neither the identity nor the affiliation of the speaker or any participant may be revealed. Absolute operational candor is required.' },
+        { n: '01', title: 'Strict Chatham House Rule', body: 'Participants may use the information and code strategies received, but neither the identity nor the affiliation of the speaker or any participant may be revealed. Absolute operational candor is required.' },
         { n: '02', title: 'Zero Slide Decks & Pitches', body: 'No vendor pitches or marketing narratives. Every session starts from a real operational problem: downtime, quality, energy, safety. It ends with a use case and the data it needs.' },
         { n: '03', title: 'Industry Leaders Only', body: 'Strictly capped at 40 participants per summit: operations, engineering, plant and digital leaders from manufacturing, oil & gas and energy companies, alongside STAGE-X engineers.' }
       ],

@@ -1,8 +1,0 @@
-/*
-  Cache-Control: public, max-age=0, must-revalidate
-
-/public/styles/*
-  Cache-Control: public, max-age=0, must-revalidate
-
-/public/*
-  Cache-Control: public, max-age=0, must-revalidate
