@@ -29,7 +29,7 @@ class Component extends DCLogic {
           { h: 'Who we are' },
           { p: 'STAGE-X is a sole proprietorship owned by Ayesha Sultana. It is registered as a micro enterprise under Udyam (UDYAM-WB-13-0171146) and as a commercial establishment under the Karnataka Shops and Commercial Establishments Act (Reg. No. 19/80/CE/0296/2026).' },
           { p: 'Office: 2nd Floor, No. 235, 13th Cross Road, Binnamangala, Indiranagar 2nd Stage, Bengaluru 560038' },
-          { p: 'Contact: +91 78922 40243 · connect@stage-x.space' }
+          { p: 'Contact: +1 (331) 328-7053 · connect@stage-x.space' }
         ]
       },
       pricing: {
@@ -81,7 +81,7 @@ class Component extends DCLogic {
           { h: '12. Governing law' },
           { p: 'These terms are governed by the laws of India. Courts in Bengaluru, Karnataka have exclusive jurisdiction.' },
           { h: '13. Contact' },
-          { p: 'STAGE-X, 2nd Floor, No. 235, 13th Cross Road, Binnamangala, Indiranagar 2nd Stage, Bengaluru 560038 · +91 78922 40243 · connect@stage-x.space' }
+          { p: 'STAGE-X, 2nd Floor, No. 235, 13th Cross Road, Binnamangala, Indiranagar 2nd Stage, Bengaluru 560038 · +1 (331) 328-7053 · connect@stage-x.space' }
         ]
       },
       privacy: {
@@ -103,7 +103,7 @@ class Component extends DCLogic {
           { h: '7. Changes' },
           { p: 'We may update this policy; the latest version is always on this page.' },
           { h: '8. Grievance officer' },
-          { p: 'Ayesha Sultana, STAGE-X · connect@stage-x.space · +91 78922 40243' }
+          { p: 'Ayesha Sultana, STAGE-X · connect@stage-x.space · +1 (331) 328-7053' }
         ]
       },
       'refund-policy': {
@@ -124,7 +124,7 @@ class Component extends DCLogic {
           { p: 'Approved refunds are sent to the original payment method (card, UPI, net banking or wallet) within 5–7 working days of approval. Your bank may take a few more days to show it.' },
           { h: '7. How to request a refund' },
           { p: 'Email connect@stage-x.space with your name, invoice number and reason. We reply within 2 working days.' },
-          { p: 'STAGE-X, 2nd Floor, No. 235, 13th Cross Road, Binnamangala, Indiranagar 2nd Stage, Bengaluru 560038 · +91 78922 40243' }
+          { p: 'STAGE-X, 2nd Floor, No. 235, 13th Cross Road, Binnamangala, Indiranagar 2nd Stage, Bengaluru 560038 · +1 (331) 328-7053' }
         ]
       },
       'delivery-policy': {
@@ -142,7 +142,7 @@ class Component extends DCLogic {
           { h: '5. Delays' },
           { p: 'If a delivery date will be missed, we tell you by email in advance with a new date. If the delay is on our side and you no longer want the service, you can cancel under our Refund & Cancellation Policy.' },
           { h: '6. Questions' },
-          { p: 'connect@stage-x.space · +91 78922 40243' }
+          { p: 'connect@stage-x.space · +1 (331) 328-7053' }
         ]
       }
     };
@@ -156,7 +156,7 @@ class Component extends DCLogic {
         { k: 'BUSINESS NAME', v: 'STAGE-X' },
         { k: 'PROPRIETOR', v: 'Ayesha Sultana' },
         { k: 'OFFICE ADDRESS', v: ADDRESS, span: '1 / -1' },
-        { k: 'PHONE / WHATSAPP', v: '+91 78922 40243', href: 'tel:+917892240243' },
+        { k: 'PHONE / WHATSAPP', v: '+1 (331) 328-7053', href: 'tel:+13313287053' },
         { k: 'EMAIL', v: 'connect@stage-x.space', href: 'mailto:connect@stage-x.space' }
       ]
     };
