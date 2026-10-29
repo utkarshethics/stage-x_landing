@@ -97,7 +97,7 @@ class Component extends DCLogic {
         { label: 'Residency', href: '#residency-top' },
         { label: 'Register', href: '#register' }
       ],
-      legalLinks: [['about', 'About Us'], ['contact', 'Contact Us'], ['terms', 'Terms & Conditions'], ['privacy', 'Privacy Policy'], ['delivery-policy', 'Service Delivery Policy']].map(function (x, i, a) { return { label: x[1], href: L(x[0]), more: i < a.length - 1 }; })
+      legalLinks: [['about', 'About Us'], ['contact', 'Contact Us'], ['terms', 'Terms & Conditions'], ['privacy', 'Privacy Policy'], ['delivery-policy', 'Service Delivery Policy'], ['refund', 'Cancellation & Refund Policy']].map(function (x, i, a) { return { label: x[1], href: L(x[0]), more: i < a.length - 1 }; })
     };
   }
 }

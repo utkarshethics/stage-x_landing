@@ -3,7 +3,7 @@ class Component extends DCLogic {
     var self = this;
     var s = this.state || {};
     var EXPORT = typeof SX_EXPORT !== 'undefined';
-    var KEYS = ['about', 'contact', 'terms', 'privacy', 'delivery-policy'];
+    var KEYS = ['about', 'contact', 'terms', 'privacy', 'delivery-policy', 'refund'];
     var cur = s.page || this.props.page || 'contact';
     if (KEYS.indexOf(cur) === -1) cur = 'contact';
 
@@ -111,10 +111,11 @@ class Component extends DCLogic {
       contact: 'Contact Us',
       terms: 'Terms & Conditions',
       privacy: 'Privacy Policy',
-      'delivery-policy': 'Service Delivery Policy'
+      'delivery-policy': 'Service Delivery Policy',
+      refund: 'Cancellation & Refund Policy'
     };
 
-    var order = ['about', 'contact', 'terms', 'privacy', 'delivery-policy'];
+    var order = ['about', 'contact', 'terms', 'privacy', 'delivery-policy', 'refund'];
 
     var chev = [0, 1, 2].map(function (i) {
       return { style: 'opacity: ' + ((i + 1) * 0.35) };

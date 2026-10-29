@@ -27,7 +27,7 @@ class Component extends DCLogic {
     var faqs = [
       ['Who can join?', 'AI enthusiasts and college students. You can join on your own or as a team of up to four.'],
       ['What will we build?', 'A prototype for a real AI use case brought by manufacturing, oil & gas or energy companies attending your city’s summit, such as predictive maintenance, quality inspection or demand forecasting.'],
-      ['How much does it cost?', 'Registration is free. Teams of 1–4 can join at no cost.'],
+      ['How do teams join?', 'Teams of 1–4 can submit their details to join the cohort and receive challenge briefs.'],
       ['How does registration work?', 'Submit your team details on this page. We review applications and confirm your team’s spot by email.'],
       ['Where and when does it happen?', 'In person, in all nine summit cities. Each sprint lasts 1–2 weeks and ends on that city’s summit weekend, where finalists demo their prototypes to the attending companies.'],
       ['What can we win?', 'Teams compete for a $5 Million YC Runway prize pool across the 9-city circuit.'],
@@ -36,7 +36,7 @@ class Component extends DCLogic {
 
     var CHIP_ON = 'border: 1px solid #FFFFFF; background: #FFFFFF; color: #0A0A0A;';
     var CHIP_OFF = 'border: 1px solid #3A3A3A; background: #0F0F0F; color: #EDEDED;';
-    var ticker = ['$5M YC RUNWAY POOL', 'REAL INDUSTRY USE CASES', 'MANUFACTURING · OIL & GAS · ENERGY', 'TEAMS OF 1–4', 'FREE REGISTRATION', 'DEMO AT THE SUMMIT'];
+    var ticker = ['YC RUNWAY ACCELERATOR', 'ENTERPRISE USE CASES', 'MANUFACTURING · ENERGY · INDUSTRIAL AI', 'IN-PERSON SPRINT', 'DEMO AT REGIONAL SUMMITS'];
 
     return {
       motionClass: (this.props.motion ?? true) ? '' : 'sx-still',
@@ -44,10 +44,10 @@ class Component extends DCLogic {
       hrefSummits: EXPORT ? '/summits.html' : 'Summits.dc.html',
       hrefContact: L('contact'),
       totalPool: (POOL * CITIES.length).toLocaleString('en-US'),
-      heroStats: [{ v: '9', k: 'Cities' }, { v: '1–4', k: 'Per team' }, { v: 'Free', k: 'Registration' }],
+      heroStats: [{ v: 'Global', k: 'Circuit' }, { v: 'Teams', k: '1–4 Builders' }, { v: 'Cohort', k: 'Open' }],
       tickerLoop: ticker.concat(ticker, ticker),
       steps: [
-        { n: '01', t: 'Register', d: 'Pick your city and team (1–4 people). Registration is free.' },
+        { n: '01', t: 'Register', d: 'Select your host city and register your team (1–4 builders).' },
         { n: '02', t: 'Build', d: 'Pick a real use case from the manufacturing, oil & gas and energy companies attending your city’s summit, and build a prototype in person over 1–2 weeks.' },
         { n: '03', t: 'Demo', d: 'Finalists present their prototypes to those companies at the STAGE-X Summit weekend in their city.' },
         { n: '04', t: 'Win', d: 'Compete for the $5 Million YC Runway prize pool.' }
@@ -55,7 +55,7 @@ class Component extends DCLogic {
       facts: [
         { k: 'OPEN TO', v: 'Students & AI enthusiasts', d: 'College students and anyone who builds with AI.' },
         { k: 'TEAM SIZE', v: '1–4 people', d: 'Come solo or bring up to three teammates.' },
-        { k: 'REGISTRATION', v: 'Free', d: 'Open to college students and AI enthusiasts.' },
+        { k: 'REGISTRATION', v: 'Open Cohort', d: 'Open to students, developers and AI builders.' },
         { k: 'FORMAT', v: 'In person', d: 'In the city you choose, ending at its summit.' }
       ],
       cities: CITIES.map(function (c) {
@@ -81,13 +81,13 @@ class Component extends DCLogic {
       }),
       sizes: [1, 2, 3, 4].map(function (n) { return { n: n, on: n === size, style: n === size ? CHIP_ON : CHIP_OFF, pick: function () { self.setState({ size: n }); } }; }),
       teamSize: size + (size === 1 ? ' person' : ' people'),
-      total: 'Free',
+      total: 'Open Application',
       submit: function (e) {
         if (e && e.preventDefault) e.preventDefault();
         var f = e && e.target && e.target.elements;
         if (!f) return;
         var subject = 'Residency registration — ' + cityObj.name + ' — team of ' + size;
-        var body = 'City: ' + cityObj.name + ' (demo day ' + cityObj.demo + ')\nTeam size: ' + size + ' (Free entry)\n\nTeam lead: ' + f.name.value + '\nEmail: ' + f.email.value + '\nPhone / WhatsApp: ' + f.phone.value + (f.org.value ? '\nCollege / company: ' + f.org.value : '') + (f.team.value ? '\n\nOther members:\n' + f.team.value : '') + (f.idea.value ? '\n\nWhat we want to build:\n' + f.idea.value : '');
+        var body = 'City: ' + cityObj.name + ' (demo day ' + cityObj.demo + ')\nTeam size: ' + size\n\nTeam lead: ' + f.name.value + '\nEmail: ' + f.email.value + '\nPhone / WhatsApp: ' + f.phone.value + (f.org.value ? '\nCollege / company: ' + f.org.value : '') + (f.team.value ? '\n\nOther members:\n' + f.team.value : '') + (f.idea.value ? '\n\nWhat we want to build:\n' + f.idea.value : '');
         window.location.href = 'mailto:connect@stage-x.space?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
       },
       mobileNav: [['Home', EXPORT ? '/' : 'Main.dc.html']].concat(hideSummits ? [] : [['Summits', EXPORT ? '/summits.html' : 'Summits.dc.html']]).concat([['Cities', '#cities'], ['Register', '#register'], ['Contact', L('contact')]]).map(function (x) { return { label: x[0], href: x[1] }; }),
@@ -97,7 +97,7 @@ class Component extends DCLogic {
         { label: 'Residency', href: '#residency-top' },
         { label: 'Register', href: '#register' }
       ],
-      legalLinks: [['about', 'About Us'], ['contact', 'Contact Us'], ['terms', 'Terms & Conditions'], ['privacy', 'Privacy Policy'], ['delivery-policy', 'Service Delivery Policy']].map(function (x, i, a) { return { label: x[1], href: L(x[0]), more: i < a.length - 1 }; })
+      legalLinks: [['about', 'About Us'], ['contact', 'Contact Us'], ['terms', 'Terms & Conditions'], ['privacy', 'Privacy Policy'], ['delivery-policy', 'Service Delivery Policy'], ['refund', 'Cancellation & Refund Policy']].map(function (x, i, a) { return { label: x[1], href: L(x[0]), more: i < a.length - 1 }; })
     };
   }
 }

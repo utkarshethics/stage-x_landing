@@ -91,7 +91,7 @@ class Component extends DCLogic {
       hrefContact: EXPORT ? '/contact' : 'Legal.dc.html',
       hrefResidency: EXPORT ? '/residency' : 'Residency.dc.html',
       mobileNav: [['Home', EXPORT ? '/' : 'Main.dc.html'], ['All 9 Summits', EXPORT ? '/summits.html' : 'Summits.dc.html'], ['Residency', EXPORT ? '/residency' : 'Residency.dc.html'], ['Use Cases', '#agenda'], ['Venue', '#venue'], ['Contact', EXPORT ? '/contact' : 'Legal.dc.html']].map(function (x) { return { label: x[0], href: x[1] }; }),
-      legalLinks: [['about', 'About Us'], ['contact', 'Contact Us'], ['terms', 'Terms & Conditions'], ['privacy', 'Privacy Policy'], ['delivery-policy', 'Service Delivery Policy']].map(function (x, i, a) { return { label: x[1], href: EXPORT ? '/' + x[0] : 'Legal.dc.html', more: i < a.length - 1 }; }),
+      legalLinks: [['about', 'About Us'], ['contact', 'Contact Us'], ['terms', 'Terms & Conditions'], ['privacy', 'Privacy Policy'], ['delivery-policy', 'Service Delivery Policy'], ['refund', 'Cancellation & Refund Policy']].map(function (x, i, a) { return { label: x[1], href: EXPORT ? '/' + x[0] : 'Legal.dc.html', more: i < a.length - 1 }; }),
       c: c,
       countdownLabel: !m.start ? '2027 · DATE TO BE ANNOUNCED' : (diff > 0 ? 'DOORS OPEN IN' : 'IN SESSION / CONCLUDED'),
       lumaHref: lumaHref,
@@ -115,8 +115,8 @@ class Component extends DCLogic {
         { title: 'Capacity Bound', body: 'Strictly limited to 40 verified technical principals per session.' }
       ],
       channels: [
-        { name: 'Lu.ma Listing', tag: 'EXECUTIVE CALENDAR', body: 'Automated calendar synchronization for Google Calendar, Outlook 365, and Apple Wallet passes. Guest directory verified under Chatham House Rule credentials.', cta: 'View ' + d.name + ' on Lu.ma →', href: lumaHref },
-        { name: 'Eventbrite Listing', tag: 'CORPORATE PROCUREMENT', body: 'Institutional purchase order (PO) invoicing, Net 30 corporate payment settlement, multi-seat executive delegation passes, and centralized tax/W-9 receipting.', cta: 'View ' + d.name + ' on Eventbrite →', href: 'https://www.eventbrite.com' }
+        { name: 'Lu.ma Listing', tag: 'EXECUTIVE CALENDAR', body: 'Automated calendar synchronization for Google Calendar, Outlook 365, and Apple Wallet passes. Guest directory verified under Chatham House Rule credentials.', cta: 'View ' + d.name + ' on Lu.ma', href: lumaHref },
+        { name: 'Eventbrite Listing', tag: 'CORPORATE PROCUREMENT', body: 'Institutional purchase order (PO) invoicing, Net 30 corporate payment settlement, multi-seat executive delegation passes, and centralized tax/W-9 receipting.', cta: 'View ' + d.name + ' on Eventbrite', href: 'https://www.eventbrite.com' }
       ],
       chev: chev,
       formOptions: [slug].concat(ORDER.filter(function (k3) { return k3 !== slug; })).map(function (k3) { return { v: k3, label: OPT[k3] }; }),
