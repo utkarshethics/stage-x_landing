@@ -7,7 +7,7 @@ class Component extends DCLogic {
     var s = this.state || {};
     var motion = this.props.motion ?? true;
     var EXPORT = typeof SX_EXPORT !== 'undefined';
-    var cityHref = function (slug) { return EXPORT ? '/summits/' + slug + '-2026.html' : 'Summit.dc.html'; };
+    var cityHref = function (slug) { return EXPORT ? '/summits/' + slug + '-2026' : 'Summit.dc.html'; };
     // Date order, matching the Lu.ma listings (Mumbai Dec 5, Melbourne Dec 12, Dubai 2027).
     var DATE_ORDER = ['sf', 'nyc', 'boston', 'toronto', 'london', 'berlin', 'mumbai', 'melbourne', 'dubai'];
     var IMG = {
@@ -31,9 +31,27 @@ class Component extends DCLogic {
       return Object.assign({}, c, { img: IMG[c.slug], href: cityHref(c.slug), stop: i + 1, luma: c.luma || 'https://lu.ma', badgeBg: hot ? '#FF3B30' : (later ? '#3A3A3A' : '#FFFFFF'), badgeFg: hot ? '#FFFFFF' : (later ? '#EDEDED' : '#0A0A0A') });
     });
 
-    // Countdown to the first summit (San Francisco, Oct 31 2026, 09:00 PDT)
-    var target = Date.UTC(2026, 9, 31, 16, 0, 0);
-    var diff = Math.max(0, target - Date.now());
+    // Countdown rollover: points to San Francisco today, rolling over to next upcoming summit
+    var SUMMIT_TARGETS = {
+      sf: { target: Date.UTC(2026, 9, 31, 16, 0, 0), label: 'SAN FRANCISCO · OCT 31' },
+      nyc: { target: Date.UTC(2026, 10, 7, 14, 0, 0), label: 'NEW YORK · NOV 07' },
+      boston: { target: Date.UTC(2026, 10, 14, 14, 0, 0), label: 'BOSTON · NOV 14' },
+      toronto: { target: Date.UTC(2026, 10, 21, 14, 0, 0), label: 'TORONTO · NOV 21' },
+      london: { target: Date.UTC(2026, 10, 28, 9, 0, 0), label: 'LONDON · NOV 28' },
+      berlin: { target: Date.UTC(2026, 11, 5, 8, 0, 0), label: 'BERLIN · DEC 05' },
+      mumbai: { target: Date.UTC(2026, 11, 5, 3, 30, 0), label: 'MUMBAI · DEC 05' },
+      melbourne: { target: Date.UTC(2026, 11, 11, 22, 0, 0), label: 'MELBOURNE · DEC 12' }
+    };
+    var now = Date.now();
+    var nextUpcoming = null;
+    for (var k of DATE_ORDER) {
+      if (SUMMIT_TARGETS[k] && SUMMIT_TARGETS[k].target > now) {
+        nextUpcoming = SUMMIT_TARGETS[k];
+        break;
+      }
+    }
+    var target = nextUpcoming ? nextUpcoming.target : Date.UTC(2026, 9, 31, 16, 0, 0);
+    var diff = Math.max(0, target - now);
     var pad = function (n) { return (n < 10 ? '0' : '') + n; };
     var d = Math.floor(diff / 86400000), h = Math.floor(diff / 3600000) % 24, m = Math.floor(diff / 60000) % 60, sec = Math.floor(diff / 1000) % 60;
 
@@ -60,7 +78,7 @@ class Component extends DCLogic {
       hrefResidency: EXPORT ? '/residency' : 'Residency.dc.html',
       mobileNav: [['Home', EXPORT ? '/' : 'Main.dc.html'], ['Calendar', '#calendar'], ['Residency', EXPORT ? '/residency' : 'Residency.dc.html'], ['Request Invite', '#apply'], ['Contact', EXPORT ? '/contact' : 'Legal.dc.html']].map(function (x) { return { label: x[0], href: x[1] }; }),
       legalLinks: [['about', 'About Us'], ['contact', 'Contact Us'], ['terms', 'Terms & Conditions'], ['privacy', 'Privacy Policy'], ['delivery-policy', 'Service Delivery Policy'], ['refund', 'Cancellation & Refund Policy']].map(function (x, i, a) { return { label: x[1], href: EXPORT ? '/' + x[0] : 'Legal.dc.html', more: i < a.length - 1 }; }),
-      countdownLabel: diff > 0 ? 'CIRCUIT OPENS · SAN FRANCISCO · OCT 31' : 'CIRCUIT IN SESSION',
+      countdownLabel: nextUpcoming ? (nextUpcoming === SUMMIT_TARGETS.sf ? 'CIRCUIT OPENS · SAN FRANCISCO · OCT 31' : 'NEXT SUMMIT · ' + nextUpcoming.label) : (diff > 0 ? 'CIRCUIT OPENS · SAN FRANCISCO · OCT 31' : 'CIRCUIT IN SESSION'),
       countdown: [{ k: 'DAYS', v: pad(d) }, { k: 'HOURS', v: pad(h) }, { k: 'MIN', v: pad(m) }, { k: 'SEC', v: pad(sec) }],
       heroStats: [{ v: '9', k: 'Summits' }, { v: '3', k: 'Circuits' }, { v: '40', k: 'Seats each' }, { v: '360', k: 'Total seats' }],
       seats: seats,
