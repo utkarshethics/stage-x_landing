@@ -10,7 +10,7 @@ class Component extends DCLogic {
     // Date order, matching the Lu.ma listings (Mumbai Dec 5, Melbourne Dec 12, Dubai 2027).
     var ORDER = ['sf', 'nyc', 'boston', 'toronto', 'london', 'berlin', 'mumbai', 'melbourne', 'dubai'];
     if (ORDER.indexOf(slug) === -1) slug = 'nyc';
-    var cityHref = function (k) { return EXPORT ? '/summits/' + k + '-2026.html' : 'Summit.dc.html'; };
+    var cityHref = function (k) { return EXPORT ? '/summits/' + k + '-2026' : 'Summit.dc.html'; };
 
     var META = {
       sf: { code: 'SFO', short: 'Energy Transition: AI for Utilities, Solar & Grid Storage', start: Date.UTC(2026, 9, 31, 16), phase: 'PHASE 01', img: '/public/x/img/summit-sf.jpg', alt: 'Golden Gate Bridge and San Francisco at dusk' },
@@ -87,10 +87,10 @@ class Component extends DCLogic {
     return {
       motionClass: (this.props.motion ?? true) ? '' : 'sx-still',
       hrefHome: EXPORT ? '/' : 'Main.dc.html',
-      hrefSummits: EXPORT ? '/summits.html' : 'Summits.dc.html',
+      hrefSummits: EXPORT ? '/summits' : 'Summits.dc.html',
       hrefContact: EXPORT ? '/contact' : 'Legal.dc.html',
       hrefResidency: EXPORT ? '/residency' : 'Residency.dc.html',
-      mobileNav: [['Home', EXPORT ? '/' : 'Main.dc.html'], ['All 9 Summits', EXPORT ? '/summits.html' : 'Summits.dc.html'], ['Residency', EXPORT ? '/residency' : 'Residency.dc.html'], ['Use Cases', '#agenda'], ['Venue', '#venue'], ['Contact', EXPORT ? '/contact' : 'Legal.dc.html']].map(function (x) { return { label: x[0], href: x[1] }; }),
+      mobileNav: [['Home', EXPORT ? '/' : 'Main.dc.html'], ['All 9 Summits', EXPORT ? '/summits' : 'Summits.dc.html'], ['Residency', EXPORT ? '/residency' : 'Residency.dc.html'], ['Use Cases', '#agenda'], ['Venue', '#venue'], ['Contact', EXPORT ? '/contact' : 'Legal.dc.html']].map(function (x) { return { label: x[0], href: x[1] }; }),
       legalLinks: [['about', 'About Us'], ['contact', 'Contact Us'], ['terms', 'Terms & Conditions'], ['privacy', 'Privacy Policy'], ['delivery-policy', 'Service Delivery Policy'], ['refund', 'Cancellation & Refund Policy']].map(function (x, i, a) { return { label: x[1], href: EXPORT ? '/' + x[0] : 'Legal.dc.html', more: i < a.length - 1 }; }),
       c: c,
       countdownLabel: !m.start ? '2027 · DATE TO BE ANNOUNCED' : (diff > 0 ? 'DOORS OPEN IN' : 'IN SESSION / CONCLUDED'),

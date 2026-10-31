@@ -63,7 +63,7 @@ if [ -z "${SKIP_PING:-}" ]; then
     curl -sS -o /dev/null -w "==> IndexNow submit: HTTP %{http_code}\n" \
       -X POST "https://api.indexnow.org/indexnow" \
       -H "Content-Type: application/json; charset=utf-8" \
-      -d "{\"host\":\"www.stage-x.space\",\"key\":\"${INDEXNOW_KEY}\",\"keyLocation\":\"https://www.stage-x.space/${INDEXNOW_KEY}.txt\",\"urlList\":[\"https://www.stage-x.space/\",\"https://www.stage-x.space/summits.html\",\"https://www.stage-x.space/summits/sf-2026.html\",\"https://www.stage-x.space/summits/nyc-2026.html\",\"https://www.stage-x.space/summits/boston-2026.html\",\"https://www.stage-x.space/summits/toronto-2026.html\",\"https://www.stage-x.space/summits/london-2026.html\",\"https://www.stage-x.space/summits/berlin-2026.html\",\"https://www.stage-x.space/summits/dubai-2026.html\",\"https://www.stage-x.space/summits/mumbai-2026.html\",\"https://www.stage-x.space/summits/melbourne-2026.html\"]}" || true
+      -d "{\"host\":\"www.stage-x.space\",\"key\":\"${INDEXNOW_KEY}\",\"keyLocation\":\"https://www.stage-x.space/${INDEXNOW_KEY}.txt\",\"urlList\":[\"https://www.stage-x.space/\",\"https://www.stage-x.space/summits\",\"https://www.stage-x.space/summits/sf-2026\",\"https://www.stage-x.space/summits/nyc-2026\",\"https://www.stage-x.space/summits/boston-2026\",\"https://www.stage-x.space/summits/toronto-2026\",\"https://www.stage-x.space/summits/london-2026\",\"https://www.stage-x.space/summits/berlin-2026\",\"https://www.stage-x.space/summits/dubai-2026\",\"https://www.stage-x.space/summits/mumbai-2026\",\"https://www.stage-x.space/summits/melbourne-2026\"]}" || true
   else
     echo "==> SKIP IndexNow: $INDEXNOW_KEY.txt missing from repo root"
   fi
