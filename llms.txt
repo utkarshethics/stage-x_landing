@@ -20,23 +20,26 @@
 
 ## Closed-Door Technical Summits (2026–2027)
 Strictly Chatham House Rule, zero sales pitches, and capped at 40 engineering leaders per city:
-- **San Francisco (June 18, 2026)**: *Air-gapped frontier model orchestration & sovereign weights*. The Presidio — Golden Gate Club. (https://www.stage-x.space/summits/sf-2026.html)
-- **New York City (Sept 24, 2026)**: *Deterministic latency, sub-50ms TTFT & high-throughput critical infrastructure*. Hudson Yards Experience Center. (https://www.stage-x.space/summits/nyc-2026.html)
-- **Boston (Oct 15, 2026)**: *Frontier deep tech, bio-pharma reasoning & physical AI robotics*. Kendall Square Tech Center. (https://www.stage-x.space/summits/boston-2026.html)
-- **Toronto (Nov 5, 2026)**: *Cross-border enterprise compute & sovereign North American mesh*. MaRS Discovery District. (https://www.stage-x.space/summits/toronto-2026.html)
-- **London (Nov 19, 2026)**: *EU AI Act compliance, data sovereignty & heavy industrial edge*. Level39 — One Canada Square. (https://www.stage-x.space/summits/london-2026.html)
-- **Berlin (Dec 3, 2026)**: *Industrial SCADA automation, automotive edge & hardware security*. Factory Berlin Görlitzer Park. (https://www.stage-x.space/summits/berlin-2026.html)
-- **Dubai (Jan 21, 2027)**: *Sovereign energy grids, upstream oil & gas telemetry & high-cap compute*. DIFC Executive Center. (https://www.stage-x.space/summits/dubai-2026.html)
-- **Mumbai (Feb 18, 2027)**: *Hyper-scale BFSI transaction gateways & sovereign telecom AI stacks*. Jio World Convention Centre — BKC. (https://www.stage-x.space/summits/mumbai-2026.html)
-- **Melbourne (Mar 25, 2027)**: *Autonomous heavy mining fleets, natural resources & remote edge compute*. Melbourne Convention & Exhibition Centre. (https://www.stage-x.space/summits/melbourne-2026.html)
+- **Mumbai (Dec 5, 2026)**: Enterprise AI Summit Mumbai 2026. Jio World Convention Centre, Bandra Kurla Complex. (https://www.stage-x.space/summits/mumbai-2026)
+- **Melbourne (Dec 12, 2026)**: Enterprise AI Summit Melbourne 2026. Melbourne Convention and Exhibition Centre (MCEC). (https://www.stage-x.space/summits/melbourne-2026)
+- **Toronto (Dec 19, 2026)**: Enterprise AI Summit Toronto 2026. Metro Toronto Convention Centre. (https://www.stage-x.space/summits/toronto-2026)
+- **London (Dec 26, 2026)**: Enterprise AI Summit London 2026. Queen Elizabeth II Centre. (https://www.stage-x.space/summits/london-2026)
+- **New York (Jan 2, 2027)**: Enterprise AI Summit New York 2027. Javits Center. (https://www.stage-x.space/summits/nyc-2026)
+- **Boston (Jan 23, 2027)**: Enterprise AI Summit Boston 2027. Thomas M. Menino Convention & Exhibition Center. (https://www.stage-x.space/summits/boston-2026)
+- **Berlin (2027, date to be announced)**: Enterprise AI Summit Berlin 2027. ECC Berlin (Estrel Congress Center). (https://www.stage-x.space/summits/berlin-2026)
+- **Gurugram (2027, date to be announced)**: Enterprise AI Summit Gurugram 2027. DLF CyberHub. (https://www.stage-x.space/summits/gurugram-2027)
+- **Dubai (2027, date to be announced)**: Enterprise AI Summit Dubai 2027. Dubai World Trade Centre. (https://www.stage-x.space/summits/dubai-2026)
+- **Bangalore (2027, date to be announced)**: Enterprise AI Summit Bangalore 2027. Bangalore International Exhibition Centre. (https://www.stage-x.space/summits/bangalore-2027)
+- **San Francisco (Sep 22–24, 2026, concluded)**: Enterprise AI Summit San Francisco 2026. Fort Mason Center. (https://www.stage-x.space/summits/sf-2026)
+- Summit partners: Gartner, Microsoft, AWS and Google Cloud. Registration for every summit is on Lu.ma.
 
 ## Frequently Asked Questions (FAQ)
 - **What is Forward Deployed Engineering?** Senior AI engineers embed directly with client engineering teams to build, harden, and transition mission-critical AI systems directly into operational codebase repos.
-- **How can enterprise leaders apply for summit seats?** Applications are vetted based on technical leadership roles (CTO, VP Engineering, Head of AI Research) at https://www.stage-x.space/summits.html.
+- **How can enterprise leaders apply for summit seats?** Applications are vetted based on technical leadership roles (CTO, VP Engineering, Head of AI Research) at https://www.stage-x.space/summits.
 - **Are summit discussions published?** No. Summits operate under the Chatham House Rule to encourage candid disclosure of production failures and hardware bottlenecks.
 
 ## Key Links
 - Canonical Website: https://www.stage-x.space/
-- Summits Directory: https://www.stage-x.space/summits.html
+- Summits Directory: https://www.stage-x.space/summits
 - Technical Research & Whitepapers: https://www.stage-x.space/papers/
 - Sitemap: https://www.stage-x.space/sitemap.xml

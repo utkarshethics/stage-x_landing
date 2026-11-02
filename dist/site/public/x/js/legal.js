@@ -3,7 +3,7 @@ class Component extends DCLogic {
     var self = this;
     var s = this.state || {};
     var EXPORT = typeof SX_EXPORT !== 'undefined';
-    var KEYS = ['about', 'contact', 'terms', 'privacy', 'delivery-policy', 'refund'];
+    var KEYS = ['about', 'contact', 'terms', 'privacy', 'delivery-policy'];
     var cur = s.page || this.props.page || 'contact';
     if (KEYS.indexOf(cur) === -1) cur = 'contact';
 
@@ -111,11 +111,10 @@ class Component extends DCLogic {
       contact: 'Contact Us',
       terms: 'Terms & Conditions',
       privacy: 'Privacy Policy',
-      'delivery-policy': 'Service Delivery Policy',
-      refund: 'Cancellation & Refund Policy'
+      'delivery-policy': 'Service Delivery Policy'
     };
 
-    var order = ['about', 'contact', 'terms', 'privacy', 'delivery-policy', 'refund'];
+    var order = ['about', 'contact', 'terms', 'privacy', 'delivery-policy'];
 
     var chev = [0, 1, 2].map(function (i) {
       return { style: 'opacity: ' + ((i + 1) * 0.35) };
@@ -186,7 +185,7 @@ class Component extends DCLogic {
         { label: 'Field Missions', href: EXPORT ? '/#missions' : 'Main.dc.html' },
         { label: 'Open Source', href: EXPORT ? '/#opensource' : 'Main.dc.html' },
         { label: 'Briefings', href: EXPORT ? '/#briefs' : 'Main.dc.html' },
-        { label: 'Open a Dispatch', href: EXPORT ? '/#dispatch' : 'Main.dc.html' }
+        { label: 'Connect Us', href: EXPORT ? '/contact' : 'Legal.dc.html' }
       ],
       legalLinks: order.map(function (k, i) { return { label: footerLabels[k], href: href(k), pick: pick(k), more: i < order.length - 1 }; })
     };
