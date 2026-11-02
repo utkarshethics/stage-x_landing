@@ -26,14 +26,14 @@ a{color:#FFFFFF;text-decoration:none}a:hover{color:#D4D4D4}
 .sx-btn-ghost:hover{background:#FFFFFF !important;color:#0A0A0A !important}
 .sx-outline{color:inherit}
 .sx-gridbg{background-image:linear-gradient(rgba(255,255,255,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.045) 1px,transparent 1px);background-size:56px 56px}
-.sx-redact{background:#EDEDED;color:transparent;padding:0 4px;transition:background .4s ease,color .4s ease}
-.sx-report:hover .sx-redact,.sx-report:focus-within .sx-redact{background:rgba(255,255,255,0.12);color:#FFFFFF}
+.sx-redact{background:rgba(255,255,255,0.14);color:#FFFFFF;padding:0 4px;border-radius:2px;transition:background .4s ease,color .4s ease}
+.sx-report:hover .sx-redact,.sx-report:focus-within .sx-redact,.sx-report:active .sx-redact,.sx-redact:active,.sx-redact:focus{background:rgba(255,255,255,0.28);color:#FFFFFF}
+.sx-hero-scrim{background:rgba(10,10,10,0.75);padding:24px;border-radius:8px;backdrop-filter:blur(4px);box-shadow:0 8px 32px rgba(0,0,0,0.5)}
 .sx-nav{display:flex}
 .sx-mnav{display:none}
 .sx-mnav summary{list-style:none}
 .sx-mnav summary::-webkit-details-marker{display:none}
 @media (max-width:960px){.sx-nav{display:none}.sx-mnav{display:block}}
-.sx-scan,.sx-travel{display:none !important}
 .sx-zoom,.sx-spin,.sx-float,.sx-pulse,.sx-draw,.sx-flow,.sx-flow-slow,.sx-drift,.sx-bob{animation:none !important;transform:none !important}
 .sx-still *{animation:none !important}
 @media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
