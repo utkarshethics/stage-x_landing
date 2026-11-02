@@ -236,6 +236,15 @@ footer.site .links a{color:var(--muted)}
 footer.site nav.legal{margin-top:32px;padding-top:12px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:0 20px}
 footer.site nav.legal a{color:#D4D4D4;min-height:40px;display:inline-flex;align-items:center}
 footer.site .copy{margin-top:10px;font-size:13px}
+.attendees{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.attendee-card{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:22px;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.attendee-logo{background:#FFFFFF;border-radius:6px;width:100%;height:68px;display:flex;align-items:center;justify-content:center;padding:10px 18px;box-sizing:border-box}
+.attendee-logo img{max-height:42px;max-width:100%;width:auto;height:auto;object-fit:contain}
+.attendee-info{display:flex;flex-direction:column;gap:4px}
+.attendee-name{font-size:16px;font-weight:700;color:var(--white);line-height:1.25}
+.attendee-sector{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.03em}
+@media (max-width:820px){.attendees{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.attendees{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -282,8 +291,25 @@ footer.site .copy{margin-top:10px;font-size:13px}
 </div></section>
 
 <section><div class="wrap">
-<div class="sec-head"><h2>Other summits</h2><p><a href="/summits">All summits</a></p></div>
-<ul class="mini"><li><a href="/summits/mumbai-2026">Mumbai</a><span>December 5, 2026</span></li><li><a href="/summits/toronto-2026">Toronto</a><span>December 19, 2026</span></li><li><a href="/summits/london-2026">London</a><span>December 26, 2026</span></li><li><a href="/summits/nyc-2026">New York</a><span>January 2, 2027</span></li><li><a href="/summits/boston-2026">Boston</a><span>January 23, 2027</span></li><li><a href="/summits/berlin-2026">Berlin</a><span>2027 · Date to be announced</span></li></ul>
+<div class="sec-head"><h2>Who's joining</h2><p>Participating engineering and operations leaders from industry</p></div>
+<div class="attendees">
+  <div class="attendee-card">
+    <div class="attendee-logo"><img src="/public/x/img/logos/bhp.png" alt="BHP" loading="lazy"></div>
+    <div class="attendee-info"><div class="attendee-name">BHP</div><div class="attendee-sector">Mining, Metals &amp; Resources</div></div>
+  </div>
+  <div class="attendee-card">
+    <div class="attendee-logo"><img src="/public/x/img/logos/rio-tinto.png" alt="Rio Tinto" loading="lazy"></div>
+    <div class="attendee-info"><div class="attendee-name">Rio Tinto</div><div class="attendee-sector">Metals, Mining &amp; Energy</div></div>
+  </div>
+  <div class="attendee-card">
+    <div class="attendee-logo"><img src="/public/x/img/logos/woodside.png" alt="Woodside Energy" loading="lazy"></div>
+    <div class="attendee-info"><div class="attendee-name">Woodside Energy</div><div class="attendee-sector">Oil &amp; Gas / LNG Operations</div></div>
+  </div>
+  <div class="attendee-card">
+    <div class="attendee-logo"><img src="/public/x/img/logos/bluescope.png" alt="BlueScope Steel" loading="lazy"></div>
+    <div class="attendee-info"><div class="attendee-name">BlueScope Steel</div><div class="attendee-sector">Manufacturing &amp; Steelmaking</div></div>
+  </div>
+</div>
 <p style="margin:28px 0 0;color:var(--muted)">Questions? Email <a href="mailto:connect@stage-x.space">connect@stage-x.space</a>.</p>
 </div></section>
 </main>
