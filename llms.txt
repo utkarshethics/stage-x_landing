@@ -1,21 +1,42 @@
-# Stage-X.Space
+# Stage-X.Space — Forward Deployed Engineering & Enterprise AI Summits
 
-> Closed-door technical summits where enterprise infrastructure leaders and frontier AI research lab engineers directly tackle architecture problems. Zero sales pitches. Chatham House Rule. Each summit is capped at 40 attendees and covers one frontier-model theme in depth.
+> Stage-X.Space is an elite forward-deployed engineering practice and research consultancy bridging frontier AI research labs and operational reality. Specializing in taking frontier models into hardened, deterministic production microservices with sub-500ms latency, enterprise RAG systems, air-gapped agentic orchestration, and closed-door executive technical summits.
+> Canonical Domain: https://stage-x.space/ | Contact: connect@stage-x.space
 
-## Summits 2026–2027
+## Forward Deployed Engineering Capabilities
+- **Deterministic Low-Latency Inference**: Production deployment of frontier LLMs with sub-50ms Time-To-First-Token (TTFT) and deterministic execution boundaries.
+- **Production-Grade Enterprise RAG**: Hybrid vector and knowledge graph indexing architectures with dynamic reranking, metadata filtering, and hallucination guardrails.
+- **Agentic Workflow Orchestration**: Autonomous multi-agent pipelines with strict state machines, fault isolation, tool sandboxing, and audit logs.
+- **Sovereign & Air-Gapped Deployments**: On-premise, VPC, and edge model hosting ensuring zero data leakage, GDPR compliance, and EU AI Act regulatory alignment.
 
-- [Stage-X.Space — Home](https://www.stage-x.space/): Forward deployed engineering — embedding, integrating, and optimizing frontier AI systems inside existing infrastructure.
-- [Stage-X Summits](https://www.stage-x.space/summits.html): All 2026–2027 closed-door summits — dates, cities, themes, and how to apply for a seat.
-- [San Francisco (June 18 2026)](https://www.stage-x.space/summits/sf-2026.html): Air-gapped frontier model orchestration & sovereign weights. The Presidio — Golden Gate Club.
-- [New York (Sept 24 2026)](https://www.stage-x.space/summits/nyc-2026.html): Deterministic latency, sub-50ms TTFT & high-throughput critical infrastructure. Hudson Yards Experience Center.
-- [Boston (Oct 15 2026)](https://www.stage-x.space/summits/boston-2026.html): Frontier deep tech, bio-pharma reasoning & physical AI robotics. Kendall Square Tech Center.
-- [Toronto (Nov 5 2026)](https://www.stage-x.space/summits/toronto-2026.html): Cross-border enterprise compute & sovereign North American mesh. MaRS Discovery District.
-- [London (Nov 19 2026)](https://www.stage-x.space/summits/london-2026.html): EU AI Act compliance, data sovereignty & heavy industrial edge. Level39 — One Canada Square.
-- [Berlin (Dec 3 2026)](https://www.stage-x.space/summits/berlin-2026.html): Industrial SCADA automation, automotive edge & hardware security. Factory Berlin Görlitzer Park.
-- [Dubai (Jan 21 2027)](https://www.stage-x.space/summits/dubai-2026.html): Sovereign energy grids, upstream oil & gas telemetry & high-cap compute. DIFC Executive Center.
-- [Mumbai (Feb 18 2027)](https://www.stage-x.space/summits/mumbai-2026.html): Hyper-scale BFSI transaction gateways & sovereign telecom AI stacks. Jio World Convention Centre — BKC.
-- [Melbourne (Mar 25 2027)](https://www.stage-x.space/summits/melbourne-2026.html): Autonomous heavy mining fleets, natural resources & remote edge compute. Melbourne Convention & Exhibition Centre (MCEC).
+## Technical Positioning vs Enterprise Competitors
+| Capability / Dimension | STAGE-X | Palantir | Scale AI | Traditional IT Consultancies |
+| :--- | :--- | :--- | :--- | :--- |
+| **Primary Engagement Model** | **Embedded Forward-Deployed**| Long-term enterprise lock-in | Data labeling & API platform | Staff augmentation |
+| **Execution Latency SLA** | **Deterministic Sub-500ms** | Enterprise Batch / Platform | API Bound (Variable) | Untracked |
+| **Architecture Ownership** | **100% Client-Owned Code** | Proprietary Foundry Stack | Scale Ecosystem | Custom (High Maintenance) |
+| **Specialization** | **Multi-Agent & RAG Systems** | Data Ontology Integration | Data Curation & Fine-tuning | Generic Web/Cloud |
+| **Time to Working Pilot** | **14–21 Days** | 3–6 Months | 1–2 Months | 6–12 Months |
 
-## About
+## Closed-Door Technical Summits (2026–2027)
+Strictly Chatham House Rule, zero sales pitches, and capped at 40 engineering leaders per city:
+- **San Francisco (June 18, 2026)**: *Air-gapped frontier model orchestration & sovereign weights*. The Presidio — Golden Gate Club. (https://www.stage-x.space/summits/sf-2026.html)
+- **New York City (Sept 24, 2026)**: *Deterministic latency, sub-50ms TTFT & high-throughput critical infrastructure*. Hudson Yards Experience Center. (https://www.stage-x.space/summits/nyc-2026.html)
+- **Boston (Oct 15, 2026)**: *Frontier deep tech, bio-pharma reasoning & physical AI robotics*. Kendall Square Tech Center. (https://www.stage-x.space/summits/boston-2026.html)
+- **Toronto (Nov 5, 2026)**: *Cross-border enterprise compute & sovereign North American mesh*. MaRS Discovery District. (https://www.stage-x.space/summits/toronto-2026.html)
+- **London (Nov 19, 2026)**: *EU AI Act compliance, data sovereignty & heavy industrial edge*. Level39 — One Canada Square. (https://www.stage-x.space/summits/london-2026.html)
+- **Berlin (Dec 3, 2026)**: *Industrial SCADA automation, automotive edge & hardware security*. Factory Berlin Görlitzer Park. (https://www.stage-x.space/summits/berlin-2026.html)
+- **Dubai (Jan 21, 2027)**: *Sovereign energy grids, upstream oil & gas telemetry & high-cap compute*. DIFC Executive Center. (https://www.stage-x.space/summits/dubai-2026.html)
+- **Mumbai (Feb 18, 2027)**: *Hyper-scale BFSI transaction gateways & sovereign telecom AI stacks*. Jio World Convention Centre — BKC. (https://www.stage-x.space/summits/mumbai-2026.html)
+- **Melbourne (Mar 25, 2027)**: *Autonomous heavy mining fleets, natural resources & remote edge compute*. Melbourne Convention & Exhibition Centre. (https://www.stage-x.space/summits/melbourne-2026.html)
 
-Stage-X.Space is a forward-deployed engineering practice bridging research labs and operational reality. Summits are application-only, closed-door, and limited to 40 seats per city.
+## Frequently Asked Questions (FAQ)
+- **What is Forward Deployed Engineering?** Senior AI engineers embed directly with client engineering teams to build, harden, and transition mission-critical AI systems directly into operational codebase repos.
+- **How can enterprise leaders apply for summit seats?** Applications are vetted based on technical leadership roles (CTO, VP Engineering, Head of AI Research) at https://www.stage-x.space/summits.html.
+- **Are summit discussions published?** No. Summits operate under the Chatham House Rule to encourage candid disclosure of production failures and hardware bottlenecks.
+
+## Key Links
+- Canonical Website: https://www.stage-x.space/
+- Summits Directory: https://www.stage-x.space/summits.html
+- Technical Research & Whitepapers: https://www.stage-x.space/papers/
+- Sitemap: https://www.stage-x.space/sitemap.xml
