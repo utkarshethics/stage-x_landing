@@ -110,12 +110,12 @@ class Component extends DCLogic {
       seatCaption: hot ? remaining + ' OF 40 OPEN' : '40 SEATS',
       seatAria: hot ? 'Seating plan: ' + taken + ' of 40 seats confirmed, ' + remaining + ' open' : 'Seating plan: 40 seats at one table',
       protocols: [
-        { title: 'Chatham House', body: 'Participants may use information received, but identity or affiliation of speakers cannot be disclosed.' },
+        { title: 'Operational Candor', body: 'Direct technical discussion on real production architectures and operational trade-offs.' },
         { title: 'Zero Pitch Policy', body: 'No vendor presentations, marketing slide decks, or business development personnel admitted.' },
         { title: 'Capacity Bound', body: 'Strictly limited to 40 verified technical principals per session.' }
       ],
       channels: [
-        { name: 'Lu.ma Listing', tag: 'EXECUTIVE CALENDAR', body: 'Automated calendar synchronization for Google Calendar, Outlook 365, and Apple Wallet passes. Guest directory verified under Chatham House Rule credentials.', cta: 'View ' + d.name + ' on Lu.ma', href: lumaHref },
+        { name: 'Lu.ma Listing', tag: 'EXECUTIVE CALENDAR', body: 'Automated calendar synchronization for Google Calendar, Outlook 365, and Apple Wallet passes. Verified delegate directory and attendee check-ins.', cta: 'View ' + d.name + ' on Lu.ma', href: lumaHref },
         { name: 'Eventbrite Listing', tag: 'CORPORATE PROCUREMENT', body: 'Institutional purchase order (PO) invoicing, Net 30 corporate payment settlement, multi-seat executive delegation passes, and centralized tax/W-9 receipting.', cta: 'View ' + d.name + ' on Eventbrite', href: 'https://www.eventbrite.com' }
       ],
       chev: chev,

@@ -19,7 +19,7 @@
 | **Time to Working Pilot** | **14–21 Days** | 3–6 Months | 1–2 Months | 6–12 Months |
 
 ## Closed-Door Technical Summits (2026–2027)
-Strictly Chatham House Rule, zero sales pitches, and capped at 40 engineering leaders per city:
+Zero sales pitches, actionable technical deep-dives, and capped at 40 engineering leaders per city:
 - **Mumbai (Dec 5, 2026)**: Enterprise AI Summit Mumbai 2026. Jio World Convention Centre, Bandra Kurla Complex. (https://www.stage-x.space/summits/mumbai-2026)
 - **Melbourne (Dec 12, 2026)**: Enterprise AI Summit Melbourne 2026. Melbourne Convention and Exhibition Centre (MCEC). (https://www.stage-x.space/summits/melbourne-2026)
 - **Toronto (Dec 19, 2026)**: Enterprise AI Summit Toronto 2026. Metro Toronto Convention Centre. (https://www.stage-x.space/summits/toronto-2026)
@@ -36,7 +36,7 @@ Strictly Chatham House Rule, zero sales pitches, and capped at 40 engineering le
 ## Frequently Asked Questions (FAQ)
 - **What is Forward Deployed Engineering?** Senior AI engineers embed directly with client engineering teams to build, harden, and transition mission-critical AI systems directly into operational codebase repos.
 - **How can enterprise leaders apply for summit seats?** Applications are vetted based on technical leadership roles (CTO, VP Engineering, Head of AI Research) at https://www.stage-x.space/summits.
-- **Are summit discussions published?** No. Summits operate under the Chatham House Rule to encourage candid disclosure of production failures and hardware bottlenecks.
+- **Are summit discussions published?** Summaries and architectural takeaways are shared, while operational code strategies and implementation details remain hands-on for participating teams.
 
 ## Key Links
 - Canonical Website: https://www.stage-x.space/

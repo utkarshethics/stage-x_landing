@@ -83,7 +83,7 @@ class Component extends DCLogic {
       heroStats: [{ v: '9', k: 'Summits' }, { v: '3', k: 'Circuits' }, { v: '40', k: 'Seats each' }, { v: '360', k: 'Total seats' }],
       seats: seats,
       protocols: [
-        { n: '01', title: 'Strict Chatham House Rule', body: 'Participants may use the information and code strategies received, but neither the identity nor the affiliation of the speaker or any participant may be revealed. Absolute operational candor is required.' },
+        { n: '01', title: 'Operational Candor', body: 'Participants share real production telemetry, code strategies, and system architectures. Discussions focus on operational realities and real engineering trade-offs.' },
         { n: '02', title: 'Zero Slide Decks & Pitches', body: 'No vendor pitches or marketing narratives. Every session starts from a real operational problem: downtime, quality, energy, safety. It ends with a use case and the data it needs.' },
         { n: '03', title: 'Industry Leaders Only', body: 'Strictly capped at 40 participants per summit: operations, engineering, plant and digital leaders from manufacturing, oil & gas and energy companies, alongside STAGE-X engineers.' }
       ],
@@ -124,7 +124,7 @@ class Component extends DCLogic {
         { name: 'Mistral AI', models: 'Mistral Large 2 / Pixtral' }
       ],
       channels: [
-        { name: 'Lu.ma', tag: 'EXECUTIVE CALENDAR • MOBILE PASSES', body: 'Direct RSVP synchronization for executive guests. Automated integration with Google Calendar, Outlook 365, and Apple Wallet. Private peer guest directories vetted under Chatham House Rule credentials.', points: ['Instant Calendar Hold • Direct Google & Outlook .ics Sync', 'Confidential Guest List Verification • No Public Scraping', 'Direct Executive Mobile Pass QR • On-Site Biometric Check-in'], cta: 'View Summits on Lu.ma', href: 'https://lu.ma' },
+        { name: 'Lu.ma', tag: 'EXECUTIVE CALENDAR • MOBILE PASSES', body: 'Direct RSVP synchronization for executive guests. Automated integration with Google Calendar, Outlook 365, and Apple Wallet. Verified peer guest directories and delegate check-ins.', points: ['Instant Calendar Hold • Direct Google & Outlook .ics Sync', 'Verified Delegate Directory • No Public Scraping', 'Direct Executive Mobile Pass QR • On-Site Biometric Check-in'], cta: 'View Summits on Lu.ma', href: 'https://lu.ma' },
         { name: 'Eventbrite', tag: 'CORPORATE PROCUREMENT • INVOICING • PO', body: 'Institutional purchasing pathways for enterprise organizations, public sector entities, and defense contractors. Streamlined vendor compliance, Net 30 corporate PO invoicing, and centralized expense auditing.', points: ['Enterprise PO & Institutional Invoicing Compliance', 'Multi-Seat Enterprise Delegation & Group Billing Passes', 'Centralized Tax Receipting & W-9 / Vendor Packets'], cta: 'View Summits on Eventbrite', href: 'https://www.eventbrite.com' }
       ],
       formOptions: [
