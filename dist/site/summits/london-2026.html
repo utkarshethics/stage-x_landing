@@ -236,15 +236,17 @@ footer.site .links a{color:var(--muted)}
 footer.site nav.legal{margin-top:32px;padding-top:12px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:0 20px}
 footer.site nav.legal a{color:#D4D4D4;min-height:40px;display:inline-flex;align-items:center}
 footer.site .copy{margin-top:10px;font-size:13px}
-.attendees{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.industry-pills{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 28px}
+.ipill{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:#D4D4D4;padding:6px 14px;border-radius:999px;font-size:12px;font-weight:600;letter-spacing:.02em}
+.attendees{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .attendee-card{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:22px;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
 .attendee-logo{background:#FFFFFF;border-radius:6px;width:100%;height:68px;display:flex;align-items:center;justify-content:center;padding:10px 18px;box-sizing:border-box}
 .attendee-logo img{max-height:42px;max-width:100%;width:auto;height:auto;object-fit:contain}
 .attendee-info{display:flex;flex-direction:column;gap:4px}
 .attendee-name{font-size:16px;font-weight:700;color:var(--white);line-height:1.25}
 .attendee-sector{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.03em}
-@media (max-width:820px){.attendees{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:520px){.attendees{grid-template-columns:1fr}}
+@media (max-width:880px){.attendees{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:540px){.attendees{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -291,23 +293,40 @@ footer.site .copy{margin-top:10px;font-size:13px}
 </div></section>
 
 <section><div class="wrap">
-<div class="sec-head"><h2>Who's joining</h2><p>Participating engineering and operations leaders from industry</p></div>
+<div class="sec-head"><h2>Who's joining</h2><p>Engineering and operations leaders across key industrial sectors</p></div>
+<div class="industry-pills">
+  <span class="ipill">Advanced Manufacturing</span>
+  <span class="ipill">Oil &amp; Gas (Upstream / Downstream)</span>
+  <span class="ipill">Power Grids &amp; Utilities</span>
+  <span class="ipill">Chemicals &amp; Petrochemicals</span>
+  <span class="ipill">Mining &amp; Metallurgy</span>
+  <span class="ipill">Industrial Automation &amp; Robotics</span>
+  <span class="ipill">Aerospace &amp; Defense</span>
+</div>
 <div class="attendees">
   <div class="attendee-card">
     <div class="attendee-logo"><img src="/public/x/img/logo-shell.png" alt="Shell" loading="lazy"></div>
-    <div class="attendee-info"><div class="attendee-name">Shell</div><div class="attendee-sector">Global Energy &amp; Upstream AI</div></div>
+    <div class="attendee-info"><div class="attendee-name">Shell</div><div class="attendee-sector">Global Energy &amp; Deepwater Upstream</div></div>
   </div>
   <div class="attendee-card">
     <div class="attendee-logo"><img src="/public/x/img/logos/bp.png" alt="BP" loading="lazy"></div>
-    <div class="attendee-info"><div class="attendee-name">BP</div><div class="attendee-sector">Integrated Energy / Oil &amp; Gas</div></div>
+    <div class="attendee-info"><div class="attendee-name">BP</div><div class="attendee-sector">Integrated Energy &amp; Subsurface Ops</div></div>
   </div>
   <div class="attendee-card">
     <div class="attendee-logo"><img src="/public/x/img/logos/rolls-royce.png" alt="Rolls-Royce" loading="lazy"></div>
-    <div class="attendee-info"><div class="attendee-name">Rolls-Royce</div><div class="attendee-sector">Power Systems &amp; Aerospace</div></div>
+    <div class="attendee-info"><div class="attendee-name">Rolls-Royce</div><div class="attendee-sector">Aerospace Propulsion &amp; Power Turbines</div></div>
   </div>
   <div class="attendee-card">
     <div class="attendee-logo"><img src="/public/x/img/logos/national-grid.png" alt="National Grid" loading="lazy"></div>
-    <div class="attendee-info"><div class="attendee-name">National Grid</div><div class="attendee-sector">Electricity Transmission &amp; Grid</div></div>
+    <div class="attendee-info"><div class="attendee-name">National Grid</div><div class="attendee-sector">Electricity Transmission &amp; System Operator</div></div>
+  </div>
+  <div class="attendee-card">
+    <div class="attendee-logo"><img src="/public/x/img/logos/bae-systems.png" alt="BAE Systems" loading="lazy"></div>
+    <div class="attendee-info"><div class="attendee-name">BAE Systems</div><div class="attendee-sector">Defense Electronics &amp; Advanced Marine</div></div>
+  </div>
+  <div class="attendee-card">
+    <div class="attendee-logo"><img src="/public/x/img/logo-holcim.png" alt="Holcim" loading="lazy"></div>
+    <div class="attendee-info"><div class="attendee-name">Holcim</div><div class="attendee-sector">Building Materials &amp; Global Plant Ops</div></div>
   </div>
 </div>
 <p style="margin:28px 0 0;color:var(--muted)">Questions? Email <a href="mailto:connect@stage-x.space">connect@stage-x.space</a>.</p>
@@ -325,8 +344,6 @@ footer.site .copy{margin-top:10px;font-size:13px}
 </div>
 <nav class="legal" aria-label="Legal"><a href="/about">About Us</a><a href="/contact">Contact Us</a><a href="/terms">Terms &amp; Conditions</a><a href="/privacy">Privacy Policy</a><a href="/delivery-policy">Service Delivery Policy</a></nav>
 <div class="copy">© 2026 STAGE-X. All rights reserved.</div>
-<!-- footer-keywords -->
-<nav aria-label="Popular searches" class="footer-keywords" style="max-width:1240px;margin:20px auto 0;padding:14px 24px 0;border-top:1px solid rgba(127,127,127,.25)"><div style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;opacity:.6;margin-bottom:6px">Popular searches</div><a href="/" style="color:inherit;opacity:.72;text-decoration:none;font-size:13px;line-height:1.9;margin:0 14px 0 0;display:inline-block">Forward deployed AI engineering</a><a href="/summits" style="color:inherit;opacity:.72;text-decoration:none;font-size:13px;line-height:1.9;margin:0 14px 0 0;display:inline-block">Enterprise AI summits 2026</a><a href="/summits/sf-2026" style="color:inherit;opacity:.72;text-decoration:none;font-size:13px;line-height:1.9;margin:0 14px 0 0;display:inline-block">AI events in San Francisco</a><a href="/summits/nyc-2026" style="color:inherit;opacity:.72;text-decoration:none;font-size:13px;line-height:1.9;margin:0 14px 0 0;display:inline-block">AI events in New York</a><a href="/summits/boston-2026" style="color:inherit;opacity:.72;text-decoration:none;font-size:13px;line-height:1.9;margin:0 14px 0 0;display:inline-block">AI events in Boston</a><a href="/summits/toronto-2026" style="color:inherit;opacity:.72;text-decoration:none;font-size:13px;line-height:1.9;margin:0 14px 0 0;display:inline-block">AI events in Toronto</a><a href="/summits/london-2026" style="color:inherit;opacity:.72;text-decoration:none;font-size:13px;line-height:1.9;margin:0 14px 0 0;display:inline-block">AI events in London</a><a href="/summits/berlin-2026" style="color:inherit;opacity:.72;text-decoration:none;font-size:13px;line-height:1.9;margin:0 14px 0 0;display:inline-block">AI events in Berlin</a><a href="/summits/dubai-2026" style="color:inherit;opacity:.72;text-decoration:none;font-size:13px;line-height:1.9;margin:0 14px 0 0;display:inline-block">AI events in Dubai</a><a href="/summits/mumbai-2026" style="color:inherit;opacity:.72;text-decoration:none;font-size:13px;line-height:1.9;margin:0 14px 0 0;display:inline-block">AI events in Mumbai</a><a href="/summits/gurugram-2027" style="color:inherit;opacity:.72;text-decoration:none;font-size:13px;line-height:1.9;margin:0 14px 0 0;display:inline-block">AI events in Gurugram</a><a href="/summits/bangalore-2027" style="color:inherit;opacity:.72;text-decoration:none;font-size:13px;line-height:1.9;margin:0 14px 0 0;display:inline-block">AI events in Bangalore</a><a href="/summits/melbourne-2026" style="color:inherit;opacity:.72;text-decoration:none;font-size:13px;line-height:1.9;margin:0 14px 0 0;display:inline-block">AI events in Melbourne</a><a href="/residency" style="color:inherit;opacity:.72;text-decoration:none;font-size:13px;line-height:1.9;margin:0 14px 0 0;display:inline-block">AI hackathon for students</a><a href="/papers/posts/sovereign-weights-405b-airgap" style="color:inherit;opacity:.72;text-decoration:none;font-size:13px;line-height:1.9;margin:0 14px 0 0;display:inline-block">Air-gapped LLM deployment</a><a href="/papers/posts/sub-50ms-ttft-gateway" style="color:inherit;opacity:.72;text-decoration:none;font-size:13px;line-height:1.9;margin:0 14px 0 0;display:inline-block">Low-latency LLM inference gateway</a><a href="/papers/posts/fp8-fp4-serving-audit" style="color:inherit;opacity:.72;text-decoration:none;font-size:13px;line-height:1.9;margin:0 14px 0 0;display:inline-block">FP8 / FP4 model serving</a><a href="/papers/posts/kiln-combustion-control" style="color:inherit;opacity:.72;text-decoration:none;font-size:13px;line-height:1.9;margin:0 14px 0 0;display:inline-block">Industrial AI for manufacturing</a><a href="/papers" style="color:inherit;opacity:.72;text-decoration:none;font-size:13px;line-height:1.9;margin:0 14px 0 0;display:inline-block">AI technical papers</a></nav>
 </div></footer>
 <!-- site-enhance -->
 <script>window.SITE_ENHANCE={"exitIntent":{"title":"Planning to attend a summit?","text":"Questions about a Stage-X summit? Our team replies within one business day.","ctaText":"Connect Us","ctaHref":"/contact"},"language":{"enabled":false}};</script>
